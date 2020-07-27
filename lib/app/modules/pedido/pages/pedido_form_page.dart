@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../pedido_controller.dart';
 
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 
 class PedidoFormPage extends StatefulWidget {
   final String title;
@@ -401,7 +400,9 @@ class _PedidoFormPageState
                             ),
                           ],
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Modular.to.pushNamed('/pedido/cotacao');
+                        },
                       ),
                     ),
                   ),
@@ -450,7 +451,9 @@ class PopupContent extends StatefulWidget {
                   onPressed: () {
                     try {
                       Navigator.pop(context); //close the popup
-                    } catch (e) {}
+                    } catch (e) {
+                      //
+                    }
                   },
                 );
               }),
@@ -532,7 +535,7 @@ class PopupLayout extends ModalRoute {
         SystemChannels.textInput.invokeMethod('TextInput.hide');
       },
       child: Material(
-        // This makes sure that text and other content follows the material style
+        
         type: MaterialType.transparency,
         //type: MaterialType.canvas,
         // make sure that the overlay content is not cut off

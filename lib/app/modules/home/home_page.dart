@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/shared/layout/botao_azul.dart';
-import 'package:levaai1/app/shared/layout/botao_verde.dart';
-import 'package:levaai1/app/shared/layout/menu_lateral.dart';
+import '../../core/view/botao_azul.dart';
+import '../../core/view/botao_verde.dart';
+import '../../core/view/menu_lateral.dart';
 import 'home_controller.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -29,7 +29,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             ),
             onPressed: () {
               debugPrint(
-                  'Tem que chamar o drawer, sei lá q q deu, depois que coloquei o navigator deu ruim');
+                  'tem que arrumar'
+              );
             },
           ),
           title: const Text(

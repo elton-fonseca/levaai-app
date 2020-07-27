@@ -1,13 +1,15 @@
-import 'package:levaai1/app/modules/pedido/pages/pedido_cotacao_page.dart';
-import 'package:levaai1/app/modules/pedido/pages/pedido_detalhes_page.dart';
-import 'package:levaai1/app/modules/pedido/pages/pedido_form_page.dart';
-
-import 'repositories/pedido_repository.dart';
-import 'repositories/interfaces/pedido_repository_interface.dart';
-import 'pedido_controller.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import 'pages/pedido_cotacao_page.dart';
+import 'pages/pedido_detalhes_page.dart';
+import 'pages/pedido_form_page.dart';
+
 import 'pages/pedido_listar_page.dart';
+import 'pedido_controller.dart';
+import 'repositories/interfaces/pedido_repository_interface.dart';
+import 'repositories/pedido_repository.dart';
+
 
 class PedidoModule extends ChildModule {
   @override
