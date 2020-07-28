@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../pedido_controller.dart';
+
+import '../../../core/view/botao_azul.dart';
+import '../controllers/pedido_form_controller.dart';
+import 'widgets/medida_relativa.dart';
 
 class PedidoFormPage extends StatefulWidget {
   final String title;
@@ -11,10 +15,10 @@ class PedidoFormPage extends StatefulWidget {
 }
 
 class _PedidoFormPageState
-    extends ModularState<PedidoFormPage, PedidoController> {
+    extends ModularState<PedidoFormPage, PedidoFormController> {
   //use 'controller' variable to access controller
 
-  final itens = List<String>.generate(10, (i) => "Item $i");
+  final _itens = List<String>.generate(10, (i) => "Item $i");
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,17 @@ class _PedidoFormPageState
         title: Text('form'),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          Text('aaa'),
+          Observer(
+            builder: (_) => Modular.get<PedidoFormController>().tipoDeMedida,
+          ),
+          BotaoAzul(
+            onClick: () {
+              Modular.get<PedidoFormController>().definirMedidaExata();
+            },
+          ),
+        ],
       ),
     );
   }

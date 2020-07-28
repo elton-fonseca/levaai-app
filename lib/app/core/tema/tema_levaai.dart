@@ -7,12 +7,12 @@ class TemaLevaAi {
     return ThemeData(
       fontFamily: 'Google',
       scaffoldBackgroundColor: Colors.white,
-      primaryColor: ColorsConst.azulPadrao,
-      buttonColor: ColorsConst.verdepadrao,
+      primaryColor: CoresConst.azulPadrao,
+      buttonColor: CoresConst.verdepadrao,
       buttonTheme: ButtonThemeData(
           height: 50,
           minWidth: double.infinity,
-          buttonColor: ColorsConst.verdepadrao,
+          buttonColor: CoresConst.verdepadrao,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           textTheme: ButtonTextTheme.primary),
     );

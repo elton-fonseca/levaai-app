@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../pedido_controller.dart';
+import '../controllers/pedido_form_controller.dart';
 
 class PedidoCotacaoPage extends StatefulWidget {
   final String title;
@@ -11,7 +11,7 @@ class PedidoCotacaoPage extends StatefulWidget {
 }
 
 class _PedidoCotacaoPageState
-    extends ModularState<PedidoCotacaoPage, PedidoController> {
+    extends ModularState<PedidoCotacaoPage, PedidoFormController> {
   //use 'controller' variable to access controller
 
   @override

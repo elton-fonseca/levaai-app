@@ -95,7 +95,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   child: BotaoVerde(
                     onClick: () {
                       debugPrint('botao verde');
-                      Modular.to.pushNamed('/pedido/cotacao');
+                      Modular.to.pushNamed('/pedido/form');
                     },
                   ),
                 ),
