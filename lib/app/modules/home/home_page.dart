@@ -4,7 +4,7 @@ import '../../core/view/botao_azul.dart';
 import '../../core/view/botao_verde.dart';
 import '../../core/view/menu_lateral.dart';
 import 'home_controller.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+//import 'package:flutter_mobx/flutter_mobx.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
