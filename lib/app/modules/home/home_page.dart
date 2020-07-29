@@ -1,5 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../core/tema/cores_const.dart';
+import '../../core/tema/cores_const.dart';
 import '../../core/view/botao_azul.dart';
 import '../../core/view/botao_verde.dart';
 import '../../core/view/menu_lateral.dart';
@@ -20,147 +25,49 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Color((0xFFFFFFFF)),
-          ),
-          onPressed: () {
-            debugPrint('tem que arrumar');
-          },
-        ),
-        title: const Text(
-          "LevaAí",
-        ),
-        backgroundColor: Color(0xFF326699),
-      ),
       body: Scaffold(
-        backgroundColor: Color(0xFF326699),
+        backgroundColor: CoresConst.azulPadrao,
         body: Container(
-          padding: EdgeInsets.only(
-            top: 0,
-            left: 40,
-            right: 40,
-          ),
-          color: Color(0xFF326699),
+          padding: EdgeInsets.only(top: 180),
+          color: CoresConst.azulPadrao,
           child: Column(
             children: <Widget>[
-              Text(
-                '',
-                style: TextStyle(
-                  color: Color(0xFF326699),
-                  fontSize: 10,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 10,
+              Center(
+                child: SizedBox(
+                    child: Image.asset("assets/logo.png"),
+                  ),
               ),
               Text(
-                'Bem-Vindo(a) ao LevaAí',
-                style: TextStyle(
-                  color: Color(0xFF98c11c),
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 10,
-              ),
+                  'LEVAAI',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontStyle: FontStyle.italic,
+                  ),
+                  textAlign: TextAlign.center,
+                ),  
               Text(
-                'Envie ou receba encomendas de maneira rápida e simples',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                width: 400,
-                height: 240,
-                child: null,
-              ),
-              Container(
-                height: 50,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color(0xFF98c11c),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30),
+                  'DAQUI PRA LÁ RAPIDINHO',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                child: SizedBox.expand(
-                  child: BotaoVerde(
-                    onClick: () {
-                      debugPrint('botao verde');
-                      Modular.to.pushNamed('/pedido/form');
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+                // este sized box é só pra termos uma noção visual, ainda não
+                // consegui entender como fazer a diferenção junto ao botão
+                // com espaço relativo
+              SizedBox(height: 200),
               Container(
-                height: 50,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                    color: Color(0xFF326699),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(30),
-                    ),
-                    border: Border.all(
-                      width: 3,
-                      color: Color(0xFFFFFFFF),
-                    )),
-                child: SizedBox.expand(
-                  child: BotaoAzul(
-                    onClick: () {
-                      debugPrint('ver pedidos');
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Ajuda',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      'Quem somos?',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      'Contato',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                width: 80,
+                height: 80,
+                child: MaterialButton(
+                  shape: CircleBorder(
+                    side: BorderSide(
+                      width: 5, color: Colors.white, style: BorderStyle.solid)),
+                  child: Icon(Icons.add, size: 30),
+                  color: CoresConst.azulPadrao,
+                  onPressed: (){},
                 ),
               ),
             ],

@@ -58,6 +58,7 @@ flutter:
    - assets/img-requests.png
    - assets/item-request.png
    - assets/box.png
+   - assets/logo.png
 
 vars: 
     clean: flutter clean

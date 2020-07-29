@@ -5,7 +5,7 @@ import 'cores_const.dart';
 class TemaLevaAi {
   ThemeData obter() {
     return ThemeData(
-      fontFamily: 'Google',
+      fontFamily: 'Verdana',
       scaffoldBackgroundColor: Colors.white,
       primaryColor: CoresConst.azulPadrao,
       buttonColor: CoresConst.verdepadrao,
