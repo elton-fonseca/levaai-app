@@ -8,8 +8,10 @@ import '../../core/tema/cores_const.dart';
 import '../../core/view/botao_azul.dart';
 import '../../core/view/botao_verde.dart';
 import '../../core/view/menu_lateral.dart';
+import '../../core/view/tamanhos_relativos.dart';
 import 'home_controller.dart';
 //import 'package:flutter_mobx/flutter_mobx.dart';
+
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -28,9 +30,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: Scaffold(
         backgroundColor: CoresConst.azulPadrao,
         body: Container(
-          padding: EdgeInsets.only(top: 180),
+          padding: EdgeInsets.only(top: displayHeight(context)*0.2),
+          height: double.maxFinite,
           color: CoresConst.azulPadrao,
-          child: Column(
+          child: Stack(
+            children: <Widget>[
+              Column(
             children: <Widget>[
               Center(
                 child: SizedBox(
@@ -57,21 +62,58 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 // este sized box é só pra termos uma noção visual, ainda não
                 // consegui entender como fazer a diferenção junto ao botão
                 // com espaço relativo
-              SizedBox(height: 200),
-              Container(
+              SizedBox(height: displayHeight(context) * 0.17),
+              SizedBox(
+                width: 120,
+                child: Text(
+                  'CLIQUE AQUI PARA FAZER UM PEDIDO',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                  ),
+                  textAlign: TextAlign.center,
+                ),),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: SizedBox(
+                child: Icon(Icons.arrow_downward, color: Color((0xFFFFFFFF)),),
+                ),
+              ),
+            ],
+          ),
+          Stack(
+            children: <Widget>[
+            Positioned(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container(
+                  color: Colors.white,
+                  height: displayHeight(context) * 0.121,
+                  ),
+              ),
+            ),
+            Positioned(
+              bottom: displayHeight(context) * 0.061,
+              right: displayWidth(context) * 0.393,
+              child: Align(
+              child: Container(
                 width: 80,
                 height: 80,
                 child: MaterialButton(
                   shape: CircleBorder(
                     side: BorderSide(
-                      width: 5, color: Colors.white, style: BorderStyle.solid)),
+                      width: 8, color: Colors.white, style: BorderStyle.solid)),
                   child: Icon(Icons.add, size: 30),
                   color: CoresConst.azulPadrao,
                   onPressed: (){},
                 ),
               ),
-            ],
-          ),
+              )
+              ),  
+            ]
+            ,)
+            ]
+          ,)
         ),
         drawer: MenuLateral(),
       ),
