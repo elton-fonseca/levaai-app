@@ -1,12 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../core/tema/cores_const.dart';
-import '../../core/tema/cores_const.dart';
-import '../../core/view/botao_azul.dart';
-import '../../core/view/botao_verde.dart';
+import '../../modules/pedido/pages/pedido_cotacao_page.dart';
+import '../../modules/pedido/pages/pedido_form_page.dart';
 import '../../core/view/menu_lateral.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'home_controller.dart';
@@ -14,6 +12,7 @@ import 'home_controller.dart';
 
 
 class HomePage extends StatefulWidget {
+  
   final String title;
   const HomePage({Key key, this.title = "Home"}) : super(key: key);
 
@@ -22,25 +21,35 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
+  int currentTab = 0; // to keep track of active tab index
+  final List<Widget> screens = [
+    PedidoFormPage(),
+    PedidoCotacaoPage(),
+  ];
   //use 'controller' variable to access controller
+  final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = HomePage();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-        backgroundColor: CoresConst.azulPadrao,
+        backgroundColor: Color(0xFF3a519e),
         body: Container(
-          padding: EdgeInsets.only(top: displayHeight(context)*0.2),
-          height: double.maxFinite,
-          color: CoresConst.azulPadrao,
-          child: Stack(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF344882), Color(0xFF355bbe)])
+          ),
+          child: Column(
             children: <Widget>[
-              Column(
-            children: <Widget>[
-              Center(
-                child: SizedBox(
-                    child: Image.asset("assets/logo.png"),
-                  ),
+              Padding(
+                padding: EdgeInsets.only(top: displayHeight(context)*0.3),
+                child: Center(
+                  child: SizedBox(
+                      child: Image.asset("assets/logo.png"),
+                    ),
+                ),
               ),
               Text(
                   'LEVAAI',
@@ -48,6 +57,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       color: Colors.white,
                       fontSize: 50,
                       fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w900,
                   ),
                   textAlign: TextAlign.center,
                 ),  
@@ -56,65 +66,115 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
+                      fontWeight: FontWeight.w700
                   ),
                   textAlign: TextAlign.center,
                 ),
-                // este sized box é só pra termos uma noção visual, ainda não
-                // consegui entender como fazer a diferenção junto ao botão
-                // com espaço relativo
-              SizedBox(height: displayHeight(context) * 0.17),
+              SizedBox(height: displayHeight(context)*0.18,),
               SizedBox(
-                width: 120,
+                width: 130,
                 child: Text(
                   'CLIQUE AQUI PARA FAZER UM PEDIDO',
-                  style: TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
+                      fontWeight: FontWeight.w700
                   ),
                   textAlign: TextAlign.center,
-                ),),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: SizedBox(
-                child: Icon(Icons.arrow_downward, color: Color((0xFFFFFFFF)),),
                 ),
+              ),
+              SizedBox(
+              height: displayHeight(context)*0.067,
+              child: Icon(Icons.arrow_downward, size: 20, color: Colors.white),
               ),
             ],
           ),
-          Stack(
-            children: <Widget>[
-            Positioned(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Container(
-                  color: Colors.white,
-                  height: displayHeight(context) * 0.121,
-                  ),
-              ),
-            ),
-            Positioned(
-              bottom: displayHeight(context) * 0.061,
-              right: displayWidth(context) * 0.393,
-              child: Align(
-              child: Container(
-                width: 80,
-                height: 80,
-                child: MaterialButton(
-                  shape: CircleBorder(
-                    side: BorderSide(
-                      width: 8, color: Colors.white, style: BorderStyle.solid)),
-                  child: Icon(Icons.add, size: 30),
-                  color: CoresConst.azulPadrao,
-                  onPressed: (){},
-                ),
-              ),
-              )
-              ),  
-            ]
-            ,)
-            ]
-          ,)
         ),
+        floatingActionButton: Container(
+          height: 80.0,
+          width: 80.0,
+          child: FittedBox(
+            child: FloatingActionButton(
+              shape: CircleBorder(
+                side: BorderSide(
+                  width: 4,
+                  color: Colors.white,
+                  style: BorderStyle.solid
+                )
+              ),
+              backgroundColor: Color(0xFF3a519e),
+              child: Icon(Icons.add),
+              onPressed: () {},
+            ),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 5,
+          child: Container(
+            height: displayHeight(context)*0.1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {
+                        setState(() {
+                          currentScreen =
+                            PedidoCotacaoPage(); // setar pagina a ser ativa pelo buttom/icon
+                            currentTab = 1;
+                        });
+                      },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Transform.rotate(
+                            angle: 270 * 3.14 / 180,
+                            child: IconButton(
+                            icon: Icon(
+                              Icons.label_outline,
+                                color: currentTab == 1 ? 
+                                CoresConst.azulPadrao : CoresConst.azulPadrao,
+                                size: 30,
+                              ),
+                            onPressed: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                    MaterialButton(
+                      minWidth: 40,
+                      onPressed: () {
+                        setState(() {
+                          currentScreen =
+                            PedidoCotacaoPage(); // setar pagina a ser ativa pelo buttom/icon
+                            currentTab = 2;
+                        });
+                      },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Transform.rotate(
+                            angle: 270 * 3.14 / 180,
+                            child: IconButton(
+                            icon: Icon(
+                              Icons.settings,
+                                color: currentTab == 1 ? 
+                                CoresConst.azulPadrao : CoresConst.azulPadrao,
+                                size: 30,
+                              ),
+                            onPressed: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+            ],
+          ),
+        ),
+      ),
         drawer: MenuLateral(),
       ),
     );
