@@ -106,9 +106,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               backgroundColor: Color(0xFF3a519e),
               child: Icon(Icons.add),
               onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => PedidoFormPage(),
-                      ));;
+                     Modular.to.pushNamed('/pedido/form');
                     },
             ),
           ),
