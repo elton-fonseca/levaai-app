@@ -195,12 +195,11 @@ class _PedidoFormPageState
                           child: Row(children: <Widget>[
                             IconButton(
                               icon: Icon(
-                                Icons.remove_circle,
+                                Icons.indeterminate_check_box,
                                 color: Colors.grey,
                                 size: 35,
                               ),
                               onPressed: () {
-                                Navigator.pop(context);
                               },
                             ),
                             Padding(
@@ -221,7 +220,6 @@ class _PedidoFormPageState
                                 size: 35,
                               ),
                               onPressed: () {
-                                Navigator.pop(context);
                               },
                             ),
                           ]),
@@ -238,7 +236,6 @@ class _PedidoFormPageState
                                 size: 35,
                               ),
                               onPressed: () {
-                                Navigator.pop(context);
                               },
                             ),
                             Padding(
@@ -259,7 +256,6 @@ class _PedidoFormPageState
                                 size: 35,
                               ),
                               onPressed: () {
-                                Navigator.pop(context);
                               },
                             ),
                           ]),
@@ -373,7 +369,6 @@ class _PedidoFormPageState
                               size: 35,
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
                             },
                           ),
                           Padding(
@@ -394,7 +389,6 @@ class _PedidoFormPageState
                               size: 35,
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
                             },
                           ),
                         ]),
@@ -409,7 +403,6 @@ class _PedidoFormPageState
                               size: 35,
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
                             },
                           ),
                           Padding(
@@ -430,7 +423,6 @@ class _PedidoFormPageState
                               size: 35,
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
                             },
                           ),
                         ]),
@@ -597,7 +589,9 @@ class _PedidoFormPageState
                             ),
                           ],
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Modular.to.pushNamed('/pedido/destalhes');
+                        },
                       ),
                     ),
                   ),
