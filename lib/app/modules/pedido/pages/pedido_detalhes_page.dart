@@ -53,10 +53,9 @@ class _PedidoDetalhesPageState
                 height: displayHeight(context) * 0.05,
               ),
               Container(
-                height: displayHeight(context) * 0.8,
                 width: displayWidth(context) * 0.85,
                 decoration: BoxDecoration(
-                  color: Color(0xfff7f9f8),
+                  color: Colors.white,
                   borderRadius: BorderRadius.all(const Radius.circular(15.0)),
                   boxShadow: [
                     BoxShadow(
@@ -68,26 +67,333 @@ class _PedidoDetalhesPageState
                   ],
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(height: displayHeight(context)*0.05),
-                    Text(
-                      'DATA DE COLETA',
-                      style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                    SizedBox(
+                      height: displayHeight(context) * 0.03,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(Icons.check_box_outline_blank),
+                              iconSize: 30,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'DATA DE COLETA',
+                              style: TextStyle(
+                                color: Colors.grey[500],
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'PREVISTA ENTRE 24/06 e 27/06',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 18,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: displayHeight(context) * 0.03,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(Icons.check_box_outline_blank),
+                              iconSize: 30,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'DATA DE ENTREGA',
+                              style: TextStyle(
+                                color: Colors.grey[500],
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'PREVISTA ENTRE 24/06 e 27/06',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 18,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      color: Colors.grey[300],
+                      height: 50,
+                      thickness: 2,
+                      indent: 0,
+                      endIndent: 0,
+                    ),
+                    Container(
+                      height: displayHeight(context) * 0.05,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFf4f5f7),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            right: displayWidth(context) * 0.14,
+                            left: displayWidth(context) * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              'Responsável pela coleta',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 13,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            Text(
+                              'Contato',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 13,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Text(
-                      'PREVISTA ENTRE 24/06 e 27/06',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
+                    Container(
+                      height: displayHeight(context) * 0.05,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFf4f5f7),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            right: displayWidth(context) * 0.05,
+                            left: displayWidth(context) * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Expanded(
+                              child: SizedBox(
+                                child: TextFormField(
+                                  textAlign: TextAlign.left,
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    hintText: 'Valdir gonçalves de Souza',
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: SizedBox(
+                                child: TextFormField(
+                                  textAlign: TextAlign.right,
+                                  keyboardType: TextInputType.number,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    hintText: '11 909099909',
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
+                    Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          right: displayWidth(context) * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Checkbox(value: false, onChanged: null),
+                            Text(
+                              'Mesmo do cadastro',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: displayHeight(context) * 0.05,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFf4f5f7),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            right: displayWidth(context) * 0.14,
+                            left: displayWidth(context) * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              'Responsável pela coleta',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 13,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            Text(
+                              'Contato',
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 13,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: displayHeight(context) * 0.05,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFf4f5f7),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            right: displayWidth(context) * 0.05,
+                            left: displayWidth(context) * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Expanded(
+                              child: SizedBox(
+                                child: TextFormField(
+                                  textAlign: TextAlign.left,
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    hintText: 'Valdir gonçalves de Souza',
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: SizedBox(
+                                child: TextFormField(
+                                  textAlign: TextAlign.right,
+                                  keyboardType: TextInputType.number,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    hintText: '11 909099909',
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          right: displayWidth(context) * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Checkbox(value: false, onChanged: null),
+                            Text(
+                              'Mesmo do cadastro',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(left: displayWidth(context)*0.09),
+                          child: Text(
+                            'Observações:',
+                            style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.grey[600],
+                                ),
+                            ),
+                        ),
+                      ],
+                    ),
+                  Container(
+                      height: displayHeight(context)*0.2,
+                      width: displayWidth(context)*0.7,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(18.0),
+                        border: Border.all(
+                          width: 2,
+                          color: Color(0xFFf4f5f7),
+                        )
+                      ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        minLines: 5,
+                        maxLines: 5,
+                        maxLength: 230,
+                        maxLengthEnforced: true,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: displayHeight(context)*0.05,)
                   ],
                 ),
               ),
