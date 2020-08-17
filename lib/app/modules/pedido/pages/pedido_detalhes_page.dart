@@ -52,393 +52,469 @@ class _PedidoDetalhesPageState
               SizedBox(
                 height: displayHeight(context) * 0.05,
               ),
-              Container(
-                width: displayWidth(context) * 0.85,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(const Radius.circular(15.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: CoresConst.azulPadrao.withOpacity(0.1),
-                      spreadRadius: 10,
-                      blurRadius: 15,
-                      offset: Offset(0, 1),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: displayHeight(context) * 0.03,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            IconButton(
-                              icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30,
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'DATA DE COLETA',
-                              style: TextStyle(
-                                color: Colors.grey[500],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              'PREVISTA ENTRE 24/06 e 27/06',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: displayHeight(context) * 0.03,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            IconButton(
-                              icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30,
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'DATA DE ENTREGA',
-                              style: TextStyle(
-                                color: Colors.grey[500],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              'PREVISTA ENTRE 24/06 e 27/06',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      color: Colors.grey[300],
-                      height: 50,
-                      thickness: 2,
-                      indent: 0,
-                      endIndent: 0,
-                    ),
-                    Container(
-                      height: displayHeight(context) * 0.05,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFf4f5f7),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.14,
-                            left: displayWidth(context) * 0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Responsável pela coleta',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 13,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                            Text(
-                              'Contato',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 13,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: displayHeight(context) * 0.05,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFf4f5f7),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                            left: displayWidth(context) * 0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  textAlign: TextAlign.left,
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
-                                    hintText: 'Valdir gonçalves de Souza',
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  textAlign: TextAlign.right,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
-                                    hintText: '11 909099909',
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.white,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          right: displayWidth(context) * 0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Checkbox(value: false, onChanged: null),
-                            Text(
-                              'Mesmo do cadastro',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.grey[600],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: displayHeight(context) * 0.05,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFf4f5f7),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.14,
-                            left: displayWidth(context) * 0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Responsável pela coleta',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 13,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                            Text(
-                              'Contato',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 13,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: displayHeight(context) * 0.05,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFf4f5f7),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                            left: displayWidth(context) * 0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  textAlign: TextAlign.left,
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
-                                    hintText: 'Valdir gonçalves de Souza',
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  textAlign: TextAlign.right,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
-                                    hintText: '11 909099909',
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.white,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          right: displayWidth(context) * 0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Checkbox(value: false, onChanged: null),
-                            Text(
-                              'Mesmo do cadastro',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.grey[600],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(left: displayWidth(context)*0.09),
-                          child: Text(
-                            'Observações:',
-                            style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.grey[600],
-                                ),
-                            ),
-                        ),
-                      ],
-                    ),
-                  Container(
-                      height: displayHeight(context)*0.2,
-                      width: displayWidth(context)*0.7,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18.0),
-                        border: Border.all(
-                          width: 2,
-                          color: Color(0xFFf4f5f7),
-                        )
-                      ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        minLines: 5,
-                        maxLines: 5,
-                        maxLength: 230,
-                        maxLengthEnforced: true,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: displayHeight(context)*0.05,)
-                  ],
-                ),
-              ),
-              SizedBox(height: displayHeight(context) * 0.08),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    width: displayWidth(context) * 0.4,
-                    height: displayHeight(context) * 0.07,
-                    alignment: Alignment.centerLeft,
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(30),
-                      ),
-                      border: Border.all(
-                        width: 3,
-                        color: CoresConst.azulPadrao,
-                      ),
-                    ),
-                    child: SizedBox.expand(
-                      child: FlatButton(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Editar",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: CoresConst.azulPadrao,
-                                fontSize: 20,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(15.0)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CoresConst.azulPadrao.withOpacity(0.1),
+                          spreadRadius: 10,
+                          blurRadius: 15,
+                          offset: Offset(0, 1),
                         ),
-                        onPressed: () {
-                          Modular.to.pushNamed('/pedido/destalhes');
-                        },
-                      ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              bottom: displayWidth(context) * 0.02,
+                              top: displayWidth(context) * 0.02),
+                          child: Text(
+                            'Pedido #1',
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              right: displayWidth(context) * 0.05),
+                          child: Container(
+                            height: displayHeight(context) * 0.05,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFf7f9f8),
+                              borderRadius: BorderRadius.only(
+                                topRight: const Radius.circular(40.0),
+                                bottomRight: const Radius.circular(40.0),
+                              ),
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.monetization_on,
+                                      color: Colors.yellow[800]),
+                                  iconSize: 20,
+                                ),
+                                Text(
+                                  'RS200,00',
+                                  style: TextStyle(
+                                    color: Colors.blue[800],
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              top: displayWidth(context) * 0.01),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Destinatário:',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                'Nome Sobrenome',
+                                style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              Text(
+                                'CEP 12342-000',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            IconButton(
+                                icon: Icon(Icons.delete),
+                                iconSize: 25,
+                                onPressed: null)
+                          ],
+                        )
+                      ],
                     ),
                   ),
                   Container(
-                    width: displayWidth(context) * 0.4,
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(15.0)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CoresConst.azulPadrao.withOpacity(0.1),
+                          spreadRadius: 10,
+                          blurRadius: 15,
+                          offset: Offset(0, 1),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              bottom: displayWidth(context) * 0.02,
+                              top: displayWidth(context) * 0.02),
+                          child: Text(
+                            'Pedido #1',
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              right: displayWidth(context) * 0.05),
+                          child: Container(
+                            height: displayHeight(context) * 0.05,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFf7f9f8),
+                              borderRadius: BorderRadius.only(
+                                topRight: const Radius.circular(40.0),
+                                bottomRight: const Radius.circular(40.0),
+                              ),
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.monetization_on,
+                                      color: Colors.yellow[800]),
+                                  iconSize: 20,
+                                ),
+                                Text(
+                                  'RS200,00',
+                                  style: TextStyle(
+                                    color: Colors.blue[800],
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              top: displayWidth(context) * 0.01),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Destinatário:',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                'Nome Sobrenome',
+                                style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              Text(
+                                'CEP 12342-000',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            IconButton(
+                                icon: Icon(Icons.delete),
+                                iconSize: 25,
+                                onPressed: null)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: displayHeight(context) * 0.05,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(15.0)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CoresConst.azulPadrao.withOpacity(0.1),
+                          spreadRadius: 10,
+                          blurRadius: 15,
+                          offset: Offset(0, 1),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              bottom: displayWidth(context) * 0.02,
+                              top: displayWidth(context) * 0.02),
+                          child: Text(
+                            'Pedido #1',
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              right: displayWidth(context) * 0.05),
+                          child: Container(
+                            height: displayHeight(context) * 0.05,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFf7f9f8),
+                              borderRadius: BorderRadius.only(
+                                topRight: const Radius.circular(40.0),
+                                bottomRight: const Radius.circular(40.0),
+                              ),
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.monetization_on,
+                                      color: Colors.yellow[800]),
+                                  iconSize: 20,
+                                ),
+                                Text(
+                                  'RS200,00',
+                                  style: TextStyle(
+                                    color: Colors.blue[800],
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              top: displayWidth(context) * 0.01),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Destinatário:',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                'Nome Sobrenome',
+                                style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              Text(
+                                'CEP 12342-000',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            IconButton(
+                                icon: Icon(Icons.delete),
+                                iconSize: 25,
+                                onPressed: null)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(15.0)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CoresConst.azulPadrao.withOpacity(0.1),
+                          spreadRadius: 10,
+                          blurRadius: 15,
+                          offset: Offset(0, 1),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              bottom: displayWidth(context) * 0.02,
+                              top: displayWidth(context) * 0.02),
+                          child: Text(
+                            'Pedido #1',
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              right: displayWidth(context) * 0.05),
+                          child: Container(
+                            height: displayHeight(context) * 0.05,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFf7f9f8),
+                              borderRadius: BorderRadius.only(
+                                topRight: const Radius.circular(40.0),
+                                bottomRight: const Radius.circular(40.0),
+                              ),
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.monetization_on,
+                                      color: Colors.yellow[800]),
+                                  iconSize: 20,
+                                ),
+                                Text(
+                                  'RS200,00',
+                                  style: TextStyle(
+                                    color: Colors.blue[800],
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.04,
+                              top: displayWidth(context) * 0.01),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Destinatário:',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                'Nome Sobrenome',
+                                style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              Text(
+                                'CEP 12342-000',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            IconButton(
+                                icon: Icon(Icons.delete),
+                                iconSize: 25,
+                                onPressed: null)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: displayHeight(context) * 0.08),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: displayWidth(context) * 0.8,
                     height: displayHeight(context) * 0.07,
                     alignment: Alignment.centerLeft,
                     decoration: BoxDecoration(
@@ -456,7 +532,7 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "Confirmar",
+                              "Ir para pagamento",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -467,7 +543,7 @@ class _PedidoDetalhesPageState
                           ],
                         ),
                         onPressed: () {
-                          Modular.to.pushNamed('/pedido/destalhes');
+                          Modular.to.pushNamed('/pedido/pagamento');
                         },
                       ),
                     ),

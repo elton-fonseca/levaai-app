@@ -62,6 +62,8 @@ flutter:
    - assets/logo.png
    - assets/origem-destino.png
    - assets/tamanho-relativo.png
+   - assets/creditcard.png
+
 
 
 vars: 
