@@ -54,9 +54,9 @@ class _PedidoPagamentoPageState
                     top: displayHeight(context) * 0.04),
                 child: SizedBox(
                   height: displayHeight(context) * 0.1,
-                  width: displayWidth(context) * 0.4,
+                  width: displayWidth(context) * 0.8,
                   child: Text(
-                    'Preencha abaixo os dados para pagamento:',
+                    'Preencha abaixo os \ndados para pagamento:',
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 15,

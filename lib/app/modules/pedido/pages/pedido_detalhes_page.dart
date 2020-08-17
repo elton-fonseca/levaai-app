@@ -29,7 +29,7 @@ class _PedidoDetalhesPageState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Total Geral (pedido detalhes)',
+              'Total Geral',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 15,
@@ -56,8 +56,8 @@ class _PedidoDetalhesPageState
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    height: displayHeight(context) * 0.27,
-                    width: displayHeight(context) * 0.27,
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -83,7 +83,7 @@ class _PedidoDetalhesPageState
                             'Pedido #1',
                             style: TextStyle(
                               color: Colors.grey[500],
-                              fontSize: 19,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -111,7 +111,7 @@ class _PedidoDetalhesPageState
                                   'RS200,00',
                                   style: TextStyle(
                                     color: Colors.blue[800],
-                                    fontSize: 18,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w800,
                                   ),
                                   textAlign: TextAlign.center,
@@ -123,16 +123,15 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              top: displayWidth(context) * 0.02),
+                              top: displayWidth(context) * 0.01),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               Text(
-                                'Destinatário',
+                                'Destinatário:',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -140,7 +139,7 @@ class _PedidoDetalhesPageState
                                 'Nome Sobrenome',
                                 style: TextStyle(
                                   color: Colors.grey[800],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
@@ -148,7 +147,7 @@ class _PedidoDetalhesPageState
                                 'CEP 12342-000',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 8,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -160,7 +159,7 @@ class _PedidoDetalhesPageState
                           children: <Widget>[
                             IconButton(
                                 icon: Icon(Icons.delete),
-                                iconSize: 20,
+                                iconSize: 25,
                                 onPressed: null)
                           ],
                         )
@@ -168,8 +167,8 @@ class _PedidoDetalhesPageState
                     ),
                   ),
                   Container(
-                    height: displayHeight(context) * 0.27,
-                    width: displayHeight(context) * 0.27,
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -195,7 +194,7 @@ class _PedidoDetalhesPageState
                             'Pedido #1',
                             style: TextStyle(
                               color: Colors.grey[500],
-                              fontSize: 19,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -223,7 +222,7 @@ class _PedidoDetalhesPageState
                                   'RS200,00',
                                   style: TextStyle(
                                     color: Colors.blue[800],
-                                    fontSize: 18,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w800,
                                   ),
                                   textAlign: TextAlign.center,
@@ -235,16 +234,15 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              top: displayWidth(context) * 0.02),
+                              top: displayWidth(context) * 0.01),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               Text(
-                                'Destinatário',
+                                'Destinatário:',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -252,7 +250,7 @@ class _PedidoDetalhesPageState
                                 'Nome Sobrenome',
                                 style: TextStyle(
                                   color: Colors.grey[800],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
@@ -260,7 +258,7 @@ class _PedidoDetalhesPageState
                                 'CEP 12342-000',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 8,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -272,7 +270,7 @@ class _PedidoDetalhesPageState
                           children: <Widget>[
                             IconButton(
                                 icon: Icon(Icons.delete),
-                                iconSize: 20,
+                                iconSize: 25,
                                 onPressed: null)
                           ],
                         )
@@ -288,8 +286,8 @@ class _PedidoDetalhesPageState
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    height: displayHeight(context) * 0.27,
-                    width: displayHeight(context) * 0.27,
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -315,7 +313,7 @@ class _PedidoDetalhesPageState
                             'Pedido #1',
                             style: TextStyle(
                               color: Colors.grey[500],
-                              fontSize: 19,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -343,7 +341,7 @@ class _PedidoDetalhesPageState
                                   'RS200,00',
                                   style: TextStyle(
                                     color: Colors.blue[800],
-                                    fontSize: 18,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w800,
                                   ),
                                   textAlign: TextAlign.center,
@@ -355,16 +353,15 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              top: displayWidth(context) * 0.02),
+                              top: displayWidth(context) * 0.01),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               Text(
-                                'Destinatário',
+                                'Destinatário:',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -372,7 +369,7 @@ class _PedidoDetalhesPageState
                                 'Nome Sobrenome',
                                 style: TextStyle(
                                   color: Colors.grey[800],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
@@ -380,7 +377,7 @@ class _PedidoDetalhesPageState
                                 'CEP 12342-000',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 8,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -392,7 +389,7 @@ class _PedidoDetalhesPageState
                           children: <Widget>[
                             IconButton(
                                 icon: Icon(Icons.delete),
-                                iconSize: 20,
+                                iconSize: 25,
                                 onPressed: null)
                           ],
                         )
@@ -400,8 +397,8 @@ class _PedidoDetalhesPageState
                     ),
                   ),
                   Container(
-                    height: displayHeight(context) * 0.27,
-                    width: displayHeight(context) * 0.27,
+                    height: displayHeight(context) * 0.23,
+                    width: displayHeight(context) * 0.23,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -427,7 +424,7 @@ class _PedidoDetalhesPageState
                             'Pedido #1',
                             style: TextStyle(
                               color: Colors.grey[500],
-                              fontSize: 19,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -455,7 +452,7 @@ class _PedidoDetalhesPageState
                                   'RS200,00',
                                   style: TextStyle(
                                     color: Colors.blue[800],
-                                    fontSize: 18,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w800,
                                   ),
                                   textAlign: TextAlign.center,
@@ -467,16 +464,15 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              top: displayWidth(context) * 0.02),
+                              top: displayWidth(context) * 0.01),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               Text(
-                                'Destinatário',
+                                'Destinatário:',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -484,7 +480,7 @@ class _PedidoDetalhesPageState
                                 'Nome Sobrenome',
                                 style: TextStyle(
                                   color: Colors.grey[800],
-                                  fontSize: 15,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
@@ -492,7 +488,7 @@ class _PedidoDetalhesPageState
                                 'CEP 12342-000',
                                 style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: 8,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -504,7 +500,7 @@ class _PedidoDetalhesPageState
                           children: <Widget>[
                             IconButton(
                                 icon: Icon(Icons.delete),
-                                iconSize: 20,
+                                iconSize: 25,
                                 onPressed: null)
                           ],
                         )
