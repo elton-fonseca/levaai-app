@@ -195,7 +195,7 @@ class _PedidoFormPageState
                           child: Row(children: <Widget>[
                             IconButton(
                               icon: Icon(
-                                Icons.indeterminate_check_box,
+                                Icons.remove_circle,
                                 color: Colors.grey,
                                 size: 35,
                               ),
