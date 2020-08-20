@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class MenuLateral extends StatelessWidget {
   @override
@@ -18,18 +19,18 @@ class MenuLateral extends StatelessWidget {
           ),
           ListTile(
               leading: Icon(Icons.add),
-              title: Text("Tela 1 Fundo Azul"),
-              subtitle: Text("Variação Tela 1"),
+              title: Text("Criar pedido"),
+              subtitle: Text("Solicite um novo pedido"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {}),
           ListTile(
               leading: Icon(Icons.add_location),
-              title: Text("Endereços"),
-              subtitle: Text("Gerencias endereços"),
+              title: Text("Listar Pedidos"),
+              subtitle: Text("Veja o status de cada pedido"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                debugPrint('faz nada também');
-              })
+                Modular.to.pushNamed('/pedido/listar');
+              }),
         ],
       ),
     );
