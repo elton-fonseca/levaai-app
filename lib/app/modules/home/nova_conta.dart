@@ -1,21 +1,23 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../core/tema/cores_const.dart';
-import '../../../core/view/conteudo_padrao.dart';
-import '../../../core/view/navbar_padrao.dart';
-import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_form_controller.dart';
+import '../../core/tema/cores_const.dart';
+import '../../core/view/conteudo_padrao.dart';
+import '../../core/view/navbar_padrao.dart';
+import '../../core/view/tamanhos_relativos.dart';
+import 'home_controller.dart';
 
-class PedidoPagamentoPage extends StatefulWidget {
+//import 'package:flutter_mobx/flutter_mobx.dart';
+
+class NovaContaPage extends StatefulWidget {
   final String title;
-  const PedidoPagamentoPage({Key key, this.title = "Pedido"}) : super(key: key);
+  const NovaContaPage({Key key, this.title = "Nova Conta"}) : super(key: key);
 
   @override
-  _PedidoPagamentoPageState createState() => _PedidoPagamentoPageState();
+  _NovaContaPageState createState() => _NovaContaPageState();
 }
 
-class _PedidoPagamentoPageState
-    extends ModularState<PedidoPagamentoPage, PedidoFormController> {
+class _NovaContaPageState extends ModularState<NovaContaPage, HomeController> {
   //use 'controller' variable to access controller
 
   @override
@@ -28,17 +30,10 @@ class _PedidoPagamentoPageState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Total Geral',
+              'Crie sua conta',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 15,
-              ),
-            ),
-            Text(
-              'RS1200,00',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 40,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -48,23 +43,7 @@ class _PedidoPagamentoPageState
           width: displayWidth(context) * 0.7,
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(
-                    bottom: displayHeight(context) * 0.03,
-                    top: displayHeight(context) * 0.04),
-                child: SizedBox(
-                  height: displayHeight(context) * 0.1,
-                  width: displayWidth(context) * 0.8,
-                  child: Text(
-                    'Preencha abaixo os \ndados para pagamento:',
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 15,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
+              SizedBox(height: displayHeight(context) * 0.04),
               Container(
                 width: displayWidth(context) * 0.90,
                 decoration: BoxDecoration(
@@ -93,46 +72,7 @@ class _PedidoPagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  suffixIcon: Icon(
-                                    Icons.arrow_drop_down_circle,
-                                    color: CoresConst.azulPadrao,
-                                    size: 30,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(1),
-                                    borderSide: BorderSide(
-                                      color: Colors.grey[700],
-                                      width: 4,
-                                    ),
-                                  ),
-                                  contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'Tipo de pagamento',
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey[400],
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: displayHeight(context) * 0.03,
-                        left: displayWidth(context) * 0.05,
-                        right: displayWidth(context) * 0.05,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: SizedBox(
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
+                                keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(1),
@@ -142,78 +82,7 @@ class _PedidoPagamentoPageState
                                     ),
                                   ),
                                   contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'Nome (mesmo do cartao)',
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey[400],
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: displayHeight(context) * 0.03,
-                        left: displayWidth(context) * 0.05,
-                        right: displayWidth(context) * 0.05,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: SizedBox(
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  suffixIcon: Image(
-                                      image:
-                                          AssetImage('assets/creditcard.png')),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(1),
-                                    borderSide: BorderSide(
-                                      color: Colors.grey[700],
-                                      width: 4,
-                                    ),
-                                  ),
-                                  contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'Número do cartão',
-                                  hintStyle: TextStyle(
-                                    color: Colors.grey[400],
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: displayHeight(context) * 0.03,
-                        left: displayWidth(context) * 0.05,
-                        right: displayWidth(context) * 0.05,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: SizedBox(
-                              child: TextFormField(
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(1),
-                                    borderSide: BorderSide(
-                                      color: Colors.grey[700],
-                                      width: 4,
-                                    ),
-                                  ),
-                                  contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'Código',
+                                  hintText: 'Nome',
                                   hintStyle: TextStyle(
                                     color: Colors.grey[400],
                                     fontSize: 14,
@@ -227,6 +96,74 @@ class _PedidoPagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(1),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[700],
+                                      width: 4,
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.only(left: 20),
+                                  hintText: 'Sobrenome',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: displayHeight(context) * 0.03,
+                        left: displayWidth(context) * 0.05,
+                        right: displayWidth(context) * 0.05,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: SizedBox(
+                              child: TextFormField(
+                                keyboardType: TextInputType.phone,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(1),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[700],
+                                      width: 4,
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.only(left: 20),
+                                  hintText: 'Celular',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: displayHeight(context) * 0.03,
+                        left: displayWidth(context) * 0.05,
+                        right: displayWidth(context) * 0.05,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: SizedBox(
+                              child: TextFormField(
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -237,7 +174,133 @@ class _PedidoPagamentoPageState
                                     ),
                                   ),
                                   contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'Validade',
+                                  hintText: 'Número do CPF',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: displayWidth(context) * 0.08),
+                  ],
+                ),
+              ),
+              SizedBox(height: displayHeight(context) * 0.04),
+              Container(
+                width: displayWidth(context) * 0.90,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(const Radius.circular(15.0)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: CoresConst.azulPadrao.withOpacity(0.1),
+                      spreadRadius: 10,
+                      blurRadius: 15,
+                      offset: Offset(0, 1),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: displayHeight(context) * 0.02),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: displayHeight(context) * 0.03,
+                        left: displayWidth(context) * 0.05,
+                        right: displayWidth(context) * 0.05,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: SizedBox(
+                              child: TextFormField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(1),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[700],
+                                      width: 4,
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.only(left: 20),
+                                  hintText: 'Email',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: displayHeight(context) * 0.03,
+                        left: displayWidth(context) * 0.05,
+                        right: displayWidth(context) * 0.05,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: SizedBox(
+                              child: TextFormField(
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  suffixIcon: Icon(Icons.remove_red_eye),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(1),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[700],
+                                      width: 4,
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.only(left: 20),
+                                  hintText: 'Senha',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: displayHeight(context) * 0.03,
+                        left: displayWidth(context) * 0.05,
+                        right: displayWidth(context) * 0.05,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: SizedBox(
+                              child: TextFormField(
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  suffixIcon: Icon(Icons.remove_red_eye),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(1),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[700],
+                                      width: 4,
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.only(left: 20),
+                                  hintText: 'Repetir Senha',
                                   hintStyle: TextStyle(
                                     color: Colors.grey[400],
                                     fontSize: 14,
@@ -265,48 +328,7 @@ class _PedidoPagamentoPageState
                         height: displayHeight(context) * 0.07,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
-                            color: CoresConst.verdepadrao,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30),
-                            ),
-                            border: Border.all(
-                              width: 3,
-                              color: CoresConst.verdepadrao,
-                            )),
-                        child: SizedBox.expand(
-                          child: FlatButton(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "Realizar o pagamento",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                            onPressed: () {
-                              Modular.to.pushNamed('/pedido/destalhes');
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: displayHeight(context) * 0.03),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        width: displayWidth(context) * 0.8,
-                        height: displayHeight(context) * 0.07,
-                        alignment: Alignment.centerLeft,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: CoresConst.azulPadrao,
                           borderRadius: BorderRadius.all(
                             Radius.circular(30),
                           ),
@@ -321,10 +343,10 @@ class _PedidoPagamentoPageState
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "Revisar o pedido",
+                                  "Criar conta",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: CoresConst.azulPadrao,
+                                    color: Colors.white,
                                     fontSize: 20,
                                   ),
                                   textAlign: TextAlign.center,
@@ -332,7 +354,7 @@ class _PedidoPagamentoPageState
                               ],
                             ),
                             onPressed: () {
-                              Modular.to.pushNamed('/pedido/destalhes');
+                              Modular.to.pushNamed('');
                             },
                           ),
                         ),

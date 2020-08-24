@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../controllers/pedido_form_controller.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../../../core/tema/cores_const.dart';
 import '../controllers/pedido_form_controller.dart';
+
 
 class PedidoCotacaoPage extends StatefulWidget {
   final String title;
@@ -78,7 +77,7 @@ class _PedidoCotacaoPageState
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30,
+                              iconSize: 30, onPressed: () { null; },
                             ),
                           ],
                         ),
@@ -89,7 +88,7 @@ class _PedidoCotacaoPageState
                               'DATA DE COLETA',
                               style: TextStyle(
                                 color: Colors.grey[500],
-                                fontSize: 18,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.left,
@@ -99,7 +98,7 @@ class _PedidoCotacaoPageState
                               'PREVISTA ENTRE 24/06 e 27/06',
                               style: TextStyle(
                                 color: Colors.grey[600],
-                                fontSize: 18,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -116,7 +115,7 @@ class _PedidoCotacaoPageState
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30,
+                              iconSize: 30, onPressed: () { null; },
                             ),
                           ],
                         ),
@@ -127,7 +126,7 @@ class _PedidoCotacaoPageState
                               'DATA DE ENTREGA',
                               style: TextStyle(
                                 color: Colors.grey[500],
-                                fontSize: 18,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.left,
@@ -137,7 +136,7 @@ class _PedidoCotacaoPageState
                               'PREVISTA ENTRE 24/06 e 27/06',
                               style: TextStyle(
                                 color: Colors.grey[600],
-                                fontSize: 18,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -359,7 +358,8 @@ class _PedidoCotacaoPageState
                     Row(
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.only(left: displayWidth(context)*0.09),
+                          padding: 
+                            EdgeInsets.only(left: displayWidth(context)*0.09),
                           child: Text(
                             'Observações:',
                             style: TextStyle(
@@ -426,7 +426,7 @@ class _PedidoCotacaoPageState
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: CoresConst.azulPadrao,
-                                fontSize: 20,
+                                fontSize: 15,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -461,7 +461,7 @@ class _PedidoCotacaoPageState
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: 15,
                               ),
                               textAlign: TextAlign.center,
                             ),

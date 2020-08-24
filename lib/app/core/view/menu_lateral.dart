@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../modules/home/nova_conta.dart';
 
 class MenuLateral extends StatelessWidget {
   @override
@@ -31,6 +32,17 @@ class MenuLateral extends StatelessWidget {
               onTap: () {
                 Modular.to.pushNamed('/pedido/listar');
               }),
+          ListTile(
+              leading: Icon(Icons.add_location),
+              title: Text("Nova Conta"),
+              subtitle: Text("Criar nova conta"),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: ()  {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NovaContaPage()),
+            );
+          },),
         ],
       ),
     );

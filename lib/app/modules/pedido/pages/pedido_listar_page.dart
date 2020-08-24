@@ -82,7 +82,8 @@ class _PedidoListarPageState
                                   top: displayHeight(context) * 0.01,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "Destino: Avenida Paulista, 1234 \nSão Paulo - SP | CEP: 12345-000",
+                                "Destino: Avenida Paulista, 1234 " 
+                                "\nSão Paulo - SP | CEP: 12345-000",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.grey[500],
@@ -160,7 +161,8 @@ class _PedidoListarPageState
                                   top: displayHeight(context) * 0.01,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "Destino: Avenida Paulista, 1234 \nSão Paulo - SP | CEP: 12345-000",
+                                "Destino: Avenida Paulista, 1234 "
+                                "\nSão Paulo - SP | CEP: 12345-000",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.grey[500],
@@ -238,7 +240,8 @@ class _PedidoListarPageState
                                   top: displayHeight(context) * 0.01,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "Destino: Avenida Paulista, 1234 \nSão Paulo - SP | CEP: 12345-000",
+                                "Destino: Avenida Paulista, 1234 "
+                                "\nSão Paulo - SP | CEP: 12345-000",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.grey[500],
