@@ -1,14 +1,13 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../core/tema/cores_const.dart';
-import '../pedido/pages/pedido_cotacao_page.dart';
-import '../pedido/pages/pedido_form_page.dart';
 import '../../core/view/menu_lateral.dart';
 import '../../core/view/tamanhos_relativos.dart';
+import '../pedido/pages/pedido_cotacao_page.dart';
+import '../pedido/pages/pedido_form_page.dart';
 import 'home_controller.dart';
-import '../pedido/controllers/pedido_form_controller.dart';
+
 //import 'package:flutter_mobx/flutter_mobx.dart';
 
 

@@ -4,7 +4,6 @@ import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../../../core/tema/cores_const.dart';
 import '../controllers/pedido_form_controller.dart';
 
 class PedidoDetalhesPage extends StatefulWidget {
@@ -105,7 +104,7 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: 20, onPressed: () { null; },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -216,7 +215,7 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: 20, onPressed: () { null; },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -335,7 +334,7 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: 20, onPressed: () { null; },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -446,7 +445,7 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: 20, onPressed: () { null; },
                                 ),
                                 Text(
                                   'RS200,00',
