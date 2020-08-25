@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../core/tema/cores_const.dart';
-import '../../../core/view/conteudo_padrao.dart';
-import '../../../core/view/navbar_padrao.dart';
-import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_form_controller.dart';
+import '../../core/tema/cores_const.dart';
+import '../../core/view/conteudo_padrao.dart';
+import '../../core/view/navbar_padrao.dart';
+import '../../core/view/tamanhos_relativos.dart';
+import 'pagamento_controller.dart';
 
-class PedidoPagamentoPage extends StatefulWidget {
+class PagamentoPage extends StatefulWidget {
   final String title;
-  const PedidoPagamentoPage({Key key, this.title = "Pedido"}) : super(key: key);
+  const PagamentoPage({Key key, this.title = "Pagamento"}) : super(key: key);
 
   @override
-  _PedidoPagamentoPageState createState() => _PedidoPagamentoPageState();
+  _PagamentoPageState createState() => _PagamentoPageState();
 }
 
-class _PedidoPagamentoPageState
-    extends ModularState<PedidoPagamentoPage, PedidoFormController> {
+class _PagamentoPageState
+    extends ModularState<PagamentoPage, PagamentoController> {
   //use 'controller' variable to access controller
 
   @override

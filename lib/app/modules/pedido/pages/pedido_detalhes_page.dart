@@ -104,7 +104,10 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20, onPressed: () { null; },
+                                  iconSize: 20,
+                                  onPressed: () {
+                                    null;
+                                  },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -215,7 +218,10 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20, onPressed: () { null; },
+                                  iconSize: 20,
+                                  onPressed: () {
+                                    null;
+                                  },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -334,7 +340,10 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20, onPressed: () { null; },
+                                  iconSize: 20,
+                                  onPressed: () {
+                                    null;
+                                  },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -445,7 +454,10 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20, onPressed: () { null; },
+                                  iconSize: 20,
+                                  onPressed: () {
+                                    null;
+                                  },
                                 ),
                                 Text(
                                   'RS200,00',
@@ -542,7 +554,7 @@ class _PedidoDetalhesPageState
                           ],
                         ),
                         onPressed: () {
-                          Modular.to.pushNamed('/pedido/pagamento');
+                          Modular.to.pushNamed('/usuario/cadastro');
                         },
                       ),
                     ),

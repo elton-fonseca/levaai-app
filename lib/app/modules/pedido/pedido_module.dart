@@ -7,7 +7,7 @@ import 'pages/pedido_cotacao_page.dart';
 import 'pages/pedido_detalhes_page.dart';
 import 'pages/pedido_form_page.dart';
 import 'pages/pedido_listar_page.dart';
-import 'pages/pedido_pagamento_page.dart';
+
 
 
 import 'repositories/interfaces/pedido_repository_interface.dart';
@@ -26,7 +26,6 @@ class PedidoModule extends ChildModule {
         Router('/pedido/cotacao', child: (_, args) => PedidoCotacaoPage()),
         Router('/pedido/listar', child: (_, args) => PedidoListarPage()),
         Router('/pedido/destalhes', child: (_, args) => PedidoDetalhesPage()),
-        Router('/pedido/pagamento', child: (_, args) => PedidoPagamentoPage()),
       ];
 
   static Inject get to => Inject<PedidoModule>.of();

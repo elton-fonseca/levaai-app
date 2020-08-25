@@ -1,23 +1,22 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../core/tema/cores_const.dart';
-import '../../core/view/conteudo_padrao.dart';
-import '../../core/view/navbar_padrao.dart';
-import '../../core/view/tamanhos_relativos.dart';
-import 'home_controller.dart';
 
-//import 'package:flutter_mobx/flutter_mobx.dart';
+import '../../../core/tema/cores_const.dart';
+import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/navbar_padrao.dart';
+import '../../../core/view/tamanhos_relativos.dart';
 
-class NovaContaPage extends StatefulWidget {
+import '../controllers/usuario_controller.dart';
+
+class CadastroPage extends StatefulWidget {
   final String title;
-  const NovaContaPage({Key key, this.title = "Nova Conta"}) : super(key: key);
+  const CadastroPage({Key key, this.title = "Usuario"}) : super(key: key);
 
   @override
-  _NovaContaPageState createState() => _NovaContaPageState();
+  _CadastroPageState createState() => _CadastroPageState();
 }
 
-class _NovaContaPageState extends ModularState<NovaContaPage, HomeController> {
+class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
   //use 'controller' variable to access controller
 
   @override
@@ -354,7 +353,7 @@ class _NovaContaPageState extends ModularState<NovaContaPage, HomeController> {
                               ],
                             ),
                             onPressed: () {
-                              Modular.to.pushNamed('');
+                              Modular.to.pushNamed('/pagamento');
                             },
                           ),
                         ),

@@ -6,7 +6,6 @@ import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import '../controllers/pedido_form_controller.dart';
 
-
 class PedidoCotacaoPage extends StatefulWidget {
   final String title;
   const PedidoCotacaoPage({Key key, this.title = "Pedido"}) : super(key: key);
@@ -77,7 +76,10 @@ class _PedidoCotacaoPageState
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30, onPressed: () { null; },
+                              iconSize: 30,
+                              onPressed: () {
+                                null;
+                              },
                             ),
                           ],
                         ),
@@ -115,7 +117,10 @@ class _PedidoCotacaoPageState
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30, onPressed: () { null; },
+                              iconSize: 30,
+                              onPressed: () {
+                                null;
+                              },
                             ),
                           ],
                         ),
@@ -130,7 +135,7 @@ class _PedidoCotacaoPageState
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.left,
-                            ), 
+                            ),
                             SizedBox(height: 5),
                             Text(
                               'PREVISTA ENTRE 24/06 e 27/06',
@@ -237,7 +242,7 @@ class _PedidoCotacaoPageState
                       color: Colors.white,
                       child: Padding(
                         padding: EdgeInsets.only(
-                          right: displayWidth(context) * 0.05),
+                            right: displayWidth(context) * 0.05),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
@@ -339,7 +344,7 @@ class _PedidoCotacaoPageState
                       color: Colors.white,
                       child: Padding(
                         padding: EdgeInsets.only(
-                          right: displayWidth(context) * 0.05),
+                            right: displayWidth(context) * 0.05),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
@@ -358,43 +363,44 @@ class _PedidoCotacaoPageState
                     Row(
                       children: <Widget>[
                         Padding(
-                          padding: 
-                            EdgeInsets.only(left: displayWidth(context)*0.09),
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.09),
                           child: Text(
                             'Observações:',
                             style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.grey[600],
-                                ),
+                              fontSize: 13,
+                              color: Colors.grey[600],
                             ),
+                          ),
                         ),
                       ],
                     ),
-                  Container(
-                      height: displayHeight(context)*0.2,
-                      width: displayWidth(context)*0.7,
+                    Container(
+                      height: displayHeight(context) * 0.2,
+                      width: displayWidth(context) * 0.7,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18.0),
-                        border: Border.all(
-                          width: 2,
-                          color: Color(0xFFf4f5f7),
-                        )
-                      ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        minLines: 5,
-                        maxLines: 5,
-                        maxLength: 230,
-                        maxLengthEnforced: true,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(18.0),
+                          border: Border.all(
+                            width: 2,
+                            color: Color(0xFFf4f5f7),
+                          )),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          minLines: 5,
+                          maxLines: 5,
+                          maxLength: 230,
+                          maxLengthEnforced: true,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: displayHeight(context)*0.05,)
+                    SizedBox(
+                      height: displayHeight(context) * 0.05,
+                    )
                   ],
                 ),
               ),
@@ -433,7 +439,7 @@ class _PedidoCotacaoPageState
                           ],
                         ),
                         onPressed: () {
-                          Modular.to.pushNamed('/pedido/destalhes');
+                          Modular.to.pushNamed('/pedido/form');
                         },
                       ),
                     ),

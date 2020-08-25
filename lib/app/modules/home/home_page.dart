@@ -10,9 +10,7 @@ import 'home_controller.dart';
 
 //import 'package:flutter_mobx/flutter_mobx.dart';
 
-
 class HomePage extends StatefulWidget {
-  
   final String title;
   const HomePage({Key key, this.title = "Home"}) : super(key: key);
 
@@ -30,7 +28,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = HomePage();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,54 +35,54 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         backgroundColor: Color(0xFF3a519e),
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF344882), Color(0xFF355bbe)])
-          ),
+              gradient: LinearGradient(
+                  colors: [Color(0xFF344882), Color(0xFF355bbe)])),
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top: displayHeight(context)*0.3),
+                padding: EdgeInsets.only(top: displayHeight(context) * 0.3),
                 child: Center(
                   child: SizedBox(
-                      child: Image.asset("assets/logo.png"),
-                    ),
+                    child: Image.asset("assets/logo.png"),
+                  ),
                 ),
               ),
               Text(
-                  'LEVAAI',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 50,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w900,
-                  ),
-                  textAlign: TextAlign.center,
-                ),  
-              Text(
-                  'DAQUI PRA LÁ RAPIDINHO',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700
-                  ),
-                  textAlign: TextAlign.center,
+                'LEVAAI',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 50,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w900,
                 ),
-              SizedBox(height: displayHeight(context)*0.18,),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'DAQUI PRA LÁ RAPIDINHO',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: displayHeight(context) * 0.18,
+              ),
               SizedBox(
                 width: 130,
                 child: Text(
                   'CLIQUE AQUI PARA FAZER UM PEDIDO',
-                    style: TextStyle(
+                  style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
-                      fontWeight: FontWeight.w700
-                  ),
+                      fontWeight: FontWeight.w700),
                   textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
-              height: displayHeight(context)*0.067,
-              child: Icon(Icons.arrow_downward, size: 20, color: Colors.white),
+                height: displayHeight(context) * 0.067,
+                child:
+                    Icon(Icons.arrow_downward, size: 20, color: Colors.white),
               ),
             ],
           ),
@@ -96,17 +93,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           child: FittedBox(
             child: FloatingActionButton(
               shape: CircleBorder(
-                side: BorderSide(
-                  width: 4,
-                  color: Colors.white,
-                  style: BorderStyle.solid
-                )
-              ),
+                  side: BorderSide(
+                      width: 4, color: Colors.white, style: BorderStyle.solid)),
               backgroundColor: Color(0xFF3a519e),
               child: Icon(Icons.add),
               onPressed: () {
-                     Modular.to.pushNamed('/pedido/form');
-                    },
+                Modular.to.pushNamed('/pedido/form');
+              },
             ),
           ),
         ),
@@ -115,68 +108,64 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           shape: CircularNotchedRectangle(),
           notchMargin: 5,
           child: Container(
-            height: displayHeight(context)*0.1,
+            height: displayHeight(context) * 0.1,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen =
-                            PedidoCotacaoPage(); // setar pagina a ser ativa pelo buttom/icon
-                            currentTab = 1;
-                        });
-                      },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Transform.rotate(
-                            angle: 270 * 3.14 / 180,
-                            child: IconButton(
-                            icon: Icon(
-                              Icons.label_outline,
-                                color: currentTab == 1 ? 
-                                CoresConst.azulPadrao : CoresConst.azulPadrao,
-                                size: 30,
-                              ),
-                            onPressed: null,
-                          ),
+              children: <Widget>[
+                MaterialButton(
+                  minWidth: 40,
+                  onPressed: () {
+                    setState(() {
+                      currentScreen =
+                          PedidoCotacaoPage(); // setar pagina a ser ativa pelo buttom/icon
+                      currentTab = 1;
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(
+                          Icons.person,
+                          color: CoresConst.azulPadrao,
+                          size: 30,
                         ),
-                      ],
-                    ),
+                        onPressed: () {
+                          Modular.to.pushNamed('/login/formulario');
+                        },
+                      ),
+                    ],
                   ),
-                    MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen =
-                            PedidoCotacaoPage(); // setar pagina a ser ativa pelo buttom/icon
-                            currentTab = 2;
-                        });
-                      },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Transform.rotate(
-                            angle: 270 * 3.14 / 180,
-                            child: IconButton(
-                            icon: Icon(
-                              Icons.settings,
-                                color: currentTab == 1 ? 
-                                CoresConst.azulPadrao : CoresConst.azulPadrao,
-                                size: 30,
-                              ),
-                            onPressed: null,
+                ),
+                MaterialButton(
+                  minWidth: 40,
+                  onPressed: () {
+                    setState(() {
+                      currentScreen = PedidoCotacaoPage();
+                      currentTab = 2;
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Transform.rotate(
+                        angle: 270 * 3.14 / 180,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.settings,
+                            color: CoresConst.azulPadrao,
+                            size: 30,
                           ),
+                          onPressed: null,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
-      ),
         drawer: MenuLateral(),
       ),
     );

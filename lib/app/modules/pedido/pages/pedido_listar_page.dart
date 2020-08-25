@@ -82,7 +82,7 @@ class _PedidoListarPageState
                                   top: displayHeight(context) * 0.01,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "Destino: Avenida Paulista, 1234 " 
+                                "Destino: Avenida Paulista, 1234 "
                                 "\nSão Paulo - SP | CEP: 12345-000",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
@@ -328,7 +328,7 @@ class _PedidoListarPageState
                               ],
                             ),
                             onPressed: () {
-                              Modular.to.pushNamed('/pedido/cotacao');
+                              Modular.to.pushNamed('/pedido/form');
                             },
                           ),
                         ),
