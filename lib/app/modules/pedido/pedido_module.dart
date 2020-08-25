@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/pages/pedido_rastreamento_page.dart';
 
 import 'controllers/pedido_form_controller.dart';
 
@@ -7,8 +8,6 @@ import 'pages/pedido_cotacao_page.dart';
 import 'pages/pedido_detalhes_page.dart';
 import 'pages/pedido_form_page.dart';
 import 'pages/pedido_listar_page.dart';
-
-
 
 import 'repositories/interfaces/pedido_repository_interface.dart';
 import 'repositories/pedido_repository.dart';
@@ -26,6 +25,8 @@ class PedidoModule extends ChildModule {
         Router('/pedido/cotacao', child: (_, args) => PedidoCotacaoPage()),
         Router('/pedido/listar', child: (_, args) => PedidoListarPage()),
         Router('/pedido/destalhes', child: (_, args) => PedidoDetalhesPage()),
+        Router('/pedido/rastreamento',
+            child: (_, args) => PedidoRastreamentoPage()),
       ];
 
   static Inject get to => Inject<PedidoModule>.of();
