@@ -9,6 +9,7 @@ class TemaLevaAi {
       scaffoldBackgroundColor: Colors.white,
       primaryColor: CoresConst.azulPadrao,
       buttonColor: CoresConst.verdepadrao,
+      unselectedWidgetColor: Colors.white,
       buttonTheme: ButtonThemeData(
           height: 50,
           minWidth: double.infinity,
