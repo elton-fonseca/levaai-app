@@ -30,9 +30,10 @@ class _PedidoListarPageState
             Text(
               'Meus Pedidos',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
+                fontSize: displayWidth(context) * 0.06,
+                fontWeight: FontWeight.w900,
               ),
             ),
           ],
@@ -58,77 +59,85 @@ class _PedidoListarPageState
                 ),
                 child: Column(
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: displayHeight(context) * 0.04,
-                                  left: displayWidth(context) * 0.05),
-                              child: Text(
-                                "Pedido #23455",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: CoresConst.azulPadrao,
-                                  fontSize: 20,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: displayHeight(context) * 0.01,
-                                  left: displayWidth(context) * 0.05),
-                              child: Text(
-                                "Destino: Avenida Paulista, 1234 "
-                                "\nSão Paulo - SP | CEP: 12345-000",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.grey[500],
-                                  fontSize: 15,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: displayHeight(context) * 0.01,
-                                  left: displayWidth(context) * 0.05,
-                                  bottom: displayHeight(context) * 0.04),
-                              child: Text(
-                                "Elton Fonseca",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  color: Colors.grey[500],
-                                  fontSize: 15,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: displayWidth(context) * 0.09),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                    GestureDetector(
+                      onTap: () {
+                        Modular.to.pushNamed('pedido/rastreamento');
+                      },
+                      child: Row(
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              SizedBox(
-                                height: displayHeight(context) * 0.04,
-                                child: Image.asset("assets/logo.png"),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: displayHeight(context) * 0.04,
+                                    left: displayWidth(context) * 0.05),
+                                child: Text(
+                                  "Pedido #23455",
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: CoresConst.azulPadrao,
+                                    fontSize: displayWidth(context) * 0.05,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
                               ),
-                              SizedBox(height: displayHeight(context) * 0.02),
-                              SizedBox(
-                                height: displayHeight(context) * 0.06,
-                                child: Icon(Icons.check_circle,
-                                    size: 40, color: Color(0xFF95c330)),
-                              )
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: displayHeight(context) * 0.01,
+                                    left: displayWidth(context) * 0.05),
+                                child: Text(
+                                  "Destino: Avenida Paulista, 1234 "
+                                  "\nSão Paulo - SP | CEP: 12345-000",
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[500],
+                                    fontSize: displayWidth(context) * 0.04,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: displayHeight(context) * 0.01,
+                                    left: displayWidth(context) * 0.05,
+                                    bottom: displayHeight(context) * 0.04),
+                                child: Text(
+                                  "Elton Fonseca",
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[500],
+                                    fontSize: displayWidth(context) * 0.04,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
                             ],
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: displayWidth(context) * 0.06),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: displayHeight(context) * 0.03,
+                                  child: Image.asset("assets/box-blue.png"),
+                                ),
+                                SizedBox(height: displayHeight(context) * 0.02),
+                                SizedBox(
+                                  height: displayHeight(context) * 0.06,
+                                  child: Icon(Icons.check_circle,
+                                      size: displayWidth(context) * 0.12,
+                                      color: Color(0xFF98C11C)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Divider(
                       color: Colors.grey[300],
@@ -149,9 +158,10 @@ class _PedidoListarPageState
                               child: Text(
                                 "Pedido #23455",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
                                   color: CoresConst.azulPadrao,
-                                  fontSize: 20,
+                                  fontSize: displayWidth(context) * 0.05,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -164,9 +174,9 @@ class _PedidoListarPageState
                                 "Destino: Avenida Paulista, 1234 "
                                 "\nSão Paulo - SP | CEP: 12345-000",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[500],
-                                  fontSize: 15,
+                                  fontSize: displayWidth(context) * 0.04,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -179,9 +189,10 @@ class _PedidoListarPageState
                               child: Text(
                                 "Elton Fonseca",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.grey[500],
-                                  fontSize: 15,
+                                  fontSize: displayWidth(context) * 0.04,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -190,19 +201,20 @@ class _PedidoListarPageState
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                              left: displayWidth(context) * 0.09),
+                              left: displayWidth(context) * 0.06),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: <Widget>[
                               SizedBox(
-                                height: displayHeight(context) * 0.04,
-                                child: Image.asset("assets/logo.png"),
+                                height: displayHeight(context) * 0.03,
+                                child: Image.asset("assets/box-blue.png"),
                               ),
                               SizedBox(height: displayHeight(context) * 0.02),
                               SizedBox(
                                 height: displayHeight(context) * 0.06,
                                 child: Icon(Icons.remove_circle,
-                                    size: 40, color: Color(0xFFe3ba2c)),
+                                    size: displayWidth(context) * 0.12,
+                                    color: Color(0xFFE6B91D)),
                               )
                             ],
                           ),
@@ -228,9 +240,10 @@ class _PedidoListarPageState
                               child: Text(
                                 "Pedido #23455",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
                                   color: CoresConst.azulPadrao,
-                                  fontSize: 20,
+                                  fontSize: displayWidth(context) * 0.05,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -243,9 +256,9 @@ class _PedidoListarPageState
                                 "Destino: Avenida Paulista, 1234 "
                                 "\nSão Paulo - SP | CEP: 12345-000",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[500],
-                                  fontSize: 15,
+                                  fontSize: displayWidth(context) * 0.04,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -253,14 +266,14 @@ class _PedidoListarPageState
                             Padding(
                               padding: EdgeInsets.only(
                                   top: displayHeight(context) * 0.01,
-                                  left: displayWidth(context) * 0.05,
-                                  bottom: displayHeight(context) * 0.04),
+                                  left: displayWidth(context) * 0.05),
                               child: Text(
                                 "Elton Fonseca",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.grey[500],
-                                  fontSize: 15,
+                                  fontSize: displayWidth(context) * 0.04,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -269,25 +282,50 @@ class _PedidoListarPageState
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                              left: displayWidth(context) * 0.09),
+                              left: displayWidth(context) * 0.06),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: <Widget>[
                               SizedBox(
-                                height: displayHeight(context) * 0.04,
-                                child: Image.asset("assets/logo.png"),
+                                height: displayHeight(context) * 0.03,
+                                child: Image.asset("assets/box-blue.png"),
                               ),
                               SizedBox(height: displayHeight(context) * 0.02),
                               SizedBox(
                                 height: displayHeight(context) * 0.06,
                                 child: Icon(Icons.cancel,
-                                    size: 40, color: Color(0xFFbb3a1f)),
-                              )
+                                    size: displayWidth(context) * 0.12,
+                                    color: Color(0xFFC13A1C)),
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
+                    Padding(
+                              padding: EdgeInsets.only(
+                                  top: displayHeight(context) * 0.01,
+                                  left: displayWidth(context) * 0.05,
+                                  bottom: displayHeight(context) * 0.04),
+                              child: Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                  child: Icon(Icons.error_outline,
+                                      size: displayWidth(context) * 0.06,
+                                      color: Color(0xFFC13A1C)),
+                                ),
+                                Text(
+                                  " Sua entrega precisa de atenção.",
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFC13A1C),
+                                    fontSize: displayWidth(context) * 0.04,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],),
+                            ),
                   ],
                 ),
               ),
@@ -298,7 +336,7 @@ class _PedidoListarPageState
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width: displayWidth(context) * 0.8,
+                        width: displayWidth(context) * 0.7,
                         height: displayHeight(context) * 0.07,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
@@ -321,7 +359,7 @@ class _PedidoListarPageState
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: CoresConst.azulPadrao,
-                                    fontSize: 20,
+                                    fontSize: displayWidth(context)*0.04,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

@@ -30,15 +30,17 @@ class _PedidoCotacaoPageState
             Text(
               'Total Geral',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: displayWidth(context) * 0.04,
               ),
             ),
             Text(
-              'RS1200,00',
+              'R\$1200,00',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 40,
+                fontSize: displayWidth(context) * 0.09,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -74,12 +76,15 @@ class _PedidoCotacaoPageState
                       children: <Widget>[
                         Column(
                           children: <Widget>[
-                            IconButton(
-                              icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30,
-                              onPressed: () {
-                                null;
-                              },
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.02,
+                              ),
+                              child: SizedBox(
+                                width: displayWidth(context) * 0.1,
+                                child: Image.asset("assets/box-fechada.png"),
+                              ),
                             ),
                           ],
                         ),
@@ -89,8 +94,9 @@ class _PedidoCotacaoPageState
                             Text(
                               'DATA DE COLETA',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[500],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.04,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.left,
@@ -99,8 +105,9 @@ class _PedidoCotacaoPageState
                             Text(
                               'PREVISTA ENTRE 24/06 e 27/06',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[600],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.04,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -115,12 +122,15 @@ class _PedidoCotacaoPageState
                       children: <Widget>[
                         Column(
                           children: <Widget>[
-                            IconButton(
-                              icon: Icon(Icons.check_box_outline_blank),
-                              iconSize: 30,
-                              onPressed: () {
-                                null;
-                              },
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.02,
+                              ),
+                              child: SizedBox(
+                                width: displayWidth(context) * 0.1,
+                                child: Image.asset("assets/box-aberta.png"),
+                              ),
                             ),
                           ],
                         ),
@@ -131,7 +141,7 @@ class _PedidoCotacaoPageState
                               'DATA DE ENTREGA',
                               style: TextStyle(
                                 color: Colors.grey[500],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.04,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.left,
@@ -140,8 +150,9 @@ class _PedidoCotacaoPageState
                             Text(
                               'PREVISTA ENTRE 24/06 e 27/06',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[600],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.04,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -151,7 +162,7 @@ class _PedidoCotacaoPageState
                     ),
                     Divider(
                       color: Colors.grey[300],
-                      height: 50,
+                      height: displayWidth(context) * 0.10,
                       thickness: 2,
                       indent: 0,
                       endIndent: 0,
@@ -163,7 +174,7 @@ class _PedidoCotacaoPageState
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.14,
+                            right: displayWidth(context) * 0.15,
                             left: displayWidth(context) * 0.05),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,16 +182,18 @@ class _PedidoCotacaoPageState
                             Text(
                               'Responsável pela coleta',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[600],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.032,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
                             Text(
                               'Contato',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[600],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.032,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -189,13 +202,13 @@ class _PedidoCotacaoPageState
                       ),
                     ),
                     Container(
-                      height: displayHeight(context) * 0.05,
+                      height: displayHeight(context) * 0.04,
                       decoration: BoxDecoration(
                         color: Color(0xFFf4f5f7),
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
+                            right: displayWidth(context) * 0.06,
                             left: displayWidth(context) * 0.05),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -203,15 +216,21 @@ class _PedidoCotacaoPageState
                             Expanded(
                               child: SizedBox(
                                 child: TextFormField(
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                  ),
                                   textAlign: TextAlign.left,
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    contentPadding: EdgeInsets.only(
+                                        bottom: displayWidth(context) * 0.06),
                                     hintText: 'Valdir gonçalves de Souza',
                                     hintStyle: TextStyle(
                                       color: Colors.grey[600],
-                                      fontSize: 14,
+                                      fontSize: displayWidth(context) * 0.032,
                                     ),
                                   ),
                                 ),
@@ -220,15 +239,21 @@ class _PedidoCotacaoPageState
                             Expanded(
                               child: SizedBox(
                                 child: TextFormField(
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                  ),
                                   textAlign: TextAlign.right,
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    contentPadding: EdgeInsets.only(
+                                        bottom: displayWidth(context) * 0.06),
                                     hintText: '11 909099909',
                                     hintStyle: TextStyle(
                                       color: Colors.grey[600],
-                                      fontSize: 13,
+                                      fontSize: displayWidth(context) * 0.032,
                                     ),
                                   ),
                                 ),
@@ -250,7 +275,8 @@ class _PedidoCotacaoPageState
                             Text(
                               'Mesmo do cadastro',
                               style: TextStyle(
-                                fontSize: 13,
+                                fontFamily: 'Roboto',
+                                fontSize: displayWidth(context) * 0.032,
                                 color: Colors.grey[600],
                               ),
                             ),
@@ -265,7 +291,7 @@ class _PedidoCotacaoPageState
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.14,
+                            right: displayWidth(context) * 0.15,
                             left: displayWidth(context) * 0.05),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -273,16 +299,18 @@ class _PedidoCotacaoPageState
                             Text(
                               'Responsável pela coleta',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[600],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.032,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
                             Text(
                               'Contato',
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 color: Colors.grey[600],
-                                fontSize: 13,
+                                fontSize: displayWidth(context) * 0.032,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
@@ -291,13 +319,13 @@ class _PedidoCotacaoPageState
                       ),
                     ),
                     Container(
-                      height: displayHeight(context) * 0.05,
+                      height: displayHeight(context) * 0.04,
                       decoration: BoxDecoration(
                         color: Color(0xFFf4f5f7),
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
+                            right: displayWidth(context) * 0.06,
                             left: displayWidth(context) * 0.05),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -305,15 +333,21 @@ class _PedidoCotacaoPageState
                             Expanded(
                               child: SizedBox(
                                 child: TextFormField(
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                  ),
                                   textAlign: TextAlign.left,
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    contentPadding: EdgeInsets.only(
+                                        bottom: displayWidth(context) * 0.06),
                                     hintText: 'Valdir gonçalves de Souza',
                                     hintStyle: TextStyle(
                                       color: Colors.grey[600],
-                                      fontSize: 14,
+                                      fontSize: displayWidth(context) * 0.032,
                                     ),
                                   ),
                                 ),
@@ -322,15 +356,21 @@ class _PedidoCotacaoPageState
                             Expanded(
                               child: SizedBox(
                                 child: TextFormField(
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                  ),
                                   textAlign: TextAlign.right,
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    contentPadding: EdgeInsets.only(bottom: 26),
+                                    contentPadding: EdgeInsets.only(
+                                        bottom: displayWidth(context) * 0.06),
                                     hintText: '11 909099909',
                                     hintStyle: TextStyle(
                                       color: Colors.grey[600],
-                                      fontSize: 13,
+                                      fontSize: displayWidth(context) * 0.032,
                                     ),
                                   ),
                                 ),
@@ -352,7 +392,8 @@ class _PedidoCotacaoPageState
                             Text(
                               'Mesmo do cadastro',
                               style: TextStyle(
-                                fontSize: 13,
+                                fontFamily: 'Roboto',
+                                fontSize: displayWidth(context) * 0.032,
                                 color: Colors.grey[600],
                               ),
                             ),
@@ -368,7 +409,8 @@ class _PedidoCotacaoPageState
                           child: Text(
                             'Observações:',
                             style: TextStyle(
-                              fontSize: 13,
+                              fontFamily: 'Roboto',
+                              fontSize: displayWidth(context) * 0.032,
                               color: Colors.grey[600],
                             ),
                           ),
@@ -388,6 +430,11 @@ class _PedidoCotacaoPageState
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.grey[600],
+                            fontSize: displayWidth(context) * 0.032,
+                          ),
                           minLines: 5,
                           maxLines: 5,
                           maxLength: 230,
@@ -430,9 +477,10 @@ class _PedidoCotacaoPageState
                             Text(
                               "Editar",
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 fontWeight: FontWeight.bold,
                                 color: CoresConst.azulPadrao,
-                                fontSize: 15,
+                                fontSize: displayWidth(context) * 0.04,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -465,9 +513,10 @@ class _PedidoCotacaoPageState
                             Text(
                               "Confirmar",
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: 15,
+                                fontSize: displayWidth(context) * 0.04,
                               ),
                               textAlign: TextAlign.center,
                             ),

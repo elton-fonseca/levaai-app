@@ -31,9 +31,10 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
             Text(
               'Crie sua conta',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+                fontSize: displayWidth(context) * 0.06,
+                fontWeight: FontWeight.w900,
               ),
             ),
           ],
@@ -71,6 +72,11 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -83,8 +89,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Nome',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -95,6 +102,11 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -107,8 +119,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Sobrenome',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -129,6 +142,11 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.phone,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -141,8 +159,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Celular',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -163,6 +182,11 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -175,8 +199,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Número do CPF',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -219,6 +244,11 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -231,8 +261,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Email',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -253,6 +284,12 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                obscureText: true,
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   suffixIcon: Icon(Icons.remove_red_eye),
@@ -266,8 +303,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Senha',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -288,6 +326,12 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                obscureText: true,
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   suffixIcon: Icon(Icons.remove_red_eye),
@@ -301,8 +345,9 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Repetir Senha',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -323,7 +368,7 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width: displayWidth(context) * 0.8,
+                        width: displayWidth(context) * 0.7,
                         height: displayHeight(context) * 0.07,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
@@ -346,7 +391,7 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: displayWidth(context) * 0.04,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

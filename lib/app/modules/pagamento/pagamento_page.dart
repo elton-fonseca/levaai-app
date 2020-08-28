@@ -30,15 +30,17 @@ class _PagamentoPageState
             Text(
               'Total Geral',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: displayWidth(context) * 0.04,
               ),
             ),
             Text(
-              'RS1200,00',
+              'R\$1200,00',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 40,
+                fontSize: displayWidth(context) * 0.09,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -53,13 +55,13 @@ class _PagamentoPageState
                     bottom: displayHeight(context) * 0.03,
                     top: displayHeight(context) * 0.04),
                 child: SizedBox(
-                  height: displayHeight(context) * 0.1,
+                  height: displayHeight(context) * 0.08,
                   width: displayWidth(context) * 0.8,
                   child: Text(
                     'Preencha abaixo os \ndados para pagamento:',
                     style: TextStyle(
                       color: Colors.grey[700],
-                      fontSize: 15,
+                      fontSize: displayWidth(context)*0.04,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -93,12 +95,17 @@ class _PagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
-                                keyboardType: TextInputType.number,
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
+                                keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   suffixIcon: Icon(
                                     Icons.arrow_drop_down_circle,
                                     color: CoresConst.azulPadrao,
-                                    size: 30,
+                                    size: displayWidth(context)*0.08,
                                   ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(1),
@@ -110,8 +117,9 @@ class _PagamentoPageState
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Tipo de pagamento',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -132,7 +140,12 @@ class _PagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
-                                keyboardType: TextInputType.number,
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
+                                keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(1),
@@ -144,8 +157,9 @@ class _PagamentoPageState
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Nome (mesmo do cartao)',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -166,11 +180,17 @@ class _PagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   suffixIcon: Image(
+                                    width: displayWidth(context)*0.05,
                                       image:
-                                          AssetImage('assets/creditcard.png')),
+                                          AssetImage('assets/creditcard.png',)),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(1),
                                     borderSide: BorderSide(
@@ -181,8 +201,9 @@ class _PagamentoPageState
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Número do cartão',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -203,6 +224,11 @@ class _PagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -215,8 +241,9 @@ class _PagamentoPageState
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Código',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -227,6 +254,11 @@ class _PagamentoPageState
                           Expanded(
                             child: SizedBox(
                               child: TextFormField(
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.black,
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
@@ -239,8 +271,9 @@ class _PagamentoPageState
                                   contentPadding: EdgeInsets.only(left: 20),
                                   hintText: 'Validade',
                                   hintStyle: TextStyle(
+                                    fontFamily: 'Roboto',
                                     color: Colors.grey[400],
-                                    fontSize: 14,
+                                    fontSize: displayWidth(context) * 0.04,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -261,7 +294,7 @@ class _PagamentoPageState
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width: displayWidth(context) * 0.8,
+                        width: displayWidth(context) * 0.7,
                         height: displayHeight(context) * 0.07,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
@@ -283,7 +316,7 @@ class _PagamentoPageState
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: displayWidth(context)*0.04,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -302,7 +335,7 @@ class _PagamentoPageState
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width: displayWidth(context) * 0.8,
+                        width: displayWidth(context) * 0.7,
                         height: displayHeight(context) * 0.07,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
@@ -325,7 +358,7 @@ class _PagamentoPageState
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: CoresConst.azulPadrao,
-                                    fontSize: 20,
+                                    fontSize: displayWidth(context)*0.04,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

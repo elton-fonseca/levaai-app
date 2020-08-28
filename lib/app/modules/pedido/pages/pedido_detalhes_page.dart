@@ -30,15 +30,17 @@ class _PedidoDetalhesPageState
             Text(
               'Total Geral',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: displayWidth(context) * 0.04,
               ),
             ),
             Text(
-              'RS1200,00',
+              'R\$1200,00',
               style: TextStyle(
+                fontFamily: 'Roboto',
                 color: Colors.white,
-                fontSize: 40,
+                fontSize: displayWidth(context) * 0.09,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -55,8 +57,8 @@ class _PedidoDetalhesPageState
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    height: displayHeight(context) * 0.23,
-                    width: displayHeight(context) * 0.23,
+                    height: displayHeight(context) * 0.235,
+                    width: displayHeight(context) * 0.235,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -76,13 +78,14 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              bottom: displayWidth(context) * 0.02,
+                              bottom: displayWidth(context) * 0.01,
                               top: displayWidth(context) * 0.02),
                           child: Text(
                             'Pedido #1',
                             style: TextStyle(
+                              fontFamily: 'Roboto',
                               color: Colors.grey[500],
-                              fontSize: 15,
+                              fontSize: displayWidth(context) * 0.04,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -104,19 +107,19 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: displayWidth(context) * 0.06,
                                   onPressed: () {
                                     null;
                                   },
                                 ),
                                 Text(
-                                  'RS200,00',
+                                  'R\$200,00',
                                   style: TextStyle(
-                                    color: Colors.blue[800],
-                                    fontSize: 15,
+                                    fontFamily: 'Roboto',
+                                    color: CoresConst.azulPadrao,
+                                    fontSize: displayWidth(context) * 0.045,
                                     fontWeight: FontWeight.w800,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -132,25 +135,26 @@ class _PedidoDetalhesPageState
                               Text(
                                 'Destinatário:',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'Nome Sobrenome',
                                 style: TextStyle(
-                                  color: Colors.grey[800],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Roboto',
+                                  color: Colors.grey[600],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'CEP 12342-000',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 8,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ],
@@ -160,8 +164,9 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
+                              padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
-                                iconSize: 25,
+                                iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
                           ],
                         )
@@ -169,8 +174,8 @@ class _PedidoDetalhesPageState
                     ),
                   ),
                   Container(
-                    height: displayHeight(context) * 0.23,
-                    width: displayHeight(context) * 0.23,
+                    height: displayHeight(context) * 0.235,
+                    width: displayHeight(context) * 0.235,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -190,13 +195,14 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              bottom: displayWidth(context) * 0.02,
+                              bottom: displayWidth(context) * 0.01,
                               top: displayWidth(context) * 0.02),
                           child: Text(
                             'Pedido #1',
                             style: TextStyle(
+                              fontFamily: 'Roboto',
                               color: Colors.grey[500],
-                              fontSize: 15,
+                              fontSize: displayWidth(context) * 0.04,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -218,19 +224,19 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: displayWidth(context) * 0.06,
                                   onPressed: () {
                                     null;
                                   },
                                 ),
                                 Text(
-                                  'RS200,00',
+                                  'R\$200,00',
                                   style: TextStyle(
-                                    color: Colors.blue[800],
-                                    fontSize: 15,
+                                    fontFamily: 'Roboto',
+                                    color: CoresConst.azulPadrao,
+                                    fontSize: displayWidth(context) * 0.045,
                                     fontWeight: FontWeight.w800,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -246,25 +252,26 @@ class _PedidoDetalhesPageState
                               Text(
                                 'Destinatário:',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'Nome Sobrenome',
                                 style: TextStyle(
-                                  color: Colors.grey[800],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Roboto',
+                                  color: Colors.grey[600],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'CEP 12342-000',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 8,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ],
@@ -274,8 +281,9 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
+                              padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
-                                iconSize: 25,
+                                iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
                           ],
                         )
@@ -290,9 +298,9 @@ class _PedidoDetalhesPageState
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Container(
-                    height: displayHeight(context) * 0.23,
-                    width: displayHeight(context) * 0.23,
+                                    Container(
+                    height: displayHeight(context) * 0.235,
+                    width: displayHeight(context) * 0.235,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -312,13 +320,14 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              bottom: displayWidth(context) * 0.02,
+                              bottom: displayWidth(context) * 0.01,
                               top: displayWidth(context) * 0.02),
                           child: Text(
                             'Pedido #1',
                             style: TextStyle(
+                              fontFamily: 'Roboto',
                               color: Colors.grey[500],
-                              fontSize: 15,
+                              fontSize: displayWidth(context) * 0.04,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -340,19 +349,19 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: displayWidth(context) * 0.06,
                                   onPressed: () {
                                     null;
                                   },
                                 ),
                                 Text(
-                                  'RS200,00',
+                                  'R\$200,00',
                                   style: TextStyle(
-                                    color: Colors.blue[800],
-                                    fontSize: 15,
+                                    fontFamily: 'Roboto',
+                                    color: CoresConst.azulPadrao,
+                                    fontSize: displayWidth(context) * 0.045,
                                     fontWeight: FontWeight.w800,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -368,25 +377,26 @@ class _PedidoDetalhesPageState
                               Text(
                                 'Destinatário:',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'Nome Sobrenome',
                                 style: TextStyle(
-                                  color: Colors.grey[800],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Roboto',
+                                  color: Colors.grey[600],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'CEP 12342-000',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 8,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ],
@@ -396,17 +406,18 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
+                              padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
-                                iconSize: 25,
+                                iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
                           ],
                         )
                       ],
                     ),
                   ),
-                  Container(
-                    height: displayHeight(context) * 0.23,
-                    width: displayHeight(context) * 0.23,
+                                    Container(
+                    height: displayHeight(context) * 0.235,
+                    width: displayHeight(context) * 0.235,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -426,13 +437,14 @@ class _PedidoDetalhesPageState
                         Padding(
                           padding: EdgeInsets.only(
                               left: displayWidth(context) * 0.04,
-                              bottom: displayWidth(context) * 0.02,
+                              bottom: displayWidth(context) * 0.01,
                               top: displayWidth(context) * 0.02),
                           child: Text(
                             'Pedido #1',
                             style: TextStyle(
+                              fontFamily: 'Roboto',
                               color: Colors.grey[500],
-                              fontSize: 15,
+                              fontSize: displayWidth(context) * 0.04,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
@@ -454,19 +466,19 @@ class _PedidoDetalhesPageState
                                 IconButton(
                                   icon: Icon(Icons.monetization_on,
                                       color: Colors.yellow[800]),
-                                  iconSize: 20,
+                                  iconSize: displayWidth(context) * 0.06,
                                   onPressed: () {
                                     null;
                                   },
                                 ),
                                 Text(
-                                  'RS200,00',
+                                  'R\$200,00',
                                   style: TextStyle(
-                                    color: Colors.blue[800],
-                                    fontSize: 15,
+                                    fontFamily: 'Roboto',
+                                    color: CoresConst.azulPadrao,
+                                    fontSize: displayWidth(context) * 0.045,
                                     fontWeight: FontWeight.w800,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -482,25 +494,26 @@ class _PedidoDetalhesPageState
                               Text(
                                 'Destinatário:',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'Nome Sobrenome',
                                 style: TextStyle(
-                                  color: Colors.grey[800],
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w800,
+                                  fontFamily: 'Roboto',
+                                  color: Colors.grey[600],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                               Text(
                                 'CEP 12342-000',
                                 style: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 8,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ],
@@ -510,8 +523,9 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
+                              padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
-                                iconSize: 25,
+                                iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
                           ],
                         )
@@ -525,7 +539,7 @@ class _PedidoDetalhesPageState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: displayWidth(context) * 0.8,
+                    width: displayWidth(context) * 0.7,
                     height: displayHeight(context) * 0.07,
                     alignment: Alignment.centerLeft,
                     decoration: BoxDecoration(
@@ -545,9 +559,10 @@ class _PedidoDetalhesPageState
                             Text(
                               "Ir para pagamento",
                               style: TextStyle(
+                                fontFamily: 'Roboto',
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: displayWidth(context) * 0.04,
                               ),
                               textAlign: TextAlign.center,
                             ),

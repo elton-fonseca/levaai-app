@@ -32,36 +32,38 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-        backgroundColor: Color(0xFF3a519e),
+        backgroundColor: Color(0xFF1d509a),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Color(0xFF344882), Color(0xFF355bbe)])),
+                  colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
           child: Column(
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: displayHeight(context) * 0.3),
                 child: Center(
                   child: SizedBox(
-                    child: Image.asset("assets/logo.png"),
+                      width: displayWidth(context)*0.5,
+                      child: Image.asset("assets/logo.png"),
                   ),
                 ),
               ),
               Text(
                 'LEVAAI',
                 style: TextStyle(
+                  fontFamily: 'Roboto',
                   color: Colors.white,
-                  fontSize: 50,
+                  fontSize: displayWidth(context) * 0.15,
                   fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w900,
                 ),
                 textAlign: TextAlign.center,
               ),
               Text(
                 'DAQUI PRA LÁ RAPIDINHO',
                 style: TextStyle(
+                    fontFamily: 'Roboto',
                     color: Colors.white,
-                    fontSize: 13,
+                    fontSize: displayWidth(context) * 0.04,
                     fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),
@@ -73,16 +75,17 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 child: Text(
                   'CLIQUE AQUI PARA FAZER UM PEDIDO',
                   style: TextStyle(
+                      fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: 13,
+                      fontSize: displayWidth(context) * 0.031,
                       fontWeight: FontWeight.w700),
                   textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
                 height: displayHeight(context) * 0.067,
-                child:
-                    Icon(Icons.arrow_downward, size: 20, color: Colors.white),
+                child: Icon(Icons.arrow_downward,
+                    size: displayWidth(context) * 0.08, color: Colors.white),
               ),
             ],
           ),
@@ -95,7 +98,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               shape: CircleBorder(
                   side: BorderSide(
                       width: 4, color: Colors.white, style: BorderStyle.solid)),
-              backgroundColor: Color(0xFF3a519e),
+              backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
                 Modular.to.pushNamed('/pedido/form');

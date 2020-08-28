@@ -53,17 +53,36 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-black.ttf
+        - asset: assets/fonts/Roboto-BlackItalic.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-BoldItalic.ttf
+        - asset: assets/fonts/Roboto-Italic.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-LightItalic.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-MediumItalic.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Thin.ttf
+        - asset: assets/fonts/Roboto-ThinItalic.ttf
+          
+
   assets:
    - assets/logo-blue.png
    - assets/logo-back-blue.png
    - assets/img-requests.png
    - assets/item-request.png
+   - assets/box-blue.png
    - assets/box.png
    - assets/logo.png
    - assets/origem-destino.png
    - assets/tamanho-relativo.png
    - assets/creditcard.png
-
+   - assets/box-aberta.png
+   - assets/box-fechada.png
 
 
 vars: 

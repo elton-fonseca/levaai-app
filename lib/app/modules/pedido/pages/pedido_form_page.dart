@@ -30,8 +30,9 @@ class _PedidoFormPageState
           textoCabecalho: Text(
             'Configure o seu pedido',
             style: TextStyle(
+              fontFamily: 'Roboto',
               color: Colors.white,
-              fontSize: 20,
+              fontSize: displayWidth(context) * 0.04,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.left,
@@ -63,6 +64,11 @@ class _PedidoFormPageState
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            labelStyle: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: displayWidth(context) * 0.035,
+                              fontWeight: FontWeight.bold,
+                            ),
                             labelText: 'Origem',
                             hintText: 'Avenida Paulsita, 234',
                             suffixIcon: IconButton(
@@ -78,6 +84,11 @@ class _PedidoFormPageState
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            labelStyle: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: displayWidth(context) * 0.035,
+                              fontWeight: FontWeight.bold,
+                            ),
                             labelText: 'Destino',
                             hintText: 'Avenida Faria lima, 344',
                             suffixIcon: IconButton(
@@ -97,8 +108,8 @@ class _PedidoFormPageState
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                  height: displayHeight(context) * 0.2,
-                  width: displayHeight(context) * 0.2,
+                  height: displayHeight(context) * 0.18,
+                  width: displayHeight(context) * 0.18,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -118,8 +129,9 @@ class _PedidoFormPageState
                           'TAMANHO'
                           '\nAPROXIMADO',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.center,
@@ -128,8 +140,9 @@ class _PedidoFormPageState
                         Text(
                           'MICROONDAS',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
@@ -137,8 +150,8 @@ class _PedidoFormPageState
                       ]),
                 ),
                 Container(
-                  height: displayHeight(context) * 0.2,
-                  width: displayHeight(context) * 0.2,
+                  height: displayHeight(context) * 0.18,
+                  width: displayHeight(context) * 0.18,
                   decoration: BoxDecoration(
                     color: Color(0xFFf0eef1),
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -158,8 +171,9 @@ class _PedidoFormPageState
                           'TAMANHO'
                           '\nAPROXIMADO',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.center,
@@ -168,8 +182,9 @@ class _PedidoFormPageState
                         Text(
                           'MICROONDAS',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
@@ -190,17 +205,18 @@ class _PedidoFormPageState
                         icon: Icon(
                           Icons.remove_circle,
                           color: Colors.grey,
-                          size: 35,
+                          size: displayWidth(context) * 0.07,
                         ),
                         onPressed: () {},
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 5.0),
+                        padding:
+                            EdgeInsets.only(left: displayWidth(context) * 0.01),
                         child: Text(
                           '0',
                           style: TextStyle(
                             color: CoresConst.azulPadrao,
-                            fontSize: 35,
+                            fontSize: displayWidth(context) * 0.07,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -209,7 +225,7 @@ class _PedidoFormPageState
                         icon: Icon(
                           Icons.add_circle,
                           color: Colors.grey,
-                          size: 35,
+                          size: displayWidth(context) * 0.07,
                         ),
                         onPressed: () {},
                       ),
@@ -224,17 +240,18 @@ class _PedidoFormPageState
                         icon: Icon(
                           Icons.remove_circle,
                           color: Colors.grey,
-                          size: 35,
+                          size: displayWidth(context) * 0.07,
                         ),
                         onPressed: () {},
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 5.0),
+                        padding:
+                            EdgeInsets.only(left: displayWidth(context) * 0.01),
                         child: Text(
                           '2',
                           style: TextStyle(
                             color: CoresConst.azulPadrao,
-                            fontSize: 35,
+                            fontSize: displayWidth(context) * 0.07,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -243,7 +260,7 @@ class _PedidoFormPageState
                         icon: Icon(
                           Icons.add_circle,
                           color: Colors.grey,
-                          size: 35,
+                          size: displayWidth(context) * 0.07,
                         ),
                         onPressed: () {},
                       ),
@@ -257,8 +274,8 @@ class _PedidoFormPageState
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                  height: displayHeight(context) * 0.2,
-                  width: displayHeight(context) * 0.2,
+                  height: displayHeight(context) * 0.18,
+                  width: displayHeight(context) * 0.18,
                   decoration: BoxDecoration(
                     color: Color(0xFFf0eef1),
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -278,8 +295,9 @@ class _PedidoFormPageState
                           'TAMANHO'
                           '\nAPROXIMADO',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.center,
@@ -288,8 +306,9 @@ class _PedidoFormPageState
                         Text(
                           'MICROONDAS',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
@@ -297,8 +316,8 @@ class _PedidoFormPageState
                       ]),
                 ),
                 Container(
-                  height: displayHeight(context) * 0.2,
-                  width: displayHeight(context) * 0.2,
+                  height: displayHeight(context) * 0.18,
+                  width: displayHeight(context) * 0.18,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -318,8 +337,9 @@ class _PedidoFormPageState
                           'TAMANHO'
                           '\nAPROXIMADO',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.center,
@@ -328,8 +348,9 @@ class _PedidoFormPageState
                         Text(
                           'MICROONDAS',
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.grey,
-                            fontSize: 13,
+                            fontSize: displayWidth(context) * 0.025,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
@@ -349,17 +370,18 @@ class _PedidoFormPageState
                       icon: Icon(
                         Icons.remove_circle,
                         color: Colors.grey,
-                        size: 35,
+                        size: displayWidth(context) * 0.07,
                       ),
                       onPressed: () {},
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
+                      padding:
+                          EdgeInsets.only(left: displayWidth(context) * 0.01),
                       child: Text(
                         '1',
                         style: TextStyle(
                           color: CoresConst.azulPadrao,
-                          fontSize: 35,
+                          fontSize: displayWidth(context) * 0.07,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -368,7 +390,7 @@ class _PedidoFormPageState
                       icon: Icon(
                         Icons.add_circle,
                         color: Colors.grey,
-                        size: 35,
+                        size: displayWidth(context) * 0.07,
                       ),
                       onPressed: () {},
                     ),
@@ -381,17 +403,18 @@ class _PedidoFormPageState
                       icon: Icon(
                         Icons.remove_circle,
                         color: Colors.grey,
-                        size: 35,
+                        size: displayWidth(context) * 0.07,
                       ),
                       onPressed: () {},
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
+                      padding:
+                          EdgeInsets.only(left: displayWidth(context) * 0.01),
                       child: Text(
                         '0',
                         style: TextStyle(
                           color: CoresConst.azulPadrao,
-                          fontSize: 35,
+                          fontSize: displayWidth(context) * 0.07,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -400,7 +423,7 @@ class _PedidoFormPageState
                       icon: Icon(
                         Icons.add_circle,
                         color: Colors.grey,
-                        size: 35,
+                        size: displayWidth(context) * 0.07,
                       ),
                       onPressed: () {},
                     ),
@@ -410,8 +433,8 @@ class _PedidoFormPageState
             ),
             SizedBox(height: displayHeight(context) * 0.08),
             Container(
-              width: displayWidth(context) * 0.78,
-              height: displayHeight(context) * 0.08,
+              width: displayWidth(context) * 0.7,
+              height: displayHeight(context) * 0.07,
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -430,9 +453,10 @@ class _PedidoFormPageState
                       Text(
                         "Tenho medidas exatas",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           fontWeight: FontWeight.bold,
                           color: CoresConst.azulPadrao,
-                          fontSize: 20,
+                          fontSize: displayWidth(context) * 0.04,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -472,13 +496,14 @@ class _PedidoFormPageState
                                   borderSide: BorderSide(
                                       color: Color(0xFFe9ebea), width: 4),
                                 ),
-                                contentPadding: EdgeInsets.only(left: 20),
+                                contentPadding: EdgeInsets.only(
+                                    left: displayWidth(context) * 0.05),
                                 hintText: ''
                                     'Valor Total',
                                 hintStyle: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w900,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ),
@@ -497,12 +522,13 @@ class _PedidoFormPageState
                                   borderSide: BorderSide(
                                       color: Color(0xFFe9ebea), width: 4),
                                 ),
-                                contentPadding: EdgeInsets.only(left: 20),
+                                contentPadding: EdgeInsets.only(
+                                    left: displayWidth(context) * 0.05),
                                 hintText: 'Peso Total Estimado',
                                 hintStyle: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w900,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ),
@@ -521,13 +547,14 @@ class _PedidoFormPageState
                                   borderSide: BorderSide(
                                       color: Color(0xFFe9ebea), width: 0),
                                 ),
-                                contentPadding: EdgeInsets.only(left: 20),
+                                contentPadding: EdgeInsets.only(
+                                    left: displayWidth(context) * 0.05),
                                 hintText: ''
                                     'Tipo',
                                 hintStyle: TextStyle(
+                                  fontFamily: 'Roboto',
                                   color: Colors.grey[600],
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w900,
+                                  fontSize: displayWidth(context) * 0.032,
                                 ),
                               ),
                             ),
@@ -539,8 +566,8 @@ class _PedidoFormPageState
             ),
             SizedBox(height: displayHeight(context) * 0.08),
             Container(
-              width: displayWidth(context) * 0.78,
-              height: displayHeight(context) * 0.08,
+              width: displayWidth(context) * 0.7,
+              height: displayHeight(context) * 0.07,
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: CoresConst.verdepadrao,
@@ -559,9 +586,10 @@ class _PedidoFormPageState
                       Text(
                         "Verificar Valor",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: displayWidth(context) * 0.04,
                         ),
                         textAlign: TextAlign.center,
                       ),
