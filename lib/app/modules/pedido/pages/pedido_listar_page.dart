@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import '../controllers/pedido_form_controller.dart';
@@ -22,6 +23,7 @@ class _PedidoListarPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavbarPadrao().build(context),
+      drawer: MenuLateral(),
       backgroundColor: CoresConst.azulPadrao,
       body: ConteudoPadrao(
         textoCabecalho: Column(
@@ -303,29 +305,30 @@ class _PedidoListarPageState
                       ],
                     ),
                     Padding(
-                              padding: EdgeInsets.only(
-                                  top: displayHeight(context) * 0.01,
-                                  left: displayWidth(context) * 0.05,
-                                  bottom: displayHeight(context) * 0.04),
-                              child: Row(
-                                children: <Widget>[
-                                  SizedBox(
-                                  child: Icon(Icons.error_outline,
-                                      size: displayWidth(context) * 0.06,
-                                      color: Color(0xFFC13A1C)),
-                                ),
-                                Text(
-                                  " Sua entrega precisa de atenção.",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFFC13A1C),
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ],),
+                      padding: EdgeInsets.only(
+                          top: displayHeight(context) * 0.01,
+                          left: displayWidth(context) * 0.05,
+                          bottom: displayHeight(context) * 0.04),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            child: Icon(Icons.error_outline,
+                                size: displayWidth(context) * 0.06,
+                                color: Color(0xFFC13A1C)),
+                          ),
+                          Text(
+                            " Sua entrega precisa de atenção.",
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFC13A1C),
+                              fontSize: displayWidth(context) * 0.04,
                             ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -359,7 +362,7 @@ class _PedidoListarPageState
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: CoresConst.azulPadrao,
-                                    fontSize: displayWidth(context)*0.04,
+                                    fontSize: displayWidth(context) * 0.04,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

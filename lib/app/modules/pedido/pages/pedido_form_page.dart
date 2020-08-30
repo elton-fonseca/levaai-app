@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../../core/view/menu_lateral.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
@@ -16,6 +17,7 @@ class PedidoFormPage extends StatefulWidget {
 
 class _PedidoFormPageState
     extends ModularState<PedidoFormPage, PedidoFormController> {
+
   //use 'controller' variable to access controller
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");
@@ -25,6 +27,7 @@ class _PedidoFormPageState
     return Scaffold(
       body: Scaffold(
         appBar: NavbarPadrao().build(context),
+        drawer: MenuLateral(),
         backgroundColor: CoresConst.azulPadrao,
         body: ConteudoPadrao(
           textoCabecalho: Text(

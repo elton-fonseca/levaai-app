@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import '../controllers/pedido_form_controller.dart';
@@ -22,6 +23,7 @@ class _PedidoDetalhesPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavbarPadrao().build(context),
+      drawer: MenuLateral(),
       backgroundColor: CoresConst.azulPadrao,
       body: ConteudoPadrao(
         textoCabecalho: Column(
@@ -57,8 +59,8 @@ class _PedidoDetalhesPageState
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    height: displayHeight(context) * 0.235,
-                    width: displayHeight(context) * 0.235,
+                    height: displayHeight(context) * 0.24,
+                    width: displayHeight(context) * 0.24,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -164,7 +166,7 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
-                              padding: EdgeInsets.only(bottom: 0),
+                                padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
                                 iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
@@ -174,8 +176,8 @@ class _PedidoDetalhesPageState
                     ),
                   ),
                   Container(
-                    height: displayHeight(context) * 0.235,
-                    width: displayHeight(context) * 0.235,
+                    height: displayHeight(context) * 0.24,
+                    width: displayHeight(context) * 0.24,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -281,7 +283,7 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
-                              padding: EdgeInsets.only(bottom: 0),
+                                padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
                                 iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
@@ -298,9 +300,9 @@ class _PedidoDetalhesPageState
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                                    Container(
-                    height: displayHeight(context) * 0.235,
-                    width: displayHeight(context) * 0.235,
+                  Container(
+                    height: displayHeight(context) * 0.24,
+                    width: displayHeight(context) * 0.24,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -406,7 +408,7 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
-                              padding: EdgeInsets.only(bottom: 0),
+                                padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
                                 iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)
@@ -415,9 +417,9 @@ class _PedidoDetalhesPageState
                       ],
                     ),
                   ),
-                                    Container(
-                    height: displayHeight(context) * 0.235,
-                    width: displayHeight(context) * 0.235,
+                  Container(
+                    height: displayHeight(context) * 0.24,
+                    width: displayHeight(context) * 0.24,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius:
@@ -523,7 +525,7 @@ class _PedidoDetalhesPageState
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
-                              padding: EdgeInsets.only(bottom: 0),
+                                padding: EdgeInsets.only(bottom: 0),
                                 icon: Icon(Icons.delete),
                                 iconSize: displayWidth(context) * 0.07,
                                 onPressed: null)

@@ -21,14 +21,14 @@ class NavbarPadrao extends StatelessWidget {
         Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.05),
-            child: IconButton(
-              icon: Icon(
-                Icons.menu,
-              ),
-              onPressed: () {
-                debugPrint('Menu Lateral');
-              },
-            )),
+            child: Builder(builder: (context) {
+              return IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            })),
       ],
       backgroundColor: CoresConst.azulPadrao,
     );

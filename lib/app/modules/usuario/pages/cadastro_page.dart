@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 
@@ -23,6 +23,7 @@ class _CadastroPageState extends ModularState<CadastroPage, UsuarioController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavbarPadrao().build(context),
+      drawer: MenuLateral(),
       backgroundColor: CoresConst.azulPadrao,
       body: ConteudoPadrao(
         textoCabecalho: Column(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import '../controllers/pedido_form_controller.dart';
@@ -23,6 +24,7 @@ class _PedidoRastreamentoPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavbarPadrao().build(context),
+      drawer: MenuLateral(),
       backgroundColor: CoresConst.azulPadrao,
       body: ConteudoPadrao(
         textoCabecalho: Column(
@@ -491,7 +493,7 @@ class _PedidoRastreamentoPageState
                             ),
                           ),
                           SizedBox(
-                            width: displayWidth(context)*0.8,
+                            width: displayWidth(context) * 0.8,
                             child: Divider(
                               color: Colors.grey[300],
                               height: 2,
@@ -551,7 +553,7 @@ class _PedidoRastreamentoPageState
                             ),
                           ),
                           SizedBox(
-                            width: displayWidth(context)*0.8,
+                            width: displayWidth(context) * 0.8,
                             child: Divider(
                               color: Colors.grey[300],
                               height: 2,
@@ -647,7 +649,7 @@ class _PedidoRastreamentoPageState
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.bold,
                                     color: CoresConst.azulPadrao,
-                                    fontSize: displayWidth(context)*0.04,
+                                    fontSize: displayWidth(context) * 0.04,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
