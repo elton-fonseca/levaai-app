@@ -41,7 +41,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: displayHeight(context) * 0.08),
+                  padding: EdgeInsets.only(top: displayHeight(context) * 0.05),
                   child: Center(
                     child: SizedBox(
                       width: displayWidth(context)*0.5,
@@ -163,7 +163,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           ),
                         ],
                       ),
-                      SizedBox(height: displayHeight(context) * 0.05),
+                      SizedBox(height: displayHeight(context) * 0.02),
                       Container(
                         width: displayWidth(context) * 0.8,
                         height: displayHeight(context) * 0.07,

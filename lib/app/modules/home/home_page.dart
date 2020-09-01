@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../core/tema/cores_const.dart';
-import '../../core/view/menu_lateral.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import '../pedido/pages/pedido_cotacao_page.dart';
 import '../pedido/pages/pedido_form_page.dart';
@@ -68,7 +67,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: displayHeight(context) * 0.18,
+                height: displayHeight(context) * 0.14,
               ),
               SizedBox(
                 width: 130,
@@ -171,7 +170,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             ),
           ),
         ),
-        drawer: MenuLateral(),
       ),
     );
   }
