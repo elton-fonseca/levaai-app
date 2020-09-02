@@ -16,6 +16,142 @@ class PedidoFormPage extends StatefulWidget {
   _PedidoFormPageState createState() => _PedidoFormPageState();
 }
 
+class DropdownExample extends StatefulWidget {
+  @override
+  _DropdownExampleState createState() {
+    return _DropdownExampleState();
+  }
+}
+
+class _DropdownExampleState extends State<DropdownExample> {
+  String _value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<String>(
+          items: [
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 0 a 5kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'one',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 6kg a 10kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'two',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 11kg a 20kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'trhee',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 21kg a 30kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'for',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 31kg a 40kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'five',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 41kg a 50kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'six',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 51kg a 100kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'seven',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'De 101kg a 300kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'eight',
+            ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'Acima 300kg',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'nine',
+            ),
+          ],
+          onChanged: (String value) {
+            setState(() {
+              _value = value;
+            });
+          },
+          hint: Text(
+            'Estimativa de Peso',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              color: Colors.grey[600],
+              fontSize: displayWidth(context) * 0.032,
+            ),
+          ),
+          value: _value,
+        ),
+      ),
+    );
+  }
+}
+
 class _PedidoFormPageState
     extends ModularState<PedidoFormPage, PedidoFormController> {
   //use 'controller' variable to access controller
@@ -758,10 +894,7 @@ class _PedidoFormPageState
                             child: TextFormField(
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Color(0xFFe9ebea), width: 4),
-                                ),
+                                border: InputBorder.none,
                                 contentPadding: EdgeInsets.only(
                                     left: displayWidth(context) * 0.05),
                                 hintText: ''
@@ -777,30 +910,32 @@ class _PedidoFormPageState
                         ),
                       ],
                     ),
+                    Divider(
+                      color: Colors.grey[300],
+                      height: 2,
+                      thickness: 2,
+                      indent: 0,
+                      endIndent: 0,
+                    ),
                     Row(
                       children: <Widget>[
                         Expanded(
                           child: SizedBox(
-                            child: TextFormField(
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Color(0xFFe9ebea), width: 4),
-                                ),
-                                contentPadding: EdgeInsets.only(
-                                    left: displayWidth(context) * 0.05),
-                                hintText: 'Peso Total Estimado',
-                                hintStyle: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Colors.grey[600],
-                                  fontSize: displayWidth(context) * 0.032,
-                                ),
-                              ),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left: displayWidth(context) * 0.05),
+                              child: DropdownExample(),
                             ),
                           ),
                         ),
                       ],
+                    ),
+                    Divider(
+                      color: Colors.grey[300],
+                      height: 2,
+                      thickness: 2,
+                      indent: 0,
+                      endIndent: 0,
                     ),
                     Row(
                       children: <Widget>[
@@ -809,10 +944,7 @@ class _PedidoFormPageState
                             child: TextFormField(
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Color(0xFFe9ebea), width: 0),
-                                ),
+                                border: InputBorder.none,
                                 contentPadding: EdgeInsets.only(
                                     left: displayWidth(context) * 0.05),
                                 hintText: ''
