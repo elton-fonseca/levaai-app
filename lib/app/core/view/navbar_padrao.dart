@@ -7,6 +7,7 @@ class NavbarPadrao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.transparent,
       elevation: 0,
       leading: Padding(
         padding: EdgeInsets.only(left: displayWidth(context) * 0.07),
@@ -30,7 +31,6 @@ class NavbarPadrao extends StatelessWidget {
               );
             })),
       ],
-      backgroundColor: CoresConst.azulPadrao,
     );
   }
 }

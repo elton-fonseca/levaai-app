@@ -83,6 +83,8 @@ flutter:
    - assets/creditcard.png
    - assets/box-aberta.png
    - assets/box-fechada.png
+   - assets/delete.png
+
 
 
 vars: 

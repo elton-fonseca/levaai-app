@@ -44,7 +44,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   padding: EdgeInsets.only(top: displayHeight(context) * 0.05),
                   child: Center(
                     child: SizedBox(
-                      width: displayWidth(context)*0.5,
+                      width: displayWidth(context)*0.4,
                       child: Image.asset("assets/logo.png"),
                     ),
                   ),
@@ -54,7 +54,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.white,
-                    fontSize: displayWidth(context) * 0.15,
+                    fontSize: displayWidth(context) * 0.12,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.center,
@@ -64,7 +64,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: displayWidth(context) * 0.04,
+                      fontSize: displayWidth(context) * 0.032,
                       fontWeight: FontWeight.w700),
                   textAlign: TextAlign.center,
                 ),
@@ -141,29 +141,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          SizedBox(
-                            width: displayWidth(context) * 0.05,
-                            child: Checkbox(
-                              value: false,
-                              tristate: false,
-                              onChanged: (bool isChecked) {},
-                            ),
-                          ),
-                          SizedBox(width: displayWidth(context) * 0.02),
-                          Text(
-                            'Mantenha-me conectado',
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: displayWidth(context) * 0.032,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.02),
+                      SizedBox(height: displayHeight(context) * 0.12),
                       Container(
                         width: displayWidth(context) * 0.8,
                         height: displayHeight(context) * 0.07,
@@ -183,7 +161,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "ACESSAR",
+                                  "ENTRAR",
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.bold,
@@ -221,7 +199,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           ),
                         ],
                       ),
-                      SizedBox(height: displayHeight(context) * 0.06),
+                      SizedBox(height: displayHeight(context) * 0.08),
                       Text(
                         "2020 LevaAi - Todos os direitos reservados",
                         style: TextStyle(
