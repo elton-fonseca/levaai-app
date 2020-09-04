@@ -20,7 +20,9 @@ class MenuLateral extends StatelessWidget {
               title: Text("Criar pedido"),
               subtitle: Text("Solicite um novo pedido"),
               trailing: Icon(Icons.arrow_forward),
-              onTap: () {}),
+              onTap: () {
+                Modular.to.pushNamed('/pedido/form');
+              }),
           ListTile(
               leading: Icon(Icons.list),
               title: Text("Listar Pedidos"),

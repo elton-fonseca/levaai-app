@@ -34,7 +34,7 @@ class _PedidoListarPageState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: displayWidth(context)*0.22),
+                padding: EdgeInsets.only(left: displayWidth(context) * 0.22),
                 child: Text(
                   'Meus Pedidos',
                   style: TextStyle(
@@ -48,7 +48,6 @@ class _PedidoListarPageState
             ],
           ),
           conteudo: SizedBox(
-            width: displayWidth(context) * 0.7,
             child: Column(
               children: <Widget>[
                 SizedBox(height: displayHeight(context) * 0.05),
@@ -72,41 +71,107 @@ class _PedidoListarPageState
                         onTap: () {
                           Modular.to.pushNamed('pedido/rastreamento');
                         },
-                        child: Row(
+                        child: Column(
                           children: <Widget>[
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: displayHeight(context) * 0.03,
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.1,
+                                  bottom: displayHeight(context) * 0.01),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(
+                                    children: <Widget>[
+                                      Text(
+                                        "Pedido #23455",
+                                        style: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.bold,
+                                          color: CoresConst.azulPadrao,
+                                          fontSize:
+                                              displayWidth(context) * 0.05,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.02,
+                                        child:
+                                            Image.asset("assets/box-blue.png"),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.05),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "Destino: ",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.bold,
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                        Text(
+                                          "Avenida Paulista, 1234 ",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "São Paulo - SP | CEP: 12345-000",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ],
+                                    ),
+                                  ]),
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.08,
+                                        child:
+                                            Image.asset("assets/pedido-ok.png"),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
                               children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: displayHeight(context) * 0.04,
-                                      left: displayWidth(context) * 0.05),
-                                  child: Text(
-                                    "Pedido #23455",
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.bold,
-                                      color: CoresConst.azulPadrao,
-                                      fontSize: displayWidth(context) * 0.05,
-                                    ),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: displayHeight(context) * 0.01,
-                                      left: displayWidth(context) * 0.05),
-                                  child: Text(
-                                    "Destino: Avenida Paulista, 1234 "
-                                    "\nSão Paulo - SP | CEP: 12345-000",
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[500],
-                                      fontSize: displayWidth(context) * 0.04,
-                                    ),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
                                 Padding(
                                   padding: EdgeInsets.only(
                                       top: displayHeight(context) * 0.01,
@@ -124,27 +189,7 @@ class _PedidoListarPageState
                                   ),
                                 ),
                               ],
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.06),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: displayHeight(context) * 0.03,
-                                    child: Image.asset("assets/box-blue.png"),
-                                  ),
-                                  SizedBox(height: displayHeight(context) * 0.02),
-                                  SizedBox(
-                                    height: displayHeight(context) * 0.06,
-                                    child: Icon(Icons.check_circle,
-                                        size: displayWidth(context) * 0.12,
-                                        color: Color(0xFF98C11C)),
-                                  )
-                                ],
-                              ),
-                            ),
+                            )
                           ],
                         ),
                       ),
@@ -155,80 +200,131 @@ class _PedidoListarPageState
                         indent: 0,
                         endIndent: 0,
                       ),
-                      Row(
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.04,
-                                    left: displayWidth(context) * 0.05),
-                                child: Text(
-                                  "Pedido #23455",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: CoresConst.azulPadrao,
-                                    fontSize: displayWidth(context) * 0.05,
+                      GestureDetector(
+                        onTap: () {
+                          Modular.to.pushNamed('pedido/rastreamento');
+                        },
+                        child: Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: displayHeight(context) * 0.03,
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.1,
+                                  bottom: displayHeight(context) * 0.01),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(
+                                    children: <Widget>[
+                                      Text(
+                                        "Pedido #23455",
+                                        style: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.bold,
+                                          color: CoresConst.azulPadrao,
+                                          fontSize:
+                                              displayWidth(context) * 0.05,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.01,
-                                    left: displayWidth(context) * 0.05),
-                                child: Text(
-                                  "Destino: Avenida Paulista, 1234 "
-                                  "\nSão Paulo - SP | CEP: 12345-000",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.grey[500],
-                                    fontSize: displayWidth(context) * 0.04,
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.02,
+                                        child:
+                                            Image.asset("assets/box-blue.png"),
+                                      ),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.left,
-                                ),
+                                ],
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.01,
-                                    left: displayWidth(context) * 0.05,
-                                    bottom: displayHeight(context) * 0.04),
-                                child: Text(
-                                  "Elton Fonseca",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[500],
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.06),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: displayHeight(context) * 0.03,
-                                  child: Image.asset("assets/box-blue.png"),
-                                ),
-                                SizedBox(height: displayHeight(context) * 0.02),
-                                SizedBox(
-                                  height: displayHeight(context) * 0.06,
-                                  child: Icon(Icons.remove_circle,
-                                      size: displayWidth(context) * 0.12,
-                                      color: Color(0xFFE6B91D)),
-                                )
-                              ],
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.05),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "Destino: ",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.bold,
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                        Text(
+                                          "Avenida Paulista, 1234 ",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "São Paulo - SP | CEP: 12345-000",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ],
+                                    ),
+                                  ]),
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.08,
+                                        child: Image.asset(
+                                            "assets/pedido-aguardando.png"),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      top: displayHeight(context) * 0.01,
+                                      left: displayWidth(context) * 0.05,
+                                      bottom: displayHeight(context) * 0.04),
+                                  child: Text(
+                                    "Elton Fonseca",
+                                    style: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey[500],
+                                      fontSize: displayWidth(context) * 0.04,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                       Divider(
                         color: Colors.grey[300],
@@ -237,101 +333,153 @@ class _PedidoListarPageState
                         indent: 0,
                         endIndent: 0,
                       ),
-                      Row(
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.04,
-                                    left: displayWidth(context) * 0.05),
-                                child: Text(
-                                  "Pedido #23455",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: CoresConst.azulPadrao,
-                                    fontSize: displayWidth(context) * 0.05,
+                      GestureDetector(
+                        onTap: () {
+                          Modular.to.pushNamed('pedido/rastreamento');
+                        },
+                        child: Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: displayHeight(context) * 0.03,
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.1,
+                                  bottom: displayHeight(context) * 0.01),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(
+                                    children: <Widget>[
+                                      Text(
+                                        "Pedido #23455",
+                                        style: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.bold,
+                                          color: CoresConst.azulPadrao,
+                                          fontSize:
+                                              displayWidth(context) * 0.05,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.01,
-                                    left: displayWidth(context) * 0.05),
-                                child: Text(
-                                  "Destino: Avenida Paulista, 1234 "
-                                  "\nSão Paulo - SP | CEP: 12345-000",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.grey[500],
-                                    fontSize: displayWidth(context) * 0.04,
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.02,
+                                        child:
+                                            Image.asset("assets/box-blue.png"),
+                                      ),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.left,
-                                ),
+                                ],
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.01,
-                                    left: displayWidth(context) * 0.05),
-                                child: Text(
-                                  "Elton Fonseca",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[500],
-                                    fontSize: displayWidth(context) * 0.04,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.05),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "Destino: ",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.bold,
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                        Text(
+                                          "Avenida Paulista, 1234 ",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "São Paulo - SP | CEP: 12345-000",
+                                          style: TextStyle(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.grey[500],
+                                            fontSize:
+                                                displayWidth(context) * 0.04,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ],
+                                    ),
+                                  ]),
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.08,
+                                        child: Image.asset(
+                                            "assets/pedido-atencao.png"),
+                                      ),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.left,
-                                ),
+                                ],
                               ),
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.06),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                            ),
+                            Row(
                               children: <Widget>[
-                                SizedBox(
-                                  height: displayHeight(context) * 0.03,
-                                  child: Image.asset("assets/box-blue.png"),
-                                ),
-                                SizedBox(height: displayHeight(context) * 0.02),
-                                SizedBox(
-                                  height: displayHeight(context) * 0.06,
-                                  child: Icon(Icons.cancel,
-                                      size: displayWidth(context) * 0.12,
-                                      color: Color(0xFFC13A1C)),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      top: displayHeight(context) * 0.01,
+                                      left: displayWidth(context) * 0.05,
+                                      ),
+                                  child: Text(
+                                    "Elton Fonseca",
+                                    style: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey[500],
+                                      fontSize: displayWidth(context) * 0.04,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
                                 ),
                               ],
                             ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: displayHeight(context) * 0.01,
-                            left: displayWidth(context) * 0.05,
-                            bottom: displayHeight(context) * 0.04),
-                        child: Row(
+                            Padding(
+                              padding: EdgeInsets.only(
+                                      top: displayHeight(context) * 0.01,
+                                      left: displayWidth(context) * 0.05,
+                                      bottom: displayHeight(context) * 0.04),
+                              child: Row(
                           children: <Widget>[
-                            SizedBox(
-                              child: Icon(Icons.error_outline,
-                                  size: displayWidth(context) * 0.06,
-                                  color: Color(0xFFC13A1C)),
-                            ),
-                            Text(
-                              " Sua entrega precisa de atenção.",
-                              style: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFFC13A1C),
-                                fontSize: displayWidth(context) * 0.04,
+                              SizedBox(
+                                child: Icon(Icons.error_outline,
+                                    size: displayWidth(context) * 0.06,
+                                    color: Color(0xFFC13A1C)),
                               ),
-                              textAlign: TextAlign.left,
+                              Text(
+                                " Sua entrega precisa de atenção.",
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFFC13A1C),
+                                  fontSize: displayWidth(context) * 0.04,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                          ],
+                        ),
                             ),
                           ],
                         ),

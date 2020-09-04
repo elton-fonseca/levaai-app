@@ -63,8 +63,8 @@ class _PedidoDetalhesPageState
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      height: displayHeight(context) * 0.24,
-                      width: displayHeight(context) * 0.24,
+                      height: displayHeight(context) * 0.22,
+                      width: displayWidth(context) * 0.4,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius:
@@ -185,8 +185,8 @@ class _PedidoDetalhesPageState
                     ),
                     SizedBox(width: displayWidth(context)*0.03,),
                     Container(
-                      height: displayHeight(context) * 0.24,
-                      width: displayHeight(context) * 0.24,
+                      height: displayHeight(context) * 0.22,
+                      width: displayWidth(context) * 0.4,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius:
@@ -314,8 +314,8 @@ class _PedidoDetalhesPageState
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      height: displayHeight(context) * 0.24,
-                      width: displayHeight(context) * 0.24,
+                      height: displayHeight(context) * 0.22,
+                      width: displayWidth(context) * 0.4,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius:
@@ -436,8 +436,8 @@ class _PedidoDetalhesPageState
                     ),
                     SizedBox(width: displayWidth(context)*0.03,),
                     Container(
-                      height: displayHeight(context) * 0.24,
-                      width: displayHeight(context) * 0.24,
+                      height: displayHeight(context) * 0.22,
+                      width: displayWidth(context) * 0.4,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius:

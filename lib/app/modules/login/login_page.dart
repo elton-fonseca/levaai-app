@@ -28,13 +28,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: displayHeight(context) * 0.1),
+                  padding: EdgeInsets.only(top: displayHeight(context) * 0.12),
                   child: Text(
                     'Acesse sua conta',
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: displayWidth(context) * 0.06,
+                      fontSize: displayHeight(context) * 0.027,
                       fontWeight: FontWeight.w900,
                     ),
                     textAlign: TextAlign.center,
@@ -44,7 +44,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   padding: EdgeInsets.only(top: displayHeight(context) * 0.05),
                   child: Center(
                     child: SizedBox(
-                      width: displayWidth(context)*0.4,
+                      width: displayHeight(context)*0.19,
                       child: Image.asset("assets/logo.png"),
                     ),
                   ),
@@ -54,7 +54,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.white,
-                    fontSize: displayWidth(context) * 0.12,
+                    fontSize: displayHeight(context) * 0.058,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.center,
@@ -64,7 +64,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: displayWidth(context) * 0.032,
+                      fontSize: displayHeight(context) * 0.015,
                       fontWeight: FontWeight.w700),
                   textAlign: TextAlign.center,
                 ),
@@ -199,7 +199,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           ),
                         ],
                       ),
-                      SizedBox(height: displayHeight(context) * 0.08),
+                      SizedBox(height: displayHeight(context) * 0.12),
                       Text(
                         "2020 LevaAi - Todos os direitos reservados",
                         style: TextStyle(

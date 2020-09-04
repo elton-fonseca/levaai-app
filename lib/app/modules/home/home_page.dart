@@ -42,7 +42,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 padding: EdgeInsets.only(top: displayHeight(context) * 0.3),
                 child: Center(
                   child: SizedBox(
-                      width: displayWidth(context)*0.5,
+                      height: displayHeight(context)*0.1,
                       child: Image.asset("assets/logo.png"),
                   ),
                 ),
@@ -52,7 +52,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.white,
-                  fontSize: displayWidth(context) * 0.15,
+                  fontSize: displayHeight(context)*0.065,
                   fontStyle: FontStyle.italic,
                 ),
                 textAlign: TextAlign.center,
@@ -62,12 +62,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.white,
-                    fontSize: displayWidth(context) * 0.04,
+                    fontSize: displayHeight(context)*0.017,
                     fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: displayHeight(context) * 0.14,
+                height: displayHeight(context) * 0.24,
               ),
               SizedBox(
                 width: 130,
@@ -76,7 +76,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: displayWidth(context) * 0.031,
+                      fontSize: displayHeight(context)*0.015,
                       fontWeight: FontWeight.w700),
                   textAlign: TextAlign.center,
                 ),
@@ -159,7 +159,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             size: 30,
                           ),
                           onPressed: () {
-                            Modular.to.pushNamed('/pedido/rastreamento');
                           },
                         ),
                       ),

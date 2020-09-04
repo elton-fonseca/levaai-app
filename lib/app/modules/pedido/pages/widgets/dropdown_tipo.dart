@@ -20,7 +20,7 @@ class _DropdownTipoState extends State<DropdownTipo> {
           items: [
             DropdownMenuItem<String>(
               child: Text(
-                'Coleta',
+                'Eletronico',
                 style: TextStyle(
               fontFamily: 'Roboto',
               color: Colors.grey[600],
@@ -32,7 +32,7 @@ class _DropdownTipoState extends State<DropdownTipo> {
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'Entrega',
+                'Roupa',
                 style: TextStyle(
               fontFamily: 'Roboto',
               color: Colors.grey[600],
@@ -42,6 +42,18 @@ class _DropdownTipoState extends State<DropdownTipo> {
               ),
               value: 'two',
             ),
+                        DropdownMenuItem<String>(
+              child: Text(
+                'Livro',
+                style: TextStyle(
+              fontFamily: 'Roboto',
+              color: Colors.grey[600],
+              fontWeight: FontWeight.bold,
+              fontSize: displayWidth(context) * 0.032,
+            ),
+              ),
+              value: 'three',
+            ),
           ],
           onChanged: (String value) {
             setState(() {
@@ -49,7 +61,7 @@ class _DropdownTipoState extends State<DropdownTipo> {
             });
           },
           hint: Text(
-            'Tipo de serviço',
+            'Tipo de item',
             style: TextStyle(
               fontFamily: 'Roboto',
               color: Colors.grey[600],

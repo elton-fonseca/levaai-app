@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'pagamento_dropdown.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/conteudo_padrao.dart';
 import '../../core/view/menu_lateral.dart';
@@ -61,7 +62,7 @@ class _PagamentoPageState
                       bottom: displayHeight(context) * 0.03,
                       top: displayHeight(context) * 0.04),
                   child: SizedBox(
-                    height: displayHeight(context) * 0.08,
+                    height: displayHeight(context) * 0.06,
                     width: displayWidth(context) * 0.8,
                     child: Text(
                       'Preencha abaixo os \ndados para pagamento:',
@@ -100,36 +101,7 @@ class _PagamentoPageState
                           children: <Widget>[
                             Expanded(
                               child: SizedBox(
-                                child: TextFormField(
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.black,
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                    suffixIcon: Icon(
-                                      Icons.arrow_drop_down_circle,
-                                      color: CoresConst.azulPadrao,
-                                      size: displayWidth(context) * 0.08,
-                                    ),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(1),
-                                      borderSide: BorderSide(
-                                        color: Colors.grey[700],
-                                        width: 4,
-                                      ),
-                                    ),
-                                    contentPadding: EdgeInsets.only(left: 20),
-                                    hintText: 'Tipo de pagamento',
-                                    hintStyle: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[400],
-                                      fontSize: displayWidth(context) * 0.04,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
+                                child: DropdownPagamento(),
                               ),
                             ),
                           ],

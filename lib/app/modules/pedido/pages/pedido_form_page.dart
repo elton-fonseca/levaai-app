@@ -492,39 +492,42 @@ class _PedidoFormPageState
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  SizedBox(
-                    width: displayHeight(context) * 0.185,
-                    child: Container(
-                      child: Row(children: <Widget>[
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_circle,
-                            color: Colors.grey,
-                            size: displayWidth(context) * 0.07,
+                  Padding(
+                    padding: EdgeInsets.only(left: displayWidth(context)*0.033),
+                    child: SizedBox(
+                      width: displayHeight(context) * 0.185,
+                      child: Container(
+                        child: Row(children: <Widget>[
+                          IconButton(
+                            icon: Icon(
+                              Icons.remove_circle,
+                              color: Colors.grey,
+                              size: displayWidth(context) * 0.07,
+                            ),
+                            onPressed: () {},
                           ),
-                          onPressed: () {},
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: displayWidth(context) * 0.01),
-                          child: Text(
-                            '0',
-                            style: TextStyle(
-                              color: CoresConst.azulPadrao,
-                              fontSize: displayWidth(context) * 0.07,
-                              fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: displayWidth(context) * 0.01),
+                            child: Text(
+                              '0',
+                              style: TextStyle(
+                                color: CoresConst.azulPadrao,
+                                fontSize: displayWidth(context) * 0.07,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.add_circle,
-                            color: Colors.grey,
-                            size: displayWidth(context) * 0.07,
+                          IconButton(
+                            icon: Icon(
+                              Icons.add_circle,
+                              color: Colors.grey,
+                              size: displayWidth(context) * 0.07,
+                            ),
+                            onPressed: () {},
                           ),
-                          onPressed: () {},
-                        ),
-                      ]),
+                        ]),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -659,76 +662,79 @@ class _PedidoFormPageState
                 ],
               ),
               SizedBox(height: displayHeight(context) * 0.02),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    width: displayHeight(context) * 0.185,
-                    child: Row(children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.remove_circle,
-                          color: Colors.grey,
-                          size: displayWidth(context) * 0.07,
+              Padding(
+                padding: EdgeInsets.only(left: displayWidth(context)*0.030),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                      width: displayHeight(context) * 0.185,
+                      child: Row(children: <Widget>[
+                        IconButton(
+                          icon: Icon(
+                            Icons.remove_circle,
+                            color: Colors.grey,
+                            size: displayWidth(context) * 0.07,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.only(left: displayWidth(context) * 0.01),
-                        child: Text(
-                          '1',
-                          style: TextStyle(
-                            color: CoresConst.azulPadrao,
-                            fontSize: displayWidth(context) * 0.07,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: displayWidth(context) * 0.01),
+                          child: Text(
+                            '1',
+                            style: TextStyle(
+                              color: CoresConst.azulPadrao,
+                              fontSize: displayWidth(context) * 0.07,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.add_circle,
-                          color: Colors.grey,
-                          size: displayWidth(context) * 0.07,
+                        IconButton(
+                          icon: Icon(
+                            Icons.add_circle,
+                            color: Colors.grey,
+                            size: displayWidth(context) * 0.07,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                    ]),
-                  ),
-                  Container(
-                    width: displayHeight(context) * 0.185,
-                    child: Row(children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.remove_circle,
-                          color: Colors.grey,
-                          size: displayWidth(context) * 0.07,
+                      ]),
+                    ),
+                    Container(
+                      width: displayHeight(context) * 0.185,
+                      child: Row(children: <Widget>[
+                        IconButton(
+                          icon: Icon(
+                            Icons.remove_circle,
+                            color: Colors.grey,
+                            size: displayWidth(context) * 0.07,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.only(left: displayWidth(context) * 0.01),
-                        child: Text(
-                          '0',
-                          style: TextStyle(
-                            color: CoresConst.azulPadrao,
-                            fontSize: displayWidth(context) * 0.07,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: displayWidth(context) * 0.01),
+                          child: Text(
+                            '0',
+                            style: TextStyle(
+                              color: CoresConst.azulPadrao,
+                              fontSize: displayWidth(context) * 0.07,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.add_circle,
-                          color: Colors.grey,
-                          size: displayWidth(context) * 0.07,
+                        IconButton(
+                          icon: Icon(
+                            Icons.add_circle,
+                            color: Colors.grey,
+                            size: displayWidth(context) * 0.07,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                    ]),
-                  ),
-                ],
+                      ]),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: displayHeight(context) * 0.08),
               Container(

@@ -79,11 +79,15 @@ flutter:
    - assets/box.png
    - assets/logo.png
    - assets/origem-destino.png
+   - assets/origem-destino-verde.png
    - assets/tamanho-relativo.png
    - assets/creditcard.png
    - assets/box-aberta.png
    - assets/box-fechada.png
    - assets/delete.png
+   - assets/pedido-ok.png
+   - assets/pedido-aguardando.png
+   - assets/pedido-atencao.png
 
 
 

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../tema/cores_const.dart';
-
 import 'tamanhos_relativos.dart';
 
 class NavbarPadrao extends StatelessWidget {
