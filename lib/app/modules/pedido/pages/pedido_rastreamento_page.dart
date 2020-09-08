@@ -54,7 +54,7 @@ class _PedidoRastreamentoPageState
               children: <Widget>[
                 SizedBox(height: displayHeight(context) * 0.05),
                 Container(
-                  width: displayWidth(context) * 0.90,
+                  width: displayWidth(context) * 0.95,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -76,8 +76,8 @@ class _PedidoRastreamentoPageState
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.08,
-                                  right: displayWidth(context) * 0.08,
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.05,
                                 ),
                                 child: Column(children: <Widget>[
                                   SizedBox(
@@ -177,7 +177,7 @@ class _PedidoRastreamentoPageState
                         ],
                       ),
                       SizedBox(
-                        width: displayWidth(context) * 0.75,
+                        width: displayWidth(context) * 0.8,
                         child: Divider(
                           color: Colors.grey[300],
                           height: displayHeight(context) * 0.05,
@@ -192,8 +192,8 @@ class _PedidoRastreamentoPageState
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.057,
-                                  right: displayWidth(context) * 0.052,
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.05,
                                 ),
                                 child: SizedBox(
                                   height: displayHeight(context) * 0.04,
@@ -235,8 +235,8 @@ class _PedidoRastreamentoPageState
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.057,
-                                  right: displayWidth(context) * 0.052,
+                                  left: displayWidth(context) * 0.05,
+                                  right: displayWidth(context) * 0.05,
                                 ),
                                 child: SizedBox(
                                   height: displayHeight(context) * 0.04,
@@ -275,7 +275,7 @@ class _PedidoRastreamentoPageState
                 ),
                 SizedBox(height: displayHeight(context) * 0.05),
                 Container(
-                  width: displayWidth(context) * 0.90,
+                  width: displayWidth(context) * 0.95,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -293,8 +293,8 @@ class _PedidoRastreamentoPageState
                       Padding(
                         padding: EdgeInsets.only(
                           top: displayHeight(context) * 0.05,
-                          left: displayWidth(context) * 0.08,
-                          right: displayWidth(context) * 0.05,
+                          left: displayWidth(context) * 0.05,
+                          right: displayWidth(context) * 0.09,
                           bottom: displayHeight(context) * 0.05,
                         ),
                         child: Row(
@@ -312,7 +312,7 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                  right: displayWidth(context) * 0.055),
+                                  right: displayWidth(context) * 0.0),
                               child: SizedBox(
                                 height: displayHeight(context) * 0.02,
                                 child: Image.asset("assets/box-blue.png"),
@@ -325,7 +325,7 @@ class _PedidoRastreamentoPageState
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.08,
+                                left: displayWidth(context) * 0.039,
                                 bottom: displayHeight(context) * 0.055),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -399,7 +399,7 @@ class _PedidoRastreamentoPageState
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.08,
+                                left: displayWidth(context) * 0.039,
                                 bottom: displayHeight(context) * 0.055),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -473,7 +473,7 @@ class _PedidoRastreamentoPageState
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.08,
+                                left: displayWidth(context) * 0.039,
                                 bottom: displayHeight(context) * 0.055),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -547,7 +547,7 @@ class _PedidoRastreamentoPageState
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.08,
+                                left: displayWidth(context) * 0.039,
                                 bottom: displayHeight(context) * 0.055),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -610,15 +610,14 @@ class _PedidoRastreamentoPageState
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1),
-                            child: Column(
-                              children: <Widget>[
-                                SizedBox(
-                                        height: displayHeight(context) * 0.08,
-                                        child:
-                                            Image.asset("assets/pedido-ok.png"),
-                                      ),
-                              ],
+                                left: displayWidth(context) * 0.20),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                                                          child: Column(
+                                children: <Widget>[
+                                  Image.asset("assets/pedido-ok.png", width: displayHeight(context)*0.08),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -631,7 +630,7 @@ class _PedidoRastreamentoPageState
                         endIndent: 0,
                       ),
                       Container(
-                        width: displayWidth(context) * 0.9,
+                        width: displayWidth(context) * 0.95,
                         decoration: BoxDecoration(
                           color: Color(0xFFF8F8F8),
                           borderRadius: BorderRadius.only(
@@ -674,8 +673,8 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1,
-                                right: displayWidth(context) * 0.1,
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.05,
                               ),
                               child: Row(
                                 mainAxisAlignment:
@@ -704,8 +703,8 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1,
-                                right: displayWidth(context) * 0.1,
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.05,
                                 bottom: displayWidth(context) * 0.05,
                               ),
                               child: Row(
@@ -724,7 +723,7 @@ class _PedidoRastreamentoPageState
                               ),
                             ),
                             SizedBox(
-                              width: displayWidth(context) * 0.75,
+                              width: displayWidth(context) * 0.85,
                               child: Divider(
                                 color: Colors.grey[300],
                                 height: 2,
@@ -735,8 +734,8 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1,
-                                right: displayWidth(context) * 0.1,
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.05,
                                 top: displayWidth(context) * 0.05,
                               ),
                               child: Row(
@@ -766,8 +765,8 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1,
-                                right: displayWidth(context) * 0.1,
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.05,
                                 bottom: displayWidth(context) * 0.05,
                               ),
                               child: Row(
@@ -786,7 +785,7 @@ class _PedidoRastreamentoPageState
                               ),
                             ),
                             SizedBox(
-                              width: displayWidth(context) * 0.75,
+                              width: displayWidth(context) * 0.85,
                               child: Divider(
                                 color: Colors.grey[300],
                                 height: 2,
@@ -797,8 +796,8 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1,
-                                right: displayWidth(context) * 0.1,
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.05,
                                 top: displayWidth(context) * 0.05,
                               ),
                               child: Row(
@@ -828,8 +827,8 @@ class _PedidoRastreamentoPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.1,
-                                right: displayWidth(context) * 0.1,
+                                left: displayWidth(context) * 0.05,
+                                right: displayWidth(context) * 0.05,
                                 bottom: displayWidth(context) * 0.05,
                               ),
                               child: Row(

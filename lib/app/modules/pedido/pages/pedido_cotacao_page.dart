@@ -60,7 +60,7 @@ class _PedidoCotacaoPageState
                   height: displayHeight(context) * 0.05,
                 ),
                 Container(
-                  width: displayWidth(context) * 0.85,
+                  width: displayWidth(context) * 0.95,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -84,8 +84,8 @@ class _PedidoCotacaoPageState
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.05,
-                                  right: displayWidth(context) * 0.02,
+                                  left: displayWidth(context) * 0.025,
+                                  right: displayWidth(context) * 0.025,
                                 ),
                                 child: SizedBox(
                                   width: displayWidth(context) * 0.1,
@@ -102,7 +102,7 @@ class _PedidoCotacaoPageState
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                   fontWeight: FontWeight.w500,
                                 ),
                                 textAlign: TextAlign.left,
@@ -113,7 +113,7 @@ class _PedidoCotacaoPageState
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                   fontWeight: FontWeight.w900,
                                 ),
                               ),
@@ -130,8 +130,8 @@ class _PedidoCotacaoPageState
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.05,
-                                  right: displayWidth(context) * 0.02,
+                                  left: displayWidth(context) * 0.025,
+                                  right: displayWidth(context) * 0.025,
                                 ),
                                 child: SizedBox(
                                   width: displayWidth(context) * 0.1,
@@ -147,7 +147,7 @@ class _PedidoCotacaoPageState
                                 'DATA DE ENTREGA',
                                 style: TextStyle(
                                   color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                   fontWeight: FontWeight.w500,
                                 ),
                                 textAlign: TextAlign.left,
@@ -158,7 +158,7 @@ class _PedidoCotacaoPageState
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                   fontWeight: FontWeight.w900,
                                 ),
                               ),
@@ -180,8 +180,8 @@ class _PedidoCotacaoPageState
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.15,
-                              left: displayWidth(context) * 0.05),
+                              right: displayWidth(context) * 0.115,
+                              left: displayWidth(context) * 0.025),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
@@ -214,8 +214,8 @@ class _PedidoCotacaoPageState
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.06,
-                              left: displayWidth(context) * 0.05),
+                              right: displayWidth(context) * 0.025,
+                              left: displayWidth(context) * 0.025),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
@@ -273,7 +273,7 @@ class _PedidoCotacaoPageState
                         color: Colors.white,
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.05),
+                              right: displayWidth(context) * 0.025),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
@@ -297,8 +297,8 @@ class _PedidoCotacaoPageState
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.15,
-                              left: displayWidth(context) * 0.05),
+                              right: displayWidth(context) * 0.115,
+                              left: displayWidth(context) * 0.025),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
@@ -331,8 +331,8 @@ class _PedidoCotacaoPageState
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.06,
-                              left: displayWidth(context) * 0.05),
+                              right: displayWidth(context) * 0.025,
+                              left: displayWidth(context) * 0.025),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
@@ -390,7 +390,7 @@ class _PedidoCotacaoPageState
                         color: Colors.white,
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.05),
+                              right: displayWidth(context) * 0.025),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
@@ -411,7 +411,7 @@ class _PedidoCotacaoPageState
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.09),
+                                left: displayWidth(context) * 0.09, bottom: displayHeight(context) * 0.005),
                             child: Text(
                               'Observações:',
                               style: TextStyle(
@@ -425,7 +425,7 @@ class _PedidoCotacaoPageState
                       ),
                       Container(
                         height: displayHeight(context) * 0.2,
-                        width: displayWidth(context) * 0.7,
+                        width: displayWidth(context) * 0.90,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(18.0),
