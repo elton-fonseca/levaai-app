@@ -277,13 +277,13 @@ class _PagamentoPageState
                           height: displayHeight(context) * 0.07,
                           alignment: Alignment.centerLeft,
                           decoration: BoxDecoration(
-                              color: CoresConst.verdepadrao,
+                              color: CoresConst.azulPadrao,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(30),
                               ),
                               border: Border.all(
                                 width: 3,
-                                color: CoresConst.verdepadrao,
+                                color: CoresConst.azulPadrao,
                               )),
                           child: SizedBox.expand(
                             child: FlatButton(

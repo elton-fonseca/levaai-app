@@ -23,8 +23,8 @@ class _PedidoDetalhesPageState
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-            gradient:
-                LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+          gradient:
+              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: Scaffold(
         appBar: NavbarPadrao().build(context),
         drawer: MenuLateral(),
@@ -183,7 +183,9 @@ class _PedidoDetalhesPageState
                         ],
                       ),
                     ),
-                    SizedBox(width: displayWidth(context)*0.03,),
+                    SizedBox(
+                      width: displayWidth(context) * 0.03,
+                    ),
                     Container(
                       height: displayHeight(context) * 0.22,
                       width: displayWidth(context) * 0.4,
@@ -434,7 +436,9 @@ class _PedidoDetalhesPageState
                         ],
                       ),
                     ),
-                    SizedBox(width: displayWidth(context)*0.03,),
+                    SizedBox(
+                      width: displayWidth(context) * 0.03,
+                    ),
                     Container(
                       height: displayHeight(context) * 0.22,
                       width: displayWidth(context) * 0.4,
@@ -567,13 +571,13 @@ class _PedidoDetalhesPageState
                       height: displayHeight(context) * 0.07,
                       alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
-                          color: CoresConst.verdepadrao,
+                          color: CoresConst.azulPadrao,
                           borderRadius: BorderRadius.all(
                             Radius.circular(30),
                           ),
                           border: Border.all(
                             width: 3,
-                            color: CoresConst.verdepadrao,
+                            color: CoresConst.azulPadrao,
                           )),
                       child: SizedBox.expand(
                         child: FlatButton(

@@ -493,7 +493,8 @@ class _PedidoFormPageState
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(left: displayWidth(context)*0.033),
+                    padding:
+                        EdgeInsets.only(left: displayWidth(context) * 0.033),
                     child: SizedBox(
                       width: displayHeight(context) * 0.185,
                       child: Container(
@@ -663,7 +664,7 @@ class _PedidoFormPageState
               ),
               SizedBox(height: displayHeight(context) * 0.02),
               Padding(
-                padding: EdgeInsets.only(left: displayWidth(context)*0.030),
+                padding: EdgeInsets.only(left: displayWidth(context) * 0.030),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -679,8 +680,8 @@ class _PedidoFormPageState
                           onPressed: () {},
                         ),
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: displayWidth(context) * 0.01),
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.01),
                           child: Text(
                             '1',
                             style: TextStyle(
@@ -712,8 +713,8 @@ class _PedidoFormPageState
                           onPressed: () {},
                         ),
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: displayWidth(context) * 0.01),
+                          padding: EdgeInsets.only(
+                              left: displayWidth(context) * 0.01),
                           child: Text(
                             '0',
                             style: TextStyle(
@@ -916,13 +917,13 @@ class _PedidoFormPageState
                 height: displayHeight(context) * 0.07,
                 alignment: Alignment.centerLeft,
                 decoration: BoxDecoration(
-                    color: CoresConst.verdepadrao,
+                    color: CoresConst.azulPadrao,
                     borderRadius: BorderRadius.all(
                       Radius.circular(30),
                     ),
                     border: Border.all(
                       width: 3,
-                      color: CoresConst.verdepadrao,
+                      color: CoresConst.azulPadrao,
                     )),
                 child: SizedBox.expand(
                   child: FlatButton(
