@@ -13,8 +13,8 @@ class PagamentoModule extends ChildModule {
       ];
 
   @override
-  List<Router> get routers => [
-        Router('/pagamento', child: (_, args) => PagamentoPage()),
+  List<ModularRouter> get routers => [
+        ModularRouter('/pagamento', child: (_, args) => PagamentoPage()),
       ];
 
   static Inject get to => Inject<PagamentoModule>.of();

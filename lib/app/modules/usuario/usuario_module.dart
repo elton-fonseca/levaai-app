@@ -14,8 +14,8 @@ class UsuarioModule extends ChildModule {
       ];
 
   @override
-  List<Router> get routers => [
-        Router('/usuario/cadastro', child: (_, args) => CadastroPage()),
+  List<ModularRouter> get routers => [
+        ModularRouter('/usuario/cadastro', child: (_, args) => CadastroPage()),
       ];
 
   static Inject get to => Inject<UsuarioModule>.of();

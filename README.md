@@ -1,16 +1,13 @@
 # levaai1
 
-A new Flutter project.
+processo para update do flutter
 
-## Getting Started
+flutter pub upgrade --force
 
-This project is a starting point for a Flutter application.
+Depois baixei a versão nova do dart https://dart.dev/tools/sdk/archive  e troquei onde o path apontava
 
-A few resources to get you started if this is your first Flutter project:
+Ai tive que subir na variável path o dart para o slidy funcionar
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+então limpei tudo no projeto com comando:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+slidy run mobx_build

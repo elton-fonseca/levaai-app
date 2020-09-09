@@ -7,7 +7,6 @@ import 'pages/pedido_form_page.dart';
 import 'pages/pedido_listar_page.dart';
 import 'pages/pedido_rastreamento_page.dart';
 
-
 import 'repositories/interfaces/pedido_repository_interface.dart';
 import 'repositories/pedido_repository.dart';
 
@@ -19,12 +18,14 @@ class PedidoModule extends ChildModule {
       ];
 
   @override
-  List<Router> get routers => [
-        Router('/pedido/form', child: (_, args) => PedidoFormPage()),
-        Router('/pedido/cotacao', child: (_, args) => PedidoCotacaoPage()),
-        Router('/pedido/listar', child: (_, args) => PedidoListarPage()),
-        Router('/pedido/destalhes', child: (_, args) => PedidoDetalhesPage()),
-        Router('/pedido/rastreamento',
+  List<ModularRouter> get routers => [
+        ModularRouter('/pedido/form', child: (_, args) => PedidoFormPage()),
+        ModularRouter('/pedido/cotacao',
+            child: (_, args) => PedidoCotacaoPage()),
+        ModularRouter('/pedido/listar', child: (_, args) => PedidoListarPage()),
+        ModularRouter('/pedido/destalhes',
+            child: (_, args) => PedidoDetalhesPage()),
+        ModularRouter('/pedido/rastreamento',
             child: (_, args) => PedidoRastreamentoPage()),
       ];
 
