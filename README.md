@@ -15,3 +15,8 @@ slidy run mobx_build
 para pegar novo pacote basta executar:
 
 flutter pub get
+
+
+//ubuntu
+
+sudo chown elton /dev/kvm

@@ -56,7 +56,7 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: assets/fonts/Roboto-black.ttf
+        - asset: assets/fonts/Roboto-Black.ttf
         - asset: assets/fonts/Roboto-BlackItalic.ttf
         - asset: assets/fonts/Roboto-Bold.ttf
         - asset: assets/fonts/Roboto-BoldItalic.ttf
