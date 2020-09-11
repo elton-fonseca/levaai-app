@@ -11,3 +11,12 @@ Ai tive que subir na variável path o dart para o slidy funcionar
 então limpei tudo no projeto com comando:
 
 slidy run mobx_build
+
+para pegar novo pacote basta executar:
+
+flutter pub get
+
+
+//ubuntu
+
+sudo chown elton /dev/kvm
