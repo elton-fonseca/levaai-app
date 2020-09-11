@@ -75,7 +75,7 @@ class _PagamentoPageState
                   ),
                 ),
                 Container(
-                  width: displayWidth(context) * 0.90,
+                  width: displayWidth(context) * 0.95,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -94,8 +94,8 @@ class _PagamentoPageState
                       Padding(
                         padding: EdgeInsets.only(
                           top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.05,
-                          right: displayWidth(context) * 0.05,
+                          left: displayWidth(context) * 0.025,
+                          right: displayWidth(context) * 0.025,
                         ),
                         child: Row(
                           children: <Widget>[
@@ -110,8 +110,8 @@ class _PagamentoPageState
                       Padding(
                         padding: EdgeInsets.only(
                           top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.05,
-                          right: displayWidth(context) * 0.05,
+                          left: displayWidth(context) * 0.025,
+                          right: displayWidth(context) * 0.025,
                         ),
                         child: Row(
                           children: <Widget>[
@@ -150,8 +150,8 @@ class _PagamentoPageState
                       Padding(
                         padding: EdgeInsets.only(
                           top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.05,
-                          right: displayWidth(context) * 0.05,
+                          left: displayWidth(context) * 0.025,
+                          right: displayWidth(context) * 0.025,
                         ),
                         child: Row(
                           children: <Widget>[
@@ -195,8 +195,8 @@ class _PagamentoPageState
                       Padding(
                         padding: EdgeInsets.only(
                           top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.05,
-                          right: displayWidth(context) * 0.05,
+                          left: displayWidth(context) * 0.025,
+                          right: displayWidth(context) * 0.025,
                         ),
                         child: Row(
                           children: <Widget>[

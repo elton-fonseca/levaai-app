@@ -310,7 +310,7 @@ class _PedidoFormPageState
             conteudo: Column(children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                    left: displayWidth(context) * 0.07,
+                    left: displayWidth(context) * 0.04,
                     top: displayHeight(context) * 0.02),
                 child: Row(children: <Widget>[
                   Column(
@@ -329,7 +329,7 @@ class _PedidoFormPageState
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          width: displayWidth(context) * 0.76,
+                          width: displayWidth(context) * 0.85,
                           height: displayHeight(context) * 0.1,
                           child: TextFormField(
                             style: TextStyle(
@@ -355,7 +355,7 @@ class _PedidoFormPageState
                           ),
                         ),
                         SizedBox(
-                          width: displayWidth(context) * 0.76,
+                          width: displayWidth(context) * 0.85,
                           height: displayHeight(context) * 0.1,
                           child: TextFormField(
                             style: TextStyle(
@@ -777,7 +777,7 @@ class _PedidoFormPageState
               SizedBox(height: displayHeight(context) * 0.08),
               Container(
                 height: displayHeight(context) * 0.25,
-                width: displayWidth(context) * 0.85,
+                width: displayWidth(context) * 0.95,
                 decoration: BoxDecoration(
                   color: Color(0xfff7f9f8),
                   borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -795,8 +795,8 @@ class _PedidoFormPageState
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                            left: displayWidth(context) * 0.05),
+                            right: displayWidth(context) * 0.025,
+                            left: displayWidth(context) * 0.025),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -850,8 +850,8 @@ class _PedidoFormPageState
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                            left: displayWidth(context) * 0.05),
+                            right: displayWidth(context) * 0.025,
+                            left: displayWidth(context) * 0.025),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -884,8 +884,8 @@ class _PedidoFormPageState
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                            left: displayWidth(context) * 0.05),
+                            right: displayWidth(context) * 0.025,
+                            left: displayWidth(context) * 0.025),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
