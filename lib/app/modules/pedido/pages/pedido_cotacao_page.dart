@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../../core/tema/cores_const.dart';
+import '../../../core/view/botao_azul.dart';
+import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
@@ -462,79 +465,20 @@ class _PedidoCotacaoPageState
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Container(
-                      width: displayWidth(context) * 0.4,
-                      height: displayHeight(context) * 0.07,
-                      alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(30),
-                        ),
-                        border: Border.all(
-                          width: 3,
-                          color: CoresConst.azulPadrao,
-                        ),
-                      ),
-                      child: SizedBox.expand(
-                        child: FlatButton(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Editar",
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  color: CoresConst.azulPadrao,
-                                  fontSize: displayWidth(context) * 0.04,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          onPressed: () {
-                            Modular.to.pushNamed('/pedido/form');
-                          },
-                        ),
-                      ),
+                    BotaoBranco(
+                      texto: "Editar",
+                      largura: 0.4,
+                      onClick: () {
+                        Modular.to.pushNamed('/pedido/form');
+                      },
                     ),
-                    Container(
-                      width: displayWidth(context) * 0.4,
-                      height: displayHeight(context) * 0.07,
-                      alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(
-                          color: CoresConst.azulPadrao,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(30),
-                          ),
-                          border: Border.all(
-                            width: 3,
-                            color: CoresConst.azulPadrao,
-                          )),
-                      child: SizedBox.expand(
-                        child: FlatButton(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Confirmar",
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: displayWidth(context) * 0.04,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                          onPressed: () {
-                            Modular.to.pushNamed('/pedido/destalhes');
-                          },
-                        ),
-                      ),
-                    ),
+                    BotaoAzul(
+                      texto: "Editar",
+                      largura: 0.4,
+                      onClick: () {
+                        Modular.to.pushNamed('/pedido/destalhes');
+                      },
+                    )
                   ],
                 ),
                 SizedBox(height: displayHeight(context) * 0.08),

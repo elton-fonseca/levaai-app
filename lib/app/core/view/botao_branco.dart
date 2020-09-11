@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../tema/cores_const.dart';
 import 'tamanhos_relativos.dart';
 
-class BotaoAzul extends StatelessWidget {
-  const BotaoAzul({this.texto, this.onClick, this.largura = 0.7});
+class BotaoBranco extends StatelessWidget {
+  const BotaoBranco({this.texto, this.onClick, this.largura = 0.7});
 
   final String texto;
 
@@ -18,14 +18,15 @@ class BotaoAzul extends StatelessWidget {
       height: displayHeight(context) * 0.07,
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(30),
+        ),
+        border: Border.all(
+          width: 3,
           color: CoresConst.azulPadrao,
-          borderRadius: BorderRadius.all(
-            Radius.circular(30),
-          ),
-          border: Border.all(
-            width: 3,
-            color: CoresConst.azulPadrao,
-          )),
+        ),
+      ),
       child: SizedBox.expand(
         child: FlatButton(
           child: Row(
@@ -36,7 +37,7 @@ class BotaoAzul extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: CoresConst.azulPadrao,
                   fontSize: displayWidth(context) * 0.04,
                 ),
                 textAlign: TextAlign.center,

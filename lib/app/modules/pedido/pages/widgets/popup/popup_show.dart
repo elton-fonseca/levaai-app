@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../widgets/popup_medida_exata.dart';
+
+
+import 'popup_corpo.dart';
+import 'popup_medida_exata.dart';
 
 class PopupShow extends StatefulWidget {
   final Widget content;
@@ -13,8 +16,7 @@ class PopupShow extends StatefulWidget {
   _PopupShowState createState() => _PopupShowState();
 
   // ignore: type_annotate_public_apis
-  showPopup(BuildContext context, Widget widget, String title,
-      {BuildContext popupContext}) {
+  showPopup(BuildContext context, String title, {BuildContext popupContext}) {
     Navigator.push(
       context,
       PopupMedidaExata(
@@ -24,10 +26,10 @@ class PopupShow extends StatefulWidget {
         bottom: 0,
         child: PopupShow(
           content: Scaffold(
+            backgroundColor: Color(0xFF326699).withOpacity(0.9),
+            appBar: AppBar(
               backgroundColor: Color(0xFF326699).withOpacity(0.9),
-              appBar: AppBar(
-                backgroundColor: Color(0xFF326699).withOpacity(0.9),
-                elevation: 0,
+              elevation: 0,
               title: Text(''),
               leading: Builder(builder: (context) {
                 return IconButton(
@@ -42,14 +44,12 @@ class PopupShow extends StatefulWidget {
               brightness: Brightness.light,
             ),
             resizeToAvoidBottomPadding: false,
-            body: widget,
+            body: PopupCorpo(),
           ),
         ),
       ),
     );
   }
-
-
 }
 
 class _PopupShowState extends State<PopupShow> {
@@ -58,7 +58,6 @@ class _PopupShowState extends State<PopupShow> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -66,4 +65,3 @@ class _PopupShowState extends State<PopupShow> {
     );
   }
 }
-
