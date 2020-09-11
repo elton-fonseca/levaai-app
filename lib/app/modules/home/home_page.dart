@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import '../pedido/pages/pedido_cotacao_page.dart';
@@ -42,8 +43,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 padding: EdgeInsets.only(top: displayHeight(context) * 0.3),
                 child: Center(
                   child: SizedBox(
-                      height: displayHeight(context)*0.1,
-                      child: Image.asset("assets/logo.png"),
+                    height: displayHeight(context) * 0.1,
+                    child: Image.asset("assets/logo.png"),
                   ),
                 ),
               ),
@@ -52,7 +53,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.white,
-                  fontSize: displayHeight(context)*0.065,
+                  fontSize: displayHeight(context) * 0.065,
                   fontStyle: FontStyle.italic,
                 ),
                 textAlign: TextAlign.center,
@@ -62,7 +63,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.white,
-                    fontSize: displayHeight(context)*0.017,
+                    fontSize: displayHeight(context) * 0.017,
                     fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),
@@ -76,7 +77,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: displayHeight(context)*0.015,
+                      fontSize: displayHeight(context) * 0.015,
                       fontWeight: FontWeight.w700),
                   textAlign: TextAlign.center,
                 ),
@@ -100,7 +101,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
-                Modular.to.pushNamed('/pedido/form');
+                LocalStorage.setValue<String>(
+                  'token',
+                  '123',
+                );
+                //Modular.to.popAndPushNamed('/pedido/form');
               },
             ),
           ),
@@ -159,6 +164,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             size: 30,
                           ),
                           onPressed: () {
+                            LocalStorage.getValue<String>('token').then(print);
                           },
                         ),
                       ),

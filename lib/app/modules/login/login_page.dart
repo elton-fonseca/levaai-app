@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'login_controller.dart';
+import 'validacao/regras.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -15,16 +16,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   //use 'controller' variable to access controller
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            height: displayHeight(context)*1,
+            height: displayHeight(context) * 1,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+                gradient: LinearGradient(
+                    colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
             child: Column(
               children: <Widget>[
                 Padding(
@@ -44,7 +47,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   padding: EdgeInsets.only(top: displayHeight(context) * 0.05),
                   child: Center(
                     child: SizedBox(
-                      width: displayHeight(context)*0.19,
+                      width: displayHeight(context) * 0.19,
                       child: Image.asset("assets/logo.png"),
                     ),
                   ),
@@ -73,112 +76,125 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   width: displayWidth(context) * 0.7,
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: SizedBox(
-                              height: displayHeight(context) * 0.06,
-                              child: TextFormField(
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Colors.white,
-                                ),
-                                keyboardType: TextInputType.emailAddress,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Color(0xFFC4C4C4), width: 1.0),
-                                  ),
-                                  border: const OutlineInputBorder(),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        color: Colors.white, width: 1.5),
-                                  ),
-                                  contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'E-mail',
-                                  hintStyle: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFC4C4C4),
-                                    fontSize: displayWidth(context) * 0.032,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.05),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: SizedBox(
-                              height: displayHeight(context) * 0.06,
-                              child: TextFormField(
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                                keyboardType: TextInputType.emailAddress,
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Color(0xFFC4C4C4), width: 1.0),
-                                  ),
-                                  border: const OutlineInputBorder(),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        color: Colors.white, width: 1.5),
-                                  ),
-                                  contentPadding: EdgeInsets.only(left: 20),
-                                  hintText: 'Senha',
-                                  hintStyle: TextStyle(
-                                    color: Color(0xFFC4C4C4),
-                                    fontSize: displayWidth(context) * 0.032,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.12),
-                      Container(
-                        width: displayWidth(context) * 0.8,
-                        height: displayHeight(context) * 0.07,
-                        alignment: Alignment.centerLeft,
-                        decoration: BoxDecoration(
-                            color: CoresConst.verdepadrao,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30),
-                            ),
-                            border: Border.all(
-                              width: 3,
-                              color: CoresConst.verdepadrao,
-                            )),
-                        child: SizedBox.expand(
-                          child: FlatButton(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "ENTRAR",
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                            onPressed: () {
-                              Modular.to.pushNamed('/pedido/listar');
-                            },
-                          ),
-                        ),
-                      ),
                       SizedBox(height: displayHeight(context) * 0.02),
+                      Form(
+                        key: _formKey,
+                        child: Column(children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: SizedBox(
+                                  height: displayHeight(context) * 0.06,
+                                  child: TextFormField(
+                                    validator: validar_email,
+                                    style: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      color: Colors.white,
+                                    ),
+                                    keyboardType: TextInputType.emailAddress,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFFC4C4C4),
+                                            width: 1.0),
+                                      ),
+                                      border: const OutlineInputBorder(),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            color: Colors.white, width: 1.5),
+                                      ),
+                                      contentPadding: EdgeInsets.only(left: 20),
+                                      hintText: 'E-mail',
+                                      hintStyle: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        color: Color(0xFFC4C4C4),
+                                        fontSize: displayWidth(context) * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: displayHeight(context) * 0.05),
+                          Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: SizedBox(
+                                  height: displayHeight(context) * 0.06,
+                                  child: TextFormField(
+                                    validator: validar_senha,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    obscureText: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFFC4C4C4),
+                                            width: 1.0),
+                                      ),
+                                      border: const OutlineInputBorder(),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            color: Colors.white, width: 1.5),
+                                      ),
+                                      contentPadding: EdgeInsets.only(left: 20),
+                                      hintText: 'Senha',
+                                      hintStyle: TextStyle(
+                                        color: Color(0xFFC4C4C4),
+                                        fontSize: displayWidth(context) * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: displayHeight(context) * 0.12),
+                          Container(
+                            width: displayWidth(context) * 0.8,
+                            height: displayHeight(context) * 0.07,
+                            alignment: Alignment.centerLeft,
+                            decoration: BoxDecoration(
+                                color: CoresConst.verdepadrao,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(30),
+                                ),
+                                border: Border.all(
+                                  width: 3,
+                                  color: CoresConst.verdepadrao,
+                                )),
+                            child: SizedBox.expand(
+                              child: FlatButton(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      "ENTRAR",
+                                      style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: displayWidth(context) * 0.04,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  if (_formKey.currentState.validate()) {
+                                    print('valido');
+                                  } else {
+                                    print('in');
+                                  }
+                                  //Modular.to.pushNamed('/pedido/listar');
+                                },
+                              ),
+                            ),
+                          ),
+                        ]),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[

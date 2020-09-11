@@ -20,3 +20,16 @@ flutter pub get
 //ubuntu
 
 sudo chown elton /dev/kvm
+
+
+colocar valor local_storage:
+
+LocalStorage.setValue<String>('chave','valor',);
+
+pegar:
+
+LocalStorage.getValue<String>('token').then(print);
+
+return await LocalStorage.getValue<String>(chave).then((value) {
+      
+});

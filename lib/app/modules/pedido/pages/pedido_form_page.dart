@@ -24,7 +24,7 @@ class _PedidoFormPageState
   //use 'controller' variable to access controller
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,7 @@ class _PedidoFormPageState
                 LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
         child: Scaffold(
           appBar: NavbarPadrao().build(context),
-          drawer: MenuLateral(),
+         // drawer: MenuLateral(),
           backgroundColor: Colors.transparent,
           body: ConteudoPadrao(
             textoCabecalho: Text(
