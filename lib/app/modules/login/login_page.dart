@@ -20,7 +20,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   //use 'controller' variable to access controller
 
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   final maskFormatter = MaskTextInputFormatter(
       mask: '+# (###) ###-##-##', filter: {"#": RegExp(r'[0-9]')});
@@ -45,7 +45,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     children: <Widget>[
                       SizedBox(height: displayHeight(context) * 0.02),
                       Form(
-                        key: _formKey,
+                        key: formKey,
                         child: Column(children: <Widget>[
                           Row(
                             children: <Widget>[
@@ -78,10 +78,11 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           ),
                           SizedBox(height: displayHeight(context) * 0.12),
                           Input().botao(
-                            context: context,
-                            label: 'Entrar',
-                            onClick: controller.login(_formKey),
-                          )
+                              context: context,
+                              label: 'Entrar',
+                              onClick: () {
+                                controller.login(formKey);
+                              }),
                         ]),
                       ),
                       Rodape()
