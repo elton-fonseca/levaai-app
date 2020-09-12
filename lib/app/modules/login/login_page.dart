@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../core/tema/cores_const.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 import '../../core/view/tamanhos_relativos.dart';
 import 'login_controller.dart';
 import 'validacao/regras.dart';
+import 'widgets/inputs.dart';
+import 'widgets/logo.dart';
+import 'widgets/rodape.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -18,6 +22,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
 
   final _formKey = GlobalKey<FormState>();
 
+  final maskFormatter = MaskTextInputFormatter(
+      mask: '+# (###) ###-##-##', filter: {"#": RegExp(r'[0-9]')});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,47 +37,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
             child: Column(
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: displayHeight(context) * 0.12),
-                  child: Text(
-                    'Acesse sua conta',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.white,
-                      fontSize: displayHeight(context) * 0.027,
-                      fontWeight: FontWeight.w900,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: displayHeight(context) * 0.05),
-                  child: Center(
-                    child: SizedBox(
-                      width: displayHeight(context) * 0.19,
-                      child: Image.asset("assets/logo.png"),
-                    ),
-                  ),
-                ),
-                Text(
-                  'LEVAAI',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayHeight(context) * 0.058,
-                    fontStyle: FontStyle.italic,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  'DAQUI PRA LÁ RAPIDINHO',
-                  style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.white,
-                      fontSize: displayHeight(context) * 0.015,
-                      fontWeight: FontWeight.w700),
-                  textAlign: TextAlign.center,
-                ),
+                Logo(),
                 SizedBox(height: displayHeight(context) * 0.05),
                 Container(
                   width: displayWidth(context) * 0.7,
@@ -84,33 +51,11 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             children: <Widget>[
                               Expanded(
                                 child: SizedBox(
-                                  height: displayHeight(context) * 0.06,
-                                  child: TextFormField(
-                                    validator: validar_email,
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                    ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Color(0xFFC4C4C4),
-                                            width: 1.0),
-                                      ),
-                                      border: const OutlineInputBorder(),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Colors.white, width: 1.5),
-                                      ),
-                                      contentPadding: EdgeInsets.only(left: 20),
-                                      hintText: 'E-mail',
-                                      hintStyle: TextStyle(
-                                        fontFamily: 'Roboto',
-                                        color: Color(0xFFC4C4C4),
-                                        fontSize: displayWidth(context) * 0.032,
-                                      ),
-                                    ),
+                                  height: displayHeight(context) * 0.07,
+                                  child: Input().texto(
+                                    context: context,
+                                    placeholder: 'Email',
+                                    validador: validarEmail,
                                   ),
                                 ),
                               ),
@@ -121,108 +66,25 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             children: <Widget>[
                               Expanded(
                                 child: SizedBox(
-                                  height: displayHeight(context) * 0.06,
-                                  child: TextFormField(
-                                    validator: validar_senha,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                    obscureText: true,
-                                    decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Color(0xFFC4C4C4),
-                                            width: 1.0),
-                                      ),
-                                      border: const OutlineInputBorder(),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            color: Colors.white, width: 1.5),
-                                      ),
-                                      contentPadding: EdgeInsets.only(left: 20),
-                                      hintText: 'Senha',
-                                      hintStyle: TextStyle(
-                                        color: Color(0xFFC4C4C4),
-                                        fontSize: displayWidth(context) * 0.032,
-                                      ),
-                                    ),
+                                  height: displayHeight(context) * 0.07,
+                                  child: Input().texto(
+                                    context: context,
+                                    placeholder: 'Senha',
+                                    validador: validarSenha,
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           SizedBox(height: displayHeight(context) * 0.12),
-                          Container(
-                            width: displayWidth(context) * 0.8,
-                            height: displayHeight(context) * 0.07,
-                            alignment: Alignment.centerLeft,
-                            decoration: BoxDecoration(
-                                color: CoresConst.verdepadrao,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(30),
-                                ),
-                                border: Border.all(
-                                  width: 3,
-                                  color: CoresConst.verdepadrao,
-                                )),
-                            child: SizedBox.expand(
-                              child: FlatButton(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      "ENTRAR",
-                                      style: TextStyle(
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: displayWidth(context) * 0.04,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
-                                onPressed: () {
-                                  if (_formKey.currentState.validate()) {
-                                    print('valido');
-                                  } else {
-                                    print('in');
-                                  }
-                                  //Modular.to.pushNamed('/pedido/listar');
-                                },
-                              ),
-                            ),
-                          ),
+                          Input().botao(
+                            context: context,
+                            label: 'Entrar',
+                            onClick: controller.login(_formKey),
+                          )
                         ]),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "Esqueceu a senha? ",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: displayWidth(context) * 0.031,
-                            ),
-                          ),
-                          Text(
-                            "Clique Aqui.",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: displayWidth(context) * 0.031,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.12),
-                      Text(
-                        "2020 LevaAi - Todos os direitos reservados",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: displayWidth(context) * 0.025,
-                        ),
-                      ),
+                      Rodape()
                     ],
                   ),
                 ),
