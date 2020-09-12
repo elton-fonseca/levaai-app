@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -29,67 +30,74 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            height: displayHeight(context) * 1,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
-            child: Column(
-              children: <Widget>[
-                Logo(),
-                SizedBox(height: displayHeight(context) * 0.05),
-                Container(
-                  width: displayWidth(context) * 0.7,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: displayHeight(context) * 0.02),
-                      Form(
-                        key: formKey,
-                        child: Column(children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: SizedBox(
-                                  height: displayHeight(context) * 0.07,
-                                  child: Input().texto(
-                                    context: context,
-                                    placeholder: 'Email',
-                                    validador: validarEmail,
+        body: Builder(
+          builder: (contextScaffold) => SingleChildScrollView(
+            child: Container(
+              height: displayHeight(context) * 1,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+              child: Column(
+                children: <Widget>[
+                  Logo(),
+                  SizedBox(height: displayHeight(context) * 0.05),
+                  Container(
+                    width: displayWidth(context) * 0.7,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height: displayHeight(context) * 0.02),
+                        Form(
+                          key: formKey,
+                          child: Column(children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                    height: displayHeight(context) * 0.07,
+                                    child: Observer(
+                                      builder: (context) => Input().texto(
+                                        context: context,
+                                        placeholder: 'Email',
+                                        validador: validarEmail,
+                                        onChange: controller.defineEmail,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: displayHeight(context) * 0.05),
-                          Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: SizedBox(
-                                  height: displayHeight(context) * 0.07,
-                                  child: Input().texto(
-                                    context: context,
-                                    placeholder: 'Senha',
-                                    validador: validarSenha,
-                                  ),
+                              ],
+                            ),
+                            SizedBox(height: displayHeight(context) * 0.05),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                      height: displayHeight(context) * 0.07,
+                                      child: Observer(
+                                        builder: (context) => Input().texto(
+                                          context: context,
+                                          placeholder: 'Senha',
+                                          validador: validarSenha,
+                                          onChange: controller.defineSenha,
+                                        ),
+                                      )),
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: displayHeight(context) * 0.12),
-                          Input().botao(
-                              context: context,
-                              label: 'Entrar',
-                              onClick: () {
-                                controller.login(formKey);
-                              }),
-                        ]),
-                      ),
-                      Rodape()
-                    ],
+                              ],
+                            ),
+                            SizedBox(height: displayHeight(context) * 0.12),
+                            Input().botao(
+                                context: context,
+                                label: 'Entrar',
+                                onClick: () {
+                                  controller.login(formKey, contextScaffold);
+                                }),
+                          ]),
+                        ),
+                        Rodape()
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

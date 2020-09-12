@@ -9,9 +9,11 @@ class Input {
     BuildContext context,
     String placeholder,
     String Function(String) validador,
+    void Function(String) onChange,
   }) {
     return TextFormField(
       validator: validador,
+      onChanged: onChange,
       style: TextStyle(
         fontFamily: 'Roboto',
         color: Colors.white,
