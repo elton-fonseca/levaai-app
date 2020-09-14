@@ -5,7 +5,6 @@ import '../../core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import '../pedido/pages/pedido_cotacao_page.dart';
-import '../pedido/pages/pedido_form_page.dart';
 import 'home_controller.dart';
 
 //import 'package:flutter_mobx/flutter_mobx.dart';
@@ -20,18 +19,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
   int currentTab = 0; // to keep track of active tab index
-  final List<Widget> screens = [
-    PedidoFormPage(),
-    PedidoCotacaoPage(),
-  ];
+
   //use 'controller' variable to access controller
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = HomePage();
 
   @override
   void initState() {
-    LocalStorage.getValue<String>("token")
-        .then((value) => Modular.to.popAndPushNamed('/rastreamento/lista'));
+    LocalStorage.getValue<String>("token").then((token) {
+      if (token.toString().isNotEmpty) {
+        Modular.to.popAndPushNamed('/rastreamento/lista');
+      }
+    });
 
     super.initState();
   }
@@ -109,7 +108,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
-                Modular.to.popAndPushNamed('/pedido/form');
+                Modular.to.pushNamed('/pedido/formulario');
               },
             ),
           ),

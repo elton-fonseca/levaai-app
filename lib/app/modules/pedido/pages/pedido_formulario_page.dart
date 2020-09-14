@@ -10,16 +10,17 @@ import 'widgets/dropdown_peso.dart';
 import 'widgets/dropdown_tipo.dart';
 import 'widgets/popup/popup_show.dart';
 
-class PedidoFormPage extends StatefulWidget {
+class PedidoFormularioPage extends StatefulWidget {
   final String title;
-  const PedidoFormPage({Key key, this.title = "Pedido"}) : super(key: key);
+  const PedidoFormularioPage({Key key, this.title = "Pedido"})
+      : super(key: key);
 
   @override
-  _PedidoFormPageState createState() => _PedidoFormPageState();
+  _PedidoFormularioPageState createState() => _PedidoFormularioPageState();
 }
 
-class _PedidoFormPageState
-    extends ModularState<PedidoFormPage, PedidoFormController> {
+class _PedidoFormularioPageState
+    extends ModularState<PedidoFormularioPage, PedidoFormController> {
   //use 'controller' variable to access controller
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");
@@ -33,7 +34,6 @@ class _PedidoFormPageState
                 LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
         child: Scaffold(
           appBar: NavbarPadrao().build(context),
-          // drawer: MenuLateral(),
           backgroundColor: Colors.transparent,
           body: ConteudoPadrao(
             textoCabecalho: Text(

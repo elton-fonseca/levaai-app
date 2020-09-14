@@ -5,7 +5,6 @@ import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
-import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import '../controllers/pedido_form_controller.dart';
@@ -30,7 +29,6 @@ class _PedidoCotacaoPageState
               LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: Scaffold(
         appBar: NavbarPadrao().build(context),
-        drawer: MenuLateral(),
         backgroundColor: Colors.transparent,
         body: ConteudoPadrao(
           textoCabecalho: Column(
@@ -473,7 +471,7 @@ class _PedidoCotacaoPageState
                       },
                     ),
                     BotaoAzul(
-                      texto: "Editar",
+                      texto: "Confirmar",
                       largura: 0.4,
                       onClick: () {
                         Modular.to.pushNamed('/pedido/destalhes');

@@ -25,6 +25,12 @@ class LocalStorage {
     });
   }
 
+  static Future<dynamic> removeValue<T>(String key) async {
+    return await setInstance().then((sharedPreferences) {
+      return sharedPreferences.remove(key);
+    });
+  }
+
   static Future<SharedPreferences> setInstance() async {
     return await SharedPreferences.getInstance();
   }
