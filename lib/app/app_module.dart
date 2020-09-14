@@ -4,11 +4,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
-
 import 'modules/home/home_module.dart';
 import 'modules/login/login_module.dart';
 import 'modules/pagamento/pagamento_module.dart';
 import 'modules/pedido/pedido_module.dart';
+import 'modules/rastreamento/detalhes/detalhes_module.dart';
+import 'modules/rastreamento/rastreamento_module.dart';
 import 'modules/usuario/usuario_module.dart';
 
 class AppModule extends MainModule {
@@ -34,6 +35,8 @@ class AppModule extends MainModule {
         ModularRouter(Modular.initialRoute, module: PagamentoModule()),
         ModularRouter(Modular.initialRoute, module: UsuarioModule()),
         ModularRouter(Modular.initialRoute, module: LoginModule()),
+        ModularRouter(Modular.initialRoute, module: RastreamentoModule()),
+        ModularRouter(Modular.initialRoute, module: DetalhesModule()),
       ];
 
   @override

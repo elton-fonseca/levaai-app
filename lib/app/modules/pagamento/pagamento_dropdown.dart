@@ -51,7 +51,7 @@ class _DropdownPagamentoState extends State<DropdownPagamento> {
                 value: 'two',
               ),
             ],
-            onChanged: (String value) {
+            onChanged: (value) {
               setState(() {
                 _value = value;
               });

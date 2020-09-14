@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/tamanhos_relativos.dart';

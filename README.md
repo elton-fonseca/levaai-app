@@ -33,3 +33,6 @@ LocalStorage.getValue<String>('token').then(print);
 return await LocalStorage.getValue<String>(chave).then((value) {
       
 });
+
+Rodar mobx:
+slidy run mobx_build ou slidy run mobx_watch 

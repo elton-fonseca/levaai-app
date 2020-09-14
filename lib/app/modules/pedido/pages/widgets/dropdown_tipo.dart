@@ -55,7 +55,7 @@ class _DropdownTipoState extends State<DropdownTipo> {
               value: 'three',
             ),
           ],
-          onChanged: (String value) {
+          onChanged: (value) {
             setState(() {
               _value = value;
             });

@@ -3,7 +3,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
-import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import '../controllers/pedido_form_controller.dart';
@@ -34,7 +33,7 @@ class _PedidoFormPageState
                 LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
         child: Scaffold(
           appBar: NavbarPadrao().build(context),
-         // drawer: MenuLateral(),
+          // drawer: MenuLateral(),
           backgroundColor: Colors.transparent,
           body: ConteudoPadrao(
             textoCabecalho: Text(

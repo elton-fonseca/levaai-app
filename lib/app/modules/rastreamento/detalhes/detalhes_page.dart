@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_form_controller.dart';
+import 'detalhes_controller.dart';
 
-class PedidoRastreamentoPage extends StatefulWidget {
+class DetalhesPage extends StatefulWidget {
   final String title;
-  const PedidoRastreamentoPage({Key key, this.title = "Login"})
-      : super(key: key);
+  const DetalhesPage({Key key, this.title = "Detalhes"}) : super(key: key);
 
   @override
-  _PedidoRastreamentoPageState createState() => _PedidoRastreamentoPageState();
+  _DetalhesPageState createState() => _DetalhesPageState();
 }
 
-class _PedidoRastreamentoPageState
-    extends ModularState<PedidoRastreamentoPage, PedidoFormController> {
+class _DetalhesPageState
+    extends ModularState<DetalhesPage, DetalhesController> {
   //use 'controller' variable to access controller
 
   @override

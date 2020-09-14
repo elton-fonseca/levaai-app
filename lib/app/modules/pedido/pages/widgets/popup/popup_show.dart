@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 import 'popup_corpo.dart';
 import 'popup_medida_exata.dart';
 
@@ -35,9 +34,7 @@ class PopupShow extends StatefulWidget {
                 return IconButton(
                   icon: Icon(Icons.cancel),
                   onPressed: () {
-                    try {
-                      Navigator.pop(context); //close the popup
-                    } catch (e) {}
+                    Navigator.pop(context); //close the popup
                   },
                 );
               }),

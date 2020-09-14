@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../core/tema/cores_const.dart';
-import '../../../core/view/conteudo_padrao.dart';
-import '../../../core/view/menu_lateral.dart';
-import '../../../core/view/navbar_padrao.dart';
-import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_form_controller.dart';
 
-class PedidoListarPage extends StatefulWidget {
+import '../../core/tema/cores_const.dart';
+import '../../core/view/conteudo_padrao.dart';
+import '../../core/view/menu_lateral.dart';
+import '../../core/view/navbar_padrao.dart';
+import '../../core/view/tamanhos_relativos.dart';
+import 'rastreamento_controller.dart';
+
+class RastreamentoPage extends StatefulWidget {
   final String title;
-  const PedidoListarPage({Key key, this.title = "Pedido"}) : super(key: key);
+  const RastreamentoPage({Key key, this.title = "Rastreamento"})
+      : super(key: key);
 
   @override
-  _PedidoListarPageState createState() => _PedidoListarPageState();
+  _RastreamentoPageState createState() => _RastreamentoPageState();
 }
 
-class _PedidoListarPageState
-    extends ModularState<PedidoListarPage, PedidoFormController> {
+class _RastreamentoPageState
+    extends ModularState<RastreamentoPage, RastreamentoController> {
   //use 'controller' variable to access controller
 
   @override
@@ -69,7 +71,7 @@ class _PedidoListarPageState
                     children: <Widget>[
                       GestureDetector(
                         onTap: () {
-                          Modular.to.pushNamed('pedido/rastreamento');
+                          Modular.to.pushNamed('/rastreamento/detalhes');
                         },
                         child: Column(
                           children: <Widget>[
@@ -202,7 +204,7 @@ class _PedidoListarPageState
                       ),
                       GestureDetector(
                         onTap: () {
-                          Modular.to.pushNamed('pedido/rastreamento');
+                          Modular.to.pushNamed('/rastreamento/detalhes');
                         },
                         child: Column(
                           children: <Widget>[
@@ -335,7 +337,7 @@ class _PedidoListarPageState
                       ),
                       GestureDetector(
                         onTap: () {
-                          Modular.to.pushNamed('pedido/rastreamento');
+                          Modular.to.pushNamed('/rastreamento/detalhes');
                         },
                         child: Column(
                           children: <Widget>[
@@ -440,9 +442,9 @@ class _PedidoListarPageState
                               children: <Widget>[
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      top: displayHeight(context) * 0.01,
-                                      left: displayWidth(context) * 0.05,
-                                      ),
+                                    top: displayHeight(context) * 0.01,
+                                    left: displayWidth(context) * 0.05,
+                                  ),
                                   child: Text(
                                     "Elton Fonseca",
                                     style: TextStyle(
@@ -458,28 +460,28 @@ class _PedidoListarPageState
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                      top: displayHeight(context) * 0.01,
-                                      left: displayWidth(context) * 0.05,
-                                      bottom: displayHeight(context) * 0.04),
+                                  top: displayHeight(context) * 0.01,
+                                  left: displayWidth(context) * 0.05,
+                                  bottom: displayHeight(context) * 0.04),
                               child: Row(
-                          children: <Widget>[
-                              SizedBox(
-                                child: Icon(Icons.error_outline,
-                                    size: displayWidth(context) * 0.06,
-                                    color: Color(0xFFC13A1C)),
+                                children: <Widget>[
+                                  SizedBox(
+                                    child: Icon(Icons.error_outline,
+                                        size: displayWidth(context) * 0.06,
+                                        color: Color(0xFFC13A1C)),
+                                  ),
+                                  Text(
+                                    " Sua entrega precisa de atenção.",
+                                    style: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFFC13A1C),
+                                      fontSize: displayWidth(context) * 0.04,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                " Sua entrega precisa de atenção.",
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFFC13A1C),
-                                  fontSize: displayWidth(context) * 0.04,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                          ],
-                        ),
                             ),
                           ],
                         ),

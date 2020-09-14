@@ -4,8 +4,6 @@ import 'controllers/pedido_form_controller.dart';
 import 'pages/pedido_cotacao_page.dart';
 import 'pages/pedido_detalhes_page.dart';
 import 'pages/pedido_form_page.dart';
-import 'pages/pedido_listar_page.dart';
-import 'pages/pedido_rastreamento_page.dart';
 
 import 'repositories/interfaces/pedido_repository_interface.dart';
 import 'repositories/pedido_repository.dart';
@@ -22,11 +20,8 @@ class PedidoModule extends ChildModule {
         ModularRouter('/pedido/form', child: (_, args) => PedidoFormPage()),
         ModularRouter('/pedido/cotacao',
             child: (_, args) => PedidoCotacaoPage()),
-        ModularRouter('/pedido/listar', child: (_, args) => PedidoListarPage()),
         ModularRouter('/pedido/destalhes',
             child: (_, args) => PedidoDetalhesPage()),
-        ModularRouter('/pedido/rastreamento',
-            child: (_, args) => PedidoRastreamentoPage()),
       ];
 
   static Inject get to => Inject<PedidoModule>.of();

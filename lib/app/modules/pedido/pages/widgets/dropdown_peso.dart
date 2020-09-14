@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
-
 class DropdownPeso extends StatefulWidget {
   @override
   _DropdownPesoState createState() {
@@ -22,11 +21,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 0 a 5kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'one',
             ),
@@ -34,11 +33,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 6kg a 10kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'two',
             ),
@@ -46,11 +45,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 11kg a 20kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'trhee',
             ),
@@ -58,11 +57,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 21kg a 30kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'for',
             ),
@@ -70,11 +69,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 31kg a 40kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'five',
             ),
@@ -82,11 +81,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 41kg a 50kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'six',
             ),
@@ -94,11 +93,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 51kg a 100kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'seven',
             ),
@@ -106,11 +105,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'De 101kg a 300kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'eight',
             ),
@@ -118,16 +117,16 @@ class _DropdownPesoState extends State<DropdownPeso> {
               child: Text(
                 'Acima 300kg',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'nine',
             ),
           ],
-          onChanged: (String value) {
+          onChanged: (value) {
             setState(() {
               _value = value;
             });

@@ -29,7 +29,7 @@ class MenuLateral extends StatelessWidget {
               subtitle: Text("Veja o status de cada pedido"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                Modular.to.pushNamed('/pedido/listar');
+                Modular.to.pushNamed('/rastreamento/lista');
               }),
         ],
       ),

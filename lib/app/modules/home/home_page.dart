@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import '../pedido/pages/pedido_cotacao_page.dart';
@@ -101,11 +100,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
-                LocalStorage.setValue<String>(
-                  'token',
-                  '123',
-                );
-                //Modular.to.popAndPushNamed('/pedido/form');
+                Modular.to.popAndPushNamed('/pedido/form');
               },
             ),
           ),
@@ -163,9 +158,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             color: CoresConst.azulPadrao,
                             size: 30,
                           ),
-                          onPressed: () {
-                            LocalStorage.getValue<String>('token').then(print);
-                          },
+                          onPressed: () {},
                         ),
                       ),
                     ],
