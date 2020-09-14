@@ -22,6 +22,13 @@ class _PedidoCotacaoPageState
   //use 'controller' variable to access controller
 
   @override
+  void initState() {
+    print(controller.pedidos);
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(

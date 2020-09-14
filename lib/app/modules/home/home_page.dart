@@ -108,7 +108,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
-              Modular.to.pushNamed('/pedido/formulario/0');
+                Modular.to.pushNamed('/pedido/formulario/0/true');
               },
             ),
           ),

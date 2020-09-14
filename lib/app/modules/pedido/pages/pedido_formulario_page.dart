@@ -16,8 +16,13 @@ class PedidoFormularioPage extends StatefulWidget {
 
   final int id;
 
+  final bool create;
+
   const PedidoFormularioPage(
-      {Key key, this.title = "Pedido", @required this.id})
+      {Key key,
+      this.title = "Pedido",
+      @required this.id,
+      @required this.create})
       : super(key: key);
 
   @override
@@ -32,7 +37,11 @@ class _PedidoFormularioPageState
 
   @override
   void initState() {
-    controller.addPedido();
+    if (widget.create) {
+      controller.addPedido();
+    }
+
+    print(controller.pedidos);
 
     super.initState();
   }

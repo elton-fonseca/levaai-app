@@ -34,4 +34,6 @@ abstract class _PedidoControllerBase with Store {
   void definirMedidaExata() {
     tipoDeMedida = MedidaExata();
   }
+
+
 }
