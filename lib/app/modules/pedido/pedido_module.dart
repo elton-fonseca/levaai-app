@@ -17,10 +17,9 @@ class PedidoModule extends ChildModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter('/pedido/formulario/:id/:create',
+        ModularRouter('/pedido/formulario/:id/:acao',
             child: (_, args) => PedidoFormularioPage(
-                id: int.parse(args.params['id']),
-                create: args.params['create'])),
+                id: int.parse(args.params['id']), acao: args.params['acao'])),
         ModularRouter('/pedido/cotacao',
             child: (_, args) => PedidoCotacaoPage()),
         ModularRouter('/pedido/destalhes',

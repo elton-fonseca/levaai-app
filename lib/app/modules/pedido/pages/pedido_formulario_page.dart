@@ -16,13 +16,10 @@ class PedidoFormularioPage extends StatefulWidget {
 
   final int id;
 
-  final bool create;
+  final String acao;
 
   const PedidoFormularioPage(
-      {Key key,
-      this.title = "Pedido",
-      @required this.id,
-      @required this.create})
+      {Key key, this.title = "Pedido", @required this.id, @required this.acao})
       : super(key: key);
 
   @override
@@ -35,10 +32,14 @@ class _PedidoFormularioPageState
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");
 
+  final myController = TextEditingController();
+
   @override
   void initState() {
-    if (widget.create) {
+    if (widget.acao == 'criar') {
       controller.addPedido();
+    } else {
+      myController.text = controller.pedidos.first.enderecoOrigem;
     }
 
     print(controller.pedidos);
@@ -93,6 +94,7 @@ class _PedidoFormularioPageState
                             height: displayHeight(context) * 0.1,
                             child: Observer(
                               builder: (_) => TextFormField(
+                                controller: myController,
                                 onChanged: (valor) =>
                                     controller.defineEndereco(valor, widget.id),
                                 style: TextStyle(

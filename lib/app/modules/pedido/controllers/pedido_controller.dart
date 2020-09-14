@@ -12,7 +12,7 @@ class PedidoController = _PedidoControllerBase with _$PedidoController;
 abstract class _PedidoControllerBase with Store {
   @observable
   Widget tipoDeMedida = MedidaRelativa();
-  List<Pedido> pedidos = [];
+  ObservableList pedidos = [].asObservable();
 
   @action
   void addPedido() {
@@ -34,6 +34,4 @@ abstract class _PedidoControllerBase with Store {
   void definirMedidaExata() {
     tipoDeMedida = MedidaExata();
   }
-
-
 }

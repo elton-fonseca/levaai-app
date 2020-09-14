@@ -70,7 +70,7 @@ class _PedidoListaPageState
                   child: BotaoAzul(
                     texto: controller.pedidos[index].enderecoOrigem,
                     onClick: () {
-                      Modular.to.pushNamed('/pedido/formulario/0/false');
+                      Modular.to.pushNamed('/pedido/formulario/0/editar');
                     },
                   ),
                 );
