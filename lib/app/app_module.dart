@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -14,6 +15,16 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
+        Bind<Dio>((i) {
+          var dioClient = Dio();
+
+          dioClient.options.baseUrl = "http://192.168.15.12/api";
+          dioClient.options.headers['content-Type'] = 'application/json';
+          dioClient.options.headers["Api-token"] =
+              '\$2a\$07\$usesomesillystringforeGsJAIIu7nhlxWq.cvdNluLcR1KdMYnq';
+
+          return dioClient;
+        }),
       ];
 
   @override

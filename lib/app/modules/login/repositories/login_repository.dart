@@ -9,11 +9,6 @@ class LoginRepository implements ILoginRepository {
   LoginRepository(this.client);
 
   Future login(String email, String senha) async {
-
-    client.options.headers['content-Type'] = 'application/json';
-    client.options.headers["Api-token"] =
-        '\$2a\$07\$usesomesillystringforeGsJAIIu7nhlxWq.cvdNluLcR1KdMYnq';
-
     var corpo = {};
     corpo["nome"] = "joao";
     corpo["email"] = email;
@@ -23,7 +18,7 @@ class LoginRepository implements ILoginRepository {
     print(json.encode(corpo).toString());
 
     final response = await client.post(
-      'http://192.168.15.12/api/cliente/login',
+      '/cliente/login',
       data: json.encode(corpo).toString(),
     );
 

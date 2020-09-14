@@ -9,7 +9,9 @@ import 'repositories/login_repository.dart';
 class LoginModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind<ILoginRepository>((i) => LoginRepository(Dio())),
+        Bind<ILoginRepository>((i) {
+          return LoginRepository(Modular.get<Dio>());
+        }),
         Bind((i) => LoginController()),
       ];
 
