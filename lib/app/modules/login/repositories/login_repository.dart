@@ -15,8 +15,6 @@ class LoginRepository implements ILoginRepository {
     corpo["senha"] = senha;
     corpo["dispositivo"] = "teste";
 
-    print(json.encode(corpo).toString());
-
     final response = await client.post(
       '/cliente/login',
       data: json.encode(corpo).toString(),

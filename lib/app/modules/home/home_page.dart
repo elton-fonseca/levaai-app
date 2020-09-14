@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import '../pedido/pages/pedido_cotacao_page.dart';
@@ -26,6 +27,14 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = HomePage();
+
+  @override
+  void initState() {
+    LocalStorage.getValue<String>("token")
+        .then((value) => Modular.to.popAndPushNamed('/rastreamento/lista'));
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
