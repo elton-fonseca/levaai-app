@@ -7,7 +7,7 @@ import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_form_controller.dart';
+import '../controllers/pedido_controller.dart';
 
 class PedidoCotacaoPage extends StatefulWidget {
   final String title;
@@ -18,7 +18,7 @@ class PedidoCotacaoPage extends StatefulWidget {
 }
 
 class _PedidoCotacaoPageState
-    extends ModularState<PedidoCotacaoPage, PedidoFormController> {
+    extends ModularState<PedidoCotacaoPage, PedidoController> {
   //use 'controller' variable to access controller
 
   @override

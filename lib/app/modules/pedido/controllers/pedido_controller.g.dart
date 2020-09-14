@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pedido_form_controller.dart';
+part of 'pedido_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,9 +8,8 @@ part of 'pedido_form_controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$PedidoFormController on _PedidoFormControllerBase, Store {
-  final _$tipoDeMedidaAtom =
-      Atom(name: '_PedidoFormControllerBase.tipoDeMedida');
+mixin _$PedidoController on _PedidoControllerBase, Store {
+  final _$tipoDeMedidaAtom = Atom(name: '_PedidoControllerBase.tipoDeMedida');
 
   @override
   Widget get tipoDeMedida {
@@ -25,28 +24,28 @@ mixin _$PedidoFormController on _PedidoFormControllerBase, Store {
     });
   }
 
-  final _$_PedidoFormControllerBaseActionController =
-      ActionController(name: '_PedidoFormControllerBase');
+  final _$_PedidoControllerBaseActionController =
+      ActionController(name: '_PedidoControllerBase');
 
   @override
   void definirMedidaRelativa() {
-    final _$actionInfo = _$_PedidoFormControllerBaseActionController
-        .startAction(name: '_PedidoFormControllerBase.definirMedidaRelativa');
+    final _$actionInfo = _$_PedidoControllerBaseActionController.startAction(
+        name: '_PedidoControllerBase.definirMedidaRelativa');
     try {
       return super.definirMedidaRelativa();
     } finally {
-      _$_PedidoFormControllerBaseActionController.endAction(_$actionInfo);
+      _$_PedidoControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void definirMedidaExata() {
-    final _$actionInfo = _$_PedidoFormControllerBaseActionController
-        .startAction(name: '_PedidoFormControllerBase.definirMedidaExata');
+    final _$actionInfo = _$_PedidoControllerBaseActionController.startAction(
+        name: '_PedidoControllerBase.definirMedidaExata');
     try {
       return super.definirMedidaExata();
     } finally {
-      _$_PedidoFormControllerBaseActionController.endAction(_$actionInfo);
+      _$_PedidoControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 

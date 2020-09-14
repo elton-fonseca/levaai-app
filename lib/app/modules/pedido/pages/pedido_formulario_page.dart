@@ -5,10 +5,11 @@ import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_form_controller.dart';
-import 'widgets/dropdown_peso.dart';
-import 'widgets/dropdown_tipo.dart';
-import 'widgets/popup/popup_show.dart';
+import '../controllers/pedido_controller.dart';
+import 'widgets/formulario/dropbox/dropdown_peso.dart';
+import 'widgets/formulario/dropbox/dropdown_tipo.dart';
+import 'widgets/formulario/popup/popup_show.dart';
+
 
 class PedidoFormularioPage extends StatefulWidget {
   final String title;
@@ -20,7 +21,7 @@ class PedidoFormularioPage extends StatefulWidget {
 }
 
 class _PedidoFormularioPageState
-    extends ModularState<PedidoFormularioPage, PedidoFormController> {
+    extends ModularState<PedidoFormularioPage, PedidoController> {
   //use 'controller' variable to access controller
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");
