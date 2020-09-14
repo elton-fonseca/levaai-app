@@ -28,6 +28,28 @@ mixin _$PedidoController on _PedidoControllerBase, Store {
       ActionController(name: '_PedidoControllerBase');
 
   @override
+  void addPedido() {
+    final _$actionInfo = _$_PedidoControllerBaseActionController.startAction(
+        name: '_PedidoControllerBase.addPedido');
+    try {
+      return super.addPedido();
+    } finally {
+      _$_PedidoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineEndereco(String novoEndereco, int id) {
+    final _$actionInfo = _$_PedidoControllerBaseActionController.startAction(
+        name: '_PedidoControllerBase.defineEndereco');
+    try {
+      return super.defineEndereco(novoEndereco, id);
+    } finally {
+      _$_PedidoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void definirMedidaRelativa() {
     final _$actionInfo = _$_PedidoControllerBaseActionController.startAction(
         name: '_PedidoControllerBase.definirMedidaRelativa');

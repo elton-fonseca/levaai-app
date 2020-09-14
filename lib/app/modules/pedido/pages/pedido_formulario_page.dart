@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/tema/cores_const.dart';
@@ -10,10 +11,13 @@ import 'widgets/formulario/dropbox/dropdown_peso.dart';
 import 'widgets/formulario/dropbox/dropdown_tipo.dart';
 import 'widgets/formulario/popup/popup_show.dart';
 
-
 class PedidoFormularioPage extends StatefulWidget {
   final String title;
-  const PedidoFormularioPage({Key key, this.title = "Pedido"})
+
+  final int id;
+
+  const PedidoFormularioPage(
+      {Key key, this.title = "Pedido", @required this.id})
       : super(key: key);
 
   @override
@@ -25,6 +29,13 @@ class _PedidoFormularioPageState
   //use 'controller' variable to access controller
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");
+
+  @override
+  void initState() {
+    controller.addPedido();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,31 +80,34 @@ class _PedidoFormularioPageState
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          width: displayWidth(context) * 0.85,
-                          height: displayHeight(context) * 0.1,
-                          child: TextFormField(
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[600],
-                              fontSize: displayWidth(context) * 0.032,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              labelStyle: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontSize: displayWidth(context) * 0.035,
-                                fontWeight: FontWeight.bold,
+                            width: displayWidth(context) * 0.85,
+                            height: displayHeight(context) * 0.1,
+                            child: Observer(
+                              builder: (_) => TextFormField(
+                                onChanged: (valor) =>
+                                    controller.defineEndereco(valor, widget.id),
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.grey[600],
+                                  fontSize: displayWidth(context) * 0.032,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  labelStyle: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: displayWidth(context) * 0.035,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  labelText: 'Origem',
+                                  hintText: 'Avenida Paulsita, 234',
+                                  suffixIcon: IconButton(
+                                    icon: Icon(Icons.cancel),
+                                    onPressed: () {},
+                                  ),
+                                ),
                               ),
-                              labelText: 'Origem',
-                              hintText: 'Avenida Paulsita, 234',
-                              suffixIcon: IconButton(
-                                icon: Icon(Icons.cancel),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ),
-                        ),
+                            )),
                         SizedBox(
                           width: displayWidth(context) * 0.85,
                           height: displayHeight(context) * 0.1,
@@ -509,6 +523,7 @@ class _PedidoFormularioPageState
                       ],
                     ),
                     onPressed: () {
+                      print(widget.id);
                       PopupShow().showPopup(context, 'Medidas');
                     },
                   ),
