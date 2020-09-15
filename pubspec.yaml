@@ -73,23 +73,24 @@ flutter:
           
 
   assets:
-   - assets/logo-blue.png
-   - assets/logo-back-blue.png
-   - assets/img-requests.png
-   - assets/item-request.png
-   - assets/box-blue.png
-   - assets/box.png
-   - assets/logo.png
-   - assets/origem-destino.png
-   - assets/origem-destino-verde.png
-   - assets/tamanho-relativo.png
-   - assets/creditcard.png
-   - assets/box-aberta.png
-   - assets/box-fechada.png
-   - assets/delete.png
-   - assets/pedido-ok.png
-   - assets/pedido-aguardando.png
-   - assets/pedido-atencao.png
+   - assets/imagens/logo-blue.png
+   - assets/imagens/logo-back-blue.png
+   - assets/imagens/img-requests.png
+   - assets/imagens/item-request.png
+   - assets/imagens/box-blue.png
+   - assets/imagens/box.png
+   - assets/imagens/logo.png
+   - assets/imagens/origem-destino.png
+   - assets/imagens/origem-destino-verde.png
+   - assets/imagens/tamanho-relativo.png
+   - assets/imagens/geladeira.svg
+   - assets/imagens/creditcard.png
+   - assets/imagens/box-aberta.png
+   - assets/imagens/box-fechada.png
+   - assets/imagens/delete.png
+   - assets/imagens/pedido-ok.png
+   - assets/imagens/pedido-aguardando.png
+   - assets/imagens/pedido-atencao.png
 
 
 

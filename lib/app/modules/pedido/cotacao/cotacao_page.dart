@@ -97,7 +97,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                                 ),
                                 child: SizedBox(
                                   width: displayWidth(context) * 0.1,
-                                  child: Image.asset("assets/box-fechada.png"),
+                                  child: Image.asset("assets/imagens/box-fechada.png"),
                                 ),
                               ),
                             ],
@@ -143,7 +143,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                                 ),
                                 child: SizedBox(
                                   width: displayWidth(context) * 0.1,
-                                  child: Image.asset("assets/box-aberta.png"),
+                                  child: Image.asset("assets/imagens/box-aberta.png"),
                                 ),
                               ),
                             ],

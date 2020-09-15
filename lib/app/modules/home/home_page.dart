@@ -50,7 +50,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 child: Center(
                   child: SizedBox(
                     height: displayHeight(context) * 0.1,
-                    child: Image.asset("assets/logo.png"),
+                    child: Image.asset("assets/imagens/logo.png"),
                   ),
                 ),
               ),

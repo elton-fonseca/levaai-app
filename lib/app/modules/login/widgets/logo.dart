@@ -24,7 +24,7 @@ class Logo extends StatelessWidget {
           child: Center(
             child: SizedBox(
               width: displayHeight(context) * 0.19,
-              child: Image.asset("assets/logo.png"),
+              child: Image.asset("assets/imagens/logo.png"),
             ),
           ),
         ),

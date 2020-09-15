@@ -24,7 +24,7 @@ class PopupCorpo extends StatelessWidget {
           SizedBox(
             width: 100,
             height: 100,
-            child: Image.asset("assets/box.png"),
+            child: Image.asset("assets/imagens/box.png"),
           ),
           SizedBox(height: 40),
           Padding(

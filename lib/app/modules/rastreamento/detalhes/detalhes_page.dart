@@ -82,7 +82,7 @@ class _DetalhesPageState
                                     height: displayHeight(context) * 0.09,
                                     child: Image(
                                         image: AssetImage(
-                                            'assets/origem-destino-verde.png')),
+                                            'assets/imagens/origem-destino-verde.png')),
                                   ),
                                 ]),
                               ),
@@ -195,7 +195,8 @@ class _DetalhesPageState
                                 ),
                                 child: SizedBox(
                                   height: displayHeight(context) * 0.04,
-                                  child: Image.asset("assets/box-fechada.png"),
+                                  child: Image.asset(
+                                      "assets/imagens/box-fechada.png"),
                                 ),
                               ),
                             ],
@@ -238,7 +239,8 @@ class _DetalhesPageState
                                 ),
                                 child: SizedBox(
                                   height: displayHeight(context) * 0.04,
-                                  child: Image.asset("assets/box-aberta.png"),
+                                  child: Image.asset(
+                                      "assets/imagens/box-aberta.png"),
                                 ),
                               ),
                             ],
@@ -313,7 +315,8 @@ class _DetalhesPageState
                                   right: displayWidth(context) * 0.0),
                               child: SizedBox(
                                 height: displayHeight(context) * 0.02,
-                                child: Image.asset("assets/box-blue.png"),
+                                child:
+                                    Image.asset("assets/imagens/box-blue.png"),
                               ),
                             ),
                           ],
@@ -613,7 +616,7 @@ class _DetalhesPageState
                               alignment: Alignment.centerRight,
                               child: Column(
                                 children: <Widget>[
-                                  Image.asset("assets/pedido-ok.png",
+                                  Image.asset("assets/imagens/pedido-ok.png",
                                       width: displayHeight(context) * 0.08),
                                 ],
                               ),

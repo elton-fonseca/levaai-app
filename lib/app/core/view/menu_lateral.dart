@@ -13,7 +13,7 @@ class MenuLateral extends StatelessWidget {
             accountEmail: Text("eltonfonseca@elton.com.br"),
             currentAccountPicture: Image(
                 image: AssetImage(
-              'assets/logo.png',
+              'assets/imagens/logo.png',
             )),
           ),
           ListTile(

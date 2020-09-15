@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/main.dart';
+import '../../../../../main.dart';
 import '../../../../core/Models/pedido.dart';
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
@@ -134,7 +134,7 @@ class GridItem {
                     ),
                     child: SizedBox(
                       width: displayWidth(context) * 0.05,
-                      child: Image.asset("assets/delete.png"),
+                      child: Image.asset("assets/imagens/delete.png"),
                     ),
                   ),
                 ],
