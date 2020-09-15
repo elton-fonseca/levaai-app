@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Models/pedido.dart';
 
 import '../../../../main.dart';
 import '../../../core/view/botao_azul.dart';
@@ -8,6 +9,7 @@ import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'lista_controller.dart';
+import 'widgets/grid_item.dart';
 
 class ListaPage extends StatefulWidget {
   final String title;
@@ -66,13 +68,9 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               crossAxisCount: 2,
               shrinkWrap: true,
               children: List.generate(pedidoListaStore.pedidos.length, (index) {
-                return Center(
-                  child: BotaoAzul(
-                    texto: pedidoListaStore.pedidos[index].enderecoOrigem,
-                    onClick: () {
-                      Modular.to.pushNamed('/pedido/formulario/0/editar');
-                    },
-                  ),
+                return GridItem().obter(
+                  context: context,
+                  pedido: pedidoListaStore.pedidos[index],
                 );
               }),
             ),

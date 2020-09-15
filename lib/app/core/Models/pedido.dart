@@ -1,13 +1,10 @@
-import 'package:mobx/mobx.dart';
-
 import 'itens_pedido.dart';
 
 class Pedido {
   String cepOrigem;
 
-  @observable
   String enderecoOrigem;
-  
+
   String cepDestino;
   String enderecoDestino;
   int valorTotal;

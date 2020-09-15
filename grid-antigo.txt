@@ -551,3 +551,16 @@ Column(
                 SizedBox(height: displayHeight(context) * 0.08),
               ],
             ),
+
+
+
+
+
+            Center(
+                  child: BotaoAzul(
+                    texto: pedidoListaStore.pedidos[index].enderecoOrigem,
+                    onClick: () {
+                      Modular.to.pushNamed('/pedido/formulario/0/editar');
+                    },
+                  ),
+                );

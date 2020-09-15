@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../modules/pedido/formulario/widgets/formulario/partes/medida_exata.dart';
-import '../../modules/pedido/formulario/widgets/formulario/partes/medida_relativa.dart';
+import '../../modules/pedido/formulario/widgets/partes/medida_exata.dart';
+import '../../modules/pedido/formulario/widgets/partes/medida_relativa.dart';
 import '../Models/pedido.dart';
 
 part 'pedido_lista.g.dart';
