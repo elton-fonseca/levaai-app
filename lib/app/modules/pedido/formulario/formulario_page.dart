@@ -7,28 +7,28 @@ import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_controller.dart';
-import 'widgets/formulario/dropbox/dropdown_peso.dart';
-import 'widgets/formulario/dropbox/dropdown_tipo.dart';
-import 'widgets/formulario/popup/popup_show.dart';
+import 'formulario_controller.dart';
+import 'widgets/dropbox/dropdown_peso.dart';
+import 'widgets/dropbox/dropdown_tipo.dart';
+import 'widgets/popup/popup_show.dart';
 
-class PedidoFormularioPage extends StatefulWidget {
+class FormularioPage extends StatefulWidget {
   final String title;
 
   final int id;
 
   final String acao;
 
-  const PedidoFormularioPage(
+  const FormularioPage(
       {Key key, this.title = "Pedido", @required this.id, @required this.acao})
       : super(key: key);
 
   @override
-  _PedidoFormularioPageState createState() => _PedidoFormularioPageState();
+  _FormularioPageState createState() => _FormularioPageState();
 }
 
-class _PedidoFormularioPageState
-    extends ModularState<PedidoFormularioPage, PedidoController> {
+class _FormularioPageState
+    extends ModularState<FormularioPage, FormularioController> {
   //use 'controller' variable to access controller
 
   //final _itens = List<String>.generate(10, (i) => "Item $i");

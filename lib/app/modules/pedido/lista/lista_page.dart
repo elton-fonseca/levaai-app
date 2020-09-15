@@ -7,18 +7,17 @@ import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_controller.dart';
+import 'lista_controller.dart';
 
-class PedidoListaPage extends StatefulWidget {
+class ListaPage extends StatefulWidget {
   final String title;
-  const PedidoListaPage({Key key, this.title = "Pedido"}) : super(key: key);
+  const ListaPage({Key key, this.title = "Pedido"}) : super(key: key);
 
   @override
-  _PedidoListaPageState createState() => _PedidoListaPageState();
+  _ListaPageState createState() => _ListaPageState();
 }
 
-class _PedidoListaPageState
-    extends ModularState<PedidoListaPage, PedidoController> {
+class _ListaPageState extends ModularState<ListaPage, ListaController> {
   //use 'controller' variable to access controller
 
   @override

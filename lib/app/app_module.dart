@@ -7,7 +7,9 @@ import 'app_widget.dart';
 import 'modules/home/home_module.dart';
 import 'modules/login/login_module.dart';
 import 'modules/pagamento/pagamento_module.dart';
-import 'modules/pedido/pedido_module.dart';
+import 'modules/pedido/cotacao/cotacao_module.dart';
+import 'modules/pedido/formulario/formulario_module.dart';
+import 'modules/pedido/lista/lista_module.dart';
 import 'modules/rastreamento/detalhes/detalhes_module.dart';
 import 'modules/rastreamento/rastreamento_module.dart';
 import 'modules/usuario/usuario_module.dart';
@@ -31,12 +33,18 @@ class AppModule extends MainModule {
   @override
   List<ModularRouter> get routers => [
         ModularRouter(Modular.initialRoute, module: HomeModule()),
-        ModularRouter(Modular.initialRoute, module: PedidoModule()),
+        // modulos de criação de pedidos
+        ModularRouter(Modular.initialRoute, module: ListaModule()),
+        ModularRouter(Modular.initialRoute, module: CotacaoModule()),
+        ModularRouter(Modular.initialRoute, module: FormularioModule()),
+
+        //Modulos de listagem e acompanhamento de pedido
+        ModularRouter(Modular.initialRoute, module: RastreamentoModule()),
+        ModularRouter(Modular.initialRoute, module: DetalhesModule()),
+
         ModularRouter(Modular.initialRoute, module: PagamentoModule()),
         ModularRouter(Modular.initialRoute, module: UsuarioModule()),
         ModularRouter(Modular.initialRoute, module: LoginModule()),
-        ModularRouter(Modular.initialRoute, module: RastreamentoModule()),
-        ModularRouter(Modular.initialRoute, module: DetalhesModule()),
       ];
 
   @override

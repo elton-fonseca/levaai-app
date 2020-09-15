@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
-import '../pedido/pages/pedido_cotacao_page.dart';
 import 'home_controller.dart';
 
 //import 'package:flutter_mobx/flutter_mobx.dart';
@@ -126,8 +125,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   minWidth: 40,
                   onPressed: () {
                     setState(() {
-                      currentScreen =
-                          PedidoCotacaoPage(); // setar pagina a ser ativa pelo buttom/icon
+                      // setar pagina a ser ativa pelo buttom/icon
                       currentTab = 1;
                     });
                   },
@@ -151,7 +149,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   minWidth: 40,
                   onPressed: () {
                     setState(() {
-                      currentScreen = PedidoCotacaoPage();
                       currentTab = 2;
                     });
                   },

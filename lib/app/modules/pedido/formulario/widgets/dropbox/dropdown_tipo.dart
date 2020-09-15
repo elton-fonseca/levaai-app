@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../../core/view/tamanhos_relativos.dart';
-
+import '../../../../../core/view/tamanhos_relativos.dart';
 
 class DropdownTipo extends StatefulWidget {
   @override
@@ -22,11 +21,11 @@ class _DropdownTipoState extends State<DropdownTipo> {
               child: Text(
                 'Eletronico',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'one',
             ),
@@ -34,23 +33,23 @@ class _DropdownTipoState extends State<DropdownTipo> {
               child: Text(
                 'Roupa',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'two',
             ),
-                        DropdownMenuItem<String>(
+            DropdownMenuItem<String>(
               child: Text(
                 'Livro',
                 style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
               ),
               value: 'three',
             ),

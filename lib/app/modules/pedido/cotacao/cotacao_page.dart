@@ -8,18 +8,17 @@ import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import '../controllers/pedido_controller.dart';
+import 'cotacao_controller.dart';
 
-class PedidoCotacaoPage extends StatefulWidget {
+class CotacaoPage extends StatefulWidget {
   final String title;
-  const PedidoCotacaoPage({Key key, this.title = "Pedido"}) : super(key: key);
+  const CotacaoPage({Key key, this.title = "Pedido"}) : super(key: key);
 
   @override
-  _PedidoCotacaoPageState createState() => _PedidoCotacaoPageState();
+  _CotacaoPageState createState() => _CotacaoPageState();
 }
 
-class _PedidoCotacaoPageState
-    extends ModularState<PedidoCotacaoPage, PedidoController> {
+class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
   //use 'controller' variable to access controller
 
   @override
@@ -482,7 +481,7 @@ class _PedidoCotacaoPageState
                       texto: "Confirmar",
                       largura: 0.4,
                       onClick: () {
-                        Modular.to.pushNamed('/pedido/destalhes');
+                        Modular.to.pushNamed('/pedido/lista');
                       },
                     )
                   ],
