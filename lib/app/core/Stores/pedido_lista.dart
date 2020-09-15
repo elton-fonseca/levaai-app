@@ -11,7 +11,7 @@ class PedidoLista = _PedidoListaBase with _$PedidoLista;
 
 abstract class _PedidoListaBase with Store {
   @observable
-  Widget tipoDeMedida = MedidaRelativa();
+  Widget tipoDeMedida;
   ObservableList pedidos = [].asObservable();
 
   @action
@@ -26,8 +26,13 @@ abstract class _PedidoListaBase with Store {
   }
 
   @action
+  void addSapato(int id) {
+    pedidos[id].caixaSapato++;
+  }
+
+  @action
   void definirMedidaRelativa() {
-    tipoDeMedida = MedidaRelativa();
+    //tipoDeMedida = MedidaRelativa();
   }
 
   @action

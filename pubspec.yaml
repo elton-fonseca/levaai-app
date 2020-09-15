@@ -82,8 +82,10 @@ flutter:
    - assets/imagens/logo.png
    - assets/imagens/origem-destino.png
    - assets/imagens/origem-destino-verde.png
-   - assets/imagens/tamanho-relativo.png
-   - assets/imagens/geladeira.svg
+   - assets/imagens/caixa-sapato.png
+   - assets/imagens/microondas.png
+   - assets/imagens/fogao.png
+   - assets/imagens/geladeira.png      
    - assets/imagens/creditcard.png
    - assets/imagens/box-aberta.png
    - assets/imagens/box-fechada.png

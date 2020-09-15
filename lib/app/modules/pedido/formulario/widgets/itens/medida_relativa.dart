@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../main.dart';
 import '../../../../../core/tema/cores_const.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
 import 'item-relativo.dart';
 
-class MedidaRelativa extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+class MedidaRelativa {
+  Widget obter({BuildContext context, int indice}) {
     return Column(
       children: [
         Row(
@@ -31,8 +31,8 @@ class MedidaRelativa extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: ItemRelativo().imagem(
                   context: context,
-                  imagem: '/assets/imagens/tamanho-relativo.png',
-                  descricao: 'Microondas',
+                  imagem: 'assets/imagens/caixa-sapato.png',
+                  descricao: 'Caixa de Sapato',
                 ),
               ),
             ),
@@ -55,7 +55,7 @@ class MedidaRelativa extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: ItemRelativo().imagem(
                     context: context,
-                    imagem: '/assets/imagens/geladeira.svg',
+                    imagem: 'assets/imagens/microondas.png',
                     descricao: 'Microondas'),
               ),
             ),
@@ -70,36 +70,13 @@ class MedidaRelativa extends StatelessWidget {
               child: SizedBox(
                 width: displayHeight(context) * 0.185,
                 child: Container(
-                  child: Row(children: <Widget>[
-                    IconButton(
-                      icon: Icon(
-                        Icons.remove_circle,
-                        color: Colors.grey,
-                        size: displayWidth(context) * 0.07,
-                      ),
-                      onPressed: () {},
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: displayWidth(context) * 0.01),
-                      child: Text(
-                        '0',
-                        style: TextStyle(
-                          color: CoresConst.azulPadrao,
-                          fontSize: displayWidth(context) * 0.07,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.add_circle,
-                        color: Colors.grey,
-                        size: displayWidth(context) * 0.07,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ]),
+                  child: ItemRelativo().contador(
+                      context: context,
+                      onClickMais: () {
+                        pedidoListaStore.addSapato(indice);
+                      },
+                      onClickMenos: () {},
+                      quantidade: pedidoListaStore.pedidos[indice].caixaSapato),
                 ),
               ),
             ),
@@ -163,8 +140,8 @@ class MedidaRelativa extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: ItemRelativo().imagem(
                     context: context,
-                    imagem: '/assets/imagens/tamanho-relativo.png',
-                    descricao: 'Microondas'),
+                    imagem: 'assets/imagens/fogao.png',
+                    descricao: 'Fogão'),
               ),
             ),
             Container(
@@ -185,9 +162,10 @@ class MedidaRelativa extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: ItemRelativo().imagem(
-                    context: context,
-                    imagem: '/assets/imagens/tamanho-relativo.png',
-                    descricao: 'Microondas'),
+                  context: context,
+                  imagem: 'assets/imagens/geladeira.png',
+                  descricao: 'Geladeira',
+                ),
               ),
             ),
           ],

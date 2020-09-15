@@ -16,6 +16,12 @@ class Pedido {
   String responsavelEntrega;
   String responsavelEntregaCalular;
   String tipoPesagem;
+
+  int caixaSapato = 0;
+  int microondas = 0;
+  int fogao = 0;
+  int geladeira = 0;
+
   List<ItensPedido> itens;
 
   Pedido(

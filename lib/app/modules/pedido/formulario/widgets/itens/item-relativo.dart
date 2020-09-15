@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:levaai1/app/core/tema/cores_const.dart';
+import '../../../../../../main.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
 
 class ItemRelativo {
@@ -33,5 +36,43 @@ class ItemRelativo {
         textAlign: TextAlign.center,
       ),
     ];
+  }
+
+  Widget contador(
+      {@required BuildContext context,
+      @required VoidCallback onClickMais,
+      @required VoidCallback onClickMenos,
+      @required int quantidade}) {
+    return Row(children: <Widget>[
+      IconButton(
+        icon: Icon(
+          Icons.remove_circle,
+          color: Colors.grey,
+          size: displayWidth(context) * 0.07,
+        ),
+        onPressed: onClickMenos,
+      ),
+      Padding(
+        padding: EdgeInsets.only(left: displayWidth(context) * 0.01),
+        child: Observer(
+          builder: (_) => Text(
+            pedidoListaStore.pedidos[0].caixaSapato.toString(),
+            style: TextStyle(
+              color: CoresConst.azulPadrao,
+              fontSize: displayWidth(context) * 0.07,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+      IconButton(
+        icon: Icon(
+          Icons.add_circle,
+          color: Colors.grey,
+          size: displayWidth(context) * 0.07,
+        ),
+        onPressed: onClickMais,
+      ),
+    ]);
   }
 }

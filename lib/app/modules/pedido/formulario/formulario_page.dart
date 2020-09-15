@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/botao_azul.dart';
-import 'package:levaai1/app/core/view/botao_branco.dart';
-import 'package:levaai1/app/modules/pedido/formulario/formulario_input.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/itens/medida_relativa.dart';
 
 import '../../../../main.dart';
 import '../../../core/tema/cores_const.dart';
+import '../../../core/view/botao_azul.dart';
+import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'formulario_controller.dart';
+import 'formulario_input.dart';
 import 'widgets/detalhes/detalhes.dart';
-import 'widgets/detalhes/dropbox/dropdown_peso.dart';
-import 'widgets/detalhes/dropbox/dropdown_tipo.dart';
 import 'widgets/endereco/endereco.dart';
+import 'widgets/itens/medida_relativa.dart';
 import 'widgets/popup/popup_show.dart';
 
 class FormularioPage extends StatefulWidget {
@@ -77,7 +75,10 @@ class _FormularioPageState
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: displayHeight(context) * 0.04),
-              MedidaRelativa(),
+              MedidaRelativa().obter(
+                context: context,
+                indice: widget.id,
+              ),
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoBranco(
                 onClick: () {
