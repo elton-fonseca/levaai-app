@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:levaai1/app/core/view/botao_azul.dart';
+import '../../../../main.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
@@ -22,7 +23,7 @@ class _PedidoListaPageState
 
   @override
   void initState() {
-    print(controller.pedidos);
+    print(pedidoListaStore.pedidos);
 
     super.initState();
   }
@@ -65,10 +66,10 @@ class _PedidoListaPageState
             child: GridView.count(
               crossAxisCount: 2,
               shrinkWrap: true,
-              children: List.generate(controller.pedidos.length, (index) {
+              children: List.generate(pedidoListaStore.pedidos.length, (index) {
                 return Center(
                   child: BotaoAzul(
-                    texto: controller.pedidos[index].enderecoOrigem,
+                    texto: pedidoListaStore.pedidos[index].enderecoOrigem,
                     onClick: () {
                       Modular.to.pushNamed('/pedido/formulario/0/editar');
                     },

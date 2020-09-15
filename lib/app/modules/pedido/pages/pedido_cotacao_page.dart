@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../main.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';
@@ -23,7 +24,7 @@ class _PedidoCotacaoPageState
 
   @override
   void initState() {
-    print(controller.pedidos);
+    print(pedidoListaStore.pedidos);
 
     super.initState();
   }

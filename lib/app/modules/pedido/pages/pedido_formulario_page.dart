@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../main.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
@@ -37,12 +38,12 @@ class _PedidoFormularioPageState
   @override
   void initState() {
     if (widget.acao == 'criar') {
-      controller.addPedido();
+      pedidoListaStore.addPedido();
     } else {
-      myController.text = controller.pedidos.first.enderecoOrigem;
+      myController.text = pedidoListaStore.pedidos.first.enderecoOrigem;
     }
 
-    print(controller.pedidos);
+    print(pedidoListaStore.pedidos);
 
     super.initState();
   }
@@ -95,8 +96,8 @@ class _PedidoFormularioPageState
                             child: Observer(
                               builder: (_) => TextFormField(
                                 controller: myController,
-                                onChanged: (valor) =>
-                                    controller.defineEndereco(valor, widget.id),
+                                onChanged: (valor) => pedidoListaStore
+                                    .defineEndereco(valor, widget.id),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[600],
@@ -534,7 +535,7 @@ class _PedidoFormularioPageState
                       ],
                     ),
                     onPressed: () {
-                      print(widget.id);
+                      print(pedidoListaStore.pedidos);
                       PopupShow().showPopup(context, 'Medidas');
                     },
                   ),
