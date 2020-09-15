@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'controllers/pedido_controller.dart';
 import 'pages/pedido_cotacao_page.dart';
-import 'pages/pedido_lista_page.dart';
 import 'pages/pedido_formulario_page.dart';
-
+import 'pages/pedido_lista_page.dart';
 import 'repositories/interfaces/pedido_repository_interface.dart';
 import 'repositories/pedido_repository.dart';
 
