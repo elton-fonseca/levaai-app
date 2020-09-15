@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/main.dart';
 import '../../../../core/Models/pedido.dart';
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class GridItem {
-  Widget obter({@required BuildContext context, @required Pedido pedido}) {
+  Widget obter(
+      {@required BuildContext context,
+      @required Pedido pedido,
+      @required int indice}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          height: displayHeight(context) * 0.25,
-          width: displayHeight(context) * 0.25,
+          height: displayHeight(context) * 0.4,
+          width: displayHeight(context) * 0.4,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -82,21 +87,31 @@ class GridItem {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'Destinatário:',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Color(0xFF909090),
-                        fontSize: displayWidth(context) * 0.032,
+                    FlatButton(
+                      onPressed: () {
+                        Modular.to
+                            .pushNamed('/pedido/formulario/$indice/editar');
+                      },
+                      child: Text(
+                        'editar:',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Color(0xFF909090),
+                          fontSize: displayWidth(context) * 0.032,
+                        ),
                       ),
                     ),
-                    Text(
-                      'Nome Sobrenome',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Color(0xFF909090),
-                        fontWeight: FontWeight.bold,
-                        fontSize: displayWidth(context) * 0.032,
+                    FlatButton(
+                      onPressed: () {
+                        pedidoListaStore.pedidos.removeAt(indice);
+                      },
+                      child: Text(
+                        'apagar:',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Color(0xFF909090),
+                          fontSize: displayWidth(context) * 0.032,
+                        ),
                       ),
                     ),
                     Text(

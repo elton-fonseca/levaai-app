@@ -40,7 +40,7 @@ class _FormularioPageState
     if (widget.acao == 'criar') {
       pedidoListaStore.addPedido();
     } else {
-      myController.text = pedidoListaStore.pedidos.first.enderecoOrigem;
+      myController.text = pedidoListaStore.pedidos[widget.id].enderecoOrigem;
     }
 
     print(pedidoListaStore.pedidos);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:levaai1/app/core/Models/pedido.dart';
 
@@ -43,6 +44,12 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
           textoCabecalho: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              BotaoAzul(
+                  texto: 'Adicionar Pedido',
+                  onClick: () {
+                    var indice = pedidoListaStore.pedidos.length;
+                    Modular.to.pushNamed('/pedido/formulario/$indice/criar');
+                  }),
               Text(
                 'Total Geral',
                 style: TextStyle(
@@ -64,15 +71,19 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
           ),
           conteudo: SizedBox(
             width: displayWidth(context) * 0.7,
-            child: GridView.count(
-              crossAxisCount: 2,
-              shrinkWrap: true,
-              children: List.generate(pedidoListaStore.pedidos.length, (index) {
-                return GridItem().obter(
-                  context: context,
-                  pedido: pedidoListaStore.pedidos[index],
-                );
-              }),
+            child: Observer(
+              builder: (_) => GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                children:
+                    List.generate(pedidoListaStore.pedidos.length, (indice) {
+                  return GridItem().obter(
+                    context: context,
+                    pedido: pedidoListaStore.pedidos[indice],
+                    indice: indice,
+                  );
+                }),
+              ),
             ),
           ),
         ),
