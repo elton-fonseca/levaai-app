@@ -569,3 +569,27 @@ Column(
                     },
                   ),
                 );
+
+                //check pagina cotação vou deixar sem por enquanto
+
+                                      Container(
+                        color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              right: displayWidth(context) * 0.025),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              Checkbox(value: false, onChanged: null),
+                              Text(
+                                'Mesmo do cadastro',
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  fontSize: displayWidth(context) * 0.032,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),

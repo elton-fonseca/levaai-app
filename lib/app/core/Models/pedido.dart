@@ -21,6 +21,7 @@ abstract class _PedidoBase with Store {
   int pesoTotal;
   String tipoMercadoria;
   int cotacaoId;
+  
   String responsavelColeta;
   String responsavelColetaCelular;
   String responsavelEntrega;

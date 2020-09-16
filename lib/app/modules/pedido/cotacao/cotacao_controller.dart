@@ -7,11 +7,5 @@ part 'cotacao_controller.g.dart';
 class CotacaoController = _CotacaoControllerBase with _$CotacaoController;
 
 abstract class _CotacaoControllerBase with Store {
-  @observable
-  int value = 0;
-
-  @action
-  void increment() {
-    value++;
-  }
+  int indice = 0;
 }

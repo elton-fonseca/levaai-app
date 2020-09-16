@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/cotacao/widget/input_text.dart';
+import 'package:levaai1/app/modules/pedido/cotacao/widget/prazos.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
 import '../../../core/tema/cores_const.dart';
@@ -9,16 +11,25 @@ import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'cotacao_controller.dart';
+import 'cotacao_input.dart';
 
 class CotacaoPage extends StatefulWidget {
   final String title;
-  const CotacaoPage({Key key, this.title = "Pedido"}) : super(key: key);
+
+  final int id;
+
+  final String acao;
+
+  const CotacaoPage(
+      {Key key, this.title = "Pedido", @required this.id, @required this.acao})
+      : super(key: key);
 
   @override
   _CotacaoPageState createState() => _CotacaoPageState();
 }
 
-class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
+class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
+    with CotacaoInputs {
   //use 'controller' variable to access controller
 
   @override
@@ -86,95 +97,18 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                       SizedBox(
                         height: displayHeight(context) * 0.03,
                       ),
-                      Row(
-                        children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.025,
-                                  right: displayWidth(context) * 0.025,
-                                ),
-                                child: SizedBox(
-                                  width: displayWidth(context) * 0.1,
-                                  child: Image.asset(
-                                      "assets/imagens/box-fechada.png"),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'DATA DE COLETA',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.035,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'PREVISTA ENTRE 24/06 e 27/06',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.035,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      Prazos(
+                        imagem: "assets/imagens/box-fechada.png",
+                        tipo: 'COLETA',
+                        prazo: "ENTRE 24/10 e 26/10",
                       ),
                       SizedBox(
                         height: displayHeight(context) * 0.03,
                       ),
-                      Row(
-                        children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.025,
-                                  right: displayWidth(context) * 0.025,
-                                ),
-                                child: SizedBox(
-                                  width: displayWidth(context) * 0.1,
-                                  child: Image.asset(
-                                      "assets/imagens/box-aberta.png"),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'DATA DE ENTREGA',
-                                style: TextStyle(
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.035,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'PREVISTA ENTRE 24/06 e 27/06',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.035,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      Prazos(
+                        imagem: "assets/imagens/box-aberta.png",
+                        tipo: 'ENTREGA',
+                        prazo: "ENTRE 01/11 e 05/11",
                       ),
                       Divider(
                         color: Colors.grey[300],
@@ -231,47 +165,20 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                             children: <Widget>[
                               Expanded(
                                 child: SizedBox(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF909090),
-                                      fontSize: displayWidth(context) * 0.032,
-                                    ),
-                                    textAlign: TextAlign.left,
-                                    keyboardType: TextInputType.text,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(
-                                          bottom: displayWidth(context) * 0.06),
-                                      hintText: 'Digite o nome aqui...',
-                                      hintStyle: TextStyle(
-                                        color: Color(0xFF909090),
-                                        fontSize: displayWidth(context) * 0.032,
-                                      ),
-                                    ),
+                                  child: InputText(
+                                    textController:
+                                        responsavelColetaTextController,
+                                    mascara: '',
                                   ),
                                 ),
                               ),
                               Expanded(
                                 child: SizedBox(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF909090),
-                                      fontSize: displayWidth(context) * 0.032,
-                                    ),
-                                    textAlign: TextAlign.right,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(
-                                          bottom: displayWidth(context) * 0.06),
-                                      hintText: '11 909099909',
-                                      hintStyle: TextStyle(
-                                        color: Color(0xFF909090),
-                                        fontSize: displayWidth(context) * 0.032,
-                                      ),
-                                    ),
+                                  child: InputText(
+                                    tipo: 'tel',
+                                    textController:
+                                        responsavelColetaCelularTextController,
+                                    mascara: '',
                                   ),
                                 ),
                               ),
@@ -279,26 +186,12 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                           ),
                         ),
                       ),
-                      Container(
+                      Divider(
                         color: Colors.white,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.025),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Checkbox(value: false, onChanged: null),
-                              Text(
-                                'Mesmo do cadastro',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontSize: displayWidth(context) * 0.032,
-                                  color: Colors.grey[600],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        height: displayWidth(context) * 0.10,
+                        thickness: 2,
+                        indent: 0,
+                        endIndent: 0,
                       ),
                       Container(
                         height: displayHeight(context) * 0.05,
@@ -348,47 +241,20 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                             children: <Widget>[
                               Expanded(
                                 child: SizedBox(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF909090),
-                                      fontSize: displayWidth(context) * 0.032,
-                                    ),
-                                    textAlign: TextAlign.left,
-                                    keyboardType: TextInputType.text,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(
-                                          bottom: displayWidth(context) * 0.06),
-                                      hintText: 'Digite o nome aqui...',
-                                      hintStyle: TextStyle(
-                                        color: Color(0xFF909090),
-                                        fontSize: displayWidth(context) * 0.032,
-                                      ),
-                                    ),
+                                  child: InputText(
+                                    textController:
+                                        responsavelEntregaTextController,
+                                    mascara: '',
                                   ),
                                 ),
                               ),
                               Expanded(
                                 child: SizedBox(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF909090),
-                                      fontSize: displayWidth(context) * 0.032,
-                                    ),
-                                    textAlign: TextAlign.right,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(
-                                          bottom: displayWidth(context) * 0.06),
-                                      hintText: '11 909099909',
-                                      hintStyle: TextStyle(
-                                        color: Color(0xFF909090),
-                                        fontSize: displayWidth(context) * 0.032,
-                                      ),
-                                    ),
+                                  child: InputText(
+                                    tipo: 'tel',
+                                    textController:
+                                        responsavelEntregaCElularTextController,
+                                    mascara: '',
                                   ),
                                 ),
                               ),
@@ -396,26 +262,12 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                           ),
                         ),
                       ),
-                      Container(
+                      Divider(
                         color: Colors.white,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.025),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Checkbox(value: false, onChanged: null),
-                              Text(
-                                'Mesmo do cadastro',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontSize: displayWidth(context) * 0.032,
-                                  color: Colors.grey[600],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        height: displayWidth(context) * 0.10,
+                        thickness: 2,
+                        indent: 0,
+                        endIndent: 0,
                       ),
                       Row(
                         children: <Widget>[

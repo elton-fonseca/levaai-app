@@ -11,8 +11,9 @@ class CotacaoModule extends ChildModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter('/pedido/cotacao',
-            child: (_, args) => CotacaoPage()),
+        ModularRouter('/pedido/cotacao/:id/:acao',
+            child: (_, args) => CotacaoPage(
+                id: int.parse(args.params['id']), acao: args.params['acao'])),
       ];
 
   static Inject get to => Inject<CotacaoModule>.of();
