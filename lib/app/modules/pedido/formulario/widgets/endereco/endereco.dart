@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
 import '../../../../../../main.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
@@ -19,7 +21,8 @@ class Endereco {
           children: <Widget>[
             SizedBox(
               height: displayHeight(context) * 0.13,
-              child: Image(image: AssetImage('assets/imagens/origem-destino.png')),
+              child:
+                  Image(image: AssetImage('assets/imagens/origem-destino.png')),
             ),
           ],
         ),
@@ -34,8 +37,8 @@ class Endereco {
                 height: displayHeight(context) * 0.1,
                 child: TextFormField(
                   controller: origem,
-                  onChanged: (valor) =>
-                      pedidoListaStore.defineEndereco(valor, indice),
+                  onChanged: (valor) => Modular.get<PedidoListaStore>()
+                      .defineEndereco(valor, indice),
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],
@@ -63,8 +66,8 @@ class Endereco {
                 height: displayHeight(context) * 0.1,
                 child: TextFormField(
                   controller: destino,
-                  onChanged: (valor) =>
-                      pedidoListaStore.defineEndereco(valor, indice),
+                  onChanged: (valor) => Modular.get<PedidoListaStore>()
+                      .defineEndereco(valor, indice),
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],

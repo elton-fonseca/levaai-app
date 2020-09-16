@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app/app_module.dart';
-import 'app/core/Stores/pedido_lista.dart';
+import 'app/core/Stores/pedido_lista_store.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,5 +12,3 @@ void main() {
     runApp(ModularApp(module: AppModule()));
   });
 }
-
-final pedidoListaStore = PedidoLista();

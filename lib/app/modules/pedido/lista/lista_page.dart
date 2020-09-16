@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
+import 'package:levaai1/app/core/tema/cores_const.dart';
 
 import '../../../../main.dart';
 import '../../../core/view/botao_azul.dart';
@@ -24,7 +26,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
 
   @override
   void initState() {
-    print(pedidoListaStore.pedidos);
+    print(Modular.get<PedidoListaStore>().pedidos);
 
     super.initState();
   }
@@ -46,7 +48,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               BotaoAzul(
                   texto: 'Adicionar Pedido',
                   onClick: () {
-                    var indice = pedidoListaStore.pedidos.length;
+                    var indice = Modular.get<PedidoListaStore>().pedidos.length;
                     Modular.to.pushNamed('/pedido/formulario/$indice/criar');
                   }),
               Text(
@@ -66,6 +68,24 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              Container(
+                child: Observer(builder: (_) {
+                  return Text(
+                    Modular.get<PedidoListaStore>().caixaSapato.toString(),
+                    style: TextStyle(
+                      color: CoresConst.azulPadrao,
+                      fontSize: displayWidth(context) * 0.07,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                }),
+              ),
+              BotaoAzul(
+                texto: 'aaaa',
+                onClick: () {
+                  Modular.get<PedidoListaStore>().addSapato(1);
+                },
+              )
             ],
           ),
           conteudo: SizedBox(
@@ -74,11 +94,11 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               builder: (_) => GridView.count(
                 crossAxisCount: 2,
                 shrinkWrap: true,
-                children:
-                    List.generate(pedidoListaStore.pedidos.length, (indice) {
+                children: List.generate(
+                    Modular.get<PedidoListaStore>().pedidos.length, (indice) {
                   return GridItem().obter(
                     context: context,
-                    pedido: pedidoListaStore.pedidos[indice],
+                    pedido: Modular.get<PedidoListaStore>().pedidos[indice],
                     indice: indice,
                   );
                 }),

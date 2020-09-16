@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
 import '../../../../main.dart';
 import '../../../core/tema/cores_const.dart';
@@ -23,7 +24,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
 
   @override
   void initState() {
-    print(pedidoListaStore.pedidos);
+    print(Modular.get<PedidoListaStore>().pedidos);
 
     super.initState();
   }

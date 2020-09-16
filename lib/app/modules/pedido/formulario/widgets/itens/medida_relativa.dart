@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
 import '../../../../../../main.dart';
 import '../../../../../core/tema/cores_const.dart';
@@ -73,10 +75,12 @@ class MedidaRelativa {
                   child: ItemRelativo().contador(
                       context: context,
                       onClickMais: () {
-                        pedidoListaStore.addSapato(indice);
+                        Modular.get<PedidoListaStore>().addSapato(indice);
                       },
                       onClickMenos: () {},
-                      quantidade: pedidoListaStore.pedidos[indice].caixaSapato),
+                      quantidade: Modular.get<PedidoListaStore>()
+                          .pedidos[indice]
+                          .caixaSapato),
                 ),
               ),
             ),

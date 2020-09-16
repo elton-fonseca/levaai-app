@@ -14,4 +14,8 @@ abstract class _ListaControllerBase with Store {
   void increment() {
     value++;
   }
+
+  int pegar() {
+    return value;
+  }
 }

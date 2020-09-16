@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
@@ -18,6 +19,7 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
+        Bind((i) => PedidoListaStore()),
         Bind<Dio>((i) {
           var dioClient = Dio();
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
 import '../../../../main.dart';
 import '../../../core/tema/cores_const.dart';
@@ -82,7 +83,7 @@ class _FormularioPageState
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoBranco(
                 onClick: () {
-                  print(pedidoListaStore.pedidos);
+                  print(Modular.get<PedidoListaStore>().pedidos);
                   PopupShow().showPopup(context, 'Medidas');
                 },
                 texto: "Tenho as medidas Exatas",

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 import '../../../../../main.dart';
 import '../../../../core/Models/pedido.dart';
 import '../../../../core/tema/cores_const.dart';
@@ -103,7 +104,9 @@ class GridItem {
                     ),
                     FlatButton(
                       onPressed: () {
-                        pedidoListaStore.pedidos.removeAt(indice);
+                        Modular.get<PedidoListaStore>()
+                            .pedidos
+                            .removeAt(indice);
                       },
                       child: Text(
                         'apagar:',
