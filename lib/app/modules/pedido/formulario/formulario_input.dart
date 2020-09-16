@@ -10,6 +10,8 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
 
   @override
   void initState() {
+    controller.indice = widget.id;
+
     if (widget.acao == 'criar') {
       Modular.get<PedidoListaStore>().addPedido();
     } else {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../../core/view/tamanhos_relativos.dart';
+import '../../../formulario_controller.dart';
 
 class DropdownTipo extends StatefulWidget {
   @override
@@ -9,14 +11,24 @@ class DropdownTipo extends StatefulWidget {
 }
 
 class _DropdownTipoState extends State<DropdownTipo> {
-  String _value;
-
   @override
   Widget build(BuildContext context) {
     return Container(
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
           items: [
+            DropdownMenuItem<String>(
+              child: Text(
+                'Selecione',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'selecione',
+            ),
             DropdownMenuItem<String>(
               child: Text(
                 'Eletronico',
@@ -55,20 +67,9 @@ class _DropdownTipoState extends State<DropdownTipo> {
             ),
           ],
           onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
+            Modular.get<FormularioController>().defineTipoMercadoria(value);
           },
-          hint: Text(
-            'Tipo de item',
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
-          ),
-          value: _value,
+          value: Modular.get<FormularioController>().pegaTipoMercadoria(),
         ),
       ),
     );

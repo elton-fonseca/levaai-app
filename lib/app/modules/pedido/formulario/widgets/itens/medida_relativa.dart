@@ -8,8 +8,9 @@ import '../../../../../core/view/tamanhos_relativos.dart';
 import '../../formulario_controller.dart';
 import 'item-relativo.dart';
 
-class MedidaRelativa {
-  Widget obter({BuildContext context, int indice}) {
+class MedidaRelativa extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
@@ -75,18 +76,17 @@ class MedidaRelativa {
                 child: Container(
                   child: Observer(builder: (_) {
                     return ItemRelativo().contador(
-                        context: context,
-                        onClickMais: () {
-                          Modular.get<FormularioController>()
-                              .addItemCaixaSapato(indice);
-                        },
-                        onClickMenos: () {
-                          Modular.get<FormularioController>()
-                              .rmItemCaixaSapato(indice);
-                        },
-                        quantidade: Modular.get<PedidoListaStore>()
-                            .pedidos[indice]
-                            .caixaSapato);
+                      context: context,
+                      onClickMais: () {
+                        Modular.get<FormularioController>()
+                            .addItemCaixaSapato();
+                      },
+                      onClickMenos: () {
+                        Modular.get<FormularioController>().rmItemCaixaSapato();
+                      },
+                      quantidade:
+                          Modular.get<FormularioController>().itemCaixaSapato(),
+                    );
                   }),
                 ),
               ),
@@ -96,18 +96,16 @@ class MedidaRelativa {
               child: Container(
                 child: Observer(builder: (_) {
                   return ItemRelativo().contador(
-                      context: context,
-                      onClickMais: () {
-                        Modular.get<FormularioController>()
-                            .addItemMicroondas(indice);
-                      },
-                      onClickMenos: () {
-                        Modular.get<FormularioController>()
-                            .rmItemMicroondas(indice);
-                      },
-                      quantidade: Modular.get<PedidoListaStore>()
-                          .pedidos[indice]
-                          .microondas);
+                    context: context,
+                    onClickMais: () {
+                      Modular.get<FormularioController>().addItemMicroondas();
+                    },
+                    onClickMenos: () {
+                      Modular.get<FormularioController>().rmItemMicroondas();
+                    },
+                    quantidade:
+                        Modular.get<FormularioController>().itemMicroondas(),
+                  );
                 }),
               ),
             ),
@@ -176,35 +174,31 @@ class MedidaRelativa {
                 width: displayHeight(context) * 0.185,
                 child: Observer(builder: (_) {
                   return ItemRelativo().contador(
-                      context: context,
-                      onClickMais: () {
-                        Modular.get<FormularioController>()
-                            .addItemFogao(indice);
-                      },
-                      onClickMenos: () {
-                        Modular.get<FormularioController>().rmItemFogao(indice);
-                      },
-                      quantidade: Modular.get<PedidoListaStore>()
-                          .pedidos[indice]
-                          .fogao);
+                    context: context,
+                    onClickMais: () {
+                      Modular.get<FormularioController>().addItemFogao();
+                    },
+                    onClickMenos: () {
+                      Modular.get<FormularioController>().rmItemFogao();
+                    },
+                    quantidade: Modular.get<FormularioController>().itemFogao(),
+                  );
                 }),
               ),
               Container(
                 width: displayHeight(context) * 0.185,
                 child: Observer(builder: (_) {
                   return ItemRelativo().contador(
-                      context: context,
-                      onClickMais: () {
-                        Modular.get<FormularioController>()
-                            .addItemGeladeira(indice);
-                      },
-                      onClickMenos: () {
-                        Modular.get<FormularioController>()
-                            .rmItemGeladeira(indice);
-                      },
-                      quantidade: Modular.get<PedidoListaStore>()
-                          .pedidos[indice]
-                          .geladeira);
+                    context: context,
+                    onClickMais: () {
+                      Modular.get<FormularioController>().addItemGeladeira();
+                    },
+                    onClickMenos: () {
+                      Modular.get<FormularioController>().rmItemGeladeira();
+                    },
+                    quantidade:
+                        Modular.get<FormularioController>().itemGeladeira(),
+                  );
                 }),
               ),
             ],

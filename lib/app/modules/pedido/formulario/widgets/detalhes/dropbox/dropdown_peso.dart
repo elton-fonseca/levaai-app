@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../../../../../core/view/tamanhos_relativos.dart';
+import '../../../formulario_controller.dart';
 
 class DropdownPeso extends StatefulWidget {
   @override
@@ -9,8 +12,6 @@ class DropdownPeso extends StatefulWidget {
 }
 
 class _DropdownPesoState extends State<DropdownPeso> {
-  String _value;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +20,7 @@ class _DropdownPesoState extends State<DropdownPeso> {
           items: [
             DropdownMenuItem<String>(
               child: Text(
-                'De 0 a 5kg',
+                'Peso aproximado',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -27,11 +28,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'one',
+              value: "selecione",
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'De 6kg a 10kg',
+                'De 0 a 10kg',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -39,11 +40,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'two',
+              value: "9",
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'De 11kg a 20kg',
+                'De 10kg a 20kg',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -51,11 +52,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'trhee',
+              value: '19',
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'De 21kg a 30kg',
+                'De 20kg a 50kg',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -63,11 +64,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'for',
+              value: '49',
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'De 31kg a 40kg',
+                'De 50kg a 70kg',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -75,11 +76,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'five',
+              value: '69',
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'De 41kg a 50kg',
+                'De 70kg a 100kg',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -87,60 +88,13 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'six',
-            ),
-            DropdownMenuItem<String>(
-              child: Text(
-                'De 51kg a 100kg',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.grey[600],
-                  fontWeight: FontWeight.bold,
-                  fontSize: displayWidth(context) * 0.032,
-                ),
-              ),
-              value: 'seven',
-            ),
-            DropdownMenuItem<String>(
-              child: Text(
-                'De 101kg a 300kg',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.grey[600],
-                  fontWeight: FontWeight.bold,
-                  fontSize: displayWidth(context) * 0.032,
-                ),
-              ),
-              value: 'eight',
-            ),
-            DropdownMenuItem<String>(
-              child: Text(
-                'Acima 300kg',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.grey[600],
-                  fontWeight: FontWeight.bold,
-                  fontSize: displayWidth(context) * 0.032,
-                ),
-              ),
-              value: 'nine',
+              value: '99',
             ),
           ],
           onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
+            Modular.get<FormularioController>().definePesoTotal(value);
           },
-          hint: Text(
-            'Peso aproximado',
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: displayWidth(context) * 0.032,
-            ),
-          ),
-          value: _value,
+          value: Modular.get<FormularioController>().pegaPesoTotal(),
         ),
       ),
     );

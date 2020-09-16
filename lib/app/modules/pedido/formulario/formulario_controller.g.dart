@@ -13,88 +13,110 @@ mixin _$FormularioController on _FormularioControllerBase, Store {
       ActionController(name: '_FormularioControllerBase');
 
   @override
-  void addItemCaixaSapato(int indice) {
+  void addItemCaixaSapato() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.addItemCaixaSapato');
     try {
-      return super.addItemCaixaSapato(indice);
+      return super.addItemCaixaSapato();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void rmItemCaixaSapato(int indice) {
+  void rmItemCaixaSapato() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.rmItemCaixaSapato');
     try {
-      return super.rmItemCaixaSapato(indice);
+      return super.rmItemCaixaSapato();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void addItemMicroondas(int indice) {
+  void addItemMicroondas() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.addItemMicroondas');
     try {
-      return super.addItemMicroondas(indice);
+      return super.addItemMicroondas();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void rmItemMicroondas(int indice) {
+  void rmItemMicroondas() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.rmItemMicroondas');
     try {
-      return super.rmItemMicroondas(indice);
+      return super.rmItemMicroondas();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void addItemFogao(int indice) {
+  void addItemFogao() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.addItemFogao');
     try {
-      return super.addItemFogao(indice);
+      return super.addItemFogao();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void rmItemFogao(int indice) {
+  void rmItemFogao() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.rmItemFogao');
     try {
-      return super.rmItemFogao(indice);
+      return super.rmItemFogao();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void addItemGeladeira(int indice) {
+  void addItemGeladeira() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.addItemGeladeira');
     try {
-      return super.addItemGeladeira(indice);
+      return super.addItemGeladeira();
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void rmItemGeladeira(int indice) {
+  void rmItemGeladeira() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.rmItemGeladeira');
     try {
-      return super.rmItemGeladeira(indice);
+      return super.rmItemGeladeira();
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void definePesoTotal(String novoPesoTotal) {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.definePesoTotal');
+    try {
+      return super.definePesoTotal(novoPesoTotal);
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineTipoMercadoria(String novotipoMercadoria) {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.defineTipoMercadoria');
+    try {
+      return super.defineTipoMercadoria(novotipoMercadoria);
     } finally {
       _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
     }

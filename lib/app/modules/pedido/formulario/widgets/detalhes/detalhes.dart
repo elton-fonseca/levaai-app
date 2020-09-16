@@ -42,7 +42,7 @@ class Detalhes extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Digite aqui o valor total dos itens',
+                        hintText: 'R\$ 0,00',
                         hintStyle: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.grey[600],

@@ -75,14 +75,12 @@ class _FormularioPageState
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: displayHeight(context) * 0.04),
-              MedidaRelativa().obter(
-                context: context,
-                indice: widget.id,
-              ),
+              MedidaRelativa(),
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoBranco(
                 onClick: () {
-                  print(Modular.get<PedidoListaStore>().pedidos);
+                  var l = Modular.get<PedidoListaStore>().pedidos;
+                  l[0].cepDestino = '';
                   PopupShow().showPopup(context, 'Medidas');
                 },
                 texto: "Tenho as medidas Exatas",
