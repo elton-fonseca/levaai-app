@@ -24,6 +24,21 @@ mixin _$Pedido on _PedidoBase, Store {
     });
   }
 
+  final _$tipoDeMedidaAtom = Atom(name: '_PedidoBase.tipoDeMedida');
+
+  @override
+  Widget get tipoDeMedida {
+    _$tipoDeMedidaAtom.reportRead();
+    return super.tipoDeMedida;
+  }
+
+  @override
+  set tipoDeMedida(Widget value) {
+    _$tipoDeMedidaAtom.reportWrite(value, super.tipoDeMedida, () {
+      super.tipoDeMedida = value;
+    });
+  }
+
   final _$caixaSapatoAtom = Atom(name: '_PedidoBase.caixaSapato');
 
   @override
@@ -88,6 +103,7 @@ mixin _$Pedido on _PedidoBase, Store {
   String toString() {
     return '''
 valorTotal: ${valorTotal},
+tipoDeMedida: ${tipoDeMedida},
 caixaSapato: ${caixaSapato},
 microondas: ${microondas},
 fogao: ${fogao},

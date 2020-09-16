@@ -1,7 +1,7 @@
-import 'dart:ffi';
-
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../modules/pedido/formulario/widgets/itens/medida_relativa.dart';
 import 'itens_pedido.dart';
 
 part 'pedido.g.dart';
@@ -25,7 +25,9 @@ abstract class _PedidoBase with Store {
   String responsavelColetaCelular;
   String responsavelEntrega;
   String responsavelEntregaCalular;
-  String tipoPesagem;
+
+  @observable
+  Widget tipoDeMedida = MedidaRelativa();
 
   @observable
   int caixaSapato = 0;

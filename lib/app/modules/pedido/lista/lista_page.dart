@@ -47,7 +47,8 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                   texto: 'Adicionar Pedido',
                   onClick: () {
                     var indice = Modular.get<PedidoListaStore>().pedidos.length;
-                    Modular.to.pushNamed('/pedido/formulario/$indice/criar');
+                    Modular.to
+                        .popAndPushNamed('/pedido/formulario/$indice/criar');
                   }),
               Text(
                 'Total Geral',

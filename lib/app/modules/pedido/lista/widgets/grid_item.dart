@@ -90,8 +90,8 @@ class GridItem {
                   children: <Widget>[
                     FlatButton(
                       onPressed: () {
-                        Modular.to
-                            .pushNamed('/pedido/formulario/$indice/editar');
+                        Modular.to.popAndPushNamed(
+                            '/pedido/formulario/$indice/editar');
                       },
                       child: Text(
                         'editar:',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
@@ -74,13 +75,16 @@ class _FormularioPageState
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: displayHeight(context) * 0.04),
-              MedidaRelativa(),
+              Observer(builder: (_) {
+                return controller.pegarTipoDeMedida();
+              }),
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoBranco(
                 onClick: () {
-                  var l = Modular.get<PedidoListaStore>().pedidos;
-                  l[0].cepDestino = '';
-                  PopupShow().showPopup(context, 'Medidas');
+                  //var l = Modular.get<PedidoListaStore>().pedidos;
+                  //l[0].cepDestino = '';
+                  //PopupShow().showPopup(context, 'Medidas');
+                  controller.definirMedidaExata();
                 },
                 texto: "Tenho as medidas Exatas",
               ),

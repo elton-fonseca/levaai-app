@@ -13,6 +13,28 @@ mixin _$FormularioController on _FormularioControllerBase, Store {
       ActionController(name: '_FormularioControllerBase');
 
   @override
+  void definirMedidaRelativa() {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.definirMedidaRelativa');
+    try {
+      return super.definirMedidaRelativa();
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void definirMedidaExata() {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.definirMedidaExata');
+    try {
+      return super.definirMedidaExata();
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addItemCaixaSapato() {
     final _$actionInfo = _$_FormularioControllerBaseActionController
         .startAction(name: '_FormularioControllerBase.addItemCaixaSapato');

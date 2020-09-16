@@ -97,7 +97,8 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                                 ),
                                 child: SizedBox(
                                   width: displayWidth(context) * 0.1,
-                                  child: Image.asset("assets/imagens/box-fechada.png"),
+                                  child: Image.asset(
+                                      "assets/imagens/box-fechada.png"),
                                 ),
                               ),
                             ],
@@ -143,7 +144,8 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                                 ),
                                 child: SizedBox(
                                   width: displayWidth(context) * 0.1,
-                                  child: Image.asset("assets/imagens/box-aberta.png"),
+                                  child: Image.asset(
+                                      "assets/imagens/box-aberta.png"),
                                 ),
                               ),
                             ],
@@ -481,7 +483,10 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController> {
                       texto: "Confirmar",
                       largura: 0.4,
                       onClick: () {
-                        Modular.to.pushNamed('/pedido/lista');
+                        Modular.to.popUntil(
+                            ModalRoute.withName('/pedido/formulario/0/criar'));
+                        Modular.to.popAndPushNamed('/pedido/lista');
+                        //Modular.to.pushNamed('/pedido/lista');
                       },
                     )
                   ],

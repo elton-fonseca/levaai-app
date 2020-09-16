@@ -9,8 +9,7 @@ part 'pedido_lista_store.g.dart';
 class PedidoListaStore = _PedidoListaStoreBase with _$PedidoListaStore;
 
 abstract class _PedidoListaStoreBase with Store {
-  @observable
-  Widget tipoDeMedida;
+
 
   @observable
   ObservableList pedidos = [].asObservable();
@@ -30,14 +29,4 @@ abstract class _PedidoListaStoreBase with Store {
   }
 
 
-
-  @action
-  void definirMedidaRelativa() {
-    //tipoDeMedida = MedidaRelativa();
-  }
-
-  @action
-  void definirMedidaExata() {
-    tipoDeMedida = MedidaExata();
-  }
 }

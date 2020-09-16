@@ -3,6 +3,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
+import 'widgets/itens/medida_exata.dart';
+import 'widgets/itens/medida_relativa.dart';
 
 part 'formulario_controller.g.dart';
 
@@ -13,7 +15,21 @@ class FormularioController = _FormularioControllerBase
 abstract class _FormularioControllerBase with Store {
   int indice = 0;
 
+  @action
+  void definirMedidaRelativa() {
+    Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida =
+        MedidaRelativa();
+  }
 
+  @action
+  void definirMedidaExata() {
+    Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida =
+        MedidaExata();
+  }
+
+  Widget pegarTipoDeMedida() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+  }
 
   int itemCaixaSapato() {
     return Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato;
