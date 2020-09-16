@@ -80,17 +80,6 @@ mixin _$PedidoListaStore on _PedidoListaStoreBase, Store {
   }
 
   @override
-  void addSapato(int indice) {
-    final _$actionInfo = _$_PedidoListaStoreBaseActionController.startAction(
-        name: '_PedidoListaStoreBase.addSapato');
-    try {
-      return super.addSapato(indice);
-    } finally {
-      _$_PedidoListaStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void definirMedidaRelativa() {
     final _$actionInfo = _$_PedidoListaStoreBaseActionController.startAction(
         name: '_PedidoListaStoreBase.definirMedidaRelativa');

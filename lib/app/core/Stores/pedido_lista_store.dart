@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../modules/pedido/formulario/widgets/itens/medida_exata.dart';
-import '../../modules/pedido/formulario/widgets/itens/medida_relativa.dart';
 import '../Models/pedido.dart';
 
 part 'pedido_lista_store.g.dart';
@@ -30,10 +29,7 @@ abstract class _PedidoListaStoreBase with Store {
     pedidos[id].enderecoOrigem = novoEndereco;
   }
 
-  @action
-  void addSapato(int indice) {
-    pedidos[indice].caixaSapato++;
-  }
+
 
   @action
   void definirMedidaRelativa() {

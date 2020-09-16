@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
-import '../../../../../../main.dart';
+import '../../../../../core/Stores/pedido_lista_store.dart';
 import '../../../../../core/tema/cores_const.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
+import '../../formulario_controller.dart';
 import 'item-relativo.dart';
 
 class MedidaRelativa {
@@ -72,51 +73,42 @@ class MedidaRelativa {
               child: SizedBox(
                 width: displayHeight(context) * 0.185,
                 child: Container(
-                  child: ItemRelativo().contador(
-                      context: context,
-                      onClickMais: () {
-                        Modular.get<PedidoListaStore>().addSapato(indice);
-                      },
-                      onClickMenos: () {},
-                      quantidade: Modular.get<PedidoListaStore>()
-                          .pedidos[indice]
-                          .caixaSapato),
+                  child: Observer(builder: (_) {
+                    return ItemRelativo().contador(
+                        context: context,
+                        onClickMais: () {
+                          Modular.get<FormularioController>()
+                              .addItemCaixaSapato(indice);
+                        },
+                        onClickMenos: () {
+                          Modular.get<FormularioController>()
+                              .rmItemCaixaSapato(indice);
+                        },
+                        quantidade: Modular.get<PedidoListaStore>()
+                            .pedidos[indice]
+                            .caixaSapato);
+                  }),
                 ),
               ),
             ),
             SizedBox(
               width: displayHeight(context) * 0.185,
               child: Container(
-                child: Row(children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      Icons.remove_circle,
-                      color: Colors.grey,
-                      size: displayWidth(context) * 0.07,
-                    ),
-                    onPressed: () {},
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(left: displayWidth(context) * 0.01),
-                    child: Text(
-                      '2',
-                      style: TextStyle(
-                        color: CoresConst.azulPadrao,
-                        fontSize: displayWidth(context) * 0.07,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.add_circle,
-                      color: Colors.grey,
-                      size: displayWidth(context) * 0.07,
-                    ),
-                    onPressed: () {},
-                  ),
-                ]),
+                child: Observer(builder: (_) {
+                  return ItemRelativo().contador(
+                      context: context,
+                      onClickMais: () {
+                        Modular.get<FormularioController>()
+                            .addItemMicroondas(indice);
+                      },
+                      onClickMenos: () {
+                        Modular.get<FormularioController>()
+                            .rmItemMicroondas(indice);
+                      },
+                      quantidade: Modular.get<PedidoListaStore>()
+                          .pedidos[indice]
+                          .microondas);
+                }),
               ),
             ),
           ],
@@ -182,69 +174,38 @@ class MedidaRelativa {
             children: <Widget>[
               Container(
                 width: displayHeight(context) * 0.185,
-                child: Row(children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      Icons.remove_circle,
-                      color: Colors.grey,
-                      size: displayWidth(context) * 0.07,
-                    ),
-                    onPressed: () {},
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(left: displayWidth(context) * 0.01),
-                    child: Text(
-                      '1',
-                      style: TextStyle(
-                        color: CoresConst.azulPadrao,
-                        fontSize: displayWidth(context) * 0.07,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.add_circle,
-                      color: Colors.grey,
-                      size: displayWidth(context) * 0.07,
-                    ),
-                    onPressed: () {},
-                  ),
-                ]),
+                child: Observer(builder: (_) {
+                  return ItemRelativo().contador(
+                      context: context,
+                      onClickMais: () {
+                        Modular.get<FormularioController>()
+                            .addItemFogao(indice);
+                      },
+                      onClickMenos: () {
+                        Modular.get<FormularioController>().rmItemFogao(indice);
+                      },
+                      quantidade: Modular.get<PedidoListaStore>()
+                          .pedidos[indice]
+                          .fogao);
+                }),
               ),
               Container(
                 width: displayHeight(context) * 0.185,
-                child: Row(children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      Icons.remove_circle,
-                      color: Colors.grey,
-                      size: displayWidth(context) * 0.07,
-                    ),
-                    onPressed: () {},
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(left: displayWidth(context) * 0.01),
-                    child: Text(
-                      '0',
-                      style: TextStyle(
-                        color: CoresConst.azulPadrao,
-                        fontSize: displayWidth(context) * 0.07,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.add_circle,
-                      color: Colors.grey,
-                      size: displayWidth(context) * 0.07,
-                    ),
-                    onPressed: () {},
-                  ),
-                ]),
+                child: Observer(builder: (_) {
+                  return ItemRelativo().contador(
+                      context: context,
+                      onClickMais: () {
+                        Modular.get<FormularioController>()
+                            .addItemGeladeira(indice);
+                      },
+                      onClickMenos: () {
+                        Modular.get<FormularioController>()
+                            .rmItemGeladeira(indice);
+                      },
+                      quantidade: Modular.get<PedidoListaStore>()
+                          .pedidos[indice]
+                          .geladeira);
+                }),
               ),
             ],
           ),

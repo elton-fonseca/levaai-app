@@ -25,8 +25,14 @@ abstract class _PedidoBase with Store {
 
   @observable
   int caixaSapato = 0;
+
+  @observable
   int microondas = 0;
+
+  @observable
   int fogao = 0;
+
+  @observable
   int geladeira = 0;
 
   List<ItensPedido> itens;

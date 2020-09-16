@@ -1,3 +1,8 @@
+Alinhamento contador medida relativa (- 0 +)
+Grid de lista de pedidos (arrumar a tela que lasquei)
+tela da rastreamento arrumar fontes e alinhamentos
+
+
 Column(
               children: <Widget>[
                 SizedBox(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 
-import '../../../../main.dart';
+import '../../../core/Stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
 

@@ -24,10 +24,58 @@ mixin _$Pedido on _PedidoBase, Store {
     });
   }
 
+  final _$microondasAtom = Atom(name: '_PedidoBase.microondas');
+
+  @override
+  int get microondas {
+    _$microondasAtom.reportRead();
+    return super.microondas;
+  }
+
+  @override
+  set microondas(int value) {
+    _$microondasAtom.reportWrite(value, super.microondas, () {
+      super.microondas = value;
+    });
+  }
+
+  final _$fogaoAtom = Atom(name: '_PedidoBase.fogao');
+
+  @override
+  int get fogao {
+    _$fogaoAtom.reportRead();
+    return super.fogao;
+  }
+
+  @override
+  set fogao(int value) {
+    _$fogaoAtom.reportWrite(value, super.fogao, () {
+      super.fogao = value;
+    });
+  }
+
+  final _$geladeiraAtom = Atom(name: '_PedidoBase.geladeira');
+
+  @override
+  int get geladeira {
+    _$geladeiraAtom.reportRead();
+    return super.geladeira;
+  }
+
+  @override
+  set geladeira(int value) {
+    _$geladeiraAtom.reportWrite(value, super.geladeira, () {
+      super.geladeira = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-caixaSapato: ${caixaSapato}
+caixaSapato: ${caixaSapato},
+microondas: ${microondas},
+fogao: ${fogao},
+geladeira: ${geladeira}
     ''';
   }
 }
