@@ -6,7 +6,9 @@ import 'formulario_controller.dart';
 import 'formulario_page.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
-  final myController = TextEditingController();
+  final enderecoOrigemTextController = TextEditingController();
+  final enderecoDestinoTextController = TextEditingController();
+  final valorTotalTextController = TextEditingController();
 
   @override
   void initState() {
@@ -15,8 +17,14 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     if (widget.acao == 'criar') {
       Modular.get<PedidoListaStore>().addPedido();
     } else {
-      myController.text =
-          Modular.get<PedidoListaStore>().pedidos[widget.id].enderecoOrigem;
+      enderecoOrigemTextController.text =
+          Modular.get<FormularioController>().pegaEnderecoOrigem();
+
+      enderecoDestinoTextController.text =
+          Modular.get<FormularioController>().pegaEnderecoDestino();
+
+      valorTotalTextController.text =
+          Modular.get<FormularioController>().pegaValorTotal();
     }
 
     super.initState();

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/formulario/formulario_controller.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
 
 import 'dropbox/dropdown_peso.dart';
 import 'dropbox/dropdown_tipo.dart';
 
-class Detalhes extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+class Detalhes {
+  Widget obter({
+    @required BuildContext context,
+    @required TextEditingController valorTotalTextController,
+  }) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
@@ -32,6 +36,9 @@ class Detalhes extends StatelessWidget {
                   SizedBox(
                     width: displayWidth(context) * 0.5,
                     child: TextFormField(
+                      controller: valorTotalTextController,
+                      onChanged: (valor) => Modular.get<FormularioController>()
+                          .defineValorTotal(valor),
                       style: TextStyle(
                         fontFamily: 'Roboto',
                         color: Colors.grey[600],

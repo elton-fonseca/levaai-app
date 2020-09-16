@@ -61,9 +61,8 @@ class _FormularioPageState
             conteudo: Column(children: <Widget>[
               Endereco().obter(
                 context: context,
-                indice: widget.id,
-                origem: myController,
-                destino: myController,
+                origemTextController: enderecoOrigemTextController,
+                destinoTextController: enderecoDestinoTextController,
               ),
               SizedBox(height: displayHeight(context) * 0.04),
               Text(
@@ -101,7 +100,10 @@ class _FormularioPageState
                     ),
                   ],
                 ),
-                child: Detalhes(),
+                child: Detalhes().obter(
+                  context: context,
+                  valorTotalTextController: valorTotalTextController,
+                ),
               ),
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoAzul(

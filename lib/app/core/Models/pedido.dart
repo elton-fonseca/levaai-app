@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:mobx/mobx.dart';
 
 import 'itens_pedido.dart';
@@ -8,12 +10,14 @@ class Pedido = _PedidoBase with _$Pedido;
 
 abstract class _PedidoBase with Store {
   String cepOrigem;
-
   String enderecoOrigem;
 
   String cepDestino;
   String enderecoDestino;
-  int valorTotal;
+
+  @observable
+  String valorTotal;
+
   int pesoTotal;
   String tipoMercadoria;
   int cotacaoId;

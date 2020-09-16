@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/formulario/formulario_controller.dart';
 
 import '../../../../../core/Stores/pedido_lista_store.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
@@ -7,9 +8,8 @@ import '../../../../../core/view/tamanhos_relativos.dart';
 class Endereco {
   Widget obter({
     @required BuildContext context,
-    @required int indice,
-    @required TextEditingController origem,
-    @required TextEditingController destino,
+    @required TextEditingController origemTextController,
+    @required TextEditingController destinoTextController,
   }) {
     return Padding(
       padding: EdgeInsets.only(
@@ -35,9 +35,9 @@ class Endereco {
                 width: displayWidth(context) * 0.85,
                 height: displayHeight(context) * 0.1,
                 child: TextFormField(
-                  controller: origem,
-                  onChanged: (valor) => Modular.get<PedidoListaStore>()
-                      .defineEndereco(valor, indice),
+                  controller: origemTextController,
+                  onChanged: (valor) => Modular.get<FormularioController>()
+                      .defineEnderecoOrigem(valor),
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],
@@ -64,9 +64,9 @@ class Endereco {
                 width: displayWidth(context) * 0.85,
                 height: displayHeight(context) * 0.1,
                 child: TextFormField(
-                  controller: destino,
-                  onChanged: (valor) => Modular.get<PedidoListaStore>()
-                      .defineEndereco(valor, indice),
+                  controller: destinoTextController,
+                  onChanged: (valor) => Modular.get<FormularioController>()
+                      .defineEnderecoDestino(valor),
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],

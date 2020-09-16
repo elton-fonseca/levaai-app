@@ -123,6 +123,39 @@ mixin _$FormularioController on _FormularioControllerBase, Store {
   }
 
   @override
+  void defineValorTotal(String novoValorTotal) {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.defineValorTotal');
+    try {
+      return super.defineValorTotal(novoValorTotal);
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineEnderecoOrigem(String novoEnderecoOrigem) {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.defineEnderecoOrigem');
+    try {
+      return super.defineEnderecoOrigem(novoEnderecoOrigem);
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineEnderecoDestino(String novoEnderecoDestino) {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.defineEnderecoDestino');
+    try {
+      return super.defineEnderecoDestino(novoEnderecoDestino);
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 

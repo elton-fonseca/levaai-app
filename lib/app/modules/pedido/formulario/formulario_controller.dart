@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -11,6 +12,8 @@ class FormularioController = _FormularioControllerBase
 
 abstract class _FormularioControllerBase with Store {
   int indice = 0;
+
+
 
   int itemCaixaSapato() {
     return Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato;
@@ -115,5 +118,34 @@ abstract class _FormularioControllerBase with Store {
     }
 
     return "selecione";
+  }
+
+  @action
+  void defineValorTotal(String novoValorTotal) {
+    Modular.get<PedidoListaStore>().pedidos[indice].valorTotal = novoValorTotal;
+  }
+
+  String pegaValorTotal() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].valorTotal;
+  }
+
+  @action
+  void defineEnderecoOrigem(String novoEnderecoOrigem) {
+    Modular.get<PedidoListaStore>().pedidos[indice].enderecoOrigem =
+        novoEnderecoOrigem;
+  }
+
+  String pegaEnderecoOrigem() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].enderecoOrigem;
+  }
+
+  @action
+  void defineEnderecoDestino(String novoEnderecoDestino) {
+    Modular.get<PedidoListaStore>().pedidos[indice].enderecoDestino =
+        novoEnderecoDestino;
+  }
+
+  String pegaEnderecoDestino() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].enderecoDestino;
   }
 }
