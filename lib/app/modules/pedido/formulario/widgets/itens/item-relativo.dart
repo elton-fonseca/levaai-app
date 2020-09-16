@@ -57,14 +57,16 @@ class ItemRelativo {
       Padding(
         padding: EdgeInsets.only(left: displayWidth(context) * 0.01),
         child: Observer(
-          builder: (_) => Text(
-            Modular.get<PedidoListaStore>().pedidos[0].caixaSapato.toString(),
-            style: TextStyle(
-              color: CoresConst.azulPadrao,
-              fontSize: displayWidth(context) * 0.07,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          builder: (_) {
+            return Text(
+              Modular.get<PedidoListaStore>().pedidos[0].caixaSapato.toString(),
+              style: TextStyle(
+                color: CoresConst.azulPadrao,
+                fontSize: displayWidth(context) * 0.07,
+                fontWeight: FontWeight.bold,
+              ),
+            );
+          },
         ),
       ),
       IconButton(

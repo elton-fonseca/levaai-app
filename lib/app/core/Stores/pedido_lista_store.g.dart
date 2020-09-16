@@ -80,11 +80,11 @@ mixin _$PedidoListaStore on _PedidoListaStoreBase, Store {
   }
 
   @override
-  void addSapato(int id) {
+  void addSapato(int indice) {
     final _$actionInfo = _$_PedidoListaStoreBaseActionController.startAction(
         name: '_PedidoListaStoreBase.addSapato');
     try {
-      return super.addSapato(id);
+      return super.addSapato(indice);
     } finally {
       _$_PedidoListaStoreBaseActionController.endAction(_$actionInfo);
     }

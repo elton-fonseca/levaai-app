@@ -31,8 +31,8 @@ abstract class _PedidoListaStoreBase with Store {
   }
 
   @action
-  void addSapato(int id) {
-    caixaSapato++;
+  void addSapato(int indice) {
+    pedidos[indice].caixaSapato++;
   }
 
   @action

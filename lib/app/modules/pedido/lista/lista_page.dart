@@ -68,30 +68,12 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Container(
-                child: Observer(builder: (_) {
-                  return Text(
-                    Modular.get<PedidoListaStore>().caixaSapato.toString(),
-                    style: TextStyle(
-                      color: CoresConst.azulPadrao,
-                      fontSize: displayWidth(context) * 0.07,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  );
-                }),
-              ),
-              BotaoAzul(
-                texto: 'aaaa',
-                onClick: () {
-                  Modular.get<PedidoListaStore>().addSapato(1);
-                },
-              )
             ],
           ),
           conteudo: SizedBox(
             width: displayWidth(context) * 0.7,
-            child: Observer(
-              builder: (_) => GridView.count(
+            child: Observer(builder: (_) {
+              return GridView.count(
                 crossAxisCount: 2,
                 shrinkWrap: true,
                 children: List.generate(
@@ -102,8 +84,8 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                     indice: indice,
                   );
                 }),
-              ),
-            ),
+              );
+            }),
           ),
         ),
       ),
