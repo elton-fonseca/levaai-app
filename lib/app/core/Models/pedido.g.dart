@@ -99,6 +99,45 @@ mixin _$Pedido on _PedidoBase, Store {
     });
   }
 
+  final _$itensAtom = Atom(name: '_PedidoBase.itens');
+
+  @override
+  ObservableList<dynamic> get itens {
+    _$itensAtom.reportRead();
+    return super.itens;
+  }
+
+  @override
+  set itens(ObservableList<dynamic> value) {
+    _$itensAtom.reportWrite(value, super.itens, () {
+      super.itens = value;
+    });
+  }
+
+  final _$_PedidoBaseActionController = ActionController(name: '_PedidoBase');
+
+  @override
+  void addItemPedido() {
+    final _$actionInfo = _$_PedidoBaseActionController.startAction(
+        name: '_PedidoBase.addItemPedido');
+    try {
+      return super.addItemPedido();
+    } finally {
+      _$_PedidoBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void rmItemPedido(int indice) {
+    final _$actionInfo = _$_PedidoBaseActionController.startAction(
+        name: '_PedidoBase.rmItemPedido');
+    try {
+      return super.rmItemPedido(indice);
+    } finally {
+      _$_PedidoBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
@@ -107,7 +146,8 @@ tipoDeMedida: ${tipoDeMedida},
 caixaSapato: ${caixaSapato},
 microondas: ${microondas},
 fogao: ${fogao},
-geladeira: ${geladeira}
+geladeira: ${geladeira},
+itens: ${itens}
     ''';
   }
 }

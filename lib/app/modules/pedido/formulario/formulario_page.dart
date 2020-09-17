@@ -79,14 +79,18 @@ class _FormularioPageState
                 return controller.pegarTipoDeMedida();
               }),
               SizedBox(height: displayHeight(context) * 0.08),
-              BotaoBranco(
-                onClick: () {
-                  //var l = Modular.get<PedidoListaStore>().pedidos;
-                  //l[0].cepDestino = '';
-                  //PopupShow().showPopup(context, 'Medidas');
-                  controller.definirMedidaExata();
+              Observer(
+                builder: (context) {
+                  return BotaoBranco(
+                    onClick: () {
+                      //var l = Modular.get<PedidoListaStore>().pedidos;
+                      //l[0].cepDestino = '';
+                      PopupShow().showPopup(context, 'Medidas');
+                      
+                    },
+                    texto: controller.descritivoTipoDeMedida(),
+                  );
                 },
-                texto: "Tenho as medidas Exatas",
               ),
               SizedBox(height: displayHeight(context) * 0.08),
               Container(

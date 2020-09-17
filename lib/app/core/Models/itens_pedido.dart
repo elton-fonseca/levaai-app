@@ -1,5 +1,4 @@
 class ItensPedido {
-  String descricao;
   int quantidade;
   int altura;
   int largura;
@@ -7,15 +6,13 @@ class ItensPedido {
   int cubagem;
 
   ItensPedido(
-      {this.descricao,
-      this.quantidade,
+      {this.quantidade,
       this.altura,
       this.largura,
       this.comprimento,
       this.cubagem});
 
   ItensPedido.fromJson(Map<String, dynamic> json) {
-    descricao = json['descricao'];
     quantidade = json['quantidade'];
     altura = json['altura'];
     largura = json['largura'];
@@ -25,7 +22,6 @@ class ItensPedido {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['descricao'] = descricao;
     data['quantidade'] = quantidade;
     data['altura'] = altura;
     data['largura'] = largura;

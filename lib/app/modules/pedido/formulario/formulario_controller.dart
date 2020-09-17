@@ -15,6 +15,7 @@ class FormularioController = _FormularioControllerBase
 abstract class _FormularioControllerBase with Store {
   int indice = 0;
 
+  //tipo de medida
   @action
   void definirMedidaRelativa() {
     Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida =
@@ -27,10 +28,22 @@ abstract class _FormularioControllerBase with Store {
         MedidaExata();
   }
 
+  String descritivoTipoDeMedida() {
+    var tipoMedida =
+        Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+
+    if (tipoMedida is MedidaRelativa) {
+      return "Tenho as Medidas Exatas";
+    }
+
+    return "Adicionar Item";
+  }
+
   Widget pegarTipoDeMedida() {
     return Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
   }
 
+  //contadores medida relativa
   int itemCaixaSapato() {
     return Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato;
   }
@@ -103,6 +116,7 @@ abstract class _FormularioControllerBase with Store {
     }
   }
 
+  //detalhes 
   @action
   void definePesoTotal(String novoPesoTotal) {
     Modular.get<PedidoListaStore>().pedidos[indice].pesoTotal =
@@ -145,6 +159,7 @@ abstract class _FormularioControllerBase with Store {
     return Modular.get<PedidoListaStore>().pedidos[indice].valorTotal;
   }
 
+  //endereços
   @action
   void defineEnderecoOrigem(String novoEnderecoOrigem) {
     Modular.get<PedidoListaStore>().pedidos[indice].enderecoOrigem =
@@ -163,5 +178,10 @@ abstract class _FormularioControllerBase with Store {
 
   String pegaEnderecoDestino() {
     return Modular.get<PedidoListaStore>().pedidos[indice].enderecoDestino;
+  }
+
+  //medida exata 
+  ObservableList pegarListaMedidaExata() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].itens;
   }
 }

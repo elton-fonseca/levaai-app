@@ -24,21 +24,6 @@ mixin _$PedidoListaStore on _PedidoListaStoreBase, Store {
     });
   }
 
-  final _$caixaSapatoAtom = Atom(name: '_PedidoListaStoreBase.caixaSapato');
-
-  @override
-  int get caixaSapato {
-    _$caixaSapatoAtom.reportRead();
-    return super.caixaSapato;
-  }
-
-  @override
-  set caixaSapato(int value) {
-    _$caixaSapatoAtom.reportWrite(value, super.caixaSapato, () {
-      super.caixaSapato = value;
-    });
-  }
-
   final _$_PedidoListaStoreBaseActionController =
       ActionController(name: '_PedidoListaStoreBase');
 
@@ -54,21 +39,9 @@ mixin _$PedidoListaStore on _PedidoListaStoreBase, Store {
   }
 
   @override
-  void defineEndereco(String novoEndereco, int id) {
-    final _$actionInfo = _$_PedidoListaStoreBaseActionController.startAction(
-        name: '_PedidoListaStoreBase.defineEndereco');
-    try {
-      return super.defineEndereco(novoEndereco, id);
-    } finally {
-      _$_PedidoListaStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
-pedidos: ${pedidos},
-caixaSapato: ${caixaSapato}
+pedidos: ${pedidos}
     ''';
   }
 }
