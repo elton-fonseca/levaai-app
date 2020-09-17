@@ -4,17 +4,20 @@ import '../../../../core/view/tamanhos_relativos.dart';
 class InputText extends StatelessWidget {
   InputText({
     this.tipo = 'nome',
-    this.textController,
-    this.mascara,
+    @required this.textController,
+    @required this.mascara,
+    @required this.onChange,
   });
 
   final String tipo;
   final TextEditingController textController;
   final String mascara;
+  final void Function(String) onChange;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChange,
       controller: textController,
       style: TextStyle(
         fontFamily: 'Roboto',

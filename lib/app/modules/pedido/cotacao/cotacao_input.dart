@@ -9,16 +9,28 @@ mixin CotacaoInputs on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaTextController = TextEditingController();
   final responsavelColetaCelularTextController = TextEditingController();
   final responsavelEntregaTextController = TextEditingController();
-  final responsavelEntregaCElularTextController = TextEditingController();
+  final responsavelEntregaCelularTextController = TextEditingController();
+  final observacaoTextController = TextEditingController();
 
   @override
   void initState() {
     controller.indice = widget.id;
 
     if (widget.acao == 'editar') {
-      //enderecoOrigemTextController.text =
-      //  Modular.get<CotacaoController>().pegaEnderecoOrigem();
+      responsavelColetaTextController.text =
+          Modular.get<CotacaoController>().pegaResponsavelColeta();
 
+      responsavelColetaCelularTextController.text =
+          Modular.get<CotacaoController>().pegaResponsavelColetaCelular();
+
+      responsavelEntregaTextController.text =
+          Modular.get<CotacaoController>().pegaResponsavelEntrega();
+
+      responsavelEntregaCelularTextController.text =
+          Modular.get<CotacaoController>().pegaResponsavelEntregaCelular();
+
+      observacaoTextController.text =
+          Modular.get<CotacaoController>().pegaObservacao();
     }
 
     super.initState();

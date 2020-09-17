@@ -166,6 +166,9 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                               Expanded(
                                 child: SizedBox(
                                   child: InputText(
+                                    onChange: (valor) {
+                                      controller.defineResponsavelColeta(valor);
+                                    },
                                     textController:
                                         responsavelColetaTextController,
                                     mascara: '',
@@ -175,6 +178,10 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                               Expanded(
                                 child: SizedBox(
                                   child: InputText(
+                                    onChange: (valor) {
+                                      controller.defineResponsavelColetaCelular(
+                                          valor);
+                                    },
                                     tipo: 'tel',
                                     textController:
                                         responsavelColetaCelularTextController,
@@ -242,6 +249,10 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                               Expanded(
                                 child: SizedBox(
                                   child: InputText(
+                                    onChange: (valor) {
+                                      controller
+                                          .defineResponsavelEntrega(valor);
+                                    },
                                     textController:
                                         responsavelEntregaTextController,
                                     mascara: '',
@@ -251,9 +262,14 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                               Expanded(
                                 child: SizedBox(
                                   child: InputText(
+                                    onChange: (valor) {
+                                      controller
+                                          .defineResponsavelEntregaCelular(
+                                              valor);
+                                    },
                                     tipo: 'tel',
                                     textController:
-                                        responsavelEntregaCElularTextController,
+                                        responsavelEntregaCelularTextController,
                                     mascara: '',
                                   ),
                                 ),
@@ -299,6 +315,8 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
+                            onChanged: controller.defineObservacao,
+                            controller: observacaoTextController,
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               color: Colors.grey[600],
@@ -328,15 +346,15 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                       texto: "Editar",
                       largura: 0.4,
                       onClick: () {
-                        Modular.to.pushNamed('/pedido/form');
+                        Modular.to.popAndPushNamed('/pedido/form');
                       },
                     ),
                     BotaoAzul(
                       texto: "Confirmar",
                       largura: 0.4,
                       onClick: () {
-                        Modular.to.popUntil(
-                            ModalRoute.withName('/pedido/formulario/0/criar'));
+                        Modular.to.popUntil(ModalRoute.withName(
+                            '/pedido/formulario/${widget.id}/${widget.acao}'));
                         Modular.to.popAndPushNamed('/pedido/lista');
                         //Modular.to.pushNamed('/pedido/lista');
                       },

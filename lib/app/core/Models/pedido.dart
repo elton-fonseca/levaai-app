@@ -21,11 +21,12 @@ abstract class _PedidoBase with Store {
   int pesoTotal;
   String tipoMercadoria;
   int cotacaoId;
-  
+
   String responsavelColeta;
   String responsavelColetaCelular;
   String responsavelEntrega;
-  String responsavelEntregaCalular;
+  String responsavelEntregaCelular;
+  String observacao;
 
   @observable
   Widget tipoDeMedida = MedidaRelativa();

@@ -112,7 +112,8 @@ class _FormularioPageState
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoAzul(
                 onClick: () {
-                  Modular.to.pushNamed('/pedido/cotacao');
+                  Modular.to
+                      .pushNamed('/pedido/cotacao/${widget.id}/${widget.acao}');
                 },
                 texto: "Verificar Valor",
               ),
