@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../formulario_controller.dart';
+import 'tipo_medida_controller.dart';
 
 class MedidaExata extends StatelessWidget {
   final List<String> entries = <String>['A', 'B', 'C', 'A', 'B', 'C'];
@@ -19,11 +19,11 @@ class MedidaExata extends StatelessWidget {
                   return ListView.separated(
                     separatorBuilder: (context, index) => const Divider(),
                     scrollDirection: Axis.vertical,
-                    itemCount: Modular.get<FormularioController>()
+                    itemCount: Modular.get<TipoMedidaController>()
                         .pegarListaMedidaExata()
                         .length,
                     itemBuilder: (context, index) {
-                      var lista = Modular.get<FormularioController>()
+                      var lista = Modular.get<TipoMedidaController>()
                           .pegarListaMedidaExata();
                       return Column(
                         children: [

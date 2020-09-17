@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../../core/view/tamanhos_relativos.dart';
 import '../../../formulario_controller.dart';
+import '../detalhes_controller.dart';
 
 class DropdownTipo extends StatefulWidget {
   @override
@@ -67,9 +68,9 @@ class _DropdownTipoState extends State<DropdownTipo> {
             ),
           ],
           onChanged: (value) {
-            Modular.get<FormularioController>().defineTipoMercadoria(value);
+            Modular.get<DetalhesController>().defineTipoMercadoria(value);
           },
-          value: Modular.get<FormularioController>().pegaTipoMercadoria(),
+          value: Modular.get<DetalhesController>().pegaTipoMercadoria(),
         ),
       ),
     );

@@ -13,6 +13,7 @@ import 'formulario_input.dart';
 import 'widgets/detalhes/detalhes.dart';
 import 'widgets/endereco/endereco.dart';
 import 'widgets/popup/popup_show.dart';
+import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 class FormularioPage extends StatefulWidget {
   final String title;
@@ -74,7 +75,7 @@ class _FormularioPageState
               ),
               SizedBox(height: displayHeight(context) * 0.04),
               Observer(builder: (_) {
-                return controller.pegarTipoDeMedida();
+                return Modular.get<TipoMedidaController>().pegarTipoDeMedida();
               }),
               SizedBox(height: displayHeight(context) * 0.08),
               Observer(
@@ -86,7 +87,8 @@ class _FormularioPageState
                       PopupShow().showPopup(context, 'Medidas');
                       //controller.definirMedidaExata();
                     },
-                    texto: controller.descritivoTipoDeMedida(),
+                    texto: Modular.get<TipoMedidaController>()
+                        .descritivoTipoDeMedida(),
                   );
                 },
               ),

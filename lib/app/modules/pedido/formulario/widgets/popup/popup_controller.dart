@@ -4,7 +4,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../../core/Models/itens_pedido.dart';
 import '../../../../../core/Stores/pedido_lista_store.dart';
-import '../../formulario_controller.dart';
+import '../tipo_medida/tipo_medida_controller.dart';
 import 'widgets/cubagem.dart';
 import 'widgets/dimensoes.dart';
 
@@ -74,7 +74,7 @@ abstract class _PopupControllerBase with Store {
 
     Modular.get<PedidoListaStore>().pedidos[indice].addItemPedido(item);
 
-    Modular.get<FormularioController>().definirMedidaExata();
+    Modular.get<TipoMedidaController>().definirMedidaExata();
 
     Modular.to.pop();
   }

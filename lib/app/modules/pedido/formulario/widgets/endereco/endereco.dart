@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
 import '../../formulario_controller.dart';
+import 'endereco_controller.dart';
 
 class Endereco {
   Widget obter({
@@ -35,7 +36,7 @@ class Endereco {
                 height: displayHeight(context) * 0.1,
                 child: TextFormField(
                   controller: origemTextController,
-                  onChanged: (valor) => Modular.get<FormularioController>()
+                  onChanged: (valor) => Modular.get<EnderecoController>()
                       .defineEnderecoOrigem(valor),
                   style: TextStyle(
                     fontFamily: 'Roboto',
@@ -64,7 +65,7 @@ class Endereco {
                 height: displayHeight(context) * 0.1,
                 child: TextFormField(
                   controller: destinoTextController,
-                  onChanged: (valor) => Modular.get<FormularioController>()
+                  onChanged: (valor) => Modular.get<EnderecoController>()
                       .defineEnderecoDestino(valor),
                   style: TextStyle(
                     fontFamily: 'Roboto',

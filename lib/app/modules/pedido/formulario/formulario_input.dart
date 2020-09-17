@@ -4,7 +4,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../core/Stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
+import 'widgets/detalhes/detalhes_controller.dart';
+import 'widgets/endereco/endereco_controller.dart';
 import 'widgets/popup/popup_controller.dart';
+import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final enderecoOrigemTextController = TextEditingController();
@@ -14,19 +17,23 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   @override
   void initState() {
     controller.indice = widget.id;
+    Modular.get<TipoMedidaController>().indice = widget.id;
     Modular.get<PopupController>().indice = widget.id;
+    Modular.get<EnderecoController>().indice = widget.id;
+    Modular.get<DetalhesController>().indice = widget.id;
+    
 
     if (widget.acao == 'criar') {
       Modular.get<PedidoListaStore>().addPedido();
     } else {
       enderecoOrigemTextController.text =
-          Modular.get<FormularioController>().pegaEnderecoOrigem();
+          Modular.get<EnderecoController>().pegaEnderecoOrigem();
 
       enderecoDestinoTextController.text =
-          Modular.get<FormularioController>().pegaEnderecoDestino();
+          Modular.get<EnderecoController>().pegaEnderecoDestino();
 
       valorTotalTextController.text =
-          Modular.get<FormularioController>().pegaValorTotal();
+          Modular.get<DetalhesController>().pegaValorTotal();
     }
 
     super.initState();

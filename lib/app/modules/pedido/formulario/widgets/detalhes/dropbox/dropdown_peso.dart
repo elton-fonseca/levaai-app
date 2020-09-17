@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../../core/view/tamanhos_relativos.dart';
 import '../../../formulario_controller.dart';
+import '../detalhes_controller.dart';
 
 class DropdownPeso extends StatefulWidget {
   @override
@@ -92,9 +93,9 @@ class _DropdownPesoState extends State<DropdownPeso> {
             ),
           ],
           onChanged: (value) {
-            Modular.get<FormularioController>().definePesoTotal(value);
+            Modular.get<DetalhesController>().definePesoTotal(value);
           },
-          value: Modular.get<FormularioController>().pegaPesoTotal(),
+          value: Modular.get<DetalhesController>().pegaPesoTotal(),
         ),
       ),
     );

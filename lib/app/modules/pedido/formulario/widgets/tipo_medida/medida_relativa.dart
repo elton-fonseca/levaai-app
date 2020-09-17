@@ -6,6 +6,7 @@ import '../../../../../core/tema/cores_const.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
 import '../../formulario_controller.dart';
 import 'item-relativo.dart';
+import 'tipo_medida_controller.dart';
 
 class MedidaRelativa extends StatelessWidget {
   @override
@@ -77,14 +78,14 @@ class MedidaRelativa extends StatelessWidget {
                     return ItemRelativo().contador(
                       context: context,
                       onClickMais: () {
-                        Modular.get<FormularioController>()
+                        Modular.get<TipoMedidaController>()
                             .addItemCaixaSapato();
                       },
                       onClickMenos: () {
-                        Modular.get<FormularioController>().rmItemCaixaSapato();
+                        Modular.get<TipoMedidaController>().rmItemCaixaSapato();
                       },
                       quantidade:
-                          Modular.get<FormularioController>().itemCaixaSapato(),
+                          Modular.get<TipoMedidaController>().itemCaixaSapato(),
                     );
                   }),
                 ),
@@ -97,13 +98,13 @@ class MedidaRelativa extends StatelessWidget {
                   return ItemRelativo().contador(
                     context: context,
                     onClickMais: () {
-                      Modular.get<FormularioController>().addItemMicroondas();
+                      Modular.get<TipoMedidaController>().addItemMicroondas();
                     },
                     onClickMenos: () {
-                      Modular.get<FormularioController>().rmItemMicroondas();
+                      Modular.get<TipoMedidaController>().rmItemMicroondas();
                     },
                     quantidade:
-                        Modular.get<FormularioController>().itemMicroondas(),
+                        Modular.get<TipoMedidaController>().itemMicroondas(),
                   );
                 }),
               ),
@@ -175,12 +176,12 @@ class MedidaRelativa extends StatelessWidget {
                   return ItemRelativo().contador(
                     context: context,
                     onClickMais: () {
-                      Modular.get<FormularioController>().addItemFogao();
+                      Modular.get<TipoMedidaController>().addItemFogao();
                     },
                     onClickMenos: () {
-                      Modular.get<FormularioController>().rmItemFogao();
+                      Modular.get<TipoMedidaController>().rmItemFogao();
                     },
-                    quantidade: Modular.get<FormularioController>().itemFogao(),
+                    quantidade: Modular.get<TipoMedidaController>().itemFogao(),
                   );
                 }),
               ),
@@ -190,13 +191,13 @@ class MedidaRelativa extends StatelessWidget {
                   return ItemRelativo().contador(
                     context: context,
                     onClickMais: () {
-                      Modular.get<FormularioController>().addItemGeladeira();
+                      Modular.get<TipoMedidaController>().addItemGeladeira();
                     },
                     onClickMenos: () {
-                      Modular.get<FormularioController>().rmItemGeladeira();
+                      Modular.get<TipoMedidaController>().rmItemGeladeira();
                     },
                     quantidade:
-                        Modular.get<FormularioController>().itemGeladeira(),
+                        Modular.get<TipoMedidaController>().itemGeladeira(),
                   );
                 }),
               ),

@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
 import '../../formulario_controller.dart';
+import 'detalhes_controller.dart';
 import 'dropbox/dropdown_peso.dart';
 import 'dropbox/dropdown_tipo.dart';
 
@@ -37,7 +38,7 @@ class Detalhes {
                     width: displayWidth(context) * 0.5,
                     child: TextFormField(
                       controller: valorTotalTextController,
-                      onChanged: (valor) => Modular.get<FormularioController>()
+                      onChanged: (valor) => Modular.get<DetalhesController>()
                           .defineValorTotal(valor),
                       style: TextStyle(
                         fontFamily: 'Roboto',

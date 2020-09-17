@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../modules/pedido/formulario/widgets/itens/medida_relativa.dart';
+import '../../modules/pedido/formulario/widgets/tipo_medida/medida_relativa.dart';
 import 'itens_pedido.dart';
 
 part 'pedido.g.dart';
