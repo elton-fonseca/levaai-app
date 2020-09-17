@@ -51,8 +51,7 @@ abstract class _PedidoBase with Store {
   ].asObservable();
 
   @action
-  void addItemPedido() {
-    var novoItemPedido = ItensPedido();
+  void addItemPedido(ItensPedido novoItemPedido) {
     itens.add(novoItemPedido);
   }
 

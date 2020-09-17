@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/popup_controller.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
@@ -13,6 +14,7 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   @override
   void initState() {
     controller.indice = widget.id;
+    Modular.get<PopupController>().indice = widget.id;
 
     if (widget.acao == 'criar') {
       Modular.get<PedidoListaStore>().addPedido();

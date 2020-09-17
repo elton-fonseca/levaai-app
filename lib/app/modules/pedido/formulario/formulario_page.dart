@@ -86,7 +86,7 @@ class _FormularioPageState
                       //var l = Modular.get<PedidoListaStore>().pedidos;
                       //l[0].cepDestino = '';
                       PopupShow().showPopup(context, 'Medidas');
-                      
+                      //controller.definirMedidaExata();
                     },
                     texto: controller.descritivoTipoDeMedida(),
                   );

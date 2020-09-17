@@ -117,11 +117,11 @@ mixin _$Pedido on _PedidoBase, Store {
   final _$_PedidoBaseActionController = ActionController(name: '_PedidoBase');
 
   @override
-  void addItemPedido() {
+  void addItemPedido(ItensPedido novoItemPedido) {
     final _$actionInfo = _$_PedidoBaseActionController.startAction(
         name: '_PedidoBase.addItemPedido');
     try {
-      return super.addItemPedido();
+      return super.addItemPedido(novoItemPedido);
     } finally {
       _$_PedidoBaseActionController.endAction(_$actionInfo);
     }

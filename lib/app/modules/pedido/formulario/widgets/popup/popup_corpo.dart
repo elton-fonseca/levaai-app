@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/tamanhos_relativos.dart';
+import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/popup_controller.dart';
+import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/widgets/dimensoes.dart';
+
+import 'widgets/cubagem.dart';
 
 class PopupCorpo extends StatelessWidget {
   @override
@@ -61,7 +68,9 @@ class PopupCorpo extends StatelessWidget {
                           ),
                         ],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Modular.get<PopupController>().definirFormDimensoes();
+                      },
                     ),
                   ),
                 ),
@@ -93,7 +102,9 @@ class PopupCorpo extends StatelessWidget {
                           ),
                         ],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Modular.get<PopupController>().definirFormCubagem();
+                      },
                     ),
                   ),
                 ),
@@ -101,99 +112,9 @@ class PopupCorpo extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Padding(
-            padding:
-                const EdgeInsets.only(left: 15, top: 0, right: 15, bottom: 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Container(
-                  width: 100,
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF326699),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xFFFFFFFF),
-                      )),
-                  child: SizedBox(
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(13),
-                        hintText: 'Largura',
-                        hintStyle: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF326699),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xFFFFFFFF),
-                      )),
-                  child: SizedBox(
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(13),
-                        hintText: 'Altura',
-                        hintStyle: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF326699),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xFFFFFFFF),
-                      )),
-                  child: SizedBox(
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(15),
-                        hintText: 'Comprimento',
-                        hintStyle: TextStyle(
-                          fontSize: 11,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          Observer(builder: (_) {
+            return Modular.get<PopupController>().tipoForm;
+          }),
           SizedBox(height: 40),
           SizedBox(
             width: 120,
@@ -201,28 +122,42 @@ class PopupCorpo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 SizedBox(
-                    child: Icon(
-                  Icons.remove_circle,
-                  color: Colors.grey,
-                  size: 30,
-                )),
-                SizedBox(
-                  child: Text(
-                    '0',
-                    style: TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.remove_circle,
+                      color: Color(0xFF98c11c),
+                      size: displayWidth(context) * 0.07,
                     ),
-                    textAlign: TextAlign.center,
+                    onPressed: () {
+                      Modular.get<PopupController>().rmQuantidade();
+                    },
                   ),
                 ),
                 SizedBox(
-                    child: Icon(
-                  Icons.add_circle,
-                  color: Color(0xFF98c11c),
-                  size: 30,
-                )),
+                  child: Observer(builder: (_) {
+                    return Text(
+                      Modular.get<PopupController>().quantidade.toString(),
+                      style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  }),
+                ),
+                SizedBox(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.add_circle,
+                      color: Color(0xFF98c11c),
+                      size: displayWidth(context) * 0.07,
+                    ),
+                    onPressed: () {
+                      Modular.get<PopupController>().addQuantidade();
+                    },
+                  ),
+                ),
               ],
             ),
           ),
@@ -254,7 +189,9 @@ class PopupCorpo extends StatelessWidget {
                     ),
                   ],
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Modular.get<PopupController>().adicionarItemPedido();
+                },
               ),
             ),
           ),
