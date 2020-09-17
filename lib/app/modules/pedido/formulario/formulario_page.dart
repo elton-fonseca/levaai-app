@@ -33,9 +33,6 @@ class FormularioPage extends StatefulWidget {
 class _FormularioPageState
     extends ModularState<FormularioPage, FormularioController>
     with FormularioInputs {
-  //use 'controller' variable to access controller
-
-  //final _itens = List<String>.generate(10, (i) => "Item $i");
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +81,7 @@ class _FormularioPageState
                 builder: (context) {
                   return BotaoBranco(
                     onClick: () {
-                      //var l = Modular.get<PedidoListaStore>().pedidos;
-                      //l[0].cepDestino = '';
                       PopupShow().showPopup(context, 'Medidas');
-                      //controller.definirMedidaExata();
                     },
                     texto: Modular.get<TipoMedidaController>()
                         .descritivoTipoDeMedida(),
@@ -118,8 +112,7 @@ class _FormularioPageState
               SizedBox(height: displayHeight(context) * 0.08),
               BotaoAzul(
                 onClick: () {
-                  Modular.to
-                      .pushNamed('/pedido/cotacao/${widget.id}/${widget.acao}');
+                  controller.enviar(widget.acao);
                 },
                 texto: "Verificar Valor",
               ),

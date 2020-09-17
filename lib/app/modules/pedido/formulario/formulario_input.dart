@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
@@ -12,7 +13,8 @@ import 'widgets/tipo_medida/tipo_medida_controller.dart';
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final enderecoOrigemTextController = TextEditingController();
   final enderecoDestinoTextController = TextEditingController();
-  final valorTotalTextController = TextEditingController();
+  final valorTotalTextController =
+      MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: '.');
 
   @override
   void initState() {
@@ -21,7 +23,11 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     Modular.get<PopupController>().indice = widget.id;
     Modular.get<EnderecoController>().indice = widget.id;
     Modular.get<DetalhesController>().indice = widget.id;
-    
+
+    //garante que a lista vai estar limpa no começo
+    if (widget.acao == 'criar' && widget.id == 0) {
+      Modular.get<PedidoListaStore>().limpar();
+    }
 
     if (widget.acao == 'criar') {
       Modular.get<PedidoListaStore>().addPedido();

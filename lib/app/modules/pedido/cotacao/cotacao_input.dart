@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'cotacao_controller.dart';
@@ -6,9 +7,11 @@ import 'cotacao_page.dart';
 
 mixin CotacaoInputs on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaTextController = TextEditingController();
-  final responsavelColetaCelularTextController = TextEditingController();
+  final responsavelColetaCelularTextController =
+      MaskedTextController(mask: '(00) 0000-0000');
   final responsavelEntregaTextController = TextEditingController();
-  final responsavelEntregaCelularTextController = TextEditingController();
+  final responsavelEntregaCelularTextController =
+      MaskedTextController(mask: '(00) 0000-0000');
   final observacaoTextController = TextEditingController();
 
   @override
