@@ -1,4 +1,5 @@
 Alinhamento contador medida relativa (- 0 +)
+estilizar lista de medida exata
 Grid de lista de pedidos (arrumar a tela que lasquei)
 tela da rastreamento arrumar fontes e alinhamentos
 
