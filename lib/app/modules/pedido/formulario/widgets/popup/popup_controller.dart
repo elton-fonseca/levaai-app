@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:levaai1/app/core/Models/itens_pedido.dart';
-import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
-import 'package:levaai1/app/modules/pedido/formulario/formulario_controller.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/widgets/cubagem.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/widgets/dimensoes.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../../../../core/Models/itens_pedido.dart';
+import '../../../../../core/Stores/pedido_lista_store.dart';
+import '../../formulario_controller.dart';
+import 'widgets/cubagem.dart';
+import 'widgets/dimensoes.dart';
 
 part 'popup_controller.g.dart';
 

@@ -1,6 +1,7 @@
-import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../../core/Stores/pedido_lista_store.dart';
 
 part 'cotacao_controller.g.dart';
 

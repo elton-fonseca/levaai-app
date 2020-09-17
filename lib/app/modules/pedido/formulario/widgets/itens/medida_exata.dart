@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pedido/formulario/formulario_controller.dart';
+import '../../formulario_controller.dart';
 
 class MedidaExata extends StatelessWidget {
   final List<String> entries = <String>['A', 'B', 'C', 'A', 'B', 'C'];

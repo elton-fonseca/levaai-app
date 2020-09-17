@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/popup_controller.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
+import 'widgets/popup/popup_controller.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final enderecoOrigemTextController = TextEditingController();

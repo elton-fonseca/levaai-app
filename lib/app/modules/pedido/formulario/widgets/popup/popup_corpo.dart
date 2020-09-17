@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/tamanhos_relativos.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/popup_controller.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/popup/widgets/dimensoes.dart';
 
-import 'widgets/cubagem.dart';
+import '../../../../../core/view/tamanhos_relativos.dart';
+import 'popup_controller.dart';
 
 class PopupCorpo extends StatelessWidget {
   @override

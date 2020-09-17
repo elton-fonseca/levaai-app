@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pedido/cotacao/widget/input_text.dart';
-import 'package:levaai1/app/modules/pedido/cotacao/widget/prazos.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
 import '../../../core/tema/cores_const.dart';
@@ -12,6 +10,8 @@ import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'cotacao_controller.dart';
 import 'cotacao_input.dart';
+import 'widget/input_text.dart';
+import 'widget/prazos.dart';
 
 class CotacaoPage extends StatefulWidget {
   final String title;

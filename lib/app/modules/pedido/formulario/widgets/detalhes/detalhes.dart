@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pedido/formulario/formulario_controller.dart';
-import '../../../../../core/view/tamanhos_relativos.dart';
 
+import '../../../../../core/view/tamanhos_relativos.dart';
+import '../../formulario_controller.dart';
 import 'dropbox/dropdown_peso.dart';
 import 'dropbox/dropdown_tipo.dart';
 
