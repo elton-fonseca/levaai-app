@@ -65,14 +65,16 @@ class _FormularioPageState
                 destinoTextController: enderecoDestinoTextController,
               ),
               SizedBox(height: displayHeight(context) * 0.04),
-              Text(
-                'Quantidade de Volumes:',
-                style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: displayWidth(context) * 0.04,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              Observer(builder: (_) {
+                return Text(
+                  Modular.get<TipoMedidaController>().descritivoLabel(),
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                    fontSize: displayWidth(context) * 0.04,
+                  ),
+                  textAlign: TextAlign.center,
+                );
+              }),
               SizedBox(height: displayHeight(context) * 0.04),
               Observer(builder: (_) {
                 return Modular.get<TipoMedidaController>().pegarTipoDeMedida();

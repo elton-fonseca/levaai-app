@@ -10,7 +10,7 @@ class ItensPedido {
       this.altura,
       this.largura,
       this.comprimento,
-      this.cubagem});
+      this.cubagem = 0});
 
   ItensPedido.fromJson(Map<String, dynamic> json) {
     quantidade = json['quantidade'];
