@@ -48,321 +48,324 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
       child: Scaffold(
         appBar: NavbarPadrao().build(context),
         backgroundColor: Colors.transparent,
-        body: ConteudoPadrao(
-          textoCabecalho: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Total Geral',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.white,
-                  fontSize: displayWidth(context) * 0.04,
-                ),
-              ),
-              Text(
-                'R\$1200,00',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.white,
-                  fontSize: displayWidth(context) * 0.09,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          conteudo: SizedBox(
-            width: displayWidth(context) * 0.7,
-            child: Column(
+        body: Builder(
+          builder: (contextScaffold) => ConteudoPadrao(
+            textoCabecalho: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(
-                  height: displayHeight(context) * 0.05,
-                ),
-                Container(
-                  width: displayWidth(context) * 0.95,
-                  decoration: BoxDecoration(
+                Text(
+                  'Total Geral',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(const Radius.circular(15.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: CoresConst.azulPadrao.withOpacity(0.1),
-                        spreadRadius: 10,
-                        blurRadius: 15,
-                        offset: Offset(0, 1),
-                      ),
-                    ],
+                    fontSize: displayWidth(context) * 0.04,
                   ),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: displayHeight(context) * 0.03,
-                      ),
-                      Prazos(
-                        imagem: "assets/imagens/box-fechada.png",
-                        tipo: 'COLETA',
-                        prazo: "ENTRE 24/10 e 26/10",
-                      ),
-                      SizedBox(
-                        height: displayHeight(context) * 0.03,
-                      ),
-                      Prazos(
-                        imagem: "assets/imagens/box-aberta.png",
-                        tipo: 'ENTREGA',
-                        prazo: "ENTRE 01/11 e 05/11",
-                      ),
-                      Divider(
-                        color: Colors.grey[300],
-                        height: displayWidth(context) * 0.10,
-                        thickness: 2,
-                        indent: 0,
-                        endIndent: 0,
-                      ),
-                      Container(
-                        height: displayHeight(context) * 0.05,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFf4f5f7),
+                ),
+                Text(
+                  'R\$1200,00',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    color: Colors.white,
+                    fontSize: displayWidth(context) * 0.09,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            conteudo: SizedBox(
+              width: displayWidth(context) * 0.7,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: displayHeight(context) * 0.05,
+                  ),
+                  Container(
+                    width: displayWidth(context) * 0.95,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(15.0)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CoresConst.azulPadrao.withOpacity(0.1),
+                          spreadRadius: 10,
+                          blurRadius: 15,
+                          offset: Offset(0, 1),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.115,
-                              left: displayWidth(context) * 0.025),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                'Responsável pela coleta',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.032,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                              Text(
-                                'Contato',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.032,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ],
+                      ],
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: displayHeight(context) * 0.03,
+                        ),
+                        Prazos(
+                          imagem: "assets/imagens/box-fechada.png",
+                          tipo: 'COLETA',
+                          prazo: "ENTRE 24/10 e 26/10",
+                        ),
+                        SizedBox(
+                          height: displayHeight(context) * 0.03,
+                        ),
+                        Prazos(
+                          imagem: "assets/imagens/box-aberta.png",
+                          tipo: 'ENTREGA',
+                          prazo: "ENTRE 01/11 e 05/11",
+                        ),
+                        Divider(
+                          color: Colors.grey[300],
+                          height: displayWidth(context) * 0.10,
+                          thickness: 2,
+                          indent: 0,
+                          endIndent: 0,
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.05,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
                           ),
-                        ),
-                      ),
-                      Container(
-                        height: displayHeight(context) * 0.04,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFf4f5f7),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.025,
-                              left: displayWidth(context) * 0.025),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Expanded(
-                                child: SizedBox(
-                                  child: InputText(
-                                    onChange: (valor) {
-                                      controller.defineResponsavelColeta(valor);
-                                    },
-                                    textController:
-                                        responsavelColetaTextController,
-                                    mascara: '',
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: SizedBox(
-                                  child: InputText(
-                                    onChange: (valor) {
-                                      controller.defineResponsavelColetaCelular(
-                                          valor);
-                                    },
-                                    tipo: 'tel',
-                                    textController:
-                                        responsavelColetaCelularTextController,
-                                    mascara: '',
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        color: Colors.white,
-                        height: displayWidth(context) * 0.10,
-                        thickness: 2,
-                        indent: 0,
-                        endIndent: 0,
-                      ),
-                      Container(
-                        height: displayHeight(context) * 0.05,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFf4f5f7),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.115,
-                              left: displayWidth(context) * 0.025),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                'Responsável pela coleta',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.032,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                              Text(
-                                'Contato',
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF909090),
-                                  fontSize: displayWidth(context) * 0.032,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: displayHeight(context) * 0.04,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFf4f5f7),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right: displayWidth(context) * 0.025,
-                              left: displayWidth(context) * 0.025),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Expanded(
-                                child: SizedBox(
-                                  child: InputText(
-                                    onChange: (valor) {
-                                      controller
-                                          .defineResponsavelEntrega(valor);
-                                    },
-                                    textController:
-                                        responsavelEntregaTextController,
-                                    mascara: '',
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: SizedBox(
-                                  child: InputText(
-                                    onChange: (valor) {
-                                      controller
-                                          .defineResponsavelEntregaCelular(
-                                              valor);
-                                    },
-                                    tipo: 'tel',
-                                    textController:
-                                        responsavelEntregaCelularTextController,
-                                    mascara: '',
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        color: Colors.white,
-                        height: displayWidth(context) * 0.10,
-                        thickness: 2,
-                        indent: 0,
-                        endIndent: 0,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
+                          child: Padding(
                             padding: EdgeInsets.only(
-                                left: displayWidth(context) * 0.09,
-                                bottom: displayHeight(context) * 0.005),
-                            child: Text(
-                              'Observações:',
+                                right: displayWidth(context) * 0.115,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'Responsável pela coleta',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF909090),
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                Text(
+                                  'Contato',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF909090),
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.04,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.025,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                    child: InputText(
+                                      onChange: (valor) {
+                                        controller
+                                            .defineResponsavelColeta(valor);
+                                      },
+                                      textController:
+                                          responsavelColetaTextController,
+                                      mascara: '',
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    child: InputText(
+                                      onChange: (valor) {
+                                        controller
+                                            .defineResponsavelColetaCelular(
+                                                valor);
+                                      },
+                                      tipo: 'tel',
+                                      textController:
+                                          responsavelColetaCelularTextController,
+                                      mascara: '',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Divider(
+                          color: Colors.white,
+                          height: displayWidth(context) * 0.10,
+                          thickness: 2,
+                          indent: 0,
+                          endIndent: 0,
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.05,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.115,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'Responsável pela coleta',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF909090),
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                Text(
+                                  'Contato',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF909090),
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.04,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.025,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                    child: InputText(
+                                      onChange: (valor) {
+                                        controller
+                                            .defineResponsavelEntrega(valor);
+                                      },
+                                      textController:
+                                          responsavelEntregaTextController,
+                                      mascara: '',
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    child: InputText(
+                                      onChange: (valor) {
+                                        controller
+                                            .defineResponsavelEntregaCelular(
+                                                valor);
+                                      },
+                                      tipo: 'tel',
+                                      textController:
+                                          responsavelEntregaCelularTextController,
+                                      mascara: '',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Divider(
+                          color: Colors.white,
+                          height: displayWidth(context) * 0.10,
+                          thickness: 2,
+                          indent: 0,
+                          endIndent: 0,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: displayWidth(context) * 0.09,
+                                  bottom: displayHeight(context) * 0.005),
+                              child: Text(
+                                'Observações:',
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  fontSize: displayWidth(context) * 0.032,
+                                  color: Color(0xFF909090),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.2,
+                          width: displayWidth(context) * 0.90,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(18.0),
+                              border: Border.all(
+                                width: 2,
+                                color: Color(0xFFC4C4C4),
+                              )),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextField(
+                              onChanged: controller.defineObservacao,
+                              controller: observacaoTextController,
                               style: TextStyle(
                                 fontFamily: 'Roboto',
+                                color: Colors.grey[600],
                                 fontSize: displayWidth(context) * 0.032,
-                                color: Color(0xFF909090),
+                              ),
+                              minLines: 5,
+                              maxLines: 5,
+                              maxLength: 230,
+                              maxLengthEnforced: true,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                      Container(
-                        height: displayHeight(context) * 0.2,
-                        width: displayWidth(context) * 0.90,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(18.0),
-                            border: Border.all(
-                              width: 2,
-                              color: Color(0xFFC4C4C4),
-                            )),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextField(
-                            onChanged: controller.defineObservacao,
-                            controller: observacaoTextController,
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[600],
-                              fontSize: displayWidth(context) * 0.032,
-                            ),
-                            minLines: 5,
-                            maxLines: 5,
-                            maxLength: 230,
-                            maxLengthEnforced: true,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                            ),
-                          ),
                         ),
+                        SizedBox(
+                          height: displayHeight(context) * 0.05,
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: displayHeight(context) * 0.08),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      BotaoBranco(
+                        texto: "Editar",
+                        largura: 0.4,
+                        onClick: () {
+                          Modular.to.popAndPushNamed(
+                              '/pedido/formulario/${widget.id}/${widget.acao}');
+                        },
                       ),
-                      SizedBox(
-                        height: displayHeight(context) * 0.05,
+                      BotaoAzul(
+                        texto: "Confirmar",
+                        largura: 0.4,
+                        onClick: () {
+                          controller.enviar(contextScaffold, widget.acao);
+                        },
                       )
                     ],
                   ),
-                ),
-                SizedBox(height: displayHeight(context) * 0.08),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    BotaoBranco(
-                      texto: "Editar",
-                      largura: 0.4,
-                      onClick: () {
-                        Modular.to.popAndPushNamed('/pedido/form');
-                      },
-                    ),
-                    BotaoAzul(
-                      texto: "Confirmar",
-                      largura: 0.4,
-                      onClick: () {
-                        Modular.to.popUntil(ModalRoute.withName(
-                            '/pedido/formulario/${widget.id}/${widget.acao}'));
-                        Modular.to.popAndPushNamed('/pedido/lista');
-                        //Modular.to.pushNamed('/pedido/lista');
-                      },
-                    )
-                  ],
-                ),
-                SizedBox(height: displayHeight(context) * 0.08),
-              ],
+                  SizedBox(height: displayHeight(context) * 0.08),
+                ],
+              ),
             ),
           ),
         ),

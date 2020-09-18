@@ -24,7 +24,7 @@ abstract class _FormularioControllerBase with Store {
       var scnackbar = SnackBar(
         content: Text(validacao),
         backgroundColor: Colors.red,
-        duration: Duration(seconds: 10),
+        duration: Duration(seconds: 7),
       );
       Scaffold.of(context).showSnackBar(scnackbar);
     }
