@@ -27,8 +27,8 @@ class Cubagem extends StatelessWidget {
             child: SizedBox(
               child: TextFormField(
                 controller: MaskedTextController(mask: '000'),
-                onChanged: (valor) => Modular.get<PopupController>()
-                    .defineCubagem(int.parse(valor)),
+                onChanged: (valor) =>
+                    Modular.get<PopupController>().cubagem = int.parse(valor),
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(

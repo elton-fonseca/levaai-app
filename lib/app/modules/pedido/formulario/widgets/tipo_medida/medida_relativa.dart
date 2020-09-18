@@ -4,8 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/tema/cores_const.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
-import '../../formulario_controller.dart';
-import 'item-relativo.dart';
+import 'item_relativo.dart';
 import 'tipo_medida_controller.dart';
 
 class MedidaRelativa extends StatelessWidget {

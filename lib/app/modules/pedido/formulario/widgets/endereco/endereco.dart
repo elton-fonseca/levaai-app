@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
-import '../../formulario_controller.dart';
 import 'endereco_controller.dart';
 
 class Endereco {

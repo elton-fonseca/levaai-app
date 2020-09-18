@@ -1,55 +1,81 @@
-import 'package:flutter/material.dart';
-import 'package:levaai1/app/core/Models/pedido.dart';
-import 'package:validators/validators.dart';
+import '../../../../core/Models/pedido.dart';
+import '../widgets/tipo_medida/medida_exata.dart';
+import '../widgets/tipo_medida/medida_relativa.dart';
 
 class ValidaFormulario {
-  ValidaFormulario(Pedido pedido) : pedido = pedido;
+  ValidaFormulario(this.pedido);
 
   Pedido pedido;
 
   String validar() {
-    var resultado = '';
-
-    resultado = _endereco();
+    var resultado = _enderecoOrigem();
+    resultado += _enderecoDestino();
+    resultado += _itens();
+    resultado += _valorTotal();
+    resultado += _pesoTotal();
+    resultado += _tipo();
 
     return resultado;
   }
 
-  String _endereco() {
+  String _enderecoOrigem() {
     if (pedido.enderecoOrigem == null) {
-      return 'Informe o Endereço de Origem';
+      return 'Informe o Endereço de Origem\n';
     }
+
+    return '';
+  }
+
+  String _enderecoDestino() {
+    if (pedido.enderecoDestino == null) {
+      return 'Informe o Endereço de Destino\n';
+    }
+
+    return '';
   }
 
   String _itens() {
-    //if (endereco.isEmpty) {
-    //  return 'Preencha o email';
-    //}
+    var tamanho = pedido.itens.length;
+    var tipoDeMedida = pedido.tipoDeMedida;
+    var mensagem = 'Adicione ao Menos 1 Item\n';
 
-    return null;
+    if (tamanho == 0 && tipoDeMedida is MedidaExata) {
+      return mensagem;
+    }
+
+    if (tipoDeMedida is MedidaRelativa) {
+      if (pedido.caixaSapato == 0 &&
+          pedido.microondas == 0 &&
+          pedido.fogao == 0 &&
+          pedido.geladeira == 0) {
+        return mensagem;
+      }
+    }
+
+    return '';
   }
 
   String _valorTotal() {
-    //if (endereco.isEmpty) {
-    //  return 'Preencha o email';
-    //}
+    if (pedido.valorTotal == null || pedido.valorTotal.isEmpty) {
+      return 'Informe o Valor dos Itens\n';
+    }
 
-    return null;
+    return '';
   }
 
   String _pesoTotal() {
-    //if (endereco.isEmpty) {
-    //  return 'Preencha o email';
-    //}
+    if (pedido.pesoTotal == null || pedido.pesoTotal == 'selecione') {
+      return 'Informe o Peso dos Itens\n';
+    }
 
-    return null;
+    return '';
   }
 
   String _tipo() {
-    //if (endereco.isEmpty) {
-    //  return 'Preencha o email';
-    //}
+    if (pedido.tipoMercadoria == null || pedido.tipoMercadoria == 'selecione') {
+      return 'Informe o Tipo dos Itens\n';
+    }
 
-    return null;
+    return '';
   }
 }

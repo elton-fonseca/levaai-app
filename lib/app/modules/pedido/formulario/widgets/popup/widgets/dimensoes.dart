@@ -27,8 +27,8 @@ class Dimensoes extends StatelessWidget {
             child: SizedBox(
               child: TextFormField(
                 controller: MaskedTextController(mask: '000'),
-                onChanged: (valor) => Modular.get<PopupController>()
-                    .defineLargura(int.parse(valor)),
+                onChanged: (valor) =>
+                    Modular.get<PopupController>().largura = int.parse(valor),
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -58,8 +58,8 @@ class Dimensoes extends StatelessWidget {
             child: SizedBox(
               child: TextFormField(
                 controller: MaskedTextController(mask: '000'),
-                onChanged: (valor) => Modular.get<PopupController>()
-                    .defineAltura(int.parse(valor)),
+                onChanged: (valor) =>
+                    Modular.get<PopupController>().altura = int.parse(valor),
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -90,7 +90,7 @@ class Dimensoes extends StatelessWidget {
               child: TextFormField(
                 controller: MaskedTextController(mask: '000'),
                 onChanged: (valor) => Modular.get<PopupController>()
-                    .defineComprimento(int.parse(valor)),
+                    .comprimento = int.parse(valor),
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(

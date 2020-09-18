@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
 import '../../core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';

@@ -49,21 +49,6 @@ abstract class _PopupControllerBase with Store {
     }
   }
 
-  void defineLargura(int valor) {
-    largura = valor;
-  }
-
-  void defineAltura(int valor) {
-    altura = valor;
-  }
-
-  void defineComprimento(int valor) {
-    comprimento = valor;
-  }
-
-  void defineCubagem(int valor) {
-    cubagem = valor;
-  }
 
   void adicionarItemPedido() {
     var item = ItensPedido(quantidade: quantidade);
