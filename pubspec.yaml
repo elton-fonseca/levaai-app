@@ -28,6 +28,8 @@ dependencies:
   mobx: ^1.2.1+1
   flutter_modular: ^2.0.0+1
   geocoder: ^0.2.1
+  google_maps_webservice: ^0.0.18
+  flutter_google_places: ^0.2.6
   flutter_masked_text: ^0.8.0
   flutter:
     sdk: flutter

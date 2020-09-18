@@ -16,7 +16,7 @@ class ValidaFormulario {
   }
 
   String _endereco() {
-    if (pedido.enderecoOrigem.isEmpty) {
+    if (pedido.enderecoOrigem == null) {
       return 'Informe o Endereço de Origem';
     }
   }

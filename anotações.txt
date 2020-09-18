@@ -1,4 +1,4 @@
-AIzaSyCZ4POmTNuwNXDnnAypsMmg_WGpSNMNxos
+//AIzaSyCZ4POmTNuwNXDnnAypsMmg_WGpSNMNxos
 
 import 'dart:async';
 
@@ -7,8 +7,6 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-
-
 
 void main() => runApp(MyApp());
 
@@ -35,29 +33,30 @@ class demo extends StatefulWidget {
 class demoState extends State<demo> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        child: RaisedButton(
-          onPressed: () async {
-            // show input autocomplete with selected mode
-            // then get the Prediction selected
-            Prediction p = await PlacesAutocomplete.show(
-                context: context, apiKey: kGoogleApiKey);
-            displayPrediction(p);
-          },
-          child: Text('Find address'),
-
-        )
-      )
-    );
+        body: Container(
+            alignment: Alignment.center,
+            child: RaisedButton(
+              onPressed: () async {
+                // show input autocomplete with selected mode
+                // then get the Prediction selected
+                Prediction p = await PlacesAutocomplete.show(
+                  context: context,
+                  apiKey: kGoogleApiKey,
+                  mode: Mode.overlay, // Mode.fullscreen
+                  language: "pt_br",
+                  components: [new Component(Component.country, "br")],
+                );
+                displayPrediction(p);
+              },
+              child: Text('Find address'),
+            )));
   }
 
   Future<Null> displayPrediction(Prediction p) async {
     if (p != null) {
       PlacesDetailsResponse detail =
-      await _places.getDetailsByPlaceId(p.placeId);
+          await _places.getDetailsByPlaceId(p.placeId);
 
       var placeId = p.placeId;
       double lat = detail.result.geometry.location.lat;

@@ -38,6 +38,12 @@ class Endereco {
                   controller: origemTextController,
                   onChanged: (valor) => Modular.get<EnderecoController>()
                       .defineEnderecoOrigem(valor),
+                  onTap: () {
+                    Modular.get<EnderecoController>().mostraMapa(
+                        context: context,
+                        textController: origemTextController,
+                        nome: 'endereco_origem');
+                  },
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],
@@ -67,6 +73,12 @@ class Endereco {
                   controller: destinoTextController,
                   onChanged: (valor) => Modular.get<EnderecoController>()
                       .defineEnderecoDestino(valor),
+                  onTap: () {
+                    Modular.get<EnderecoController>().mostraMapa(
+                        context: context,
+                        textController: destinoTextController,
+                        nome: 'endereco_destino');
+                  },
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],

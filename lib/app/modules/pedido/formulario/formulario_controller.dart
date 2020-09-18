@@ -14,7 +14,7 @@ abstract class _FormularioControllerBase with Store {
   int indice = 0;
 
   void enviar(BuildContext context, String acao) {
-    //Modular.to.pushNamed('/pedido/cotacao/$indice/$acao');
+    Modular.to.pushNamed('/pedido/cotacao/$indice/$acao');
 
     var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
 
