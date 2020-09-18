@@ -9,7 +9,7 @@ import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'cotacao_controller.dart';
-import 'cotacao_input.dart';
+import 'cotacao_page_init.dart';
 import 'widget/input_text.dart';
 import 'widget/prazos.dart';
 
@@ -29,16 +29,7 @@ class CotacaoPage extends StatefulWidget {
 }
 
 class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
-    with CotacaoInputs {
-  //use 'controller' variable to access controller
-
-  @override
-  void initState() {
-    print(Modular.get<PedidoListaStore>().pedidos);
-
-    super.initState();
-  }
-
+    with CotacaoPageInit {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,21 +45,36 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Total Geral',
+                  'Valor do Transporte',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.white,
                     fontSize: displayWidth(context) * 0.04,
                   ),
                 ),
+                FutureBuilder(
+                  future: valorCotacao,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Text(
+                        snapshot.data.valor.toString(),
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                          fontSize: displayWidth(context) * 0.09,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text("erro ao calcular");
+                    }
+
+                    // By default, show a loading spinner.
+                    return CircularProgressIndicator();
+                  },
+                ),
                 Text(
                   'R\$1200,00',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayWidth(context) * 0.09,
-                    fontWeight: FontWeight.bold,
-                  ),
                 ),
               ],
             ),

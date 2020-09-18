@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/Stores/pedido_lista_store.dart';
+import 'package:levaai1/app/modules/pedido/cotacao/repositories/cotacao_repository.dart';
 
 import 'cotacao_controller.dart';
 import 'cotacao_page.dart';
 
-mixin CotacaoInputs on ModularState<CotacaoPage, CotacaoController> {
+mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaTextController = TextEditingController();
   final responsavelColetaCelularTextController =
       MaskedTextController(mask: '(00) 0000-0000');
@@ -14,10 +18,20 @@ mixin CotacaoInputs on ModularState<CotacaoPage, CotacaoController> {
       MaskedTextController(mask: '(00) 0000-0000');
   final observacaoTextController = TextEditingController();
 
+  Future<dynamic> valorCotacao;
+
   @override
   void initState() {
     controller.indice = widget.id;
 
+    preencheCampos();
+
+    cotar();
+
+    super.initState();
+  }
+
+  void preencheCampos() {
     if (widget.acao == 'editar') {
       responsavelColetaTextController.text =
           Modular.get<CotacaoController>().pegaResponsavelColeta();
@@ -34,7 +48,13 @@ mixin CotacaoInputs on ModularState<CotacaoPage, CotacaoController> {
       observacaoTextController.text =
           Modular.get<CotacaoController>().pegaObservacao();
     }
+  }
 
-    super.initState();
+  void cotar() {
+    var pedido = Modular.get<PedidoListaStore>().pedidos[widget.id];
+
+    var json = jsonEncode(pedido.cotacaoJson()).toString();
+
+    valorCotacao = Modular.get<CotacaoRepository>().cotar(json);
   }
 }

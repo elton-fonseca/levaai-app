@@ -55,4 +55,16 @@ abstract class _PedidoBase with Store {
   void rmItemPedido(int indice) {
     itens.removeAt(indice);
   }
+
+  Map<String, dynamic> cotacaoJson() {
+    final data = <String, dynamic>{};
+    data['cep_origem'] = cepOrigem;
+    data['cep_destino'] = cepDestino;
+    data['valor_total'] = 500.00;
+    data['peso_total'] = pesoTotal;
+    if (itens != null) {
+      data['itens'] = itens.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
