@@ -15,4 +15,8 @@ abstract class _PedidoListaStoreBase with Store {
     var pedidonew = Pedido();
     pedidos.add(pedidonew);
   }
+
+  void limpar() {
+    pedidos = [].asObservable();
+  }
 }

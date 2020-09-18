@@ -33,96 +33,93 @@ class FormularioPage extends StatefulWidget {
 class _FormularioPageState
     extends ModularState<FormularioPage, FormularioController>
     with FormularioInputs {
-  //use 'controller' variable to access controller
-
-  //final _itens = List<String>.generate(10, (i) => "Item $i");
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            gradient:
-                LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
-        child: Scaffold(
-          appBar: NavbarPadrao().build(context),
-          backgroundColor: Colors.transparent,
-          body: ConteudoPadrao(
-            textoCabecalho: Text(
-              'Configure o seu pedido',
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                color: Colors.white,
-                fontSize: displayWidth(context) * 0.04,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.left,
-            ),
-            conteudo: Column(children: <Widget>[
-              Endereco().obter(
-                context: context,
-                origemTextController: enderecoOrigemTextController,
-                destinoTextController: enderecoDestinoTextController,
-              ),
-              SizedBox(height: displayHeight(context) * 0.04),
-              Text(
-                'Quantidade de Volumes:',
+      body: Builder(
+        builder: (contextScaffold) => Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+          child: Scaffold(
+            appBar: NavbarPadrao().build(context),
+            backgroundColor: Colors.transparent,
+            body: ConteudoPadrao(
+              textoCabecalho: Text(
+                'Configure o seu pedido',
                 style: TextStyle(
-                  color: Colors.grey[700],
+                  fontFamily: 'Roboto',
+                  color: Colors.white,
                   fontSize: displayWidth(context) * 0.04,
+                  fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.left,
               ),
-              SizedBox(height: displayHeight(context) * 0.04),
-              Observer(builder: (_) {
-                return Modular.get<TipoMedidaController>().pegarTipoDeMedida();
-              }),
-              SizedBox(height: displayHeight(context) * 0.08),
-              Observer(
-                builder: (context) {
-                  return BotaoBranco(
-                    onClick: () {
-                      //var l = Modular.get<PedidoListaStore>().pedidos;
-                      //l[0].cepDestino = '';
-                      PopupShow().showPopup(context, 'Medidas');
-                      //controller.definirMedidaExata();
-                    },
-                    texto: Modular.get<TipoMedidaController>()
-                        .descritivoTipoDeMedida(),
-                  );
-                },
-              ),
-              SizedBox(height: displayHeight(context) * 0.08),
-              Container(
-                height: displayHeight(context) * 0.25,
-                width: displayWidth(context) * 0.95,
-                decoration: BoxDecoration(
-                  color: Color(0xfff7f9f8),
-                  borderRadius: BorderRadius.all(const Radius.circular(15.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: CoresConst.azulPadrao.withOpacity(0.1),
-                      spreadRadius: 10,
-                      blurRadius: 15,
-                      offset: Offset(0, 1),
-                    ),
-                  ],
-                ),
-                child: Detalhes().obter(
+              conteudo: Column(children: <Widget>[
+                Endereco().obter(
                   context: context,
-                  valorTotalTextController: valorTotalTextController,
+                  origemTextController: enderecoOrigemTextController,
+                  destinoTextController: enderecoDestinoTextController,
                 ),
-              ),
-              SizedBox(height: displayHeight(context) * 0.08),
-              BotaoAzul(
-                onClick: () {
-                  Modular.to
-                      .pushNamed('/pedido/cotacao/${widget.id}/${widget.acao}');
-                },
-                texto: "Verificar Valor",
-              ),
-              SizedBox(height: displayHeight(context) * 0.08),
-            ]),
+                SizedBox(height: displayHeight(context) * 0.04),
+                Observer(builder: (_) {
+                  return Text(
+                    Modular.get<TipoMedidaController>().descritivoLabel(),
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: displayWidth(context) * 0.04,
+                    ),
+                    textAlign: TextAlign.center,
+                  );
+                }),
+                SizedBox(height: displayHeight(context) * 0.04),
+                Observer(builder: (_) {
+                  return Modular.get<TipoMedidaController>()
+                      .pegarTipoDeMedida();
+                }),
+                SizedBox(height: displayHeight(context) * 0.08),
+                Observer(
+                  builder: (context) {
+                    return BotaoBranco(
+                      onClick: () {
+                        PopupShow().showPopup(context, 'Medidas');
+                      },
+                      texto: Modular.get<TipoMedidaController>()
+                          .descritivoTipoDeMedida(),
+                    );
+                  },
+                ),
+                SizedBox(height: displayHeight(context) * 0.08),
+                Container(
+                  height: displayHeight(context) * 0.25,
+                  width: displayWidth(context) * 0.95,
+                  decoration: BoxDecoration(
+                    color: Color(0xfff7f9f8),
+                    borderRadius: BorderRadius.all(const Radius.circular(15.0)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: CoresConst.azulPadrao.withOpacity(0.1),
+                        spreadRadius: 10,
+                        blurRadius: 15,
+                        offset: Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: Detalhes().obter(
+                    context: context,
+                    valorTotalTextController: valorTotalTextController,
+                  ),
+                ),
+                SizedBox(height: displayHeight(context) * 0.08),
+                BotaoAzul(
+                  onClick: () {
+                    controller.enviar(contextScaffold, widget.acao);
+                  },
+                  texto: "Verificar Valor",
+                ),
+                SizedBox(height: displayHeight(context) * 0.08),
+              ]),
+            ),
           ),
         ),
       ),

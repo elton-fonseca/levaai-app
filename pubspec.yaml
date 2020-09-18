@@ -28,7 +28,7 @@ dependencies:
   mobx: ^1.2.1+1
   flutter_modular: ^2.0.0+1
   geocoder: ^0.2.1
-  mask_text_input_formatter: ^1.1.0
+  flutter_masked_text: ^0.8.0
   flutter:
     sdk: flutter
 

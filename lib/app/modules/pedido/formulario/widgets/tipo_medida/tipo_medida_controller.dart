@@ -40,7 +40,17 @@ abstract class _TipoMedidaControllerBase with Store {
   }
 
   Widget pegarTipoDeMedida() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+    var tamanho = Modular.get<PedidoListaStore>().pedidos[indice].itens.length;
+    var tipoDeMedida =
+        Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+
+    if (tamanho == 0 && tipoDeMedida is MedidaExata) {
+      return Container(
+        width: 0,
+        height: 0,
+      );
+    }
+    return tipoDeMedida;
   }
 
   //contadores medida relativa
@@ -119,5 +129,17 @@ abstract class _TipoMedidaControllerBase with Store {
   //medida exata
   ObservableList pegarListaMedidaExata() {
     return Modular.get<PedidoListaStore>().pedidos[indice].itens;
+  }
+
+  String descritivoLabel() {
+    var tamanho = Modular.get<PedidoListaStore>().pedidos[indice].itens.length;
+    var tipoDeMedida =
+        Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+
+    if (tamanho == 0 && tipoDeMedida is MedidaExata) {
+      return 'Nenhum Item Encontrado';
+    }
+
+    return 'Quantidade de Volumes';
   }
 }

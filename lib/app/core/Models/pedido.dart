@@ -44,11 +44,7 @@ abstract class _PedidoBase with Store {
   int geladeira = 0;
 
   @observable
-  ObservableList itens = [
-    ItensPedido(quantidade: 1, altura: 50, largura: 50, comprimento: 50),
-    ItensPedido(quantidade: 2, altura: 150, largura: 150, comprimento: 150),
-    ItensPedido(quantidade: 3, altura: 250, largura: 250, comprimento: 250),
-  ].asObservable();
+  ObservableList itens = [].asObservable();
 
   @action
   void addItemPedido(ItensPedido novoItemPedido) {

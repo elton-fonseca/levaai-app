@@ -66,16 +66,42 @@ abstract class _PopupControllerBase with Store {
   }
 
   void adicionarItemPedido() {
-    var item = ItensPedido(
-      altura: altura,
-      largura: largura,
-      comprimento: comprimento,
-    );
+    var item = ItensPedido(quantidade: quantidade);
+
+    if (tipoForm is Dimensoes) {
+      item.altura = altura;
+      item.largura = largura;
+      item.comprimento = comprimento;
+    } else {
+      item.cubagem = cubagem;
+    }
 
     Modular.get<PedidoListaStore>().pedidos[indice].addItemPedido(item);
 
     Modular.get<TipoMedidaController>().definirMedidaExata();
 
+    limpar();
+
     Modular.to.pop();
+  }
+
+  String volumeFormatado(ItensPedido item) {
+    if (item.cubagem == 0) {
+      var resultado = 'Dimensões: ${item.largura.toString()}x';
+      resultado += '${item.altura.toString()}x';
+      resultado += '${item.comprimento.toString()}';
+
+      return resultado;
+    }
+
+    return 'Cubagem: ${item.cubagem.toString()}';
+  }
+
+  void limpar() {
+    altura = 0;
+    largura = 0;
+    comprimento = 0;
+    cubagem = 0;
+    quantidade = 0;
   }
 }

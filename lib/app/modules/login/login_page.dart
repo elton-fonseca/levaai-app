@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../core/view/tamanhos_relativos.dart';
 import 'login_controller.dart';
@@ -19,12 +18,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
-  //use 'controller' variable to access controller
-
   final formKey = GlobalKey<FormState>();
-
-  final maskFormatter = MaskTextInputFormatter(
-      mask: '+# (###) ###-##-##', filter: {"#": RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {

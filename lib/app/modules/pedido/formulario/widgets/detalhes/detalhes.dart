@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
-import '../../formulario_controller.dart';
 import 'detalhes_controller.dart';
 import 'dropbox/dropdown_peso.dart';
 import 'dropbox/dropdown_tipo.dart';
@@ -40,6 +39,7 @@ class Detalhes {
                       controller: valorTotalTextController,
                       onChanged: (valor) => Modular.get<DetalhesController>()
                           .defineValorTotal(valor),
+                          
                       style: TextStyle(
                         fontFamily: 'Roboto',
                         color: Colors.grey[600],

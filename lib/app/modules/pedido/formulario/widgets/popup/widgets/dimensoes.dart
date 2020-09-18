@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../popup_controller.dart';
@@ -25,6 +26,7 @@ class Dimensoes extends StatelessWidget {
                 )),
             child: SizedBox(
               child: TextFormField(
+                controller: MaskedTextController(mask: '000'),
                 onChanged: (valor) => Modular.get<PopupController>()
                     .defineLargura(int.parse(valor)),
                 textAlign: TextAlign.center,
@@ -55,6 +57,7 @@ class Dimensoes extends StatelessWidget {
                 )),
             child: SizedBox(
               child: TextFormField(
+                controller: MaskedTextController(mask: '000'),
                 onChanged: (valor) => Modular.get<PopupController>()
                     .defineAltura(int.parse(valor)),
                 textAlign: TextAlign.center,
@@ -85,6 +88,7 @@ class Dimensoes extends StatelessWidget {
                 )),
             child: SizedBox(
               child: TextFormField(
+                controller: MaskedTextController(mask: '000'),
                 onChanged: (valor) => Modular.get<PopupController>()
                     .defineComprimento(int.parse(valor)),
                 textAlign: TextAlign.center,
