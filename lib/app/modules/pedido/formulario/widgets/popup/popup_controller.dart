@@ -49,7 +49,6 @@ abstract class _PopupControllerBase with Store {
     }
   }
 
-
   void adicionarItemPedido() {
     var item = ItensPedido(quantidade: quantidade);
 
@@ -65,7 +64,7 @@ abstract class _PopupControllerBase with Store {
 
     Modular.get<TipoMedidaController>().definirMedidaExata();
 
-    limpar();
+    _limpar();
 
     Modular.to.pop();
   }
@@ -82,11 +81,17 @@ abstract class _PopupControllerBase with Store {
     return 'Cubagem: ${item.cubagem.toString()}';
   }
 
-  void limpar() {
+  void _limpar() {
     altura = 0;
     largura = 0;
     comprimento = 0;
     cubagem = 0;
     quantidade = 0;
+
+    var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
+    pedido.caixaSapato = 0;
+    pedido.microondas = 0;
+    pedido.fogao = 0;
+    pedido.geladeira = 0;
   }
 }

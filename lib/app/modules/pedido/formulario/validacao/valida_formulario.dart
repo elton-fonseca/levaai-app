@@ -23,12 +23,20 @@ class ValidaFormulario {
       return 'Informe o Endereço de Origem\n';
     }
 
+    if (pedido.cepOrigem == null) {
+      return 'Endereço de Origem Invalido\n';
+    }
+
     return '';
   }
 
   String _enderecoDestino() {
     if (pedido.enderecoDestino == null) {
       return 'Informe o Endereço de Destino\n';
+    }
+
+    if (pedido.cepDestino == null) {
+      return 'Endereço de Destino Invalido\n';
     }
 
     return '';

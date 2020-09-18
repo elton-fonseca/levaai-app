@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/modules/pedido/formulario/widgets/tipo_medida/medida_exata.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../modules/pedido/formulario/widgets/tipo_medida/medida_relativa.dart';
@@ -62,9 +63,53 @@ abstract class _PedidoBase with Store {
     data['cep_destino'] = cepDestino;
     data['valor_total'] = 500.00;
     data['peso_total'] = pesoTotal;
-    if (itens != null) {
-      data['itens'] = itens.map((v) => v.toJson()).toList();
-    }
+
+    _adicionaItensRelativos();
+
+    data['itens'] = itens.map((v) => v.toJson()).toList();
+
     return data;
+  }
+
+  void _adicionaItensRelativos() {
+    if (tipoDeMedida is MedidaRelativa) {
+      itens = [].asObservable();
+
+      if (caixaSapato > 0) {
+        addItemPedido(ItensPedido(
+          quantidade: caixaSapato,
+          largura: 25,
+          altura: 15,
+          comprimento: 50,
+        ));
+      }
+
+      if (microondas > 0) {
+        addItemPedido(ItensPedido(
+          quantidade: microondas,
+          largura: 50,
+          altura: 50,
+          comprimento: 50,
+        ));
+      }
+
+      if (fogao > 0) {
+        addItemPedido(ItensPedido(
+          quantidade: fogao,
+          largura: 50,
+          altura: 90,
+          comprimento: 90,
+        ));
+      }
+
+      if (geladeira > 0) {
+        addItemPedido(ItensPedido(
+          quantidade: geladeira,
+          largura: 160,
+          altura: 60,
+          comprimento: 80,
+        ));
+      }
+    }
   }
 }

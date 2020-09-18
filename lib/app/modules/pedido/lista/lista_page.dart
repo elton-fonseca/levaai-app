@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/botao_branco.dart';
 
 import '../../../core/Stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
@@ -84,13 +85,29 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                 }),
               ),
               SizedBox(height: displayHeight(context) * 0.05),
-              BotaoAzul(
-                  texto: 'Adicionar Pedido',
-                  onClick: () {
-                    var indice = Modular.get<PedidoListaStore>().pedidos.length;
-                    Modular.to
-                        .popAndPushNamed('/pedido/formulario/$indice/criar');
-                  }),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  BotaoAzul(
+                      largura: 0.4,
+                      texto: '+ Pedido',
+                      onClick: () {
+                        var indice =
+                            Modular.get<PedidoListaStore>().pedidos.length;
+                        Modular.to.popAndPushNamed(
+                            '/pedido/formulario/$indice/criar');
+                      }),
+                  BotaoBranco(
+                      largura: 0.4,
+                      texto: 'Pagamento',
+                      onClick: () {
+                        var indice =
+                            Modular.get<PedidoListaStore>().pedidos.length;
+                        Modular.to.popAndPushNamed(
+                            '/pedido/formulario/$indice/criar');
+                      }),
+                ],
+              ),
               SizedBox(height: displayHeight(context) * 0.05),
             ],
           ),

@@ -70,11 +70,10 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                     }
 
                     // By default, show a loading spinner.
-                    return CircularProgressIndicator();
+                    return CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                    );
                   },
-                ),
-                Text(
-                  'R\$1200,00',
                 ),
               ],
             ),
