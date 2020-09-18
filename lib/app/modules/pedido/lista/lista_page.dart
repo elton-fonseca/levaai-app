@@ -43,13 +43,6 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
           textoCabecalho: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              BotaoAzul(
-                  texto: 'Adicionar Pedido',
-                  onClick: () {
-                    var indice = Modular.get<PedidoListaStore>().pedidos.length;
-                    Modular.to
-                        .popAndPushNamed('/pedido/formulario/$indice/criar');
-                  }),
               Text(
                 'Total Geral',
                 style: TextStyle(
@@ -69,22 +62,37 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               ),
             ],
           ),
-          conteudo: SizedBox(
-            width: displayWidth(context) * 0.7,
-            child: Observer(builder: (_) {
-              return GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                children: List.generate(
-                    Modular.get<PedidoListaStore>().pedidos.length, (indice) {
-                  return GridItem().obter(
-                    context: context,
-                    pedido: Modular.get<PedidoListaStore>().pedidos[indice],
-                    indice: indice,
+          conteudo: Column(
+            children: <Widget>[
+              SizedBox(height: displayHeight(context) * 0.03),
+              Container(
+                height: displayHeight(context) * 0.6,
+                child: Observer(builder: (_) {
+                  return GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    children: List.generate(
+                        Modular.get<PedidoListaStore>().pedidos.length,
+                        (indice) {
+                      return GridItem().obter(
+                        context: context,
+                        pedido: Modular.get<PedidoListaStore>().pedidos[indice],
+                        indice: indice,
+                      );
+                    }),
                   );
                 }),
-              );
-            }),
+              ),
+              SizedBox(height: displayHeight(context) * 0.05),
+              BotaoAzul(
+                  texto: 'Adicionar Pedido',
+                  onClick: () {
+                    var indice = Modular.get<PedidoListaStore>().pedidos.length;
+                    Modular.to
+                        .popAndPushNamed('/pedido/formulario/$indice/criar');
+                  }),
+              SizedBox(height: displayHeight(context) * 0.05),
+            ],
           ),
         ),
       ),

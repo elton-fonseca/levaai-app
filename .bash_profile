@@ -1,0 +1,1 @@
+export PATH="$PATH":"$HOME/Documents/flutter/.pub-cache/bin"
