@@ -25,7 +25,7 @@ class InputText extends StatelessWidget {
         fontSize: displayWidth(context) * 0.032,
       ),
       textAlign: tipo == 'nome' ? TextAlign.left : TextAlign.right,
-      keyboardType: TextInputType.number,
+      keyboardType: tipo == 'nome' ? TextInputType.name : TextInputType.number,
       decoration: InputDecoration(
         border: InputBorder.none,
         contentPadding: EdgeInsets.only(bottom: displayWidth(context) * 0.06),

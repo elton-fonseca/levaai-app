@@ -22,7 +22,7 @@ class MenuLateral extends StatelessWidget {
               subtitle: Text("Solicite um novo pedido"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                Modular.to.pushNamed('/pedido/formulario/0/criar');
+                Modular.to.popAndPushNamed('/pedido/formulario/0/criar');
               }),
           ListTile(
               leading: Icon(Icons.list),

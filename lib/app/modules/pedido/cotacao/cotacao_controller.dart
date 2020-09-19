@@ -18,8 +18,8 @@ abstract class _CotacaoControllerBase with Store {
     var validacao = ValidaFormulario(pedido).validar();
 
     if (validacao.isEmpty) {
-      Modular.to
-          .popUntil(ModalRoute.withName('/pedido/formulario/$indice/$acao'));
+      //Modular.to
+      //   .popUntil(ModalRoute.withName('/pedido/formulario/$indice/$acao'));
       Modular.to.popAndPushNamed('/pedido/lista');
     } else {
       var scnackbar = SnackBar(

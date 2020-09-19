@@ -101,10 +101,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                       largura: 0.4,
                       texto: 'Pagamento',
                       onClick: () {
-                        var indice =
-                            Modular.get<PedidoListaStore>().pedidos.length;
-                        Modular.to.popAndPushNamed(
-                            '/pedido/formulario/$indice/criar');
+                        controller.criarPedido();
                       }),
                 ],
               ),

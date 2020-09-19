@@ -1,3 +1,4 @@
+import 'package:levaai1/app/core/services/local_storage.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -7,15 +8,19 @@ part 'lista_controller.g.dart';
 class ListaController = _ListaControllerBase with _$ListaController;
 
 abstract class _ListaControllerBase with Store {
-  @observable
-  int value = 0;
+  void criarPedido() {
+    //cria
 
-  @action
-  void increment() {
-    value++;
+    _redireciona();
   }
 
-  int pegar() {
-    return value;
+  void _redireciona() {
+    LocalStorage.getValue<String>("token").then((token) {
+      if (token.toString().isNotEmpty) {
+        Modular.to.pushNamed('/pagamento');
+      } else {
+        Modular.to.pushNamed('/usuario/cadastro');
+      }
+    });
   }
 }
