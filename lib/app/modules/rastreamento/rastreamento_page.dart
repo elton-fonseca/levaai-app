@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/botao_azul.dart';
 
 import '../../core/tema/cores_const.dart';
 import '../../core/view/conteudo_padrao.dart';
@@ -103,8 +104,8 @@ class _RastreamentoPageState
                                     children: <Widget>[
                                       SizedBox(
                                         height: displayHeight(context) * 0.02,
-                                        child:
-                                            Image.asset("assets/imagens/box-blue.png"),
+                                        child: Image.asset(
+                                            "assets/imagens/box-blue.png"),
                                       ),
                                     ],
                                   ),
@@ -164,8 +165,8 @@ class _RastreamentoPageState
                                     children: <Widget>[
                                       SizedBox(
                                         height: displayHeight(context) * 0.08,
-                                        child:
-                                            Image.asset("assets/imagens/pedido-ok.png"),
+                                        child: Image.asset(
+                                            "assets/imagens/pedido-ok.png"),
                                       ),
                                     ],
                                   ),
@@ -236,8 +237,8 @@ class _RastreamentoPageState
                                     children: <Widget>[
                                       SizedBox(
                                         height: displayHeight(context) * 0.02,
-                                        child:
-                                            Image.asset("assets/imagens/box-blue.png"),
+                                        child: Image.asset(
+                                            "assets/imagens/box-blue.png"),
                                       ),
                                     ],
                                   ),
@@ -369,8 +370,8 @@ class _RastreamentoPageState
                                     children: <Widget>[
                                       SizedBox(
                                         height: displayHeight(context) * 0.02,
-                                        child:
-                                            Image.asset("assets/box-blue.png"),
+                                        child: Image.asset(
+                                            "assets/imagens/box-blue.png"),
                                       ),
                                     ],
                                   ),
@@ -495,41 +496,11 @@ class _RastreamentoPageState
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Container(
-                          width: displayWidth(context) * 0.7,
-                          height: displayHeight(context) * 0.07,
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30),
-                            ),
-                            border: Border.all(
-                              width: 3,
-                              color: CoresConst.azulPadrao,
-                            ),
-                          ),
-                          child: SizedBox.expand(
-                            child: FlatButton(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Adicionar novo pedido",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: CoresConst.azulPadrao,
-                                      fontSize: displayWidth(context) * 0.04,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                              onPressed: () {
-                                Modular.to.pushNamed('/pedido/form');
-                              },
-                            ),
-                          ),
+                        BotaoAzul(
+                          onClick: () {
+                            Modular.to.pushNamed("pedido/formulario/0/criar");
+                          },
+                          texto: "Novo Pedido",
                         ),
                       ],
                     ),

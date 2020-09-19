@@ -71,6 +71,14 @@ abstract class _PedidoBase with Store {
     return data;
   }
 
+  Map<String, dynamic> cidadesJson() {
+    final data = <String, dynamic>{};
+    data['cep_origem'] = cepOrigem;
+    data['cep_destino'] = cepDestino;
+
+    return data;
+  }
+
   void _adicionaItensRelativos() {
     if (tipoDeMedida is MedidaRelativa) {
       itens = [].asObservable();

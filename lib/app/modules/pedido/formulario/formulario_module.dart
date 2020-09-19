@@ -1,7 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
+import 'repositories/formulario_repository.dart';
+import 'repositories/interfaces/formulario_repository_interface.dart';
 import 'widgets/detalhes/detalhes_controller.dart';
 import 'widgets/endereco/endereco_controller.dart';
 import 'widgets/popup/popup_controller.dart';
@@ -15,6 +18,9 @@ class FormularioModule extends ChildModule {
         Bind((i) => TipoMedidaController()),
         Bind((i) => EnderecoController()),
         Bind((i) => DetalhesController()),
+        Bind<IFormularioRepository>((i) {
+          return FormularioRepository(Modular.get<Dio>());
+        }),
       ];
 
   @override

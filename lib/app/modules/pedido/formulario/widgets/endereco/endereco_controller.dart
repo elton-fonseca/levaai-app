@@ -1,11 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../../core/Models/pedido.dart';
 import '../../../../../core/Stores/pedido_lista_store.dart';
+import '../../../../../core/view/helpers.dart';
+import '../../repositories/formulario_repository.dart';
 
 part 'endereco_controller.g.dart';
 
@@ -14,6 +20,8 @@ class EnderecoController = _EnderecoControllerBase with _$EnderecoController;
 
 abstract class _EnderecoControllerBase with Store {
   int indice = 0;
+
+  bool cidadesAtendidas = false;
 
   @action
   void defineEnderecoOrigem(String novoEnderecoOrigem) {
@@ -50,22 +58,71 @@ abstract class _EnderecoControllerBase with Store {
     @required TextEditingController textController,
     @required String nome,
   }) async {
+    var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
+    _limpaEndereco(pedido, nome, textController);
+
     var p = await _mapaControlador(context);
+
     if (p != null) {
       var address = await Geocoder.local.findAddressesFromQuery(p.description);
 
-      textController.text = address[0].addressLine;
-      if (nome == 'endereco_origem') {
-        Modular.get<PedidoListaStore>().pedidos[indice].cepOrigem =
-            address[0].postalCode;
-        Modular.get<PedidoListaStore>().pedidos[indice].enderecoOrigem =
-            address[0].addressLine;
-      } else {
-        Modular.get<PedidoListaStore>().pedidos[indice].cepDestino =
-            address[0].postalCode;
-        Modular.get<PedidoListaStore>().pedidos[indice].enderecoDestino =
-            address[0].addressLine;
+      if (address[0].postalCode == null) {
+        Helpers.snackLevaai(texto: "Endereço Invalido", context: context);
+        return;
       }
+
+      _preencheEndereco(pedido, nome, address[0], textController);
+
+      _verificaCidadesPercurso(context);
+    }
+  }
+
+  void _preencheEndereco(
+    Pedido pedido,
+    String nome,
+    Address address,
+    TextEditingController textController,
+  ) {
+    textController.text = address.addressLine;
+
+    if (nome == 'endereco_origem') {
+      pedido.cepOrigem = address.postalCode;
+      pedido.enderecoOrigem = address.addressLine;
+    } else {
+      pedido.cepDestino = address.postalCode;
+      pedido.enderecoDestino = address.addressLine;
+    }
+  }
+
+  void _limpaEndereco(
+    Pedido pedido,
+    String nome,
+    TextEditingController textController,
+  ) {
+    textController.text = '';
+
+    if (nome == 'endereco_origem') {
+      pedido.cepOrigem = '';
+      pedido.enderecoOrigem = '';
+    } else {
+      pedido.cepDestino = '';
+      pedido.enderecoDestino = '';
+    }
+  }
+
+  void _verificaCidadesPercurso(BuildContext context) {
+    var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
+
+    if (pedido.enderecoOrigem != null && pedido.enderecoDestino != null) {
+      var json = jsonEncode(pedido.cidadesJson());
+
+      Modular.get<FormularioRepository>()
+          .verificaCidadesAtendidas(json)
+          .then((value) => cidadesAtendidas = true)
+          .catchError((e) {
+        Helpers.snackLevaai(texto: "Percurso não atendido", context: context);
+        cidadesAtendidas = false;
+      });
     }
   }
 }

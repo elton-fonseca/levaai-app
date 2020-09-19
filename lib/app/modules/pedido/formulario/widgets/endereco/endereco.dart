@@ -43,6 +43,7 @@ class Endereco {
                         textController: origemTextController,
                         nome: 'endereco_origem');
                   },
+                  readOnly: true,
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],
@@ -57,7 +58,7 @@ class Endereco {
                       fontWeight: FontWeight.bold,
                     ),
                     labelText: 'Origem',
-                    hintText: 'Avenida Paulista, 234',
+                    hintText: 'Endereço de Origem',
                     suffixIcon: IconButton(
                       icon: Icon(Icons.cancel),
                       onPressed: () {},
@@ -78,6 +79,7 @@ class Endereco {
                         textController: destinoTextController,
                         nome: 'endereco_destino');
                   },
+                  readOnly: true,
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.grey[600],
@@ -92,7 +94,7 @@ class Endereco {
                       fontWeight: FontWeight.bold,
                     ),
                     labelText: 'Destino',
-                    hintText: 'Avenida Faria lima, 344',
+                    hintText: 'Endereço de Destino',
                     suffixIcon: IconButton(
                       icon: Icon(Icons.cancel),
                       onPressed: () {},

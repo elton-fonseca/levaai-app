@@ -1,3 +1,6 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/formulario/widgets/endereco/endereco_controller.dart';
+
 import '../../../../core/Models/pedido.dart';
 import '../widgets/tipo_medida/medida_exata.dart';
 import '../widgets/tipo_medida/medida_relativa.dart';
@@ -8,7 +11,8 @@ class ValidaFormulario {
   Pedido pedido;
 
   String validar() {
-    var resultado = _enderecoOrigem();
+    var resultado = _cidadesAtendidas();
+    resultado += _enderecoOrigem();
     resultado += _enderecoDestino();
     resultado += _itens();
     resultado += _valorTotal();
@@ -16,6 +20,14 @@ class ValidaFormulario {
     resultado += _tipo();
 
     return resultado;
+  }
+
+  String _cidadesAtendidas() {
+    if (!Modular.get<EnderecoController>().cidadesAtendidas) {
+      return 'Percurso não atendido';
+    }
+
+    return '';
   }
 
   String _enderecoOrigem() {
