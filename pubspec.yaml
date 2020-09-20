@@ -95,6 +95,8 @@ flutter:
    - assets/imagens/pedido-ok.png
    - assets/imagens/pedido-aguardando.png
    - assets/imagens/pedido-atencao.png
+   - assets/imagens/item-mais.png
+   - assets/imagens/item-menos.png
 
 
 

@@ -42,27 +42,27 @@ class ItemRelativo {
       @required VoidCallback onClickMenos,
       @required int quantidade}) {
     return Row(children: <Widget>[
-      GestureDetector( onTap: onClickMenos, child: Icon(
-          Icons.remove_circle,
-          color: Colors.grey,
-          size: displayWidth(context) * 0.07,
-        ) ), 
+      GestureDetector(
+          onTap: onClickMenos,
+          child: Image.asset("assets/imagens/item-menos.png",
+              width: displayWidth(context) * 0.06)),
       Padding(
-        padding: EdgeInsets.only(left: displayWidth(context) * 0.01),
+        padding: EdgeInsets.only(
+            left: displayWidth(context) * 0.02,
+            right: displayWidth(context) * 0.02),
         child: Text(
           quantidade.toString(),
           style: TextStyle(
             color: CoresConst.azulPadrao,
-            fontSize: displayWidth(context) * 0.07,
+            fontSize: displayWidth(context) * 0.06,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-            GestureDetector( onTap: onClickMais, child: Icon(
-          Icons.add_circle,
-          color: Colors.grey,
-          size: displayWidth(context) * 0.07,
-        ) ), 
+      GestureDetector(
+          onTap: onClickMais,
+          child: Image.asset("assets/imagens/item-mais.png",
+              width: displayWidth(context) * 0.06)),
     ]);
   }
 }
