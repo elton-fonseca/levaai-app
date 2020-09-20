@@ -42,14 +42,11 @@ class ItemRelativo {
       @required VoidCallback onClickMenos,
       @required int quantidade}) {
     return Row(children: <Widget>[
-      IconButton(
-        icon: Icon(
+      GestureDetector( onTap: onClickMenos, child: Icon(
           Icons.remove_circle,
           color: Colors.grey,
           size: displayWidth(context) * 0.07,
-        ),
-        onPressed: onClickMenos,
-      ),
+        ) ), 
       Padding(
         padding: EdgeInsets.only(left: displayWidth(context) * 0.01),
         child: Text(
@@ -61,14 +58,11 @@ class ItemRelativo {
           ),
         ),
       ),
-      IconButton(
-        icon: Icon(
+            GestureDetector( onTap: onClickMais, child: Icon(
           Icons.add_circle,
           color: Colors.grey,
           size: displayWidth(context) * 0.07,
-        ),
-        onPressed: onClickMais,
-      ),
+        ) ), 
     ]);
   }
 }

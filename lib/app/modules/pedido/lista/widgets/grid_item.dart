@@ -17,8 +17,8 @@ class GridItem {
         Padding(
           padding: EdgeInsets.only(left: displayWidth(context) * 0.00),
           child: Container(
-            height: displayHeight(context) * 0.27,
-            width: displayHeight(context) * 0.27,
+            height: displayHeight(context) * 0.24,
+            width: displayHeight(context) * 0.24,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(const Radius.circular(15.0)),
@@ -52,7 +52,7 @@ class GridItem {
                 Padding(
                   padding: EdgeInsets.only(right: displayWidth(context) * 0.05),
                   child: Container(
-                    height: displayHeight(context) * 0.07,
+                    height: displayHeight(context) * 0.05,
                     width: displayWidth(context) * 0.45,
                     decoration: BoxDecoration(
                       color: Color(0xFFf7f9f8),
@@ -76,7 +76,7 @@ class GridItem {
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             color: CoresConst.azulPadrao,
-                            fontSize: displayWidth(context) * 0.05,
+                            fontSize: displayWidth(context) * 0.04,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
@@ -87,7 +87,7 @@ class GridItem {
                 Padding(
                   padding: EdgeInsets.only(
                       left: displayWidth(context) * 0.04,
-                      top: displayWidth(context) * 0.03),
+                      top: displayWidth(context) * 0.02),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -96,16 +96,8 @@ class GridItem {
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.grey[500],
-                          fontSize: displayWidth(context) * 0.04,
+                          fontSize: displayWidth(context) * 0.03,
                           fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                      Text(
-                        'CEP 12342-000',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          color: Color(0xFF909090),
-                          fontSize: displayWidth(context) * 0.032,
                         ),
                       ),
                     ],
