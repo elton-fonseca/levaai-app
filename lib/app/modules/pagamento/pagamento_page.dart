@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/botao_azul.dart';
+import 'package:levaai1/app/modules/pagamento/repositories/widgets/dados_cartao.dart';
 
 import '../../core/tema/cores_const.dart';
 import '../../core/view/conteudo_padrao.dart';
@@ -7,7 +10,7 @@ import '../../core/view/menu_lateral.dart';
 import '../../core/view/navbar_padrao.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'pagamento_controller.dart';
-import 'pagamento_dropdown.dart';
+import 'repositories/widgets/pagamento_dropdown.dart';
 
 class PagamentoPage extends StatefulWidget {
   final String title;
@@ -102,166 +105,22 @@ class _PagamentoPageState
                           children: <Widget>[
                             Expanded(
                               child: SizedBox(
-                                child: DropdownPagamento(),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.025,
-                          right: displayWidth(context) * 0.025,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.black,
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(1),
-                                      borderSide: BorderSide(
-                                        color: Colors.grey[700],
-                                        width: 4,
-                                      ),
-                                    ),
-                                    contentPadding: EdgeInsets.only(left: 20),
-                                    hintText: 'Nome (mesmo do cartao)',
-                                    hintStyle: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[400],
-                                      fontSize: displayWidth(context) * 0.04,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
+                                child: Observer(
+                                  builder: (_) {
+                                    return DropdownPagamento();
+                                  },
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.025,
-                          right: displayWidth(context) * 0.025,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.black,
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    suffixIcon: Image(
-                                        width: displayWidth(context) * 0.05,
-                                        image: AssetImage(
-                                          'assets/creditcard.png',
-                                        )),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(1),
-                                      borderSide: BorderSide(
-                                        color: Colors.grey[700],
-                                        width: 4,
-                                      ),
-                                    ),
-                                    contentPadding: EdgeInsets.only(left: 20),
-                                    hintText: 'Número do cartão',
-                                    hintStyle: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[400],
-                                      fontSize: displayWidth(context) * 0.04,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: displayHeight(context) * 0.03,
-                          left: displayWidth(context) * 0.025,
-                          right: displayWidth(context) * 0.025,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.black,
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(1),
-                                      borderSide: BorderSide(
-                                        color: Colors.grey[700],
-                                        width: 4,
-                                      ),
-                                    ),
-                                    contentPadding: EdgeInsets.only(left: 20),
-                                    hintText: 'Código',
-                                    hintStyle: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[400],
-                                      fontSize: displayWidth(context) * 0.04,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: displayWidth(context) * 0.05),
-                            Expanded(
-                              child: SizedBox(
-                                child: TextFormField(
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.black,
-                                    fontSize: displayWidth(context) * 0.04,
-                                  ),
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(1),
-                                      borderSide: BorderSide(
-                                        color: Colors.grey[700],
-                                        width: 4,
-                                      ),
-                                    ),
-                                    contentPadding: EdgeInsets.only(left: 20),
-                                    hintText: 'Validade',
-                                    hintStyle: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[400],
-                                      fontSize: displayWidth(context) * 0.04,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                      Observer(
+                        builder: (_) {
+                          return controller.tipoPagamento == 'cartao'
+                              ? DadosCartao()
+                              : Container();
+                        },
                       ),
                       SizedBox(height: displayWidth(context) * 0.08),
                     ],
@@ -273,85 +132,17 @@ class _PagamentoPageState
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Container(
-                          width: displayWidth(context) * 0.7,
-                          height: displayHeight(context) * 0.07,
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                              color: CoresConst.azulPadrao,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(30),
-                              ),
-                              border: Border.all(
-                                width: 3,
-                                color: CoresConst.azulPadrao,
-                              )),
-                          child: SizedBox.expand(
-                            child: FlatButton(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Realizar o pagamento",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: displayWidth(context) * 0.04,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                              onPressed: () {
-                                Modular.to.pushNamed('/pedido/destalhes');
-                              },
-                            ),
-                          ),
-                        ),
+                        Observer(builder: (_) {
+                          return BotaoAzul(
+                            onClick: null,
+                            texto: controller.tipoPagamento == 'cartao'
+                                ? 'Realizar Pagamento'
+                                : 'Gerar Boleto',
+                          );
+                        }),
                       ],
                     ),
                     SizedBox(height: displayHeight(context) * 0.03),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: displayWidth(context) * 0.7,
-                          height: displayHeight(context) * 0.07,
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30),
-                            ),
-                            border: Border.all(
-                              width: 3,
-                              color: CoresConst.azulPadrao,
-                            ),
-                          ),
-                          child: SizedBox.expand(
-                            child: FlatButton(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Revisar o pedido",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: CoresConst.azulPadrao,
-                                      fontSize: displayWidth(context) * 0.04,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                              onPressed: () {
-                                Modular.to.pushNamed('/pedido/destalhes');
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
                 SizedBox(height: displayHeight(context) * 0.08),

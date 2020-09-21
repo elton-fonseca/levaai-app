@@ -6,10 +6,22 @@ class CadastroController = _CadastroControllerBase with _$CadastroController;
 
 abstract class _CadastroControllerBase with Store {
   @observable
-  bool pj = false;
+  String tipoPessoa = 'PF';
 
   @action
-  void alteraTipoPessoa() {
-    pj = !pj;
+  void defineTipoPessoa(String novotipoPessoa) {
+    tipoPessoa = novotipoPessoa;
+  }
+
+  String pegaTipoPessoa() {
+    if (tipoPessoa != null) {
+      return tipoPessoa;
+    }
+
+    return "PF";
+  }
+
+  bool pj() {
+    return tipoPessoa == 'PJ';
   }
 }

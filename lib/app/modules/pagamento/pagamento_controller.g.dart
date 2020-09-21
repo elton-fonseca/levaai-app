@@ -9,18 +9,19 @@ part of 'pagamento_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$PagamentoController on _PagamentoControllerBase, Store {
-  final _$valueAtom = Atom(name: '_PagamentoControllerBase.value');
+  final _$tipoPagamentoAtom =
+      Atom(name: '_PagamentoControllerBase.tipoPagamento');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  String get tipoPagamento {
+    _$tipoPagamentoAtom.reportRead();
+    return super.tipoPagamento;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set tipoPagamento(String value) {
+    _$tipoPagamentoAtom.reportWrite(value, super.tipoPagamento, () {
+      super.tipoPagamento = value;
     });
   }
 
@@ -28,11 +29,11 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
       ActionController(name: '_PagamentoControllerBase');
 
   @override
-  void increment() {
+  void defineTipoPagamento(String novoTipoPagamento) {
     final _$actionInfo = _$_PagamentoControllerBaseActionController.startAction(
-        name: '_PagamentoControllerBase.increment');
+        name: '_PagamentoControllerBase.defineTipoPagamento');
     try {
-      return super.increment();
+      return super.defineTipoPagamento(novoTipoPagamento);
     } finally {
       _$_PagamentoControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -41,7 +42,7 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
   @override
   String toString() {
     return '''
-value: ${value}
+tipoPagamento: ${tipoPagamento}
     ''';
   }
 }

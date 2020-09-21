@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/usuario/cadastro/widgets/tipo_pessoa_dropdown.dart';
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
@@ -42,16 +43,10 @@ class InformacoesBasicas extends StatelessWidget {
             ),
             child: Row(
               children: <Widget>[
-                Text('Pessoa Jurifica?'),
                 Expanded(
                   child: SizedBox(
                     child: Observer(builder: (_) {
-                      return Switch(
-                          value: Modular.get<CadastroController>().pj,
-                          onChanged: (_) {
-                            Modular.get<CadastroController>()
-                                .alteraTipoPessoa();
-                          });
+                      return TipoPessoaDropdown();
                     }),
                   ),
                 ),
@@ -72,7 +67,7 @@ class InformacoesBasicas extends StatelessWidget {
                       return Helpers().inputCadastros(
                         onChange: (valor) {},
                         context: context,
-                        placeholder: Modular.get<CadastroController>().pj
+                        placeholder: Modular.get<CadastroController>().pj()
                             ? 'Nome Fantasia'
                             : 'Nome',
                       );
@@ -86,7 +81,7 @@ class InformacoesBasicas extends StatelessWidget {
                       return Helpers().inputCadastros(
                         onChange: (valor) {},
                         context: context,
-                        placeholder: Modular.get<CadastroController>().pj
+                        placeholder: Modular.get<CadastroController>().pj()
                             ? 'Razão Social'
                             : 'Sobrenome',
                       );
@@ -131,7 +126,7 @@ class InformacoesBasicas extends StatelessWidget {
                         teclado: TextInputType.number,
                         onChange: (valor) {},
                         context: context,
-                        placeholder: Modular.get<CadastroController>().pj
+                        placeholder: Modular.get<CadastroController>().pj()
                             ? 'CNPJ'
                             : 'CPF',
                       );

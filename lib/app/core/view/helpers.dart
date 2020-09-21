@@ -30,7 +30,7 @@ class Helpers {
         color: Colors.black,
         fontSize: displayWidth(context) * 0.04,
       ),
-      keyboardType: TextInputType.text,
+      keyboardType: teclado,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(1),

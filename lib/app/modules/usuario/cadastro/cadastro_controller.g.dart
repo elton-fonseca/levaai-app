@@ -9,18 +9,18 @@ part of 'cadastro_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$CadastroController on _CadastroControllerBase, Store {
-  final _$pjAtom = Atom(name: '_CadastroControllerBase.pj');
+  final _$tipoPessoaAtom = Atom(name: '_CadastroControllerBase.tipoPessoa');
 
   @override
-  bool get pj {
-    _$pjAtom.reportRead();
-    return super.pj;
+  String get tipoPessoa {
+    _$tipoPessoaAtom.reportRead();
+    return super.tipoPessoa;
   }
 
   @override
-  set pj(bool value) {
-    _$pjAtom.reportWrite(value, super.pj, () {
-      super.pj = value;
+  set tipoPessoa(String value) {
+    _$tipoPessoaAtom.reportWrite(value, super.tipoPessoa, () {
+      super.tipoPessoa = value;
     });
   }
 
@@ -28,11 +28,11 @@ mixin _$CadastroController on _CadastroControllerBase, Store {
       ActionController(name: '_CadastroControllerBase');
 
   @override
-  void alteraTipoPessoa() {
+  void defineTipoPessoa(String novotipoPessoa) {
     final _$actionInfo = _$_CadastroControllerBaseActionController.startAction(
-        name: '_CadastroControllerBase.alteraTipoPessoa');
+        name: '_CadastroControllerBase.defineTipoPessoa');
     try {
-      return super.alteraTipoPessoa();
+      return super.defineTipoPessoa(novotipoPessoa);
     } finally {
       _$_CadastroControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -41,7 +41,7 @@ mixin _$CadastroController on _CadastroControllerBase, Store {
   @override
   String toString() {
     return '''
-pj: ${pj}
+tipoPessoa: ${tipoPessoa}
     ''';
   }
 }

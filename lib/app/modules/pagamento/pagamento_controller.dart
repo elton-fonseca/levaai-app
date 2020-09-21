@@ -6,10 +6,18 @@ class PagamentoController = _PagamentoControllerBase with _$PagamentoController;
 
 abstract class _PagamentoControllerBase with Store {
   @observable
-  int value = 0;
+  String tipoPagamento = 'cartao';
 
   @action
-  void increment() {
-    value++;
+  void defineTipoPagamento(String novoTipoPagamento) {
+    tipoPagamento = novoTipoPagamento;
+  }
+
+  String pegaTipoPagamento() {
+    if (tipoPagamento != null) {
+      return tipoPagamento;
+    }
+
+    return "cartao";
   }
 }

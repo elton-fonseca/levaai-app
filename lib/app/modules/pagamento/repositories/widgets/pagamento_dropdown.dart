@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../core/view/tamanhos_relativos.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import '../../../../core/view/tamanhos_relativos.dart';
+import '../../pagamento_controller.dart';
 
 class DropdownPagamento extends StatefulWidget {
   @override
@@ -37,35 +39,24 @@ class _DropdownPagamentoState extends State<DropdownPagamento> {
                     fontSize: displayWidth(context) * 0.04,
                   ),
                 ),
-                value: 'one',
+                value: 'cartao',
               ),
               DropdownMenuItem<String>(
                 child: Text(
-                  'Transferência',
+                  'Boleto Bancário',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.black,
                     fontSize: displayWidth(context) * 0.04,
                   ),
                 ),
-                value: 'two',
+                value: 'boleto',
               ),
             ],
             onChanged: (value) {
-              setState(() {
-                _value = value;
-              });
+              Modular.get<PagamentoController>().defineTipoPagamento(value);
             },
-            hint: Text(
-              'Selecione a forma de pagamento',
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                color: Colors.grey[400],
-                fontSize: displayWidth(context) * 0.04,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            value: _value,
+            value: Modular.get<PagamentoController>().pegaTipoPagamento(),
           ),
         ),
       ),
