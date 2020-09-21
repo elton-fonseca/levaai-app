@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 import 'tamanhos_relativos.dart';
 
@@ -21,8 +22,10 @@ class Helpers {
     @required void Function(String) onChange,
     TextInputType teclado = TextInputType.text,
     bool senha = false,
+    TextEditingController mascara,
   }) {
     return TextFormField(
+      controller: mascara,
       obscureText: senha,
       onChanged: onChange,
       style: TextStyle(

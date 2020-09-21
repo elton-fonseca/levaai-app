@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:levaai1/app/core/view/botao_azul.dart';
@@ -22,7 +23,10 @@ class PagamentoPage extends StatefulWidget {
 
 class _PagamentoPageState
     extends ModularState<PagamentoPage, PagamentoController> {
-  //use 'controller' variable to access controller
+  final numeroCartaoTextController =
+      MaskedTextController(mask: '0000 0000 0000 0000');
+  final validadeTextController = MaskedTextController(mask: '0000');
+  final codigoSegurancaTextController = MaskedTextController(mask: '00/00');
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +122,14 @@ class _PagamentoPageState
                       Observer(
                         builder: (_) {
                           return controller.tipoPagamento == 'cartao'
-                              ? DadosCartao()
+                              ? DadosCartao(
+                                  numeroCartaoTextController:
+                                      numeroCartaoTextController,
+                                  validadeTextController:
+                                      validadeTextController,
+                                  codigoSegurancaTextController:
+                                      codigoSegurancaTextController,
+                                )
                               : Container();
                         },
                       ),

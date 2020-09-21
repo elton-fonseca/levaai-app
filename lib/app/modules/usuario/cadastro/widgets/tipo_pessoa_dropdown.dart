@@ -4,6 +4,10 @@ import '../../../../core/view/tamanhos_relativos.dart';
 import '../cadastro_controller.dart';
 
 class TipoPessoaDropdown extends StatefulWidget {
+  const TipoPessoaDropdown({this.documentoTextController});
+
+  final TextEditingController documentoTextController;
+
   @override
   _TipoPessoaDropdownState createState() {
     return _TipoPessoaDropdownState();
@@ -52,7 +56,8 @@ class _TipoPessoaDropdownState extends State<TipoPessoaDropdown> {
               ),
             ],
             onChanged: (value) {
-              Modular.get<CadastroController>().defineTipoPessoa(value);
+              Modular.get<CadastroController>()
+                  .defineTipoPessoa(value, widget.documentoTextController);
             },
             value: Modular.get<CadastroController>().pegaTipoPessoa(),
           ),

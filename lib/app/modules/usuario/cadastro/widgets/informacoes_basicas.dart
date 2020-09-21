@@ -8,6 +8,10 @@ import '../../../../core/view/tamanhos_relativos.dart';
 import '../cadastro_controller.dart';
 
 class InformacoesBasicas extends StatelessWidget {
+  const InformacoesBasicas({this.documentoTextController});
+
+  final TextEditingController documentoTextController;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,7 +50,9 @@ class InformacoesBasicas extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     child: Observer(builder: (_) {
-                      return TipoPessoaDropdown();
+                      return TipoPessoaDropdown(
+                        documentoTextController: documentoTextController,
+                      );
                     }),
                   ),
                 ),
@@ -123,6 +129,7 @@ class InformacoesBasicas extends StatelessWidget {
                   child: SizedBox(
                     child: Observer(builder: (_) {
                       return Helpers().inputCadastros(
+                        mascara: documentoTextController,
                         teclado: TextInputType.number,
                         onChange: (valor) {},
                         context: context,

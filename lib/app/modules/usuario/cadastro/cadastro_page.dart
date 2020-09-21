@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:levaai1/app/modules/usuario/cadastro/widgets/informacoes_basicas.dart';
 import '../../../core/tema/cores_const.dart';
@@ -20,7 +21,7 @@ class CadastroPage extends StatefulWidget {
 
 class _CadastroPageState
     extends ModularState<CadastroPage, CadastroController> {
-  //use 'controller' variable to access controller
+  final documentoTextController = MaskedTextController(mask: '000.000.000-00');
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,9 @@ class _CadastroPageState
             child: Column(
               children: <Widget>[
                 SizedBox(height: displayHeight(context) * 0.04),
-                InformacoesBasicas(),
+                InformacoesBasicas(
+                  documentoTextController: documentoTextController,
+                ),
                 SizedBox(height: displayHeight(context) * 0.04),
                 InformacoesAcesso(),
                 SizedBox(height: displayHeight(context) * 0.08),

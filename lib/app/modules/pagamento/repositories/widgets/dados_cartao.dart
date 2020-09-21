@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class DadosCartao extends StatelessWidget {
+  const DadosCartao({
+    @required this.numeroCartaoTextController,
+    @required this.validadeTextController,
+    @required this.codigoSegurancaTextController,
+  });
+
+  final TextEditingController numeroCartaoTextController;
+  final TextEditingController validadeTextController;
+  final TextEditingController codigoSegurancaTextController;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,31 +27,11 @@ class DadosCartao extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: SizedBox(
-                  child: TextFormField(
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.black,
-                      fontSize: displayWidth(context) * 0.04,
-                    ),
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(1),
-                        borderSide: BorderSide(
-                          color: Colors.grey[700],
-                          width: 4,
-                        ),
-                      ),
-                      contentPadding: EdgeInsets.only(left: 20),
-                      hintText: 'Nome (mesmo do cartao)',
-                      hintStyle: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.grey[400],
-                        fontSize: displayWidth(context) * 0.04,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  child: Helpers().inputCadastros(
+                      onChange: (valor) {},
+                      context: context,
+                      placeholder: 'Número Cartão',
+                      mascara: numeroCartaoTextController),
                 ),
               ),
             ],
@@ -58,37 +47,10 @@ class DadosCartao extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: SizedBox(
-                  child: TextFormField(
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.black,
-                      fontSize: displayWidth(context) * 0.04,
-                    ),
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      //suffixIcon: Image(
-                      //  width: displayWidth(context) * 0.05,
-                      //  image: AssetImage(
-                      //    'assets/creditcard.png',
-                      //  ),
-                      //),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(1),
-                        borderSide: BorderSide(
-                          color: Colors.grey[700],
-                          width: 4,
-                        ),
-                      ),
-                      contentPadding: EdgeInsets.only(left: 20),
-                      hintText: 'Número do cartão',
-                      hintStyle: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.grey[400],
-                        fontSize: displayWidth(context) * 0.04,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  child: Helpers().inputCadastros(
+                      onChange: (valor) {},
+                      context: context,
+                      placeholder: 'Nome (Mesmo Cartão)'),
                 ),
               ),
             ],
@@ -104,60 +66,21 @@ class DadosCartao extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: SizedBox(
-                  child: TextFormField(
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.black,
-                      fontSize: displayWidth(context) * 0.04,
-                    ),
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(1),
-                        borderSide: BorderSide(
-                          color: Colors.grey[700],
-                          width: 4,
-                        ),
-                      ),
-                      contentPadding: EdgeInsets.only(left: 20),
-                      hintText: 'Código',
-                      hintStyle: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.grey[400],
-                        fontSize: displayWidth(context) * 0.04,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  child: Helpers().inputCadastros(
+                      onChange: (valor) {},
+                      context: context,
+                      placeholder: 'Validade',
+                      mascara: validadeTextController),
                 ),
               ),
               SizedBox(width: displayWidth(context) * 0.05),
               Expanded(
                 child: SizedBox(
-                  child: TextFormField(
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.black,
-                      fontSize: displayWidth(context) * 0.04,
-                    ),
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(1),
-                        borderSide: BorderSide(
-                          color: Colors.grey[700],
-                          width: 4,
-                        ),
-                      ),
-                      contentPadding: EdgeInsets.only(left: 20),
-                      hintText: 'Validade',
-                      hintStyle: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.grey[400],
-                        fontSize: displayWidth(context) * 0.04,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                  child: Helpers().inputCadastros(
+                    onChange: (valor) {},
+                    context: context,
+                    placeholder: 'Cód. Segurança',
+                    mascara: codigoSegurancaTextController,
                   ),
                 ),
               ),

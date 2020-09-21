@@ -28,11 +28,23 @@ mixin _$CadastroController on _CadastroControllerBase, Store {
       ActionController(name: '_CadastroControllerBase');
 
   @override
-  void defineTipoPessoa(String novotipoPessoa) {
+  void defineTipoPessoa(
+      String novotipoPessoa, MaskedTextController controller) {
     final _$actionInfo = _$_CadastroControllerBaseActionController.startAction(
         name: '_CadastroControllerBase.defineTipoPessoa');
     try {
-      return super.defineTipoPessoa(novotipoPessoa);
+      return super.defineTipoPessoa(novotipoPessoa, controller);
+    } finally {
+      _$_CadastroControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void _atualizaMascaraDocumento(MaskedTextController controller) {
+    final _$actionInfo = _$_CadastroControllerBaseActionController.startAction(
+        name: '_CadastroControllerBase._atualizaMascaraDocumento');
+    try {
+      return super._atualizaMascaraDocumento(controller);
     } finally {
       _$_CadastroControllerBaseActionController.endAction(_$actionInfo);
     }
