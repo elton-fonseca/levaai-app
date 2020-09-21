@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../../../core/Models/itens_pedido.dart';
-import '../../../../../core/Stores/pedido_lista_store.dart';
+import '../../../../../core/models/itens_pedido.dart';
+import '../../../../../core/stores/pedido_lista_store.dart';
 import '../tipo_medida/tipo_medida_controller.dart';
 import 'widgets/cubagem.dart';
 import 'widgets/dimensoes.dart';

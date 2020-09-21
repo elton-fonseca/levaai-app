@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../core/Stores/pedido_lista_store.dart';
+import '../../../core/stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
 import 'widgets/detalhes/detalhes_controller.dart';

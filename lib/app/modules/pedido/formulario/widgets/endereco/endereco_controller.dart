@@ -8,8 +8,8 @@ import 'package:geocoder/geocoder.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../../../core/Models/pedido.dart';
-import '../../../../../core/Stores/pedido_lista_store.dart';
+import '../../../../../core/models/pedido.dart';
+import '../../../../../core/stores/pedido_lista_store.dart';
 import '../../../../../core/view/helpers.dart';
 import '../../repositories/formulario_repository.dart';
 

@@ -1,5 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../core/models/usuario.dart';
+import '../../../core/view/helpers.dart';
+import 'validacao/valida_formulario.dart';
 
 part 'cadastro_controller.g.dart';
 
@@ -7,25 +13,38 @@ class CadastroController = _CadastroControllerBase with _$CadastroController;
 
 abstract class _CadastroControllerBase with Store {
   @observable
-  String tipoPessoa = 'PF';
+  Usuario usuario = Usuario();
+
+  void enviar(BuildContext context) {
+    var valido = ValidaFormulario().validar();
+
+    if (valido.isEmpty) {
+      Modular.to.pushNamed('/pagamento');
+      return;
+    }
+
+    Helpers.snackLevaai(texto: valido, context: context);
+  }
 
   @action
   void defineTipoPessoa(
-      String novotipoPessoa, MaskedTextController controller) {
-    tipoPessoa = novotipoPessoa;
+    String novotipoPessoa,
+    MaskedTextController controller,
+  ) {
+    usuario.tipoPessoa = novotipoPessoa;
     _atualizaMascaraDocumento(controller);
   }
 
   String pegaTipoPessoa() {
-    if (tipoPessoa != null) {
-      return tipoPessoa;
+    if (usuario.tipoPessoa != null) {
+      return usuario.tipoPessoa;
     }
 
     return "PF";
   }
 
   bool pj() {
-    return tipoPessoa == 'PJ';
+    return usuario.tipoPessoa == 'PJ';
   }
 
   @action

@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
-import 'core/Stores/pedido_lista_store.dart';
+import 'core/stores/pedido_lista_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/pagamento/pagamento_module.dart';
 import 'modules/pedido/cotacao/cotacao_module.dart';

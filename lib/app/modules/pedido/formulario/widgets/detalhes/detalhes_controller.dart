@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../../../core/Stores/pedido_lista_store.dart';
+import '../../../../../core/stores/pedido_lista_store.dart';
 
 part 'formulario_controller.g.dart';
 

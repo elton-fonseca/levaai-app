@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/native_imp.dart';
-import '../../../../core/Models/cotacao.dart';
+import '../../../../core/models/cotacao.dart';
 import 'interfaces/cotacao_repository_interface.dart';
 
 class CotacaoRepository implements ICotacaoRepository {

@@ -8,9 +8,11 @@ import '../../../../core/view/tamanhos_relativos.dart';
 import '../cadastro_controller.dart';
 
 class InformacoesBasicas extends StatelessWidget {
-  const InformacoesBasicas({this.documentoTextController});
+  const InformacoesBasicas(
+      {this.documentoTextController, this.telefoneTextController});
 
   final TextEditingController documentoTextController;
+  final TextEditingController telefoneTextController;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,11 @@ class InformacoesBasicas extends StatelessWidget {
                   child: SizedBox(
                     child: Observer(builder: (_) {
                       return Helpers().inputCadastros(
-                        onChange: (valor) {},
+                        onChange: (valor) {
+                          Modular.get<CadastroController>()
+                              .usuario
+                              .nomeFantasia = valor;
+                        },
                         context: context,
                         placeholder: Modular.get<CadastroController>().pj()
                             ? 'Nome Fantasia'
@@ -85,7 +91,11 @@ class InformacoesBasicas extends StatelessWidget {
                   child: SizedBox(
                     child: Observer(builder: (_) {
                       return Helpers().inputCadastros(
-                        onChange: (valor) {},
+                        onChange: (valor) {
+                          Modular.get<CadastroController>()
+                              .usuario
+                              .sobrenomeRazao = valor;
+                        },
                         context: context,
                         placeholder: Modular.get<CadastroController>().pj()
                             ? 'Razão Social'
@@ -108,9 +118,14 @@ class InformacoesBasicas extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     child: Helpers().inputCadastros(
-                      onChange: (valor) {},
+                      mascara: telefoneTextController,
+                      onChange: (valor) {
+                        Modular.get<CadastroController>().usuario.telefone =
+                            valor;
+                      },
                       context: context,
                       placeholder: 'Telefone',
+                      teclado: TextInputType.number,
                     ),
                   ),
                 ),
@@ -131,7 +146,10 @@ class InformacoesBasicas extends StatelessWidget {
                       return Helpers().inputCadastros(
                         mascara: documentoTextController,
                         teclado: TextInputType.number,
-                        onChange: (valor) {},
+                        onChange: (valor) {
+                          Modular.get<CadastroController>().usuario.documento =
+                              valor;
+                        },
                         context: context,
                         placeholder: Modular.get<CadastroController>().pj()
                             ? 'CNPJ'

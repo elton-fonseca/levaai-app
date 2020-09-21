@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/Models/itens_pedido.dart';
+import 'package:levaai1/app/core/models/itens_pedido.dart';
 import 'package:levaai1/app/core/view/tamanhos_relativos.dart';
 import '../popup/popup_controller.dart';
 import 'tipo_medida_controller.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:levaai1/app/core/view/botao_branco.dart';
 
-import '../../../core/Stores/pedido_lista_store.dart';
+import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';

@@ -1,4 +1,4 @@
-import '../../../../core/Models/pedido.dart';
+import '../../../../core/models/pedido.dart';
 
 class ValidaFormulario {
   ValidaFormulario(this.pedido);

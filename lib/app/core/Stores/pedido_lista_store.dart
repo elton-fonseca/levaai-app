@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 
-import '../Models/pedido.dart';
+import '../models/pedido.dart';
 
 part 'pedido_lista_store.g.dart';
 

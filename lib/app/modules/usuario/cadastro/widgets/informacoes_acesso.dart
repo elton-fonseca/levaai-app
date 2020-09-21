@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
+import '../cadastro_controller.dart';
 
 class InformacoesAcesso extends StatelessWidget {
   @override
@@ -43,7 +45,11 @@ class InformacoesAcesso extends StatelessWidget {
                   child: SizedBox(
                     child: Helpers().inputCadastros(
                       teclado: TextInputType.emailAddress,
-                      onChange: (valor) {},
+                      onChange: (valor) {
+                        Modular.get<CadastroController>()
+                              .usuario
+                              .email = valor;
+                      },
                       context: context,
                       placeholder: 'Email',
                     ),
@@ -63,7 +69,11 @@ class InformacoesAcesso extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     child: Helpers().inputCadastros(
-                      onChange: (valor) {},
+                      onChange: (valor) {
+                        Modular.get<CadastroController>()
+                              .usuario
+                              .senha = valor;
+                      },
                       senha: true,
                       context: context,
                       placeholder: 'Senha',
@@ -84,7 +94,11 @@ class InformacoesAcesso extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     child: Helpers().inputCadastros(
-                      onChange: (valor) {},
+                      onChange: (valor) {
+                        Modular.get<CadastroController>()
+                              .usuario
+                              .confirmacaoSenha = valor;
+                      },
                       senha: true,
                       context: context,
                       placeholder: 'Confirmar senha',

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/tipo_medida/medida_exata.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../modules/pedido/formulario/widgets/tipo_medida/medida_relativa.dart';
