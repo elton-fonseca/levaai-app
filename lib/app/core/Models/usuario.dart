@@ -2,9 +2,9 @@ import 'package:mobx/mobx.dart';
 
 part 'usuario.g.dart';
 
-class Usuario = _PedidoBase with _$Usuario;
+class Usuario = _UsuarioBase with _$Usuario;
 
-abstract class _PedidoBase with Store {
+abstract class _UsuarioBase with Store {
   @observable
   String tipoPessoa = 'PF';
 

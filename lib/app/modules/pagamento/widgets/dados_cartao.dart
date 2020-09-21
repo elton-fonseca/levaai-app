@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../core/view/helpers.dart';
-import '../../../../core/view/tamanhos_relativos.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pagamento/pagamento_controller.dart';
+import '../../../core/view/helpers.dart';
+import '../../../core/view/tamanhos_relativos.dart';
 
 class DadosCartao extends StatelessWidget {
   const DadosCartao({
@@ -28,10 +30,16 @@ class DadosCartao extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                      onChange: (valor) {},
-                      context: context,
-                      placeholder: 'Número Cartão',
-                      mascara: numeroCartaoTextController),
+                    onChange: (valor) {
+                      Modular.get<PagamentoController>()
+                          .pagamento
+                          .numeroCartao = valor;
+                    },
+                    context: context,
+                    placeholder: 'Número Cartão',
+                    mascara: numeroCartaoTextController,
+                    teclado: TextInputType.number,
+                  ),
                 ),
               ),
             ],
@@ -48,7 +56,10 @@ class DadosCartao extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                      onChange: (valor) {},
+                      onChange: (valor) {
+                        Modular.get<PagamentoController>().pagamento.nome =
+                            valor;
+                      },
                       context: context,
                       placeholder: 'Nome (Mesmo Cartão)'),
                 ),
@@ -67,20 +78,30 @@ class DadosCartao extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                      onChange: (valor) {},
-                      context: context,
-                      placeholder: 'Validade',
-                      mascara: validadeTextController),
+                    onChange: (valor) {
+                      Modular.get<PagamentoController>()
+                          .pagamento
+                          .codigoSeguranca = valor;
+                    },
+                    context: context,
+                    placeholder: 'Cód. Segurança',
+                    mascara: codigoSegurancaTextController,
+                    teclado: TextInputType.number,
+                  ),
                 ),
               ),
               SizedBox(width: displayWidth(context) * 0.05),
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                    onChange: (valor) {},
+                    onChange: (valor) {
+                      Modular.get<PagamentoController>().pagamento.validade =
+                          valor;
+                    },
                     context: context,
-                    placeholder: 'Cód. Segurança',
-                    mascara: codigoSegurancaTextController,
+                    placeholder: 'Validade',
+                    mascara: validadeTextController,
+                    teclado: TextInputType.number,
                   ),
                 ),
               ),

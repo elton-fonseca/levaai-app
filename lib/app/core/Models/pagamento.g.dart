@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'usuario.dart';
+part of 'pagamento.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,26 +8,26 @@ part of 'usuario.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$Usuario on _UsuarioBase, Store {
-  final _$tipoPessoaAtom = Atom(name: '_UsuarioBase.tipoPessoa');
+mixin _$Pagamento on _PagamentoBase, Store {
+  final _$tipoPagamentoAtom = Atom(name: '_PagamentoBase.tipoPagamento');
 
   @override
-  String get tipoPessoa {
-    _$tipoPessoaAtom.reportRead();
-    return super.tipoPessoa;
+  String get tipoPagamento {
+    _$tipoPagamentoAtom.reportRead();
+    return super.tipoPagamento;
   }
 
   @override
-  set tipoPessoa(String value) {
-    _$tipoPessoaAtom.reportWrite(value, super.tipoPessoa, () {
-      super.tipoPessoa = value;
+  set tipoPagamento(String value) {
+    _$tipoPagamentoAtom.reportWrite(value, super.tipoPagamento, () {
+      super.tipoPagamento = value;
     });
   }
 
   @override
   String toString() {
     return '''
-tipoPessoa: ${tipoPessoa}
+tipoPagamento: ${tipoPagamento}
     ''';
   }
 }

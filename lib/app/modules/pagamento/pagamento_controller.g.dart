@@ -9,19 +9,18 @@ part of 'pagamento_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$PagamentoController on _PagamentoControllerBase, Store {
-  final _$tipoPagamentoAtom =
-      Atom(name: '_PagamentoControllerBase.tipoPagamento');
+  final _$pagamentoAtom = Atom(name: '_PagamentoControllerBase.pagamento');
 
   @override
-  String get tipoPagamento {
-    _$tipoPagamentoAtom.reportRead();
-    return super.tipoPagamento;
+  Pagamento get pagamento {
+    _$pagamentoAtom.reportRead();
+    return super.pagamento;
   }
 
   @override
-  set tipoPagamento(String value) {
-    _$tipoPagamentoAtom.reportWrite(value, super.tipoPagamento, () {
-      super.tipoPagamento = value;
+  set pagamento(Pagamento value) {
+    _$pagamentoAtom.reportWrite(value, super.pagamento, () {
+      super.pagamento = value;
     });
   }
 
@@ -42,7 +41,7 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
   @override
   String toString() {
     return '''
-tipoPagamento: ${tipoPagamento}
+pagamento: ${pagamento}
     ''';
   }
 }
