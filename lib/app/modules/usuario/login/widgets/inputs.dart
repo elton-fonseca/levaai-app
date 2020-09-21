@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/tema/cores_const.dart';
-import '../../../core/view/tamanhos_relativos.dart';
+import '../../../../core/tema/cores_const.dart';
+import '../../../../core/view/tamanhos_relativos.dart';
 
 class Input {
   Widget texto({

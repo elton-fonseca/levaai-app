@@ -163,7 +163,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             color: CoresConst.azulPadrao,
                             size: 30,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Modular.to.pushNamed('/usuario/cadastro');
+                          },
                         ),
                       ),
                     ],

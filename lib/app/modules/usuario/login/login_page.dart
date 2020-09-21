@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../core/view/tamanhos_relativos.dart';
+import '../../../core/view/tamanhos_relativos.dart';
 import 'login_controller.dart';
 import 'validacao/regras.dart';
 import 'widgets/inputs.dart';

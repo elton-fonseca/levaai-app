@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/view/tamanhos_relativos.dart';
+import '../../../../core/view/tamanhos_relativos.dart';
 
 class Rodape extends StatelessWidget {
   @override

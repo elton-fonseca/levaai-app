@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../core/services/local_storage.dart';
-import 'repositories/login_repository.dart';
+import '../../../core/services/local_storage.dart';
+import '../repositories/usuario_repository.dart';
 
 part 'login_controller.g.dart';
 
@@ -26,9 +26,8 @@ abstract class _LoginControllerBase with Store {
 
   VoidCallback login(GlobalKey<FormState> formKey, BuildContext context) {
     if (formKey.currentState.validate()) {
-      Modular.get<LoginRepository>().login(email, senha).then((resposta) {
+      Modular.get<UsuarioRepository>().login(email, senha).then((resposta) {
         LocalStorage.setValue<String>('token', resposta["token"]).then((_) {
-          
           Modular.to.popUntil(ModalRoute.withName('/'));
           Modular.to.popAndPushNamed('/rastreamento/lista');
         });

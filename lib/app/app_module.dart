@@ -6,14 +6,14 @@ import 'app_controller.dart';
 import 'app_widget.dart';
 import 'core/Stores/pedido_lista_store.dart';
 import 'modules/home/home_module.dart';
-import 'modules/login/login_module.dart';
 import 'modules/pagamento/pagamento_module.dart';
 import 'modules/pedido/cotacao/cotacao_module.dart';
 import 'modules/pedido/formulario/formulario_module.dart';
 import 'modules/pedido/lista/lista_module.dart';
 import 'modules/rastreamento/detalhes/detalhes_module.dart';
 import 'modules/rastreamento/rastreamento_module.dart';
-import 'modules/usuario/usuario_module.dart';
+import 'modules/usuario/cadastro/cadastro_module.dart';
+import 'modules/usuario/login/login_module.dart';
 
 class AppModule extends MainModule {
   @override
@@ -35,6 +35,7 @@ class AppModule extends MainModule {
   @override
   List<ModularRouter> get routers => [
         ModularRouter(Modular.initialRoute, module: HomeModule()),
+        
         // modulos de criação de pedidos
         ModularRouter(Modular.initialRoute, module: ListaModule()),
         ModularRouter(Modular.initialRoute, module: CotacaoModule()),
@@ -45,7 +46,9 @@ class AppModule extends MainModule {
         ModularRouter(Modular.initialRoute, module: DetalhesModule()),
 
         ModularRouter(Modular.initialRoute, module: PagamentoModule()),
-        ModularRouter(Modular.initialRoute, module: UsuarioModule()),
+
+        //cadastro e login de usuario
+        ModularRouter(Modular.initialRoute, module: CadastroModule()),
         ModularRouter(Modular.initialRoute, module: LoginModule()),
       ];
 
