@@ -1,6 +1,7 @@
-import 'package:levaai1/app/core/services/local_storage.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../../core/services/local_storage.dart';
 
 part 'lista_controller.g.dart';
 

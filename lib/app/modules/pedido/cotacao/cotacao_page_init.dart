@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
-import 'package:levaai1/app/modules/pedido/cotacao/repositories/cotacao_repository.dart';
 
+import '../../../core/stores/pedido_lista_store.dart';
 import 'cotacao_controller.dart';
 import 'cotacao_page.dart';
+import 'repositories/cotacao_repository.dart';
 
 mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaTextController = TextEditingController();

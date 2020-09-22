@@ -11,8 +11,6 @@ class DropdownPagamento extends StatefulWidget {
 }
 
 class _DropdownPagamentoState extends State<DropdownPagamento> {
-  String _value;
-
   @override
   Widget build(BuildContext context) {
     return Container(

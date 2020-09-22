@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/botao_azul.dart';
-import 'package:levaai1/app/modules/rastreamento/lista_pedidos.dart';
 
 import '../../core/tema/cores_const.dart';
+import '../../core/view/botao_azul.dart';
 import '../../core/view/conteudo_padrao.dart';
 import '../../core/view/menu_lateral.dart';
 import '../../core/view/navbar_padrao.dart';
 import '../../core/view/tamanhos_relativos.dart';
+import 'lista_pedidos.dart';
 import 'rastreamento_controller.dart';
 
 class RastreamentoPage extends StatefulWidget {

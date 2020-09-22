@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';
@@ -193,6 +192,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                                       },
                                       tipo: 'tel',
                                       textController:
+                                          // ignore: lines_longer_than_80_chars
                                           responsavelColetaCelularTextController,
                                       mascara: '',
                                     ),
@@ -278,6 +278,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                                       },
                                       tipo: 'tel',
                                       textController:
+                                          // ignore: lines_longer_than_80_chars
                                           responsavelEntregaCelularTextController,
                                       mascara: '',
                                     ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pagamento/pagamento_controller.dart';
+
 import '../../../core/view/helpers.dart';
 import '../../../core/view/tamanhos_relativos.dart';
+import '../pagamento_controller.dart';
 
 class DadosCartao extends StatelessWidget {
   const DadosCartao({

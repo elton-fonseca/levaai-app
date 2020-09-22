@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/botao_azul.dart';
 
 import '../../core/tema/cores_const.dart';
-import '../../core/view/conteudo_padrao.dart';
-import '../../core/view/menu_lateral.dart';
-import '../../core/view/navbar_padrao.dart';
 import '../../core/view/tamanhos_relativos.dart';
-import 'rastreamento_controller.dart';
 
 class ListaPedidos extends StatelessWidget {
   @override
@@ -16,7 +11,7 @@ class ListaPedidos extends StatelessWidget {
       height: displayHeight(context) * 0.6,
       child: ListView.builder(
           itemCount: 10,
-          itemBuilder: (BuildContext context, int index) {
+          itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(3.0),
               child: Column(

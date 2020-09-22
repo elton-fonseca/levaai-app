@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/models/pagamento.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../core/models/pagamento.dart';
+import '../../core/view/helpers.dart';
 import 'validacao/valida_formulario.dart';
 
 part 'pagamento_controller.g.dart';
@@ -25,6 +25,7 @@ abstract class _PagamentoControllerBase with Store {
     Helpers.snackLevaai(texto: valido, context: context);
   }
 
+  // ignore: use_setters_to_change_properties
   @action
   void defineTipoPagamento(String novoTipoPagamento) {
     pagamento.tipoPagamento = novoTipoPagamento;

@@ -1,8 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/informacoes_dispositivo.dart';
-import 'package:levaai1/app/modules/usuario/cadastro/widgets/informacoes_acesso.dart';
 import '../../core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
@@ -166,10 +164,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             size: 30,
                           ),
                           onPressed: () {
-                            InformacoesDispositivo.getDeviceDetails()
-                                .then((value) {
-                              print(value);
-                            });
+                            // InformacoesDispositivo.getDeviceDetails()
+                            //     .then((value) {
+                            //   print(value);
+                            // });
                             //Modular.to.pushNamed('/usuario/cadastro');
                           },
                         ),

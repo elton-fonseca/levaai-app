@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pedido/formulario/widgets/endereco/endereco_controller.dart';
 
 import '../../../../core/models/pedido.dart';
+import '../widgets/endereco/endereco_controller.dart';
 import '../widgets/tipo_medida/medida_exata.dart';
 import '../widgets/tipo_medida/medida_relativa.dart';
 

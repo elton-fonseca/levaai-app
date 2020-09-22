@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/validadores.dart';
 import 'package:validators/validators.dart';
 
 import '../../../core/models/pagamento.dart';
+import '../../../core/services/validadores.dart';
 import '../pagamento_controller.dart';
 
 class ValidaFormulario {

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/usuario/cadastro/widgets/tipo_pessoa_dropdown.dart';
+
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 import '../cadastro_controller.dart';
+import 'tipo_pessoa_dropdown.dart';
 
 class InformacoesBasicas extends StatelessWidget {
   const InformacoesBasicas(

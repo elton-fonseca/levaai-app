@@ -13,7 +13,7 @@ class Validadores {
 
     // Dividir dígitos
     // ignore: unnecessary_lambdas
-    var digitos = numeros.split('').map((String d) => int.parse(d)).toList();
+    var digitos = numeros.split('').map((d) => int.parse(d)).toList();
 
     // Calcular o primeiro dígito verificador
     var calcDv1 = 0;
