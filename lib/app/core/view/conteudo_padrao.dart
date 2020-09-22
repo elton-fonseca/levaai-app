@@ -33,7 +33,7 @@ class ConteudoPadrao extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                   constraints:
-                      BoxConstraints(minHeight: displayHeight(context) * 0.73),
+                      BoxConstraints(minHeight: displayHeight(context) * 0.795),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
