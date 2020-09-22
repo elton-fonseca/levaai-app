@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
 
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
@@ -14,10 +15,10 @@ class FormularioModule extends ChildModule {
   @override
   List<Bind> get binds => [
         Bind((i) => FormularioController(), singleton: true),
-        Bind((i) => PopupController()),
-        Bind((i) => TipoMedidaController()),
-        Bind((i) => EnderecoController()),
-        Bind((i) => DetalhesController()),
+        Bind((i) => PopupController(Modular.get<PedidoListaStore>())),
+        Bind((i) => TipoMedidaController(Modular.get<PedidoListaStore>())),
+        Bind((i) => EnderecoController(Modular.get<PedidoListaStore>())),
+        Bind((i) => DetalhesController(Modular.get<PedidoListaStore>())),
         Bind<IFormularioRepository>((i) {
           return FormularioRepository(Modular.get<Dio>());
         }),

@@ -13,24 +13,25 @@ class TipoMedidaController = _TipoMedidaControllerBase
     with _$TipoMedidaController;
 
 abstract class _TipoMedidaControllerBase with Store {
+  _TipoMedidaControllerBase(this.pedidoLista);
+
+  PedidoListaStore pedidoLista;
+
   int indice = 0;
 
   //tipo de medida
   @action
   void definirMedidaRelativa() {
-    Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida =
-        MedidaRelativa();
+    pedidoLista.pedidos[indice].tipoDeMedida = MedidaRelativa();
   }
 
   @action
   void definirMedidaExata() {
-    Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida =
-        MedidaExata();
+    pedidoLista.pedidos[indice].tipoDeMedida = MedidaExata();
   }
 
   String descritivoTipoDeMedida() {
-    var tipoMedida =
-        Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+    var tipoMedida = pedidoLista.pedidos[indice].tipoDeMedida;
 
     if (tipoMedida is MedidaRelativa) {
       return "Tenho as Medidas Exatas";
@@ -40,9 +41,8 @@ abstract class _TipoMedidaControllerBase with Store {
   }
 
   Widget pegarTipoDeMedida() {
-    var tamanho = Modular.get<PedidoListaStore>().pedidos[indice].itens.length;
-    var tipoDeMedida =
-        Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+    var tamanho = pedidoLista.pedidos[indice].itens.length;
+    var tipoDeMedida = pedidoLista.pedidos[indice].tipoDeMedida;
 
     if (tamanho == 0 && tipoDeMedida is MedidaExata) {
       return Container(
@@ -55,86 +55,85 @@ abstract class _TipoMedidaControllerBase with Store {
 
   //contadores medida relativa
   int itemCaixaSapato() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato;
+    return pedidoLista.pedidos[indice].caixaSapato;
   }
 
   @action
   void addItemCaixaSapato() {
-    Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato++;
+    pedidoLista.pedidos[indice].caixaSapato++;
   }
 
   @action
   void rmItemCaixaSapato() {
-    var qtd = Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato;
+    var qtd = pedidoLista.pedidos[indice].caixaSapato;
 
     if (qtd > 0) {
-      Modular.get<PedidoListaStore>().pedidos[indice].caixaSapato--;
+      pedidoLista.pedidos[indice].caixaSapato--;
     }
   }
 
   int itemMicroondas() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].microondas;
+    return pedidoLista.pedidos[indice].microondas;
   }
 
   @action
   void addItemMicroondas() {
-    Modular.get<PedidoListaStore>().pedidos[indice].microondas++;
+    pedidoLista.pedidos[indice].microondas++;
   }
 
   @action
   void rmItemMicroondas() {
-    var qtd = Modular.get<PedidoListaStore>().pedidos[indice].microondas;
+    var qtd = pedidoLista.pedidos[indice].microondas;
 
     if (qtd > 0) {
-      Modular.get<PedidoListaStore>().pedidos[indice].microondas--;
+      pedidoLista.pedidos[indice].microondas--;
     }
   }
 
   int itemFogao() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].fogao;
+    return pedidoLista.pedidos[indice].fogao;
   }
 
   @action
   void addItemFogao() {
-    Modular.get<PedidoListaStore>().pedidos[indice].fogao++;
+    pedidoLista.pedidos[indice].fogao++;
   }
 
   @action
   void rmItemFogao() {
-    var qtd = Modular.get<PedidoListaStore>().pedidos[indice].fogao;
+    var qtd = pedidoLista.pedidos[indice].fogao;
 
     if (qtd > 0) {
-      Modular.get<PedidoListaStore>().pedidos[indice].fogao--;
+      pedidoLista.pedidos[indice].fogao--;
     }
   }
 
   int itemGeladeira() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].geladeira;
+    return pedidoLista.pedidos[indice].geladeira;
   }
 
   @action
   void addItemGeladeira() {
-    Modular.get<PedidoListaStore>().pedidos[indice].geladeira++;
+    pedidoLista.pedidos[indice].geladeira++;
   }
 
   @action
   void rmItemGeladeira() {
-    var qtd = Modular.get<PedidoListaStore>().pedidos[indice].geladeira;
+    var qtd = pedidoLista.pedidos[indice].geladeira;
 
     if (qtd > 0) {
-      Modular.get<PedidoListaStore>().pedidos[indice].geladeira--;
+      pedidoLista.pedidos[indice].geladeira--;
     }
   }
 
   //medida exata
   ObservableList pegarListaMedidaExata() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].itens;
+    return pedidoLista.pedidos[indice].itens;
   }
 
   String descritivoLabel() {
-    var tamanho = Modular.get<PedidoListaStore>().pedidos[indice].itens.length;
-    var tipoDeMedida =
-        Modular.get<PedidoListaStore>().pedidos[indice].tipoDeMedida;
+    var tamanho = pedidoLista.pedidos[indice].itens.length;
+    var tipoDeMedida = pedidoLista.pedidos[indice].tipoDeMedida;
 
     if (tamanho == 0 && tipoDeMedida is MedidaExata) {
       return 'Nenhum Item Encontrado';

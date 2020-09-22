@@ -19,28 +19,30 @@ part 'endereco_controller.g.dart';
 class EnderecoController = _EnderecoControllerBase with _$EnderecoController;
 
 abstract class _EnderecoControllerBase with Store {
+  _EnderecoControllerBase(this.pedidoLista);
+
+  PedidoListaStore pedidoLista;
+
   int indice = 0;
 
   bool cidadesAtendidas = false;
 
   @action
   void defineEnderecoOrigem(String novoEnderecoOrigem) {
-    Modular.get<PedidoListaStore>().pedidos[indice].enderecoOrigem =
-        novoEnderecoOrigem;
+    pedidoLista.pedidos[indice].enderecoOrigem = novoEnderecoOrigem;
   }
 
   String pegaEnderecoOrigem() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].enderecoOrigem;
+    return pedidoLista.pedidos[indice].enderecoOrigem;
   }
 
   @action
   void defineEnderecoDestino(String novoEnderecoDestino) {
-    Modular.get<PedidoListaStore>().pedidos[indice].enderecoDestino =
-        novoEnderecoDestino;
+    pedidoLista.pedidos[indice].enderecoDestino = novoEnderecoDestino;
   }
 
   String pegaEnderecoDestino() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].enderecoDestino;
+    return pedidoLista.pedidos[indice].enderecoDestino;
   }
 
   Future<Prediction> _mapaControlador(BuildContext context) async {
@@ -58,7 +60,7 @@ abstract class _EnderecoControllerBase with Store {
     @required TextEditingController textController,
     @required String nome,
   }) async {
-    var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
+    var pedido = pedidoLista.pedidos[indice];
     _limpaEndereco(pedido, nome, textController);
 
     var p = await _mapaControlador(context);
@@ -111,7 +113,7 @@ abstract class _EnderecoControllerBase with Store {
   }
 
   void _verificaCidadesPercurso(BuildContext context) {
-    var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
+    var pedido = pedidoLista.pedidos[indice];
 
     if (pedido.enderecoOrigem != null && pedido.enderecoDestino != null) {
       var json = jsonEncode(pedido.cidadesJson());

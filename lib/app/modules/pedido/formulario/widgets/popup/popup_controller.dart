@@ -14,6 +14,10 @@ part 'popup_controller.g.dart';
 class PopupController = _PopupControllerBase with _$PopupController;
 
 abstract class _PopupControllerBase with Store {
+  _PopupControllerBase(this.pedidoLista);
+
+  PedidoListaStore pedidoLista;
+
   int indice = 0;
 
   @observable
@@ -60,7 +64,7 @@ abstract class _PopupControllerBase with Store {
       item.cubagem = cubagem;
     }
 
-    Modular.get<PedidoListaStore>().pedidos[indice].addItemPedido(item);
+    pedidoLista.pedidos[indice].addItemPedido(item);
 
     Modular.get<TipoMedidaController>().definirMedidaExata();
 
@@ -88,7 +92,7 @@ abstract class _PopupControllerBase with Store {
     cubagem = 0;
     quantidade = 0;
 
-    var pedido = Modular.get<PedidoListaStore>().pedidos[indice];
+    var pedido = pedidoLista.pedidos[indice];
     pedido.caixaSapato = 0;
     pedido.microondas = 0;
     pedido.fogao = 0;
