@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../../core/models/itens_pedido.dart';
 import '../../../../../core/stores/pedido_lista_store.dart';
 import '../tipo_medida/tipo_medida_controller.dart';
+import 'validacao/valida_formulario.dart';
 import 'widgets/cubagem.dart';
 import 'widgets/dimensoes.dart';
 
@@ -53,8 +55,16 @@ abstract class _PopupControllerBase with Store {
     }
   }
 
-  void adicionarItemPedido() {
+  void adicionarItemPedido(BuildContext context) {
     var item = ItensPedido(quantidade: quantidade);
+
+    var validacao = ValidaFormulario(this).validar();
+
+    if (validacao.isNotEmpty) {
+      Helpers.alerta(
+          context: context, titulo: 'Validação', descricao: validacao);
+      return;
+    }
 
     if (tipoForm is Dimensoes) {
       item.altura = altura;

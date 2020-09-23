@@ -5,7 +5,7 @@ import 'tamanhos_relativos.dart';
 class Helpers {
   Helpers();
 
-  Helpers.snackLevaai(
+  static void snackLevaai(
       {@required String texto, @required BuildContext context}) {
     var scnackbar = SnackBar(
       content: Text(texto),
@@ -13,6 +13,28 @@ class Helpers {
       duration: Duration(seconds: 7),
     );
     Scaffold.of(context).showSnackBar(scnackbar);
+  }
+
+  static void alerta({BuildContext context, String titulo, String descricao}) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        // retorna um objeto do tipo Dialog
+        return AlertDialog(
+          title: Text(titulo),
+          content: Text(descricao),
+          actions: <Widget>[
+            // define os botões na base do dialogo
+            FlatButton(
+              child: Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Widget inputCadastros({

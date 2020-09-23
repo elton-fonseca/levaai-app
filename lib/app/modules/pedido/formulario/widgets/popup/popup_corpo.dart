@@ -188,7 +188,7 @@ class PopupCorpo extends StatelessWidget {
                   ],
                 ),
                 onPressed: () {
-                  Modular.get<PopupController>().adicionarItemPedido();
+                  Modular.get<PopupController>().adicionarItemPedido(context);
                 },
               ),
             ),
