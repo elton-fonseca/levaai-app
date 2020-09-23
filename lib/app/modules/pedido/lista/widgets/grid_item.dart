@@ -17,16 +17,16 @@ class GridItem {
         Padding(
           padding: EdgeInsets.only(left: displayWidth(context) * 0.00),
           child: Container(
-            height: displayHeight(context) * 0.24,
-            width: displayHeight(context) * 0.24,
+            height: displayHeight(context) * 0.22,
+            width: displayHeight(context) * 0.22,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(const Radius.circular(15.0)),
               boxShadow: [
                 BoxShadow(
                   color: CoresConst.azulPadrao.withOpacity(0.1),
-                  spreadRadius: 3,
-                  blurRadius: 20,
+                  spreadRadius: 5,
+                  blurRadius: 5,
                   offset: Offset(0, 1),
                 ),
               ],
@@ -119,8 +119,7 @@ class GridItem {
                               top: displayWidth(context) * 0.03,
                             ),
                             child: SizedBox(
-                              width: displayWidth(context) * 0.05,
-                              child: Icon(Icons.edit),
+                              child: Icon(Icons.edit, size: displayWidth(context)*0.05),
                             ),
                           ),
                         ),
@@ -140,7 +139,7 @@ class GridItem {
                               top: displayWidth(context) * 0.03,
                             ),
                             child: SizedBox(
-                              width: displayWidth(context) * 0.05,
+                              width: displayWidth(context) * 0.045,
                               child: Image.asset("assets/imagens/delete.png"),
                             ),
                           ),

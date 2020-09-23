@@ -91,7 +91,7 @@ class _RastreamentoPageState
                     ),
                   ],
                 ),
-                SizedBox(height: displayHeight(context) * 0.05),
+                SizedBox(height: displayHeight(context) * 0.062),
               ],
             ),
           ),
