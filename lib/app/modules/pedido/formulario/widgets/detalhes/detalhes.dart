@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
@@ -37,9 +38,6 @@ class Detalhes {
                     width: displayWidth(context) * 0.5,
                     child: TextFormField(
                       controller: valorTotalTextController,
-                      onChanged: (valor) => Modular.get<DetalhesController>()
-                          .defineValorTotal(valor),
-                          
                       style: TextStyle(
                         fontFamily: 'Roboto',
                         color: Colors.grey[600],
@@ -92,7 +90,9 @@ class Detalhes {
               Column(
                 children: <Widget>[
                   SizedBox(
-                    child: DropdownPeso(),
+                    child: Observer(builder: (_) {
+                      return DropdownPeso();
+                    }),
                   ),
                 ],
               ),
@@ -126,7 +126,9 @@ class Detalhes {
               Column(
                 children: <Widget>[
                   SizedBox(
-                    child: DropdownTipo(),
+                    child: Observer(builder: (_) {
+                      return DropdownTipo();
+                    }),
                   ),
                 ],
               ),

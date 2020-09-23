@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
@@ -12,7 +13,6 @@ import 'formulario_controller.dart';
 import 'formulario_input.dart';
 import 'widgets/detalhes/detalhes.dart';
 import 'widgets/endereco/endereco.dart';
-import 'widgets/popup/popup_show.dart';
 import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 class FormularioPage extends StatefulWidget {
@@ -82,7 +82,10 @@ class _FormularioPageState
                   builder: (context) {
                     return BotaoBranco(
                       onClick: () {
-                        PopupShow().showPopup(context, 'Medidas');
+                        var pedido =
+                            Modular.get<PedidoListaStore>().pedidos[widget.id];
+                        print(pedido);
+                        //PopupShow().showPopup(context, 'Medidas');
                       },
                       texto: Modular.get<TipoMedidaController>()
                           .descritivoTipoDeMedida(),

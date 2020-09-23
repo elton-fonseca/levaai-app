@@ -12,15 +12,45 @@ mixin _$Pedido on _PedidoBase, Store {
   final _$valorTotalAtom = Atom(name: '_PedidoBase.valorTotal');
 
   @override
-  String get valorTotal {
+  double get valorTotal {
     _$valorTotalAtom.reportRead();
     return super.valorTotal;
   }
 
   @override
-  set valorTotal(String value) {
+  set valorTotal(double value) {
     _$valorTotalAtom.reportWrite(value, super.valorTotal, () {
       super.valorTotal = value;
+    });
+  }
+
+  final _$pesoTotalAtom = Atom(name: '_PedidoBase.pesoTotal');
+
+  @override
+  String get pesoTotal {
+    _$pesoTotalAtom.reportRead();
+    return super.pesoTotal;
+  }
+
+  @override
+  set pesoTotal(String value) {
+    _$pesoTotalAtom.reportWrite(value, super.pesoTotal, () {
+      super.pesoTotal = value;
+    });
+  }
+
+  final _$tipoMercadoriaAtom = Atom(name: '_PedidoBase.tipoMercadoria');
+
+  @override
+  String get tipoMercadoria {
+    _$tipoMercadoriaAtom.reportRead();
+    return super.tipoMercadoria;
+  }
+
+  @override
+  set tipoMercadoria(String value) {
+    _$tipoMercadoriaAtom.reportWrite(value, super.tipoMercadoria, () {
+      super.tipoMercadoria = value;
     });
   }
 
@@ -142,6 +172,8 @@ mixin _$Pedido on _PedidoBase, Store {
   String toString() {
     return '''
 valorTotal: ${valorTotal},
+pesoTotal: ${pesoTotal},
+tipoMercadoria: ${tipoMercadoria},
 tipoDeMedida: ${tipoDeMedida},
 caixaSapato: ${caixaSapato},
 microondas: ${microondas},

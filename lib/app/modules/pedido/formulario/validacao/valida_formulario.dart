@@ -76,7 +76,7 @@ class ValidaFormulario {
   }
 
   String _valorTotal() {
-    if (pedido.valorTotal == null || pedido.valorTotal.isEmpty) {
+    if (pedido.valorTotal == null || pedido.valorTotal == 0) {
       return 'Informe o Valor dos Itens\n';
     }
 

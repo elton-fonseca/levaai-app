@@ -42,6 +42,8 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
           Modular.get<DetalhesController>().pegaValorTotal();
     }
 
+    controller.defineValorTotal(valorTotalTextController);
+
     super.initState();
   }
 }

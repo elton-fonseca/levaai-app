@@ -16,10 +16,14 @@ abstract class _PedidoBase with Store {
   String enderecoDestino;
 
   @observable
-  String valorTotal;
+  double valorTotal;
 
-  int pesoTotal;
+  @observable
+  String pesoTotal;
+
+  @observable
   String tipoMercadoria;
+
   int cotacaoId;
 
   String responsavelColeta;

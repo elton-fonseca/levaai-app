@@ -3,29 +3,26 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../../core/stores/pedido_lista_store.dart';
 
-part 'formulario_controller.g.dart';
+part 'detalhes_controller.g.dart';
 
 @Injectable()
 class DetalhesController = _DetalhesControllerBase with _$DetalhesController;
 
 abstract class _DetalhesControllerBase with Store {
-  _DetalhesControllerBase(this.pedidoLista);
-
-  PedidoListaStore pedidoLista;
-
   int indice = 0;
 
-  //detalhes
+  @observable
+  String novoPesoTotalLocal;
+
   @action
   void definePesoTotal(String novoPesoTotal) {
-    pedidoLista.pedidos[indice].pesoTotal = int.parse(novoPesoTotal);
+    novoPesoTotalLocal = novoPesoTotal;
+    Modular.get<PedidoListaStore>().pedidos[indice].pesoTotal = novoPesoTotal;
   }
 
   String pegaPesoTotal() {
-    var pesoTotal = pedidoLista.pedidos[indice].pesoTotal;
-
-    if (pesoTotal != null) {
-      return pesoTotal.toString();
+    if (novoPesoTotalLocal != null) {
+      return novoPesoTotalLocal;
     }
 
     return "selecione";
@@ -33,11 +30,13 @@ abstract class _DetalhesControllerBase with Store {
 
   @action
   void defineTipoMercadoria(String novotipoMercadoria) {
-    pedidoLista.pedidos[indice].tipoMercadoria = novotipoMercadoria;
+    Modular.get<PedidoListaStore>().pedidos[indice].tipoMercadoria =
+        novotipoMercadoria;
   }
 
   String pegaTipoMercadoria() {
-    var tipoMercadoria = pedidoLista.pedidos[indice].tipoMercadoria;
+    var tipoMercadoria =
+        Modular.get<PedidoListaStore>().pedidos[indice].tipoMercadoria;
 
     if (tipoMercadoria != null) {
       return tipoMercadoria;
@@ -46,12 +45,7 @@ abstract class _DetalhesControllerBase with Store {
     return "selecione";
   }
 
-  @action
-  void defineValorTotal(String novoValorTotal) {
-    pedidoLista.pedidos[indice].valorTotal = novoValorTotal;
-  }
-
   String pegaValorTotal() {
-    return pedidoLista.pedidos[indice].valorTotal;
+    return Modular.get<PedidoListaStore>().pedidos[indice].valorTotal;
   }
 }

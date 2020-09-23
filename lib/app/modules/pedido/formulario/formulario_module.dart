@@ -18,7 +18,7 @@ class FormularioModule extends ChildModule {
         Bind((i) => PopupController(Modular.get<PedidoListaStore>())),
         Bind((i) => TipoMedidaController(Modular.get<PedidoListaStore>())),
         Bind((i) => EnderecoController(Modular.get<PedidoListaStore>())),
-        Bind((i) => DetalhesController(Modular.get<PedidoListaStore>())),
+        Bind((i) => DetalhesController()),
         Bind<IFormularioRepository>((i) {
           return FormularioRepository(Modular.get<Dio>());
         }),

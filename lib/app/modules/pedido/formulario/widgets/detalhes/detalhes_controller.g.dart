@@ -9,6 +9,22 @@ part of 'detalhes_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$DetalhesController on _DetalhesControllerBase, Store {
+  final _$novoPesoTotalLocalAtom =
+      Atom(name: '_DetalhesControllerBase.novoPesoTotalLocal');
+
+  @override
+  String get novoPesoTotalLocal {
+    _$novoPesoTotalLocalAtom.reportRead();
+    return super.novoPesoTotalLocal;
+  }
+
+  @override
+  set novoPesoTotalLocal(String value) {
+    _$novoPesoTotalLocalAtom.reportWrite(value, super.novoPesoTotalLocal, () {
+      super.novoPesoTotalLocal = value;
+    });
+  }
+
   final _$_DetalhesControllerBaseActionController =
       ActionController(name: '_DetalhesControllerBase');
 
@@ -35,20 +51,9 @@ mixin _$DetalhesController on _DetalhesControllerBase, Store {
   }
 
   @override
-  void defineValorTotal(String novoValorTotal) {
-    final _$actionInfo = _$_DetalhesControllerBaseActionController.startAction(
-        name: '_DetalhesControllerBase.defineValorTotal');
-    try {
-      return super.defineValorTotal(novoValorTotal);
-    } finally {
-      _$_DetalhesControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
-
+novoPesoTotalLocal: ${novoPesoTotalLocal}
     ''';
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -29,4 +30,17 @@ abstract class _FormularioControllerBase with Store {
       Scaffold.of(context).showSnackBar(scnackbar);
     }
   }
+
+  @action
+  void defineValorTotal(MoneyMaskedTextController textController) {
+    textController.afterChange = (previous, next) {
+      var novoValorTotal = previous.replaceAll('.', '').replaceFirst(',', '.');
+
+      var pedidoLista = Modular.get<PedidoListaStore>().pedidos[indice];
+      pedidoLista.valorTotal = double.parse(novoValorTotal);
+
+      return true;
+    };
+  }
+  
 }
