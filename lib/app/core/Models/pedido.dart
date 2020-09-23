@@ -64,8 +64,10 @@ abstract class _PedidoBase with Store {
     final data = <String, dynamic>{};
     data['cep_origem'] = cepOrigem;
     data['cep_destino'] = cepDestino;
-    data['valor_total'] = 500.00;
-    data['peso_total'] = pesoTotal;
+    data['valor_total'] = valorTotal;
+    data['peso_total'] = double.parse(pesoTotal);
+
+    data['identificacao_device'] = 'aaa';
 
     _adicionaItensRelativos();
 

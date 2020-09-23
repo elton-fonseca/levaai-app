@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../core/services/local_storage.dart';
@@ -28,6 +29,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     LocalStorage.getValue<String>("token").then((token) {
       if (token.toString().isNotEmpty) {
         Modular.to.popAndPushNamed('/rastreamento/lista');
+        Modular.get<Dio>().options.headers["Authorization"] = 'Bearer $token';
       }
     });
 

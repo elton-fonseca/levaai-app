@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -28,6 +29,8 @@ abstract class _LoginControllerBase with Store {
     if (formKey.currentState.validate()) {
       Modular.get<UsuarioRepository>().login(email, senha).then((resposta) {
         LocalStorage.setValue<String>('token', resposta["token"]).then((_) {
+          Modular.get<Dio>().options.headers["Authorization"] =
+              'Bearer ${resposta["token"]}';
           Modular.to.popUntil(ModalRoute.withName('/'));
           Modular.to.popAndPushNamed('/rastreamento/lista');
         });

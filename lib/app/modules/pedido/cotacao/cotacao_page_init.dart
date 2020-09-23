@@ -53,7 +53,7 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   void cotar() {
     var pedido = Modular.get<PedidoListaStore>().pedidos[widget.id];
     
-    var json = jsonEncode(pedido.cotacaoJson()).toString();
+    var json = jsonEncode(pedido.cotacaoJson());
 
     valorCotacao = Modular.get<CotacaoRepository>().cotar(json);
   }

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../services/local_storage.dart';
@@ -38,6 +39,7 @@ class MenuLateral extends StatelessWidget {
               subtitle: Text("Deslogar do sistema"),
               onTap: () {
                 LocalStorage.removeValue('token').then((value) {
+                  Modular.get<Dio>().options.headers.remove('Authorization');
                   Modular.to.popUntil(ModalRoute.withName('/'));
                   Modular.to.pushNamed('/');
                 });

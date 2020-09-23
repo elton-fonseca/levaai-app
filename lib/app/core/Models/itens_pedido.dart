@@ -26,7 +26,7 @@ class ItensPedido {
     data['altura'] = altura;
     data['largura'] = largura;
     data['comprimento'] = comprimento;
-    //data['cubagem'] = cubagem;
+    data['tipo_medida'] = 'relativa';
     return data;
   }
 }
