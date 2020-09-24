@@ -26,6 +26,7 @@ abstract class _PedidoBase with Store {
   @observable
   String tipoMercadoria;
 
+  double valorCotacao = 0;
   int cotacaoId;
 
   String responsavelColeta;

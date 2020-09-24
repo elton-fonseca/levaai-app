@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
@@ -56,7 +57,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Text(
-                        snapshot.data.valor.toString(),
+                        Helpers.numeroBr(snapshot.data.valor),
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.white,

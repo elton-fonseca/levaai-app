@@ -22,6 +22,7 @@ abstract class _CotacaoControllerBase with Store {
     var validacao = ValidaFormulario(pedido).validar();
 
     if (validacao.isEmpty) {
+      pedidoLista.valorTotalPedidos += pedido.valorCotacao;
       //Modular.to
       //   .popUntil(ModalRoute.withName('/pedido/formulario/$indice/$acao'));
       Modular.to.popAndPushNamed('/pedido/lista');

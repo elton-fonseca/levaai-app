@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'tamanhos_relativos.dart';
 
@@ -73,5 +74,11 @@ class Helpers {
         ),
       ),
     );
+  }
+
+  static String numeroBr(double valor) {
+    var f = NumberFormat('###.00');
+
+    return f.format(valor);
   }
 }

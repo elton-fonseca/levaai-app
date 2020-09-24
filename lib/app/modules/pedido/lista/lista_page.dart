@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 
 import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
@@ -53,7 +54,8 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                 ),
               ),
               Text(
-                'R\$1200,00',
+                Helpers.numeroBr(
+                    Modular.get<PedidoListaStore>().valorTotalPedidos),
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.white,
