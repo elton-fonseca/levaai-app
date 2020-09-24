@@ -25,15 +25,10 @@ class _CadastroPageState
   final telefoneTextController = MaskedTextController(mask: '(00) 0000-00000');
 
   void initState() {
-    documentoTextController.afterChange = (previous, next) {
-      controller.usuario.documento = previous;
-      return true;
-    };
-
-    telefoneTextController.afterChange = (previous, next) {
-      controller.usuario.telefone = previous;
-      return true;
-    };
+    controller.defineCamposValores(
+      documentoTextController: documentoTextController,
+      telefoneTextController: telefoneTextController,
+    );
 
     super.initState();
   }

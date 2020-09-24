@@ -33,7 +33,10 @@ abstract class _CadastroControllerBase with Store {
           Modular.to.popAndPushNamed('/pagamento');
         });
       }).catchError((e) {
-        Helpers.snackLevaai(context: context, texto: "Erro ao criar Usuário");
+        Helpers.snackLevaai(
+          context: context,
+          texto: "Erro ao criar Usuário",
+        );
       });
     }
 
@@ -59,6 +62,21 @@ abstract class _CadastroControllerBase with Store {
 
   bool pj() {
     return usuario.tipoPessoa == 'PJ';
+  }
+
+  void defineCamposValores({
+    @required MaskedTextController documentoTextController,
+    @required MaskedTextController telefoneTextController,
+  }) {
+    documentoTextController.afterChange = (previous, next) {
+      usuario.documento = previous;
+      return true;
+    };
+
+    telefoneTextController.afterChange = (previous, next) {
+      usuario.telefone = previous;
+      return true;
+    };
   }
 
   @action

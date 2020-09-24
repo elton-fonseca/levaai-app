@@ -8,7 +8,8 @@ import 'repositories/pagamento_repository.dart';
 class PagamentoModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind<IPagamentoRepository>((i) => PagamentoRepository(Dio())),
+        Bind<IPagamentoRepository>(
+            (i) => PagamentoRepository(Modular.get<Dio>())),
         Bind((i) => PagamentoController()),
       ];
 

@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/usuario/repositories/usuario_repository.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/models/pagamento.dart';
@@ -18,6 +22,12 @@ abstract class _PagamentoControllerBase with Store {
     var valido = ValidaFormulario().validar();
 
     if (valido.isEmpty) {
+      var json = jsonEncode(pagamento.pagamentoParaJson());
+
+      Modular.get<UsuarioRepository>().cadastrar(json).then((resposta) {
+        Modular.to.popAndPushNamed('/rastreamento/lista');
+      });
+
       Modular.to.pushNamed('/rastreamento/lista');
       return;
     }
@@ -37,5 +47,26 @@ abstract class _PagamentoControllerBase with Store {
     }
 
     return "cartao";
+  }
+
+  void defineCamposValores({
+    @required MaskedTextController numeroCartaoTextController,
+    @required MaskedTextController validadeTextController,
+    @required MaskedTextController codigoSegurancaTextController,
+  }) {
+    numeroCartaoTextController.afterChange = (previous, next) {
+      pagamento.numeroCartao = previous;
+      return true;
+    };
+
+    validadeTextController.afterChange = (previous, next) {
+      pagamento.validade = previous;
+      return true;
+    };
+
+    codigoSegurancaTextController.afterChange = (previous, next) {
+      pagamento.codigoSeguranca = previous;
+      return true;
+    };
   }
 }

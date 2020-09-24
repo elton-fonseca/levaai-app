@@ -28,6 +28,15 @@ class _PagamentoPageState
   final validadeTextController = MaskedTextController(mask: '00/00');
   final codigoSegurancaTextController = MaskedTextController(mask: '0000');
 
+  void initState() {
+    controller.defineCamposValores(
+        numeroCartaoTextController: numeroCartaoTextController,
+        validadeTextController: validadeTextController,
+        codigoSegurancaTextController: codigoSegurancaTextController);
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

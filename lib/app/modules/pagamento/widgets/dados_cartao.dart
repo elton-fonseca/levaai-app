@@ -58,8 +58,7 @@ class DadosCartao extends StatelessWidget {
                 child: SizedBox(
                   child: Helpers().inputCadastros(
                       onChange: (valor) {
-                        Modular.get<PagamentoController>().pagamento.nome =
-                            valor;
+                        //no init da página
                       },
                       context: context,
                       placeholder: 'Nome (Mesmo Cartão)'),
@@ -80,9 +79,7 @@ class DadosCartao extends StatelessWidget {
                 child: SizedBox(
                   child: Helpers().inputCadastros(
                     onChange: (valor) {
-                      Modular.get<PagamentoController>()
-                          .pagamento
-                          .codigoSeguranca = valor;
+                      //no init da página
                     },
                     context: context,
                     placeholder: 'Cód. Segurança',
@@ -96,8 +93,7 @@ class DadosCartao extends StatelessWidget {
                 child: SizedBox(
                   child: Helpers().inputCadastros(
                     onChange: (valor) {
-                      Modular.get<PagamentoController>().pagamento.validade =
-                          valor;
+                      //no init da página
                     },
                     context: context,
                     placeholder: 'Validade',
