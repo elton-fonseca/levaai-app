@@ -11,6 +11,8 @@ class DropdownTipo extends StatefulWidget {
 }
 
 class _DropdownTipoState extends State<DropdownTipo> {
+  String selected = Modular.get<DetalhesController>().pegaTipoMercadoria();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,9 +69,11 @@ class _DropdownTipoState extends State<DropdownTipo> {
             ),
           ],
           onChanged: (value) {
+            setState(() => selected = value);
+            
             Modular.get<DetalhesController>().defineTipoMercadoria(value);
           },
-          value: Modular.get<DetalhesController>().pegaTipoMercadoria(),
+          value: selected,
         ),
       ),
     );

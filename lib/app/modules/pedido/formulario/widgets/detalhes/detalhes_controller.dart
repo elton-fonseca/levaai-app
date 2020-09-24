@@ -11,18 +11,16 @@ class DetalhesController = _DetalhesControllerBase with _$DetalhesController;
 abstract class _DetalhesControllerBase with Store {
   int indice = 0;
 
-  @observable
-  String novoPesoTotalLocal;
-
   @action
   void definePesoTotal(String novoPesoTotal) {
-    novoPesoTotalLocal = novoPesoTotal;
     Modular.get<PedidoListaStore>().pedidos[indice].pesoTotal = novoPesoTotal;
   }
 
   String pegaPesoTotal() {
-    if (novoPesoTotalLocal != null) {
-      return novoPesoTotalLocal;
+    var novoPeso = Modular.get<PedidoListaStore>().pedidos[indice].pesoTotal;
+
+    if (novoPeso != null) {
+      return novoPeso;
     }
 
     return "selecione";
@@ -46,6 +44,9 @@ abstract class _DetalhesControllerBase with Store {
   }
 
   String pegaValorTotal() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].valorTotal;
+    return Modular.get<PedidoListaStore>()
+        .pedidos[indice]
+        .valorTotal
+        .toString();
   }
 }

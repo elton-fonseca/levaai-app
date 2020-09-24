@@ -13,6 +13,7 @@ import 'formulario_controller.dart';
 import 'formulario_input.dart';
 import 'widgets/detalhes/detalhes.dart';
 import 'widgets/endereco/endereco.dart';
+import 'widgets/popup/popup_show.dart';
 import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 class FormularioPage extends StatefulWidget {
@@ -82,10 +83,7 @@ class _FormularioPageState
                   builder: (context) {
                     return BotaoBranco(
                       onClick: () {
-                        var pedido =
-                            Modular.get<PedidoListaStore>().pedidos[widget.id];
-                        print(pedido);
-                        //PopupShow().showPopup(context, 'Medidas');
+                        PopupShow().showPopup(context, 'Medidas');
                       },
                       texto: Modular.get<TipoMedidaController>()
                           .descritivoTipoDeMedida(),

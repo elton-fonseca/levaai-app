@@ -11,6 +11,8 @@ class DropdownPagamento extends StatefulWidget {
 }
 
 class _DropdownPagamentoState extends State<DropdownPagamento> {
+  String selected = Modular.get<PagamentoController>().pegaTipoPagamento();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,9 +54,11 @@ class _DropdownPagamentoState extends State<DropdownPagamento> {
               ),
             ],
             onChanged: (value) {
+              setState(() => selected = value);
+
               Modular.get<PagamentoController>().defineTipoPagamento(value);
             },
-            value: Modular.get<PagamentoController>().pegaTipoPagamento(),
+            value: selected,
           ),
         ),
       ),

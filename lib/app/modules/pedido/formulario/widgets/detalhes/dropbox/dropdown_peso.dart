@@ -12,6 +12,8 @@ class DropdownPeso extends StatefulWidget {
 }
 
 class _DropdownPesoState extends State<DropdownPeso> {
+  String selected = Modular.get<DetalhesController>().pegaPesoTotal();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -92,9 +94,11 @@ class _DropdownPesoState extends State<DropdownPeso> {
             ),
           ],
           onChanged: (value) {
+            setState(() => selected = value);
+
             Modular.get<DetalhesController>().definePesoTotal(value);
           },
-          value: Modular.get<DetalhesController>().pegaPesoTotal(),
+          value: selected,
         ),
       ),
     );

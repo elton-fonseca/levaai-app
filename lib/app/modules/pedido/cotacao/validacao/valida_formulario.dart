@@ -28,6 +28,10 @@ class ValidaFormulario {
       return 'Informe o Celular do Responsável pela Coleta\n';
     }
 
+    if (pedido.responsavelColetaCelular.length < 15) {
+      return 'Informe Corretamente o Celular do Responsável pela Coleta\n';
+    }
+
     return '';
   }
 
@@ -44,6 +48,10 @@ class ValidaFormulario {
     if (pedido.responsavelEntregaCelular == null ||
         pedido.responsavelEntregaCelular.isEmpty) {
       return 'Informe o Celular do Responsável pela Entrega\n';
+    }
+
+        if (pedido.responsavelEntregaCelular.length < 15) {
+      return 'Informe Corretamente o Celular do Responsável pela Coleta\n';
     }
 
     return '';

@@ -170,7 +170,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             //     .then((value) {
                             //   print(value);
                             // });
-                            //Modular.to.pushNamed('/usuario/cadastro');
+                            Modular.to.pushNamed('/pagamento');
                           },
                         ),
                       ),
