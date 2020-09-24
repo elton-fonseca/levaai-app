@@ -1,8 +1,6 @@
 import 'package:dio/native_imp.dart';
-import 'package:levaai1/app/core/services/local_storage.dart';
 
 import '../../../../core/models/cotacao.dart';
-import '../../../../core/services/login.dart';
 import 'interfaces/cotacao_repository_interface.dart';
 
 class CotacaoRepository implements ICotacaoRepository {

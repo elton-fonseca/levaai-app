@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
-import 'detalhes_controller.dart';
 import 'dropbox/dropdown_peso.dart';
 import 'dropbox/dropdown_tipo.dart';
 

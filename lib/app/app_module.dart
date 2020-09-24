@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
+import 'core/stores/identificacao_store.dart';
 import 'core/stores/pedido_lista_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/pagamento/pagamento_module.dart';
@@ -20,6 +21,7 @@ class AppModule extends MainModule {
   List<Bind> get binds => [
         Bind((i) => AppController()),
         Bind((i) => PedidoListaStore()),
+        Bind((i) => IdentificacaoStore()),
         Bind<Dio>((i) {
           var dioClient = Dio();
 

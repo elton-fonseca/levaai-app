@@ -1,5 +1,3 @@
-import 'package:flutter_modular/flutter_modular.dart';
-
 import '../popup_controller.dart';
 import '../widgets/dimensoes.dart';
 

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'detalhes_item_list.dart';
-import 'detalhes_page_list.dart';
+
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'detalhes_controller.dart';
+import 'detalhes_item_list.dart';
+import 'detalhes_page_list.dart';
 
 class DetalhesPage extends StatefulWidget {
   final String title;

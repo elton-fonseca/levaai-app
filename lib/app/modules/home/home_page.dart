@@ -1,13 +1,9 @@
 import 'dart:ui';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../core/services/local_storage.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'home_controller.dart';
-
-//import 'package:flutter_mobx/flutter_mobx.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -26,12 +22,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   void initState() {
-    LocalStorage.getValue<String>("token").then((token) {
-      if (token.toString().isNotEmpty) {
-        Modular.to.popAndPushNamed('/rastreamento/lista');
-        Modular.get<Dio>().options.headers["Authorization"] = 'Bearer $token';
-      }
-    });
+    controller.boot();
 
     super.initState();
   }
@@ -166,11 +157,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             size: 30,
                           ),
                           onPressed: () {
-                            // InformacoesDispositivo.getDeviceDetails()
-                            //     .then((value) {
-                            //   print(value);
-                            // });
-                            Modular.to.pushNamed('/pagamento');
+                            //Modular.to.pushNamed('/pagamento');
                           },
                         ),
                       ),

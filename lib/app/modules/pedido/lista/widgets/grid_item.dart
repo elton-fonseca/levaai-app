@@ -119,7 +119,10 @@ class GridItem {
                               top: displayWidth(context) * 0.03,
                             ),
                             child: SizedBox(
-                              child: Icon(Icons.edit, size: displayWidth(context)*0.05),
+                              child: Icon(
+                                Icons.edit,
+                                size: displayWidth(context) * 0.05,
+                              ),
                             ),
                           ),
                         ),

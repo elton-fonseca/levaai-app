@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../modules/pedido/formulario/widgets/tipo_medida/medida_relativa.dart';
+import '../stores/identificacao_store.dart';
 import 'itens_pedido.dart';
 
 part 'pedido.g.dart';
@@ -67,7 +69,8 @@ abstract class _PedidoBase with Store {
     data['valor_total'] = valorTotal;
     data['peso_total'] = double.parse(pesoTotal);
 
-    data['identificacao_device'] = 'aaa';
+    data['identificacao_device'] =
+        Modular.get<IdentificacaoStore>().idDispositivo;
 
     _adicionaItensRelativos();
 
