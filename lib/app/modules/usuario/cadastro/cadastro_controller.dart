@@ -1,6 +1,11 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/local_storage.dart';
+import 'package:levaai1/app/modules/usuario/repositories/usuario_repository.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../core/models/usuario.dart';
@@ -19,8 +24,17 @@ abstract class _CadastroControllerBase with Store {
     var valido = ValidaFormulario().validar();
 
     if (valido.isEmpty) {
-      Modular.to.pushNamed('/pagamento');
-      return;
+      var json = jsonEncode(usuario.usuarioParaJson());
+
+      Modular.get<UsuarioRepository>().cadastrar(json).then((resposta) {
+        LocalStorage.setValue<String>('token', resposta["token"]).then((_) {
+          Modular.get<Dio>().options.headers["Authorization"] =
+              'Bearer ${resposta["token"]}';
+          Modular.to.popAndPushNamed('/pagamento');
+        });
+      }).catchError((e) {
+        Helpers.snackLevaai(context: context, texto: "Erro ao criar Usuário");
+      });
     }
 
     Helpers.snackLevaai(texto: valido, context: context);

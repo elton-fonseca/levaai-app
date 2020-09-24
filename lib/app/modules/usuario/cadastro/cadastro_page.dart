@@ -24,6 +24,20 @@ class _CadastroPageState
   final documentoTextController = MaskedTextController(mask: '000.000.000-00');
   final telefoneTextController = MaskedTextController(mask: '(00) 0000-00000');
 
+  void initState() {
+    documentoTextController.afterChange = (previous, next) {
+      controller.usuario.documento = previous;
+      return true;
+    };
+
+    telefoneTextController.afterChange = (previous, next) {
+      controller.usuario.telefone = previous;
+      return true;
+    };
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

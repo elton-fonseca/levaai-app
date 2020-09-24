@@ -121,8 +121,7 @@ class InformacoesBasicas extends StatelessWidget {
                     child: Helpers().inputCadastros(
                       mascara: telefoneTextController,
                       onChange: (valor) {
-                        Modular.get<CadastroController>().usuario.telefone =
-                            valor;
+                        //no init da pagina
                       },
                       context: context,
                       placeholder: 'Telefone',
@@ -148,8 +147,7 @@ class InformacoesBasicas extends StatelessWidget {
                         mascara: documentoTextController,
                         teclado: TextInputType.number,
                         onChange: (valor) {
-                          Modular.get<CadastroController>().usuario.documento =
-                              valor;
+                          //no init da pagina
                         },
                         context: context,
                         placeholder: Modular.get<CadastroController>().pj()

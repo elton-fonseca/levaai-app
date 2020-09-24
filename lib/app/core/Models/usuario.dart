@@ -1,3 +1,6 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/validadores.dart';
+import 'package:levaai1/app/core/stores/identificacao_store.dart';
 import 'package:mobx/mobx.dart';
 
 part 'usuario.g.dart';
@@ -17,4 +20,19 @@ abstract class _UsuarioBase with Store {
   String email;
   String senha;
   String confirmacaoSenha;
+
+  Map<String, dynamic> usuarioParaJson() {
+    final data = <String, dynamic>{};
+    data['tipo'] = tipoPessoa;
+    data['nome'] = nomeFantasia;
+    data['sobrenome'] = sobrenomeRazao;
+    data['telefone'] = Validadores.limpaMascara(telefone);
+    data['documento'] = Validadores.limpaMascara(documento);
+    data['email'] = email;
+    data['senha'] = senha;
+
+    data['dispositivo'] = Modular.get<IdentificacaoStore>().idDispositivo;
+
+    return data;
+  }
 }

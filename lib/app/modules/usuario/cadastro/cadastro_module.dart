@@ -9,7 +9,7 @@ import 'cadastro_page.dart';
 class CadastroModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind<IUsuarioRepository>((i) => UsuarioRepository(Dio())),
+        Bind<IUsuarioRepository>((i) => UsuarioRepository(Modular.get<Dio>())),
         Bind((i) => CadastroController()),
       ];
 
