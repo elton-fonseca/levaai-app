@@ -24,6 +24,22 @@ mixin _$PedidoListaStore on _PedidoListaStoreBase, Store {
     });
   }
 
+  final _$valorTotalPedidosAtom =
+      Atom(name: '_PedidoListaStoreBase.valorTotalPedidos');
+
+  @override
+  double get valorTotalPedidos {
+    _$valorTotalPedidosAtom.reportRead();
+    return super.valorTotalPedidos;
+  }
+
+  @override
+  set valorTotalPedidos(double value) {
+    _$valorTotalPedidosAtom.reportWrite(value, super.valorTotalPedidos, () {
+      super.valorTotalPedidos = value;
+    });
+  }
+
   final _$_PedidoListaStoreBaseActionController =
       ActionController(name: '_PedidoListaStoreBase');
 
@@ -41,7 +57,8 @@ mixin _$PedidoListaStore on _PedidoListaStoreBase, Store {
   @override
   String toString() {
     return '''
-pedidos: ${pedidos}
+pedidos: ${pedidos},
+valorTotalPedidos: ${valorTotalPedidos}
     ''';
   }
 }

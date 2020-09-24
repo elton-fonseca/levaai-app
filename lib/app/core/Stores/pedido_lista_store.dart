@@ -10,6 +10,7 @@ abstract class _PedidoListaStoreBase with Store {
   @observable
   ObservableList pedidos = [].asObservable();
 
+  @observable
   double valorTotalPedidos = 0;
 
   @action

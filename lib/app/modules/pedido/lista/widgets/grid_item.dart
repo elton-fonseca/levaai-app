@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
+import 'package:levaai1/app/modules/pedido/lista/lista_controller.dart';
 
 import '../../../../core/models/pedido.dart';
 import '../../../../core/stores/pedido_lista_store.dart';
@@ -40,7 +42,7 @@ class GridItem {
                       bottom: displayWidth(context) * 0.01,
                       top: displayWidth(context) * 0.04),
                   child: Text(
-                    'Pedido #1',
+                    'Pedido',
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.grey[500],
@@ -72,7 +74,7 @@ class GridItem {
                           },
                         ),
                         Text(
-                          'R\$200,00',
+                          'R\$ ${Helpers.numeroBr(pedido.valorCotacao)}',
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             color: CoresConst.azulPadrao,
@@ -92,7 +94,7 @@ class GridItem {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        pedido.enderecoOrigem,
+                        pedido.enderecoDestino,
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.grey[500],
@@ -132,9 +134,8 @@ class GridItem {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            Modular.get<PedidoListaStore>()
-                                .pedidos
-                                .removeAt(indice);
+                            Modular.get<ListaController>()
+                                .removePedidoLista(indice);
                           },
                           child: Padding(
                             padding: EdgeInsets.only(

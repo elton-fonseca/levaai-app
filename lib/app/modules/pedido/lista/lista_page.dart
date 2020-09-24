@@ -53,16 +53,20 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                   fontSize: displayWidth(context) * 0.04,
                 ),
               ),
-              Text(
-                Helpers.numeroBr(
-                    Modular.get<PedidoListaStore>().valorTotalPedidos),
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.white,
-                  fontSize: displayWidth(context) * 0.09,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Observer(
+                builder: (context) {
+                  return Text(
+                    // ignore: lines_longer_than_80_chars
+                    'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                      fontSize: displayWidth(context) * 0.09,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                },
+              )
             ],
           ),
           conteudo: Column(
@@ -70,21 +74,11 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               SizedBox(height: displayHeight(context) * 0.03),
               Container(
                 height: displayHeight(context) * 0.6,
-                child: Observer(builder: (_) {
-                  return GridView.count(
-                    crossAxisCount: 2,
-                    shrinkWrap: true,
-                    children: List.generate(
-                        Modular.get<PedidoListaStore>().pedidos.length,
-                        (indice) {
-                      return GridItem().obter(
-                        context: context,
-                        pedido: Modular.get<PedidoListaStore>().pedidos[indice],
-                        indice: indice,
-                      );
-                    }),
-                  );
-                }),
+                child: Observer(
+                  builder: (context) {
+                    return controller.pedidosGrid(context);
+                  },
+                ),
               ),
               SizedBox(height: displayHeight(context) * 0.05),
               Row(

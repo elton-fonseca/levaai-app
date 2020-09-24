@@ -57,7 +57,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Text(
-                        Helpers.numeroBr(snapshot.data.valor),
+                        'R\$ ${Helpers.numeroBr(snapshot.data.valor)}',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.white,

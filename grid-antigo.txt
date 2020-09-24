@@ -1,8 +1,7 @@
 pedido formulário
 Colocar botão excluir na lista de medida exata
 
-Elton
-verificar atualização dos dropdown de pesp e tipo
+
 
 
                 //check pagina cotação vou deixar sem por enquanto
