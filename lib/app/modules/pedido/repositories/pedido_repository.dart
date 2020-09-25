@@ -6,10 +6,17 @@ class PedidoRepository implements IPedidoRepository {
 
   PedidoRepository(this.client);
 
-  Future fetchPost() async {
-    final response =
-        await client.get('https://jsonplaceholder.typicode.com/posts/1');
-    return response.data;
+  Future cadastrar(String dados) async {
+    final response = await client.post(
+      '/pedido',
+      data: dados,
+    );
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro ao pagar");
   }
 
   //dispose will be called automatically

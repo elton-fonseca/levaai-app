@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 abstract class IPedidoRepository implements Disposable {
-  Future fetchPost();
+  Future cadastrar(String dados);
 }

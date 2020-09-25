@@ -1,3 +1,6 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
+
 import '../services/validadores.dart';
 import 'package:mobx/mobx.dart';
 
@@ -23,8 +26,8 @@ abstract class _PagamentoBase with Store {
     data['numero_cartao'] = Validadores.limpaMascara(numeroCartao);
     data['nome_cartao'] = nome;
     data['validade_cartao'] = validade;
-    data['codigo_seguranca_cartao'] = numeroCartao;
-    data['pedidos'] = [1, 2, 3];
+    data['codigo_seguranca_cartao'] = codigoSeguranca;
+    data['pedidos'] = Modular.get<PedidoListaStore>().pedidosIds();
 
     return data;
   }

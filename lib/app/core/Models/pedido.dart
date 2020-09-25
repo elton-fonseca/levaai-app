@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/validadores.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../modules/pedido/formulario/widgets/tipo_medida/medida_relativa.dart';
@@ -11,11 +12,18 @@ part 'pedido.g.dart';
 class Pedido = _PedidoBase with _$Pedido;
 
 abstract class _PedidoBase with Store {
+  int idLocal;
+  int idPedido;
+
   String cepOrigem;
   String enderecoOrigem;
+  String cidadeOrigem;
+  String estadoOrigem;
 
   String cepDestino;
   String enderecoDestino;
+  String cidadeDestino;
+  String estadoDestino;
 
   @observable
   double valorTotal;
@@ -63,6 +71,42 @@ abstract class _PedidoBase with Store {
     itens.removeAt(indice);
   }
 
+  Map<String, dynamic> pedidoCompletoJson() {
+    final data = <String, dynamic>{};
+
+    data['id_temporario'] = idLocal;
+    data['cep_origem'] = cepOrigem;
+    data['logradouro_origem'] = enderecoOrigem;
+    //data['cidade_origem'] = cidadeOrigem;
+    //data['estado_origem'] = estadoOrigem;
+
+    data['cep_destino'] = cepDestino;
+    data['logradouro_destino'] = enderecoDestino;
+    //data['cidade_destino'] = cidadeDestino;
+    //data['estado_destino'] = estadoDestino;
+
+    data['responsavel_coleta'] = responsavelColeta;
+    data['responsavel_coleta_celular'] =
+        Validadores.limpaMascara(responsavelColetaCelular);
+    data['responsavel_entrega'] = responsavelEntrega;
+    data['responsavel_entrega_celular'] =
+        Validadores.limpaMascara(responsavelEntregaCelular);
+
+    data['valor_total'] = valorTotal;
+    data['peso_total'] = double.parse(pesoTotal);
+    data['tipo_itens'] = tipoMercadoria;
+
+    data['cotacao_id'] = cotacaoId;
+
+    _adicionaItensRelativos();
+
+    var tipoMedida = tipoDeMedida is MedidaRelativa ? 'relativa' : 'exata';
+
+    data['itens'] = itens.map((v) => v.toJson(tipoMedida)).toList();
+
+    return data;
+  }
+
   Map<String, dynamic> cotacaoJson() {
     final data = <String, dynamic>{};
     data['cep_origem'] = cepOrigem;
@@ -75,7 +119,9 @@ abstract class _PedidoBase with Store {
 
     _adicionaItensRelativos();
 
-    data['itens'] = itens.map((v) => v.toJson()).toList();
+    var tipoMedida = tipoDeMedida is MedidaRelativa ? 'relativa' : 'exata';
+
+    data['itens'] = itens.map((v) => v.toJson(tipoMedida)).toList();
 
     return data;
   }

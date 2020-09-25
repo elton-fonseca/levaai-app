@@ -20,13 +20,13 @@ class ItensPedido {
     cubagem = json['cubagem'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson(String tipoDeMedida) {
     final data = <String, dynamic>{};
     data['quantidade'] = quantidade;
     data['altura'] = altura;
     data['largura'] = largura;
     data['comprimento'] = comprimento;
-    data['tipo_medida'] = 'relativa';
+    data['tipo_medida'] = tipoDeMedida;
     return data;
   }
 }

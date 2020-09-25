@@ -16,7 +16,7 @@ class PagamentoRepository implements IPagamentoRepository {
       return response.data;
     }
 
-    throw ("Erro ao criar usuário");
+    throw ("Erro ao pagar");
   }
 
   //dispose will be called automatically

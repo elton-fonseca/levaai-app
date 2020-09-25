@@ -31,6 +31,7 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
 
     if (widget.acao == 'criar') {
       Modular.get<PedidoListaStore>().addPedido();
+      Modular.get<PedidoListaStore>().pedidos[widget.id].idLocal = widget.id;
     } else {
       enderecoOrigemTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoOrigem();

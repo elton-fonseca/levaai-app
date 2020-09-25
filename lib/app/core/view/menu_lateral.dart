@@ -44,6 +44,13 @@ class MenuLateral extends StatelessWidget {
                   Modular.to.pushNamed('/');
                 });
               }),
+          ListTile(
+              leading: Icon(Icons.assignment_return),
+              title: Text("temp"),
+              subtitle: Text("temporário"),
+              onTap: () {
+                Modular.to.pushNamed('/pagamento');
+              }),
         ],
       ),
     );

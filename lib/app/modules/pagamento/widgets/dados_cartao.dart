@@ -58,7 +58,8 @@ class DadosCartao extends StatelessWidget {
                 child: SizedBox(
                   child: Helpers().inputCadastros(
                       onChange: (valor) {
-                        //no init da página
+                        Modular.get<PagamentoController>().pagamento.nome =
+                            valor;
                       },
                       context: context,
                       placeholder: 'Nome (Mesmo Cartão)'),

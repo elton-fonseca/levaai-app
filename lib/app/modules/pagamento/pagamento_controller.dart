@@ -3,11 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
+import 'package:levaai1/app/modules/pedido/repositories/pedido_repository.dart';
 import 'package:levaai1/app/modules/usuario/repositories/usuario_repository.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/models/pagamento.dart';
 import '../../core/view/helpers.dart';
+import 'repositories/pagamento_repository.dart';
 import 'validacao/valida_formulario.dart';
 
 part 'pagamento_controller.g.dart';
@@ -22,13 +25,25 @@ abstract class _PagamentoControllerBase with Store {
     var valido = ValidaFormulario().validar();
 
     if (valido.isEmpty) {
-      var json = jsonEncode(pagamento.pagamentoParaJson());
+      var pedidoLista = Modular.get<PedidoListaStore>();
+      var pedidosJson = jsonEncode(pedidoLista.pedidosCompletosJson());
 
-      Modular.get<UsuarioRepository>().cadastrar(json).then((resposta) {
-        Modular.to.popAndPushNamed('/rastreamento/lista');
+      Modular.get<PedidoRepository>().cadastrar(pedidosJson).then((pedidosIds) {
+        pedidoLista.populaIdsPedidos(pedidosIds);
+
+        var json = jsonEncode(pagamento.pagamentoParaJson());
+
+        Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
+          print(resposta);
+          //Modular.to.popAndPushNamed('/rastreamento/lista');
+        }).catchError((e) {
+          Helpers.snackLevaai(texto: "Erro no pagamento", context: context);
+        });
+      }).catchError((e) {
+        Helpers.snackLevaai(texto: "Erro ao criar pedidos", context: context);
       });
 
-      Modular.to.pushNamed('/rastreamento/lista');
+      //Modular.to.pushNamed('/rastreamento/lista');
       return;
     }
 
