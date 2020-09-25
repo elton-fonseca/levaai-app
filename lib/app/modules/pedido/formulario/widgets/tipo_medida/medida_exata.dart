@@ -71,16 +71,41 @@ class MedidaExata extends StatelessWidget {
                               left: displayWidth(context) * 0.05,
                               right: displayWidth(context) * 0.05),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Text(
-                                Modular.get<PopupController>()
-                                    .volumeFormatado(lista[index]),
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Colors.grey[500],
-                                  fontSize: displayWidth(context) * 0.04,
-                                ),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    Modular.get<PopupController>()
+                                        .volumeFormatado(lista[index]),
+                                    style: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      color: Colors.grey[500],
+                                      fontSize: displayWidth(context) * 0.04,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      //Modular.get<PopupController>()
+                                          //.removerItemPedido(indice);
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        right: displayWidth(context) * 0.03,
+                                        top: displayWidth(context) * 0.03,
+                                      ),
+                                      child: SizedBox(
+                                        width: displayWidth(context) * 0.045,
+                                        child: Image.asset(
+                                            "assets/imagens/delete.png"),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

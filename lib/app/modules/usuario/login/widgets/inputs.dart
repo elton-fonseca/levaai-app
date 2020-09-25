@@ -19,6 +19,9 @@ class Input {
       ),
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
+        errorStyle: TextStyle(
+          fontSize: 10.0,
+        ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Color(0xFFC4C4C4), width: 1.0),
         ),
@@ -26,7 +29,7 @@ class Input {
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.white, width: 1.5),
         ),
-        contentPadding: EdgeInsets.only(left: 20),
+        contentPadding: EdgeInsets.only(left: 20, ),
         hintText: placeholder,
         hintStyle: TextStyle(
           fontFamily: 'Roboto',
