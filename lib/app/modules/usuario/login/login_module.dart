@@ -17,7 +17,8 @@ class LoginModule extends ChildModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter('/login/formulario', child: (_, args) => LoginPage()),
+        ModularRouter('/login/formulario/:destino',
+            child: (_, args) => LoginPage(destino: args.params['destino'])),
       ];
 
   static Inject get to => Inject<LoginModule>.of();

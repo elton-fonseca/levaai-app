@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/view/botao_branco.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
@@ -49,16 +50,50 @@ class _CadastroPageState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: displayWidth(context) * 0.22),
+                  padding: EdgeInsets.only(left: displayWidth(context) * 0.02),
+                  child: Row(
+                    children: <Widget>[
+                      BotaoBranco(
+                        largura: 0.7,
+                        onClick: () {
+                          Modular.to.pushNamed('/login/formulario/pagamento');
+                        },
+                        texto: 'Já sou cadastrado',
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: displayWidth(context) * 0.1,
+                      top: displayWidth(context) * 0.1),
                   child: Row(
                     children: <Widget>[
                       Text(
-                        'Crie sua conta',
+                        'Não possui uma conta?',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.white,
                           fontSize: displayWidth(context) * 0.06,
                           fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: displayWidth(context) * 0.1,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        'Entre com seus dados!',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                          fontSize: displayWidth(context) * 0.03,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],

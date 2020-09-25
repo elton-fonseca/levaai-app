@@ -132,7 +132,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           size: 30,
                         ),
                         onPressed: () {
-                          Modular.to.pushNamed('/login/formulario');
+                          Modular.to
+                              .pushNamed('/login/formulario/lista-pedidos');
                         },
                       ),
                     ],
@@ -157,7 +158,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             size: 30,
                           ),
                           onPressed: () {
-                            Modular.to.pushNamed('/pagamento');
+                            Modular.to.pushNamed('/usuario/cadastro');
                           },
                         ),
                       ),

@@ -66,10 +66,10 @@ class ValidaFormulario {
       if (!Validadores.cnpj(documentoLimpo)) {
         return 'Informe corretamente o CNPJ\n';
       }
-    }
-
-    if (!Validadores.cpf(documentoLimpo)) {
-      return 'Informe corretamente o CPF\n';
+    } else {
+      if (!Validadores.cpf(documentoLimpo)) {
+        return 'Informe corretamente o CPF\n';
+      }
     }
 
     return '';

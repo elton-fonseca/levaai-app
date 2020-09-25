@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 
 import '../../core/tema/cores_const.dart';
 import '../../core/view/botao_azul.dart';
@@ -61,7 +63,8 @@ class _PagamentoPageState
                   ),
                 ),
                 Text(
-                  'R\$1200,00',
+                  // ignore: lines_longer_than_80_chars
+                  'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     color: Colors.white,

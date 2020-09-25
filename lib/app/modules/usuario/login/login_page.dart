@@ -11,7 +11,11 @@ import 'widgets/rodape.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
-  const LoginPage({Key key, this.title = "Login"}) : super(key: key);
+
+  final String destino;
+
+  const LoginPage({@required this.destino, Key key, this.title = "Login"})
+      : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -67,13 +71,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                   child: SizedBox(
                                       //height: displayHeight(context) * 0.07,
                                       child: Observer(
-                                        builder: (context) => Input().texto(
-                                          context: context,
-                                          placeholder: 'Senha',
-                                          validador: validarSenha,
-                                          onChange: controller.defineSenha,
-                                        ),
-                                      )),
+                                    builder: (context) => Input().texto(
+                                      context: context,
+                                      placeholder: 'Senha',
+                                      validador: validarSenha,
+                                      onChange: controller.defineSenha,
+                                    ),
+                                  )),
                                 ),
                               ],
                             ),
@@ -82,7 +86,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 context: context,
                                 label: 'Entrar',
                                 onClick: () {
-                                  controller.login(formKey, contextScaffold);
+                                  controller.login(
+                                      formKey, contextScaffold, widget.destino);
                                 }),
                           ]),
                         ),

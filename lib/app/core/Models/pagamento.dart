@@ -20,14 +20,16 @@ abstract class _PagamentoBase with Store {
 
   Map<String, dynamic> pagamentoParaJson() {
     final data = <String, dynamic>{};
-    data['valor'] = 2500.24;
+    data['valor'] = Modular.get<PedidoListaStore>().valorTotalPedidos;
     data['forma_pagamento'] = tipoPagamento;
-
-    data['numero_cartao'] = Validadores.limpaMascara(numeroCartao);
-    data['nome_cartao'] = nome;
-    data['validade_cartao'] = validade;
-    data['codigo_seguranca_cartao'] = codigoSeguranca;
     data['pedidos'] = Modular.get<PedidoListaStore>().pedidosIds();
+
+    if (tipoPagamento == 'cartao') {
+      data['numero_cartao'] = Validadores.limpaMascara(numeroCartao);
+      data['nome_cartao'] = nome;
+      data['validade_cartao'] = validade;
+      data['codigo_seguranca_cartao'] = codigoSeguranca;
+    }
 
     return data;
   }
