@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/rastreamento/repositories/rastreamento_repository.dart';
 
-import '../../core/tema/cores_const.dart';
-import '../../core/view/botao_azul.dart';
-import '../../core/view/conteudo_padrao.dart';
-import '../../core/view/menu_lateral.dart';
-import '../../core/view/navbar_padrao.dart';
-import '../../core/view/tamanhos_relativos.dart';
-import 'lista_pedidos.dart';
-import 'rastreamento_controller.dart';
+import '../../../core/tema/cores_const.dart';
+import '../../../core/view/botao_azul.dart';
+import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/menu_lateral.dart';
+import '../../../core/view/navbar_padrao.dart';
+import '../../../core/view/tamanhos_relativos.dart';
+import 'lista_controller.dart';
+import 'widget/lista.dart';
 
-class RastreamentoPage extends StatefulWidget {
+class ListaPage extends StatefulWidget {
   final String title;
-  const RastreamentoPage({Key key, this.title = "Rastreamento"})
-      : super(key: key);
+  const ListaPage({Key key, this.title = "Lista"}) : super(key: key);
 
   @override
-  _RastreamentoPageState createState() => _RastreamentoPageState();
+  _ListaPageState createState() => _ListaPageState();
 }
 
-class _RastreamentoPageState
-    extends ModularState<RastreamentoPage, RastreamentoController> {
-  //use 'controller' variable to access controller
-
+class _ListaPageState extends ModularState<ListaPage, ListaController> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,7 +68,22 @@ class _RastreamentoPageState
                   ),
                   child: Column(
                     children: <Widget>[
-                      ListaPedidos(),
+                      FutureBuilder(
+                        future: Modular.get<RastreamentoRepository>()
+                            .pegarPedidosUsuario(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Lista(pedidos: snapshot.data);
+                          } else if (snapshot.hasError) {
+                            return Text("erro ao obter dados");
+                          }
+
+                          // By default, show a loading spinner.
+                          return CircularProgressIndicator(
+                            backgroundColor: Colors.white,
+                          );
+                        },
+                      )
                     ],
                   ),
                 ),

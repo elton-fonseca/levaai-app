@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 import 'tamanhos_relativos.dart';
@@ -80,5 +81,17 @@ class Helpers {
     var f = NumberFormat('###.00');
 
     return f.format(valor);
+  }
+
+  static String dataBr(DateTime valor) {
+    initializeDateFormatting();
+
+    return DateFormat('dd/MM/yyyy').format(valor);
+  }
+
+  static String hora(DateTime valor) {
+    initializeDateFormatting();
+
+    return DateFormat('HH:mm').format(valor);
   }
 }

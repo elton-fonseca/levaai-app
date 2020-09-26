@@ -34,8 +34,7 @@ abstract class _PagamentoControllerBase with Store {
         var json = jsonEncode(pagamento.pagamentoParaJson());
 
         Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
-          print(resposta);
-          //Modular.to.popAndPushNamed('/rastreamento/lista');
+          Modular.to.popAndPushNamed('/rastreamento/lista');
         }).catchError((e) {
           Helpers.snackLevaai(texto: "Erro no pagamento", context: context);
         });

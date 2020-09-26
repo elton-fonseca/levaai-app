@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../core/tema/cores_const.dart';
-import '../../core/view/tamanhos_relativos.dart';
+import '../../../../core/tema/cores_const.dart';
+import '../../../../core/view/tamanhos_relativos.dart';
 
-class ListaPedidos extends StatelessWidget {
+class Lista extends StatelessWidget {
+  Lista({this.pedidos});
+
+  final List pedidos;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: displayHeight(context) * 0.6,
       child: ListView.builder(
-          itemCount: 10,
+          itemCount: pedidos.length,
           itemBuilder: (context, index) {
+            var pedido = pedidos[index];
             return Padding(
               padding: const EdgeInsets.all(3.0),
               child: Column(
@@ -19,7 +24,8 @@ class ListaPedidos extends StatelessWidget {
                   Container(
                     child: GestureDetector(
                       onTap: () {
-                        Modular.to.pushNamed('/rastreamento/detalhes');
+                        Modular.to.pushNamed(
+                            '/rastreamento/detalhes/${pedido["id"].toString()}');
                       },
                       child: Column(
                         children: <Widget>[
@@ -35,7 +41,7 @@ class ListaPedidos extends StatelessWidget {
                                 Column(
                                   children: <Widget>[
                                     Text(
-                                      "Pedido $index",
+                                      "Pedido ${pedido["id"]}",
                                       style: TextStyle(
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.bold,
@@ -79,7 +85,7 @@ class ListaPedidos extends StatelessWidget {
                                         textAlign: TextAlign.left,
                                       ),
                                       Text(
-                                        "Avenida Paulista, 1234 ",
+                                        pedido["logradouro_destino"],
                                         style: TextStyle(
                                           fontFamily: 'Roboto',
                                           color: Colors.grey[500],
@@ -93,7 +99,7 @@ class ListaPedidos extends StatelessWidget {
                                   Row(
                                     children: <Widget>[
                                       Text(
-                                        "São Paulo - SP | CEP: 12345-000",
+                                        "CEP: ${pedido["cep_destino"]}",
                                         style: TextStyle(
                                           fontFamily: 'Roboto',
                                           color: Colors.grey[500],
@@ -125,7 +131,7 @@ class ListaPedidos extends StatelessWidget {
                                     left: displayWidth(context) * 0.03,
                                     bottom: displayHeight(context) * 0.03),
                                 child: Text(
-                                  "Elton Fonseca",
+                                  pedido["responsavel_entrega"],
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.bold,

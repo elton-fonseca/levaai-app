@@ -6,9 +6,6 @@ import '../popup/popup_controller.dart';
 import 'tipo_medida_controller.dart';
 
 class MedidaExata extends StatelessWidget {
-  final List<String> entries = <String>['A', 'B', 'C', 'A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100, 600, 500, 100];
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -91,7 +88,7 @@ class MedidaExata extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       //Modular.get<PopupController>()
-                                          //.removerItemPedido(indice);
+                                      //.removerItemPedido(indice);
                                     },
                                     child: Padding(
                                       padding: EdgeInsets.only(

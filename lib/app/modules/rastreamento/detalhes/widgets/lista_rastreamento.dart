@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import '../../../core/view/tamanhos_relativos.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
+import '../../../../core/view/tamanhos_relativos.dart';
 
-class DetalhesPageList extends StatelessWidget {
+class ListaRastreamento extends StatelessWidget {
+  ListaRastreamento({this.itens});
+
+  final List itens;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: displayHeight(context) * 0.5,
       child: ListView.builder(
-          itemCount: 5,
+          itemCount: itens.length,
           itemBuilder: (context, index) {
+            var item = itens[index];
             return Column(
               children: <Widget>[
                 Row(
@@ -38,7 +43,7 @@ class DetalhesPageList extends StatelessWidget {
                                   top: displayHeight(context) * 0.01,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "Pedido entregue",
+                                item['mensagem'],
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.bold,
@@ -53,7 +58,8 @@ class DetalhesPageList extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "20/10/2020",
+                                Helpers.dataBr(
+                                    DateTime.parse(item['created_at'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
@@ -67,7 +73,8 @@ class DetalhesPageList extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "18:56h",
+                                Helpers.hora(
+                                    DateTime.parse(item['created_at'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],

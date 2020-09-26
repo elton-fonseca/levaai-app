@@ -9,10 +9,24 @@ class RastreamentoRepository implements IRastreamentoRepository {
 
   RastreamentoRepository(this.client);
 
-  Future fetchPost() async {
-    final response =
-        await client.get('https://jsonplaceholder.typicode.com/posts/1');
-    return response.data;
+  Future pegarPedidosUsuario() async {
+    final response = await client.get('/pedido');
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro busca pedidos");
+  }
+
+  Future pegarPedido(int codigoPedido) async {
+    final response = await client.get('/pedido/$codigoPedido');
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro busca pedidos");
   }
 
   //dispose will be called automatically

@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/view/tamanhos_relativos.dart';
+import '../../../../core/view/tamanhos_relativos.dart';
 
-class DetalhesItemList extends StatelessWidget {
+class ListaItensPedido extends StatelessWidget {
+  ListaItensPedido({this.itens});
+
+  final List itens;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: displayHeight(context) * 0.3,
       child: ListView.builder(
-          itemCount: 5,
+          itemCount: itens.length,
           itemBuilder: (context, index) {
+            var item = itens[index];
             return Column(
               children: <Widget>[
                 Padding(
@@ -31,7 +36,7 @@ class DetalhesItemList extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Qtd.: 1',
+                        'Qtd.: ${item["quantidade"]}',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: displayWidth(context) * 0.04,
@@ -52,7 +57,7 @@ class DetalhesItemList extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        '(90cm x 90cm x 90cm)',
+                        '${item["altura"]}',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: displayWidth(context) * 0.04,
