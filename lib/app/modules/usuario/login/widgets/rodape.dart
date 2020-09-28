@@ -26,7 +26,7 @@ class Rodape extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: displayHeight(context) * 0.12),
+        SizedBox(height: displayHeight(context) * 0.21), 
         Text(
           "2020 LevaAi - Todos os direitos reservados",
           style: TextStyle(

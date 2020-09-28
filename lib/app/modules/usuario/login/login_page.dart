@@ -43,7 +43,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     width: displayWidth(context) * 0.7,
                     child: Column(
                       children: <Widget>[
-                        //SizedBox(height: displayHeight(context) * 0.02),
                         Form(
                           key: formKey,
                           child: Column(children: <Widget>[
@@ -51,7 +50,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                               children: <Widget>[
                                 Expanded(
                                   child: SizedBox(
-                                    //height: displayHeight(context) * 0.07,
                                     child: Observer(
                                       builder: (context) => Input().texto(
                                         context: context,
@@ -69,7 +67,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                               children: <Widget>[
                                 Expanded(
                                   child: SizedBox(
-                                      //height: displayHeight(context) * 0.07,
                                       child: Observer(
                                     builder: (context) => Input().texto(
                                       context: context,
@@ -81,7 +78,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: displayHeight(context) * 0.12),
+                            SizedBox(height: displayHeight(context) * 0.05),
                             Input().botao(
                                 context: context,
                                 label: 'Entrar',

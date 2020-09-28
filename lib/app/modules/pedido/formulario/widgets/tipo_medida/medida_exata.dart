@@ -35,44 +35,19 @@ class MedidaExata extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'Item #N',
+                                    'Quantidade: N',
                                     style: TextStyle(
                                       fontFamily: 'Roboto',
                                       color: Colors.grey[500],
                                       fontSize: displayWidth(context) * 0.04,
                                       fontWeight: FontWeight.w800,
                                     ),
+                                  
                                   ),
-                                ],
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  Text(
-                                    'Qtd: N',
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.grey[500],
-                                      fontSize: displayWidth(context) * 0.04,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(
-                              left: displayWidth(context) * 0.05,
-                              right: displayWidth(context) * 0.05),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Column(
-                                children: <Widget>[
-                                  Text(
+                                   Text(
                                     Modular.get<PopupController>()
                                         .volumeFormatado(lista[index]),
                                     style: TextStyle(
@@ -85,10 +60,8 @@ class MedidaExata extends StatelessWidget {
                               ),
                               Column(
                                 children: <Widget>[
-                                  GestureDetector(
+                                 GestureDetector(
                                     onTap: () {
-                                      //Modular.get<PopupController>()
-                                      //.removerItemPedido(indice);
                                     },
                                     child: Padding(
                                       padding: EdgeInsets.only(
@@ -96,7 +69,7 @@ class MedidaExata extends StatelessWidget {
                                         top: displayWidth(context) * 0.03,
                                       ),
                                       child: SizedBox(
-                                        width: displayWidth(context) * 0.045,
+                                        width: displayWidth(context) * 0.05,
                                         child: Image.asset(
                                             "assets/imagens/delete.png"),
                                       ),
@@ -106,7 +79,7 @@ class MedidaExata extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     );
                   },
