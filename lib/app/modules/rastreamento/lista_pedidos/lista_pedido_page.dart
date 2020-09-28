@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/rastreamento/repositories/rastreamento_repository.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
@@ -8,18 +7,21 @@ import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
-import 'lista_controller.dart';
+import '../repositories/rastreamento_repository.dart';
+import 'lista_pedido_controller.dart';
 import 'widget/lista.dart';
 
-class ListaPage extends StatefulWidget {
+class ListaPedidoPage extends StatefulWidget {
   final String title;
-  const ListaPage({Key key, this.title = "Lista"}) : super(key: key);
+  const ListaPedidoPage({Key key, this.title = "ListaPedido"})
+      : super(key: key);
 
   @override
-  _ListaPageState createState() => _ListaPageState();
+  _ListaPedidoPageState createState() => _ListaPedidoPageState();
 }
 
-class _ListaPageState extends ModularState<ListaPage, ListaController> {
+class _ListaPedidoPageState
+    extends ModularState<ListaPedidoPage, ListaPedidoController> {
   @override
   Widget build(BuildContext context) {
     return Container(

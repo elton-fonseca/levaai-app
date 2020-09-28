@@ -38,16 +38,15 @@ class MedidaExata extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'Quantidade: N',
+                                    'Quantidade: ${lista[index].quantidade}',
                                     style: TextStyle(
                                       fontFamily: 'Roboto',
                                       color: Colors.grey[500],
                                       fontSize: displayWidth(context) * 0.04,
                                       fontWeight: FontWeight.w800,
                                     ),
-                                  
                                   ),
-                                   Text(
+                                  Text(
                                     Modular.get<PopupController>()
                                         .volumeFormatado(lista[index]),
                                     style: TextStyle(
@@ -60,8 +59,10 @@ class MedidaExata extends StatelessWidget {
                               ),
                               Column(
                                 children: <Widget>[
-                                 GestureDetector(
+                                  GestureDetector(
                                     onTap: () {
+                                      Modular.get<TipoMedidaController>()
+                                          .removeItemLista(index);
                                     },
                                     child: Padding(
                                       padding: EdgeInsets.only(

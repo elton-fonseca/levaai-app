@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
+import 'package:mobx/mobx.dart';
 
 import '../services/validadores.dart';
-import 'package:mobx/mobx.dart';
+import '../stores/pedido_lista_store.dart';
 
 part 'pagamento.g.dart';
 

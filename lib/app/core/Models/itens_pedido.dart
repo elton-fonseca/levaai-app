@@ -1,4 +1,5 @@
 class ItensPedido {
+  String tipoItem;
   int quantidade;
   int altura;
   int largura;
@@ -6,7 +7,8 @@ class ItensPedido {
   int cubagem;
 
   ItensPedido(
-      {this.quantidade,
+      {this.tipoItem,
+      this.quantidade,
       this.altura,
       this.largura,
       this.comprimento,
@@ -20,13 +22,21 @@ class ItensPedido {
     cubagem = json['cubagem'];
   }
 
-  Map<String, dynamic> toJson(String tipoDeMedida) {
+  Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
+    data['tipo_item'] = tipoItem;
     data['quantidade'] = quantidade;
+
+    if (tipoItem == 'cubagem') {
+      data['cubagem'] = cubagem;
+
+      return data;
+    }
+
     data['altura'] = altura;
     data['largura'] = largura;
     data['comprimento'] = comprimento;
-    data['tipo_medida'] = tipoDeMedida;
+
     return data;
   }
 }

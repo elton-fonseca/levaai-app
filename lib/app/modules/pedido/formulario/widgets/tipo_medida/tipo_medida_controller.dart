@@ -131,6 +131,10 @@ abstract class _TipoMedidaControllerBase with Store {
     return pedidoLista.pedidos[indice].itens;
   }
 
+  void removeItemLista(int posicao) {
+    pedidoLista.pedidos[indice].itens.removeAt(posicao);
+  }
+
   String descritivoLabel() {
     var tamanho = pedidoLista.pedidos[indice].itens.length;
     var tipoDeMedida = pedidoLista.pedidos[indice].tipoDeMedida;

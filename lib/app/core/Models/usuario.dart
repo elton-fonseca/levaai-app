@@ -1,7 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/validadores.dart';
-import 'package:levaai1/app/core/stores/identificacao_store.dart';
 import 'package:mobx/mobx.dart';
+
+import '../services/validadores.dart';
+import '../stores/identificacao_store.dart';
 
 part 'usuario.g.dart';
 

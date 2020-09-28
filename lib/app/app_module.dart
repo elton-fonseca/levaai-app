@@ -12,7 +12,7 @@ import 'modules/pedido/cotacao/cotacao_module.dart';
 import 'modules/pedido/formulario/formulario_module.dart';
 import 'modules/pedido/lista/lista_module.dart';
 import 'modules/rastreamento/detalhes/detalhes_module.dart';
-import 'modules/rastreamento/lista/lista_module.dart' as rastreamento_lista;
+import 'modules/rastreamento/lista_pedidos/lista_pedido_module.dart';
 import 'modules/usuario/cadastro/cadastro_module.dart';
 import 'modules/usuario/login/login_module.dart';
 
@@ -44,8 +44,7 @@ class AppModule extends MainModule {
         ModularRouter(Modular.initialRoute, module: FormularioModule()),
 
         //Modulos de listagem e acompanhamento de pedido
-        ModularRouter(Modular.initialRoute,
-            module: rastreamento_lista.ListaModule()),
+        ModularRouter(Modular.initialRoute, module: ListaPedidoModule()),
         ModularRouter(Modular.initialRoute, module: DetalhesModule()),
 
         ModularRouter(Modular.initialRoute, module: PagamentoModule()),

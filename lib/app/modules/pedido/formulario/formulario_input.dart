@@ -27,6 +27,7 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     //garante que a lista vai estar limpa no começo
     if (widget.acao == 'criar' && widget.id == 0) {
       Modular.get<PedidoListaStore>().limpar();
+      Modular.get<PedidoListaStore>().valorTotalPedidos = 0;
     }
 
     if (widget.acao == 'criar') {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/rastreamento/repositories/rastreamento_repository.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
+import '../repositories/rastreamento_repository.dart';
 import 'detalhes_controller.dart';
 import 'widgets/detalhes.dart';
 import 'widgets/lista_itens_pedido.dart';

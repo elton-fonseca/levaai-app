@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/validadores.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../modules/pedido/formulario/widgets/tipo_medida/medida_relativa.dart';
+import '../services/validadores.dart';
 import '../stores/identificacao_store.dart';
 import 'itens_pedido.dart';
 
@@ -100,9 +100,9 @@ abstract class _PedidoBase with Store {
 
     _adicionaItensRelativos();
 
-    var tipoMedida = tipoDeMedida is MedidaRelativa ? 'relativa' : 'exata';
+    data['tipo_medida'] = tipoDeMedida is MedidaRelativa ? 'relativa' : 'exata';
 
-    data['itens'] = itens.map((v) => v.toJson(tipoMedida)).toList();
+    data['itens'] = itens.map((v) => v.toJson()).toList();
 
     return data;
   }
@@ -119,9 +119,9 @@ abstract class _PedidoBase with Store {
 
     _adicionaItensRelativos();
 
-    var tipoMedida = tipoDeMedida is MedidaRelativa ? 'relativa' : 'exata';
+    data['tipo_medida'] = tipoDeMedida is MedidaRelativa ? 'relativa' : 'exata';
 
-    data['itens'] = itens.map((v) => v.toJson(tipoMedida)).toList();
+    data['itens'] = itens.map((v) => v.toJson()).toList();
 
     return data;
   }
@@ -140,6 +140,7 @@ abstract class _PedidoBase with Store {
 
       if (caixaSapato > 0) {
         addItemPedido(ItensPedido(
+          tipoItem: 'caixaSapato',
           quantidade: caixaSapato,
           largura: 25,
           altura: 15,
@@ -149,6 +150,7 @@ abstract class _PedidoBase with Store {
 
       if (microondas > 0) {
         addItemPedido(ItensPedido(
+          tipoItem: 'microondas',
           quantidade: microondas,
           largura: 50,
           altura: 50,
@@ -158,6 +160,7 @@ abstract class _PedidoBase with Store {
 
       if (fogao > 0) {
         addItemPedido(ItensPedido(
+          tipoItem: 'fogao',
           quantidade: fogao,
           largura: 50,
           altura: 90,
@@ -167,6 +170,7 @@ abstract class _PedidoBase with Store {
 
       if (geladeira > 0) {
         addItemPedido(ItensPedido(
+          tipoItem: 'geladeira',
           quantidade: geladeira,
           largura: 160,
           altura: 60,

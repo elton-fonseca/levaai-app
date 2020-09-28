@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
 
 import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/helpers.dart';
 import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'lista_controller.dart';
-import 'widgets/grid_item.dart';
 
 class ListaPage extends StatefulWidget {
   final String title;
@@ -75,6 +74,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               Container(
                 height: displayHeight(context) * 0.6,
                 child: Observer(
+                  // ignore: unnecessary_lambdas
                   builder: (context) {
                     return controller.pedidosGrid(context);
                   },

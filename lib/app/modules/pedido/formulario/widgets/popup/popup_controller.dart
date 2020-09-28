@@ -67,10 +67,12 @@ abstract class _PopupControllerBase with Store {
     }
 
     if (tipoForm is Dimensoes) {
+      item.tipoItem = 'dimensoes';
       item.altura = altura;
       item.largura = largura;
       item.comprimento = comprimento;
     } else {
+      item.tipoItem = 'cubagem';
       item.cubagem = cubagem;
     }
 

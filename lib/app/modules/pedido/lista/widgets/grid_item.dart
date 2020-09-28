@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
-import 'package:levaai1/app/modules/pedido/lista/lista_controller.dart';
 
 import '../../../../core/models/pedido.dart';
-import '../../../../core/stores/pedido_lista_store.dart';
 import '../../../../core/tema/cores_const.dart';
+import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
+import '../lista_controller.dart';
 
 class GridItem {
   Widget obter(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
+import '../../../core/view/helpers.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'cotacao_controller.dart';

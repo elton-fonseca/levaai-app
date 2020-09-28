@@ -6,7 +6,7 @@ import 'lista_page.dart';
 class ListaModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind((i) => ListaController(), singleton: true),
+        Bind((i) => ListaController()),
       ];
 
   @override
