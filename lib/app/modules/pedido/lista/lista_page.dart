@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/local_storage.dart';
 
 import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
@@ -30,79 +31,104 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
     super.initState();
   }
 
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Atenção!'),
+            content: Text('Tem Certeza que deseja Cancelar o pedido?'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Não Cancelar'),
+              ),
+              FlatButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: Text('Sim'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           gradient:
               LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
-      child: Scaffold(
-        appBar: NavbarPadrao().build(context),
-        drawer: MenuLateral(),
-        backgroundColor: Colors.transparent,
-        body: ConteudoPadrao(
-          textoCabecalho: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Total Geral',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.white,
-                  fontSize: displayWidth(context) * 0.04,
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Scaffold(
+          appBar: NavbarPadrao().build(context),
+          drawer: MenuLateral(),
+          backgroundColor: Colors.transparent,
+          body: ConteudoPadrao(
+            textoCabecalho: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Total Geral',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    color: Colors.white,
+                    fontSize: displayWidth(context) * 0.04,
+                  ),
                 ),
-              ),
-              Observer(
-                builder: (context) {
-                  return Text(
-                    // ignore: lines_longer_than_80_chars
-                    'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.white,
-                      fontSize: displayWidth(context) * 0.09,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  );
-                },
-              )
-            ],
-          ),
-          conteudo: Column(
-            children: <Widget>[
-              SizedBox(height: displayHeight(context) * 0.03),
-              Container(
-                height: displayHeight(context) * 0.6,
-                child: Observer(
-                  // ignore: unnecessary_lambdas
+                Observer(
                   builder: (context) {
-                    return controller.pedidosGrid(context);
+                    return Text(
+                      // ignore: lines_longer_than_80_chars
+                      'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        fontSize: displayWidth(context) * 0.09,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
                   },
+                )
+              ],
+            ),
+            conteudo: Column(
+              children: <Widget>[
+                SizedBox(height: displayHeight(context) * 0.03),
+                Container(
+                  height: displayHeight(context) * 0.6,
+                  child: Observer(
+                    // ignore: unnecessary_lambdas
+                    builder: (context) {
+                      return controller.pedidosGrid(context);
+                    },
+                  ),
                 ),
-              ),
-              SizedBox(height: displayHeight(context) * 0.05),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  BotaoAzul(
-                      largura: 0.4,
-                      texto: '+ Pedido',
-                      onClick: () {
-                        var indice =
-                            Modular.get<PedidoListaStore>().pedidos.length;
-                        Modular.to.popAndPushNamed(
-                            '/pedido/formulario/$indice/criar');
-                      }),
-                  BotaoBranco(
-                      largura: 0.4,
-                      texto: 'Pagamento',
-                      onClick: () {
-                        controller.criarPedido();
-                      }),
-                ],
-              ),
-              SizedBox(height: displayHeight(context) * 0.05),
-            ],
+                SizedBox(height: displayHeight(context) * 0.05),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    BotaoAzul(
+                        largura: 0.4,
+                        texto: '+ Pedido',
+                        onClick: () {
+                          var indice =
+                              Modular.get<PedidoListaStore>().pedidos.length;
+
+                          Modular.to
+                              .pushNamed('/pedido/formulario/$indice/criar');
+                        }),
+                    BotaoBranco(
+                        largura: 0.4,
+                        texto: 'Pagamento',
+                        onClick: () {
+                          controller.criarPedido();
+                        }),
+                  ],
+                ),
+                SizedBox(height: displayHeight(context) * 0.05),
+              ],
+            ),
           ),
         ),
       ),

@@ -14,4 +14,28 @@ abstract class _DetalhesControllerBase with Store {
   void increment() {
     value++;
   }
+
+  String descritivoItem(Map item) {
+    switch (item['tipo_item']) {
+      case 'cubagem':
+        return 'Cubagem ${item['cubagem']}';
+        break;
+      case 'caixaSapato':
+        return 'Tamanho Aproximado Caixa de Sapato';
+        break;
+      case 'microondas':
+        return 'Tamanho Aproximado Caixa de Sapato';
+        break;
+      case 'fogao':
+        return 'Tamanho Aproximado Fogão';
+        break;
+      case 'geladeira':
+        return 'Tamanho Aproximado Geladeira';
+        break;
+      case 'dimensoes':
+        var d = "${item['largura']}x${item['altura']}x${item['comprimento']}";
+        return 'Dimensões $d';
+        break;
+    }
+  }
 }

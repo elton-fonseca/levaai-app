@@ -12,7 +12,7 @@ class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
   void boot() {
-        LocalStorage.getValue<String>("token").then((token) {
+    LocalStorage.getValue<String>("token").then((token) {
       if (token.toString().isNotEmpty) {
         Modular.to.popAndPushNamed('/rastreamento/lista');
         Modular.get<Dio>().options.headers["Authorization"] = 'Bearer $token';

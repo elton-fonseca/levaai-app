@@ -357,7 +357,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                         texto: "Editar",
                         largura: 0.4,
                         onClick: () {
-                          Modular.to.popAndPushNamed(
+                          Modular.to.pushNamed(
                               '/pedido/formulario/${widget.id}/${widget.acao}');
                         },
                       ),

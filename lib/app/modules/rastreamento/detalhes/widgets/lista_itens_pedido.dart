@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/rastreamento/detalhes/detalhes_controller.dart';
 
 import '../../../../core/view/tamanhos_relativos.dart';
 
@@ -27,16 +29,7 @@ class ListaItensPedido extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Item $index',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontSize: displayWidth(context) * 0.04,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[500],
-                        ),
-                      ),
-                      Text(
-                        'Qtd.: ${item["quantidade"]}',
+                        'Quantidade: ${item["quantidade"]}',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: displayWidth(context) * 0.04,
@@ -57,7 +50,7 @@ class ListaItensPedido extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        '${item["altura"]}',
+                        Modular.get<DetalhesController>().descritivoItem(item),
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: displayWidth(context) * 0.04,

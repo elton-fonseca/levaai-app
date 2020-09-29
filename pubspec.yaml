@@ -33,6 +33,7 @@ dependencies:
   flutter_masked_text: ^0.8.0
   device_info: ^0.4.2+7
   intl: ^0.16.1
+  juno_direct_checkout: ^1.0.0
   flutter:
     sdk: flutter
 

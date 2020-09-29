@@ -16,6 +16,7 @@ abstract class _CotacaoControllerBase with Store {
   PedidoListaStore pedidoLista;
 
   int indice = 0;
+  String acao;
 
   void enviar(BuildContext context, String acao) {
     var pedido = pedidoLista.pedidos[indice];
@@ -23,9 +24,14 @@ abstract class _CotacaoControllerBase with Store {
 
     if (validacao.isEmpty) {
       pedidoLista.valorTotalPedidos += pedido.valorCotacao;
-      //Modular.to
-      //   .popUntil(ModalRoute.withName('/pedido/formulario/$indice/$acao'));
-      Modular.to.popAndPushNamed('/pedido/lista');
+
+      if (acao == 'criar' && indice == 0) {
+        Navigator.of(context)..pop()..pop();
+        Modular.to.pushNamed('/pedido/lista');
+      } else {
+        Navigator.of(context)..pop()..pop()..pop();
+        Modular.to.pushNamed('/pedido/lista');
+      }
     } else {
       var scnackbar = SnackBar(
         content: Text(validacao),

@@ -23,6 +23,7 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   @override
   void initState() {
     controller.indice = widget.id;
+    controller.acao = widget.acao;
 
     preencheCampos();
 
