@@ -23,7 +23,7 @@ class ValidaFormulario {
   }
 
   String _cidadesAtendidas() {
-    if (!Modular.get<EnderecoController>().cidadesAtendidas) {
+    if (!pedido.cidadesAtendidas) {
       return 'Percurso não atendido';
     }
 

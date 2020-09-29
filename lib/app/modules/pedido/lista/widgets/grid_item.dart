@@ -111,8 +111,8 @@ class GridItem {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            Modular.to.popAndPushNamed(
-                                '/pedido/formulario/$indice/editar');
+                            Modular.to
+                                .pushNamed('/pedido/formulario/$indice/editar');
                           },
                           child: Padding(
                             padding: EdgeInsets.only(

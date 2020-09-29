@@ -18,12 +18,20 @@ abstract class _CotacaoControllerBase with Store {
   int indice = 0;
   String acao;
 
+  double cotacaoValor;
+  int cotacaoId;
+
   void enviar(BuildContext context, String acao) {
     var pedido = pedidoLista.pedidos[indice];
     var validacao = ValidaFormulario(pedido).validar();
 
     if (validacao.isEmpty) {
-      pedidoLista.valorTotalPedidos += pedido.valorCotacao;
+      if (acao == 'editar') {
+        pedidoLista.valorTotalPedidos -= pedido.valorCotacao;
+      }
+      pedido.valorCotacao = cotacaoValor;
+      pedido.cotacaoId = cotacaoId;
+      pedidoLista.valorTotalPedidos += cotacaoValor;
 
       if (acao == 'criar' && indice == 0) {
         Navigator.of(context)..pop()..pop();

@@ -59,8 +59,8 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
     valorCotacao = Modular.get<CotacaoRepository>().cotar(json);
 
     valorCotacao.then((value) {
-      pedido.valorCotacao = value.valor;
-      pedido.cotacaoId = value.cotacaoId;
+      Modular.get<CotacaoController>().cotacaoValor = value.valor;
+      Modular.get<CotacaoController>().cotacaoId = value.cotacaoId;
     });
   }
 }

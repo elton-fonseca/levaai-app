@@ -23,7 +23,11 @@ abstract class _PedidoListaStoreBase with Store {
 
   void populaIdsPedidos(List relacao) {
     for (var item in relacao) {
-      pedidos.elementAt(item['id_temporario']).idPedido = item['id_banco'];
+      var p = pedidos
+          .firstWhere((element) => element.idLocal == item['id_temporario']);
+
+      p.idPedido = item['id_banco'];
+      //pedidos.elementAt(item['id_temporario']).idPedido = item['id_banco'];
     }
   }
 

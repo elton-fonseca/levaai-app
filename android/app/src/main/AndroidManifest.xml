@@ -33,6 +33,14 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
+
+              <meta-data
+                android:name="br.com.juno.directcheckout.public_token"
+                android:value="YOUR_PUBLIC_TOKEN"/>
+              <meta-data
+                android:name="br.com.juno.directcheckout.public_token_sandbox"
+                android:value="YOUR_PUBLIC_TOKEN_SANDBOX"/>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

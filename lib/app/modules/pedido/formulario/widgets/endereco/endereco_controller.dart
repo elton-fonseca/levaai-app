@@ -25,8 +25,6 @@ abstract class _EnderecoControllerBase with Store {
 
   int indice = 0;
 
-  bool cidadesAtendidas = false;
-
   @action
   void defineEnderecoOrigem(String novoEnderecoOrigem) {
     pedidoLista.pedidos[indice].enderecoOrigem = novoEnderecoOrigem;
@@ -120,10 +118,10 @@ abstract class _EnderecoControllerBase with Store {
 
       Modular.get<FormularioRepository>()
           .verificaCidadesAtendidas(json)
-          .then((value) => cidadesAtendidas = true)
+          .then((value) => pedido.cidadesAtendidas = true)
           .catchError((e) {
         Helpers.snackLevaai(texto: "Percurso não atendido", context: context);
-        cidadesAtendidas = false;
+        pedido.cidadesAtendidas = false;
       });
     }
   }
