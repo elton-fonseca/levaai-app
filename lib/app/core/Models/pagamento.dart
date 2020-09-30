@@ -21,7 +21,7 @@ abstract class _PagamentoBase with Store {
 
   Future<Map<String, dynamic>> pagamentoParaJson() async {
     final data = <String, dynamic>{};
-    data['valor'] = Modular.get<PedidoListaStore>().valorTotalPedidos;
+    data['valor'] = Modular.get<PedidoListaStore>().valorTotalPedidos / 25;
     data['forma_pagamento'] = tipoPagamento;
     data['pedidos'] = Modular.get<PedidoListaStore>().pedidosIds();
 

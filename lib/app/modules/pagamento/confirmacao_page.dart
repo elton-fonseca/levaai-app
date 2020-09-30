@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
-import '../../../core/tema/cores_const.dart';
-import '../../../core/view/botao_branco.dart';
-import '../../../core/view/tamanhos_relativos.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../core/tema/cores_const.dart';
+import '../../core/view/botao_branco.dart';
+import '../../core/view/tamanhos_relativos.dart';
+import 'pagamento_controller.dart';
 
-class PosPagamentoPage extends StatelessWidget {
+class ConfirmacaoPage extends StatefulWidget {
+  final String title;
+  const ConfirmacaoPage({Key key, this.title = "Pagamento"}) : super(key: key);
+
+  @override
+  _ConfirmacaoPageState createState() => _ConfirmacaoPageState();
+}
+
+class _ConfirmacaoPageState
+    extends ModularState<ConfirmacaoPage, PagamentoController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +28,7 @@ class PosPagamentoPage extends StatelessWidget {
           children: <Widget>[
             SizedBox(
                 child: Icon(
-              Icons.check_circle_outline,
+              controller.confirmacaoIcone(),
               size: displayWidth(context) * 0.3,
               color: Colors.white,
             )),
@@ -25,7 +36,7 @@ class PosPagamentoPage extends StatelessWidget {
               height: displayHeight(context) * 0.1,
             ),
             Text(
-              'Seu pagamento foi efetuado com sucesso!',
+              controller.confirmacaoTitulo(),
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: displayWidth(context) * 0.08,
@@ -35,7 +46,7 @@ class PosPagamentoPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Text(
-              'Seu ID de confirmação é 258998855525',
+              controller.confirmacaoTexto(),
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: displayWidth(context) * 0.05,
@@ -43,21 +54,10 @@ class PosPagamentoPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: displayHeight(context) * 0.1
-              ),
-            BotaoBranco(
-              largura: 0.8,
-              texto: 'Botão 1',
-              onClick: () {}
-              ),
-            SizedBox(
-              height: displayHeight(context) * 0.02
-              ),
-            BotaoBranco(largura: 0.8,
-            texto: 'Botão 2',
-            onClick: () {}
-            ),
+            SizedBox(height: displayHeight(context) * 0.1),
+            controller.confirmacaoBotaoDownloadBoleto(),
+            SizedBox(height: displayHeight(context) * 0.02),
+            BotaoBranco(largura: 0.8, texto: 'Finalizar', onClick: () {}),
           ],
         ),
       ),
