@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/usuario/login/pos_pagamento_page.dart';
 import '../services/local_storage.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -17,6 +18,17 @@ class MenuLateral extends StatelessWidget {
               'assets/imagens/logo.png',
             )),
           ),
+          ListTile(
+              leading: Icon(Icons.add),
+              title: Text("Exemplo tela confirmação de pagamento"),
+              subtitle: Text("Exemplo pagamento aprovado"),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => PosPagamentoPage()));
+              }),
           ListTile(
               leading: Icon(Icons.add),
               title: Text("Criar pedido"),
