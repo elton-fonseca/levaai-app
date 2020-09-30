@@ -1,5 +1,7 @@
 //AIzaSyCZ4POmTNuwNXDnnAypsMmg_WGpSNMNxos
 
+juno publico 74E3B38F32887008B8CDB0B727DACC7F6E7FB161DEC8211C1B24B0B5F17F6793
+
 import 'dart:async';
 
 import 'package:geocoder/geocoder.dart';

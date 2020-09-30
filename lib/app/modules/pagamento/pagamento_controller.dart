@@ -30,14 +30,18 @@ abstract class _PagamentoControllerBase with Store {
       Modular.get<PedidoRepository>().cadastrar(pedidosJson).then((pedidosIds) {
         pedidoLista.populaIdsPedidos(pedidosIds);
 
-        var json = jsonEncode(pagamento.pagamentoParaJson());
+        pagamento.pagamentoParaJson().then((pagamentoMapa) {
+          var json = jsonEncode(pagamentoMapa);
 
-        Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
-          Navigator.of(context)..pop()..pop()..pop();
-          Modular.to.pushNamed('rastreamento/lista');
-        }).catchError((e) {
-          Helpers.snackLevaai(texto: "Erro no pagamento", context: context);
+          Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
+            //Navigator.of(context)..pop()..pop()..pop();
+            //Modular.to.pushNamed('rastreamento/lista');
+          }).catchError((e) {
+            Helpers.snackLevaai(texto: "Erro no pagamento", context: context);
+          });
         });
+
+        //var json = jsonEncode(pagamento.pagamentoParaJson());
       }).catchError((e) {
         Helpers.snackLevaai(texto: "Erro ao criar pedidos", context: context);
       });
