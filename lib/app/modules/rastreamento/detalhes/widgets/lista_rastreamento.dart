@@ -9,7 +9,10 @@ class ListaRastreamento extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context) * 0.5,
+      height: displayHeight(context) * 0.001,
+      constraints: BoxConstraints(
+      maxHeight: displayHeight(context) * 0.5,
+   ),
       child: ListView.builder(
           itemCount: itens.length,
           itemBuilder: (context, index) {

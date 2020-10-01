@@ -67,79 +67,76 @@ class Lista extends StatelessWidget {
                             padding: EdgeInsets.only(
                                 left: displayWidth(context) * 0.03,
                                 right: displayWidth(context) * 0.05),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Column(children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      Text(
-                                        "Destino: ",
-                                        style: TextStyle(
-                                          fontFamily: 'Roboto',
-                                          color: Colors.grey[500],
-                                          fontWeight: FontWeight.bold,
-                                          fontSize:
-                                              displayWidth(context) * 0.03,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                      Text(
-                                        pedido["logradouro_destino"],
-                                        style: TextStyle(
-                                          fontFamily: 'Roboto',
-                                          color: Colors.grey[500],
-                                          fontSize:
-                                              displayWidth(context) * 0.03,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: <Widget>[
-                                      Text(
-                                        "CEP: ${pedido["cep_destino"]}",
-                                        style: TextStyle(
-                                          fontFamily: 'Roboto',
-                                          color: Colors.grey[500],
-                                          fontSize:
-                                              displayWidth(context) * 0.03,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ],
-                                  ),
-                                ]),
-                                Column(
-                                  children: <Widget>[
-                                    SizedBox(
-                                      height: displayHeight(context) * 0.07,
-                                      child: Image.asset(
-                                          "assets/imagens/pedido-ok.png"),
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: displayWidth(context) * 0.68,
+                                                                      child: Expanded(
+                                      child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "Destino: ",
+                                              style: TextStyle(
+                                                fontFamily: 'Roboto',
+                                                color: Colors.grey[500],
+                                                fontWeight: FontWeight.bold,
+                                                fontSize:
+                                                    displayWidth(context) * 0.03,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                            Text(
+                                              pedido["logradouro_destino"],
+                                              style: TextStyle(
+                                                fontFamily: 'Roboto',
+                                                color: Colors.grey[500],
+                                                fontSize:
+                                                    displayWidth(context) * 0.03,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ]),
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                  Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: displayHeight(context) * 0.07,
+                                        child: Image.asset(
+                                            "assets/imagens/pedido-ok.png"),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    top: displayHeight(context) * 0.01,
-                                    left: displayWidth(context) * 0.03,
-                                    bottom: displayHeight(context) * 0.03),
-                                child: Text(
-                                  pedido["responsavel_entrega"],
-                                  style: TextStyle(
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[500],
-                                    fontSize: displayWidth(context) * 0.03,
+                              Column(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        top: displayHeight(context) * 0.01,
+                                        left: displayWidth(context) * 0.03,
+                                        bottom: displayHeight(context) * 0.03),
+                                    child: Text(
+                                      pedido["responsavel_entrega"],
+                                      style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey[500],
+                                        fontSize: displayWidth(context) * 0.03,
+                                      ),
+                                    ),
                                   ),
-                                  textAlign: TextAlign.left,
-                                ),
+                                ],
                               ),
                             ],
                           ),
