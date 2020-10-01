@@ -57,7 +57,12 @@ class _ConfirmacaoPageState
             SizedBox(height: displayHeight(context) * 0.1),
             controller.confirmacaoBotaoDownloadBoleto(),
             SizedBox(height: displayHeight(context) * 0.02),
-            BotaoBranco(largura: 0.8, texto: 'Finalizar', onClick: () {}),
+            BotaoBranco(
+                largura: 0.8,
+                texto: 'Finalizar',
+                onClick: () {
+                  Modular.to.popAndPushNamed('rastreamento/lista');
+                }),
           ],
         ),
       ),
