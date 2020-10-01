@@ -10,6 +10,7 @@ class ValidaFormulario {
     resultado += _responsavelColetaCelular();
     resultado += _responsavelEntrega();
     resultado += _responsavelEntregaCelular();
+    resultado += _verificaCotacaoId();
 
     return resultado;
   }
@@ -50,8 +51,16 @@ class ValidaFormulario {
       return 'Informe o Celular do Responsável pela Entrega\n';
     }
 
-        if (pedido.responsavelEntregaCelular.length < 15) {
+    if (pedido.responsavelEntregaCelular.length < 15) {
       return 'Informe Corretamente o Celular do Responsável pela Coleta\n';
+    }
+
+    return '';
+  }
+
+  String _verificaCotacaoId() {
+    if (pedido.cotacaoId == null) {
+      return 'Erro na cotação. Volte na tela de detalhes e verifique os dados';
     }
 
     return '';

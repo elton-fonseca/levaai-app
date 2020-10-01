@@ -24,7 +24,7 @@ class ValidaFormulario {
 
   String _cidadesAtendidas() {
     if (!pedido.cidadesAtendidas) {
-      return 'Percurso não atendido';
+      return 'Percurso não atendido\n';
     }
 
     return '';

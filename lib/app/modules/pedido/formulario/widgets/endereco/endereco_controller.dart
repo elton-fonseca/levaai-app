@@ -113,7 +113,10 @@ abstract class _EnderecoControllerBase with Store {
   void _verificaCidadesPercurso(BuildContext context) {
     var pedido = pedidoLista.pedidos[indice];
 
-    if (pedido.enderecoOrigem != null && pedido.enderecoDestino != null) {
+    if (pedido.enderecoOrigem != null &&
+        pedido.enderecoOrigem != '' &&
+        pedido.enderecoDestino != null &&
+        pedido.enderecoDestino != '') {
       var json = jsonEncode(pedido.cidadesJson());
 
       Modular.get<FormularioRepository>()

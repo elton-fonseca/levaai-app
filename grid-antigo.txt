@@ -1,5 +1,8 @@
-pedido formulário
-Colocar botão excluir na lista de medida exata
+Quando der erro no pagamento apagar o pedido
+
+No pagamento, se der erro e for cartão. Usar a mesma cobrança. 
+Para isso é possível usar o id da cobraça que vem e passar ele junto com numero do pagamento para o back end
+No backend tenta pagar novamente essa cobraça.
 
 
 
