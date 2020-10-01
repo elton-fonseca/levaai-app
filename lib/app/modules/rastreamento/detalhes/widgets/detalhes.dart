@@ -37,89 +37,56 @@ class Detalhes extends StatelessWidget {
                     ),
                     child: Column(children: <Widget>[
                       SizedBox(
-                        height: displayHeight(context) * 0.09,
+                        height: displayHeight(context) * 0.12,
                         child: Image(
                             image: AssetImage(
                                 'assets/imagens/origem-destino-verde.png')),
                       ),
                     ]),
                   ),
-                  Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            "Origem: ",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[500],
-                              fontWeight: FontWeight.bold,
-                              fontSize: displayWidth(context) * 0.04,
-                            ),
-                            textAlign: TextAlign.left,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Origem:',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.grey[500],
+                            fontSize: displayWidth(context) * 0.04,
+                            fontWeight: FontWeight.bold
                           ),
-                          Text(
-                            pedido['logradouro_origem'],
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[500],
-                              fontSize: displayWidth(context) * 0.04,
-                            ),
-                            textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          pedido['logradouro_origem'],
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.grey[500],
+                            fontSize: displayWidth(context) * 0.04,
                           ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            "CEP: ${pedido['cep_origem']}",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[500],
-                              fontSize: displayWidth(context) * 0.04,
-                            ),
-                            textAlign: TextAlign.left,
+                          textAlign: TextAlign.left,
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.03),
+                         Text(
+                          'Destino:',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.grey[500],
+                            fontSize: displayWidth(context) * 0.04,
+                            fontWeight: FontWeight.bold
                           ),
-                        ],
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.03),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            "Destino: ",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[500],
-                              fontWeight: FontWeight.bold,
-                              fontSize: displayWidth(context) * 0.04,
-                            ),
-                            textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          pedido['logradouro_destino'],
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.grey[500],
+                            fontSize: displayWidth(context) * 0.04,
                           ),
-                          Text(
-                            pedido['logradouro_destino'],
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[500],
-                              fontSize: displayWidth(context) * 0.04,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            "CEP: ${pedido['cep_destino']}",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[500],
-                              fontSize: displayWidth(context) * 0.04,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
-                      ),
-                    ],
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               )

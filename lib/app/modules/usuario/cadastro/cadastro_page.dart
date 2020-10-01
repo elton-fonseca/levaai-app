@@ -50,20 +50,6 @@ class _CadastroPageState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: displayWidth(context) * 0.02),
-                  child: Row(
-                    children: <Widget>[
-                      BotaoBranco(
-                        largura: 0.7,
-                        onClick: () {
-                          Modular.to.pushNamed('/login/formulario/pagamento');
-                        },
-                        texto: 'Já sou cadastrado',
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsets.only(
                       left: displayWidth(context) * 0.1,
                       top: displayWidth(context) * 0.1),
@@ -88,12 +74,26 @@ class _CadastroPageState
                   child: Row(
                     children: <Widget>[
                       Text(
-                        'Entre com seus dados!',
+                        'Entre com seus dados! | ',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.white,
                           fontSize: displayWidth(context) * 0.03,
                           fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Modular.to.pushNamed('/login/formulario/pagamento');
+                        },
+                        child: Text(
+                          'Já sou cadastrado',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                            fontSize: displayWidth(context) * 0.03,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
