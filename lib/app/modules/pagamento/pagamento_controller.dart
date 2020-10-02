@@ -49,7 +49,9 @@ abstract class _PagamentoControllerBase with Store {
               Modular.to.pushNamed('pagamento/confirmacao');
             }
           }).catchError((e) {
-            Helpers.snackLevaai(texto: "Erro no pagamento", context: context);
+            Helpers.snackLevaai(
+                texto: "Erro no pagamento  ${e.message} ${e.response.data}",
+                context: context);
           });
         });
 

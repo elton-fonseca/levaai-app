@@ -69,12 +69,12 @@ abstract class _CadastroControllerBase with Store {
     @required MaskedTextController telefoneTextController,
   }) {
     documentoTextController.afterChange = (previous, next) {
-      usuario.documento = previous;
+      usuario.documento = next;
       return true;
     };
 
     telefoneTextController.afterChange = (previous, next) {
-      usuario.telefone = previous;
+      usuario.telefone = next;
       return true;
     };
   }

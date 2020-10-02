@@ -74,36 +74,32 @@ class Lista extends StatelessWidget {
                                 children: <Widget>[
                                   SizedBox(
                                     width: displayWidth(context) * 0.68,
-                                    child: Expanded(
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              "Destino: ",
-                                              style: TextStyle(
-                                                fontFamily: 'Roboto',
-                                                color: Colors.grey[500],
-                                                fontWeight: FontWeight.bold,
-                                                fontSize:
-                                                    displayWidth(context) *
-                                                        0.035,
-                                              ),
-                                              textAlign: TextAlign.left,
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            "Destino: ",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.grey[500],
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                                  displayWidth(context) * 0.035,
                                             ),
-                                            Text(
-                                              pedido["logradouro_destino"],
-                                              style: TextStyle(
-                                                fontFamily: 'Roboto',
-                                                color: Colors.grey[500],
-                                                fontSize:
-                                                    displayWidth(context) *
-                                                        0.035,
-                                              ),
-                                              textAlign: TextAlign.left,
+                                            textAlign: TextAlign.left,
+                                          ),
+                                          Text(
+                                            pedido["logradouro_destino"],
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.grey[500],
+                                              fontSize:
+                                                  displayWidth(context) * 0.035,
                                             ),
-                                          ]),
-                                    ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                        ]),
                                   ),
                                   Column(
                                     children: <Widget>[

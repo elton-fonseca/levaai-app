@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:dio/native_imp.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/stores/identificacao_store.dart';
 import 'interfaces/usuario_repository_interface.dart';
 
 class UsuarioRepository implements IUsuarioRepository {
@@ -10,14 +12,15 @@ class UsuarioRepository implements IUsuarioRepository {
 
   Future login(String email, String senha) async {
     var corpo = {};
-    corpo["nome"] = "joao";
     corpo["email"] = email;
     corpo["senha"] = senha;
-    corpo["dispositivo"] = "teste";
+    corpo["dispositivo"] = Modular.get<IdentificacaoStore>().idDispositivo;
+
+    var dados = json.encode(corpo);
 
     final response = await client.post(
       '/cliente/login',
-      data: json.encode(corpo).toString(),
+      data: dados,
     );
 
     if (response.statusCode == 200) {
