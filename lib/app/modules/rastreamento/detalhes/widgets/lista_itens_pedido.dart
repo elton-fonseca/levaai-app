@@ -32,7 +32,7 @@ class ListaItensPedido extends StatelessWidget {
                         'Quantidade: ${item["quantidade"]}',
                         style: TextStyle(
                           fontFamily: 'Roboto',
-                          fontSize: displayWidth(context) * 0.04,
+                          fontSize: displayWidth(context) * 0.035,
                           fontWeight: FontWeight.bold,
                           color: Colors.grey[500],
                         ),
@@ -53,7 +53,7 @@ class ListaItensPedido extends StatelessWidget {
                         Modular.get<DetalhesController>().descritivoItem(item),
                         style: TextStyle(
                           fontFamily: 'Roboto',
-                          fontSize: displayWidth(context) * 0.04,
+                          fontSize: displayWidth(context) * 0.035,
                           color: Colors.grey[500],
                         ),
                       ),

@@ -11,8 +11,8 @@ class ListaRastreamento extends StatelessWidget {
     return Container(
       height: displayHeight(context) * 0.001,
       constraints: BoxConstraints(
-      maxHeight: displayHeight(context) * 0.5,
-   ),
+        maxHeight: displayHeight(context) * 0.5,
+      ),
       child: ListView.builder(
           itemCount: itens.length,
           itemBuilder: (context, index) {
@@ -51,7 +51,7 @@ class ListaRastreamento extends StatelessWidget {
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.bold,
                                   color: Colors.grey[500],
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -66,7 +66,7 @@ class ListaRastreamento extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                 ),
                                 textAlign: TextAlign.left,
                               ),
@@ -81,7 +81,7 @@ class ListaRastreamento extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
-                                  fontSize: displayWidth(context) * 0.04,
+                                  fontSize: displayWidth(context) * 0.035,
                                 ),
                                 textAlign: TextAlign.left,
                               ),

@@ -74,7 +74,7 @@ class Lista extends StatelessWidget {
                                 children: <Widget>[
                                   SizedBox(
                                     width: displayWidth(context) * 0.68,
-                                                                      child: Expanded(
+                                    child: Expanded(
                                       child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -86,7 +86,8 @@ class Lista extends StatelessWidget {
                                                 color: Colors.grey[500],
                                                 fontWeight: FontWeight.bold,
                                                 fontSize:
-                                                    displayWidth(context) * 0.03,
+                                                    displayWidth(context) *
+                                                        0.035,
                                               ),
                                               textAlign: TextAlign.left,
                                             ),
@@ -96,7 +97,8 @@ class Lista extends StatelessWidget {
                                                 fontFamily: 'Roboto',
                                                 color: Colors.grey[500],
                                                 fontSize:
-                                                    displayWidth(context) * 0.03,
+                                                    displayWidth(context) *
+                                                        0.035,
                                               ),
                                               textAlign: TextAlign.left,
                                             ),
@@ -132,7 +134,7 @@ class Lista extends StatelessWidget {
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey[500],
-                                        fontSize: displayWidth(context) * 0.03,
+                                        fontSize: displayWidth(context) * 0.035,
                                       ),
                                     ),
                                   ),
