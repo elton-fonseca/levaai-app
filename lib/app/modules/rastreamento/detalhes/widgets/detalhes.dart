@@ -32,8 +32,8 @@ class Detalhes extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
-                      left: displayWidth(context) * 0.05,
-                      right: displayWidth(context) * 0.05,
+                      left: displayWidth(context) * 0.07,
+                      right: displayWidth(context) * 0.06,
                     ),
                     child: Column(children: <Widget>[
                       SizedBox(
@@ -45,47 +45,49 @@ class Detalhes extends StatelessWidget {
                     ]),
                   ),
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Origem:',
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            color: Colors.grey[500],
-                            fontSize: displayWidth(context) * 0.04,
-                            fontWeight: FontWeight.bold
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(right: displayWidth(context) * 0.05),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Origem:',
+                            style: TextStyle(
+                                fontFamily: 'Roboto',
+                                color: Colors.grey[500],
+                                fontSize: displayWidth(context) * 0.035,
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        Text(
-                          pedido['logradouro_origem'],
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            color: Colors.grey[500],
-                            fontSize: displayWidth(context) * 0.04,
+                          Text(
+                            pedido['logradouro_origem'],
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              color: Colors.grey[500],
+                              fontSize: displayWidth(context) * 0.035,
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                        SizedBox(height: displayHeight(context) * 0.03),
-                         Text(
-                          'Destino:',
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            color: Colors.grey[500],
-                            fontSize: displayWidth(context) * 0.04,
-                            fontWeight: FontWeight.bold
+                          SizedBox(height: displayHeight(context) * 0.03),
+                          Text(
+                            'Destino:',
+                            style: TextStyle(
+                                fontFamily: 'Roboto',
+                                color: Colors.grey[500],
+                                fontSize: displayWidth(context) * 0.035,
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        Text(
-                          pedido['logradouro_destino'],
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            color: Colors.grey[500],
-                            fontSize: displayWidth(context) * 0.04,
+                          Text(
+                            pedido['logradouro_destino'],
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              color: Colors.grey[500],
+                              fontSize: displayWidth(context) * 0.035,
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -118,27 +120,32 @@ class Detalhes extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Responsável pela coleta',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: displayWidth(context) * 0.04,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[500],
-                    ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: displayWidth(context) * 0.05),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Responsável pela coleta:',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                      Text(
+                        pedido['responsavel_coleta'],
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    pedido['responsavel_coleta'],
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: displayWidth(context) * 0.04,
-                      color: Colors.grey[500],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
@@ -161,27 +168,32 @@ class Detalhes extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Responsável pela coleta',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: displayWidth(context) * 0.04,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[500],
-                    ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: displayWidth(context) * 0.05),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Responsável pela entrega:',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                      Text(
+                        pedido['responsavel_entrega'],
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    pedido['responsavel_entrega'],
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: displayWidth(context) * 0.04,
-                      color: Colors.grey[500],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
           ),

@@ -21,7 +21,8 @@ DEPENDENCIES:
   - shared_preferences_linux (from `.symlinks/plugins/shared_preferences_linux/ios`)
   - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
   - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
-
+  - juno_direct_checkout (from `.symlinks/plugins/juno_direct_checkout/ios`)
+  
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
