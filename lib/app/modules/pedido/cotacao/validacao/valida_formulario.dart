@@ -1,3 +1,6 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/cotacao/cotacao_controller.dart';
+
 import '../../../../core/models/pedido.dart';
 
 class ValidaFormulario {
@@ -59,7 +62,7 @@ class ValidaFormulario {
   }
 
   String _verificaCotacaoId() {
-    if (pedido.cotacaoId == null) {
+    if (Modular.get<CotacaoController>().cotacaoId == null) {
       return 'Erro na cotação. Volte na tela de detalhes e verifique os dados';
     }
 

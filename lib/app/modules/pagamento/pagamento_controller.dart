@@ -90,12 +90,12 @@ abstract class _PagamentoControllerBase with Store {
     };
 
     validadeTextController.afterChange = (previous, next) {
-      pagamento.validade = previous;
+      pagamento.validade = next;
       return true;
     };
 
     codigoSegurancaTextController.afterChange = (previous, next) {
-      pagamento.codigoSeguranca = previous;
+      pagamento.codigoSeguranca = next;
       return true;
     };
   }
