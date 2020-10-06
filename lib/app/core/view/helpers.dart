@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -93,5 +94,22 @@ class Helpers {
     initializeDateFormatting();
 
     return DateFormat('HH:mm').format(valor);
+  }
+
+  static String mensagemValidacaoAPI(DioError e, String mensagemErro) {
+    var mensagem = '';
+
+    if (e.response.statusCode == 422) {
+      e.response.data.forEach((campo, erros) {
+        mensagem += '$campo: ';
+        for (var erro in erros) {
+          mensagem += '$erro\n';
+        }
+      });
+
+      return mensagem;
+    }
+
+    return mensagemErro;
   }
 }

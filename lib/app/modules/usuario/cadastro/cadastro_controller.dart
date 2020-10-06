@@ -35,9 +35,11 @@ abstract class _CadastroControllerBase with Store {
       }).catchError((e) {
         Helpers.snackLevaai(
           context: context,
-          texto: "Erro ao criar Usuário",
+          texto: Helpers.mensagemValidacaoAPI(e, 'Erro ao cadastrar'),
         );
       });
+
+      return;
     }
 
     Helpers.snackLevaai(texto: valido, context: context);

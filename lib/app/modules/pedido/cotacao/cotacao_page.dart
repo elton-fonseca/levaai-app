@@ -223,7 +223,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                  'Responsável pela coleta',
+                                  'Responsável pela entrega',
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
                                     color: Color(0xFF909090),

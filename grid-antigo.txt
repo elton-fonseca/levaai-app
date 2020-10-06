@@ -16,9 +16,12 @@ criar uma task que vai guardar log de rastreamento no banco
 
 Criar mecanismo para cobrança de reentrega
 
-Na reunião definir os status
+Criar tela de esqueci a senha
 
+Na reunião definir os status
 Na reunião definir quais eventos vão para rastreamento
+Na reunião qual peso da medida relativa
+
 
 
 
