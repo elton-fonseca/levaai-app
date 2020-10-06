@@ -12,7 +12,7 @@ import '../../core/view/menu_lateral.dart';
 import '../../core/view/navbar_padrao.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'pagamento_controller.dart';
-import 'widgets/dados_cartao.dart';
+import 'widgets/cartao/dados_cartao.dart';
 import 'widgets/pagamento_dropdown.dart';
 
 class PagamentoPage extends StatefulWidget {
@@ -29,12 +29,14 @@ class _PagamentoPageState
       MaskedTextController(mask: '0000 0000 0000 0000');
   final validadeTextController = MaskedTextController(mask: '00/00');
   final codigoSegurancaTextController = MaskedTextController(mask: '0000');
+  final enrederecoFaturamentoTextController = TextEditingController();
 
   void initState() {
     controller.defineCamposValores(
-        numeroCartaoTextController: numeroCartaoTextController,
-        validadeTextController: validadeTextController,
-        codigoSegurancaTextController: codigoSegurancaTextController);
+      numeroCartaoTextController: numeroCartaoTextController,
+      validadeTextController: validadeTextController,
+      codigoSegurancaTextController: codigoSegurancaTextController,
+    );
 
     super.initState();
   }
@@ -144,6 +146,8 @@ class _PagamentoPageState
                                         validadeTextController,
                                     codigoSegurancaTextController:
                                         codigoSegurancaTextController,
+                                    enderecoFaturamentoTextController:
+                                        enrederecoFaturamentoTextController,
                                   )
                                 : Container();
                           },
@@ -152,7 +156,7 @@ class _PagamentoPageState
                       ],
                     ),
                   ),
-                  SizedBox(height: displayHeight(context) * 0.08),
+                  SizedBox(height: displayHeight(context) * 0.04),
                   Column(
                     children: <Widget>[
                       Row(
