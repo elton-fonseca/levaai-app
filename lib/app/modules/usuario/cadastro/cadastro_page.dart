@@ -3,7 +3,6 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/tema/cores_const.dart';
-import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';

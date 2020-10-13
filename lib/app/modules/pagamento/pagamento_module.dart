@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/pagamento/widgets/cartao/dados_cartao_controller.dart';
 
 import '../pedido/repositories/interfaces/pedido_repository_interface.dart';
 import '../pedido/repositories/pedido_repository.dart';
@@ -9,6 +8,7 @@ import 'pagamento_controller.dart';
 import 'pagamento_page.dart';
 import 'repositories/interfaces/pagamento_repository_interface.dart';
 import 'repositories/pagamento_repository.dart';
+import 'widgets/cartao/dados_cartao_controller.dart';
 
 class PagamentoModule extends ChildModule {
   @override

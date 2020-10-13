@@ -15,6 +15,7 @@ abstract class _DetalhesControllerBase with Store {
     value++;
   }
 
+  // ignore: missing_return
   String descritivoItem(Map item) {
     switch (item['tipo_item']) {
       case 'cubagem':

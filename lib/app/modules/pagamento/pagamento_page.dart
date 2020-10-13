@@ -38,7 +38,33 @@ class _PagamentoPageState
       codigoSegurancaTextController: codigoSegurancaTextController,
     );
 
+    controller.criarPedidos();
+
     super.initState();
+  }
+
+  Future<bool> _onWillPop() async {
+    var mensagem = 'Tem Certeza que deseja sair sem realizar o pagamento?';
+    mensagem += 'Depois precisará pagar individualmente os pedidos';
+
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Atenção!'),
+            content: Text(mensagem),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Não Sair'),
+              ),
+              FlatButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: Text('Sim'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
   }
 
   @override
@@ -47,139 +73,142 @@ class _PagamentoPageState
       decoration: BoxDecoration(
           gradient:
               LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
-      child: Scaffold(
-        appBar: NavbarPadrao().build(context),
-        drawer: MenuLateral(),
-        backgroundColor: Colors.transparent,
-        body: Builder(
-          builder: (contextScaffold) => ConteudoPadrao(
-            textoCabecalho: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Total Geral',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayWidth(context) * 0.04,
-                  ),
-                ),
-                Text(
-                  // ignore: lines_longer_than_80_chars
-                  'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayWidth(context) * 0.09,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            conteudo: SizedBox(
-              width: displayWidth(context) * 0.7,
-              child: Column(
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Scaffold(
+          appBar: NavbarPadrao().build(context),
+          drawer: MenuLateral(),
+          backgroundColor: Colors.transparent,
+          body: Builder(
+            builder: (contextScaffold) => ConteudoPadrao(
+              textoCabecalho: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        bottom: displayHeight(context) * 0.03,
-                        top: displayHeight(context) * 0.04),
-                    child: SizedBox(
-                      height: displayHeight(context) * 0.06,
-                      width: displayWidth(context) * 0.8,
-                      child: Text(
-                        'Preencha abaixo os \ndados para pagamento:',
-                        style: TextStyle(
-                          color: Colors.grey[700],
-                          fontSize: displayWidth(context) * 0.04,
+                  Text(
+                    'Total Geral',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                      fontSize: displayWidth(context) * 0.04,
+                    ),
+                  ),
+                  Text(
+                    // ignore: lines_longer_than_80_chars
+                    'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                      fontSize: displayWidth(context) * 0.09,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              conteudo: SizedBox(
+                width: displayWidth(context) * 0.7,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: displayHeight(context) * 0.03,
+                          top: displayHeight(context) * 0.04),
+                      child: SizedBox(
+                        height: displayHeight(context) * 0.06,
+                        width: displayWidth(context) * 0.8,
+                        child: Text(
+                          'Preencha abaixo os \ndados para pagamento:',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontSize: displayWidth(context) * 0.04,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                  Container(
-                    width: displayWidth(context) * 0.95,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius:
-                          BorderRadius.all(const Radius.circular(15.0)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: CoresConst.azulPadrao.withOpacity(0.1),
-                          spreadRadius: 10,
-                          blurRadius: 15,
-                          offset: Offset(0, 1),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(height: displayHeight(context) * 0.02),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: displayHeight(context) * 0.03,
-                            left: displayWidth(context) * 0.025,
-                            right: displayWidth(context) * 0.025,
+                    Container(
+                      width: displayWidth(context) * 0.95,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:
+                            BorderRadius.all(const Radius.circular(15.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: CoresConst.azulPadrao.withOpacity(0.1),
+                            spreadRadius: 10,
+                            blurRadius: 15,
+                            offset: Offset(0, 1),
                           ),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: SizedBox(
-                                  child: Observer(
-                                    builder: (_) {
-                                      return DropdownPagamento();
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Observer(
-                          builder: (_) {
-                            return controller.pagamento.tipoPagamento ==
-                                    'cartao'
-                                ? DadosCartao(
-                                    numeroCartaoTextController:
-                                        numeroCartaoTextController,
-                                    validadeTextController:
-                                        validadeTextController,
-                                    codigoSegurancaTextController:
-                                        codigoSegurancaTextController,
-                                    enderecoFaturamentoTextController:
-                                        enrederecoFaturamentoTextController,
-                                  )
-                                : Container();
-                          },
-                        ),
-                        SizedBox(height: displayWidth(context) * 0.08),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: displayHeight(context) * 0.04),
-                  Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Observer(builder: (_) {
-                            return BotaoAzul(
-                              onClick: () {
-                                controller.enviar(contextScaffold);
-                              },
-                              texto:
-                                  controller.pagamento.tipoPagamento == 'cartao'
-                                      ? 'Realizar Pagamento'
-                                      : 'Gerar Boleto',
-                            );
-                          }),
                         ],
                       ),
-                      SizedBox(height: displayHeight(context) * 0.03),
-                    ],
-                  ),
-                  SizedBox(height: displayHeight(context) * 0.08),
-                ],
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(height: displayHeight(context) * 0.02),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: displayHeight(context) * 0.03,
+                              left: displayWidth(context) * 0.025,
+                              right: displayWidth(context) * 0.025,
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                    child: Observer(
+                                      builder: (_) {
+                                        return DropdownPagamento();
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Observer(
+                            builder: (_) {
+                              return controller.pagamento.tipoPagamento ==
+                                      'cartao'
+                                  ? DadosCartao(
+                                      numeroCartaoTextController:
+                                          numeroCartaoTextController,
+                                      validadeTextController:
+                                          validadeTextController,
+                                      codigoSegurancaTextController:
+                                          codigoSegurancaTextController,
+                                      enderecoFaturamentoTextController:
+                                          enrederecoFaturamentoTextController,
+                                    )
+                                  : Container();
+                            },
+                          ),
+                          SizedBox(height: displayWidth(context) * 0.08),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: displayHeight(context) * 0.04),
+                    Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Observer(builder: (_) {
+                              return BotaoAzul(
+                                onClick: () {
+                                  controller.pagar(contextScaffold);
+                                },
+                                texto: controller.pagamento.tipoPagamento ==
+                                        'cartao'
+                                    ? 'Realizar Pagamento'
+                                    : 'Gerar Boleto',
+                              );
+                            }),
+                          ],
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.03),
+                      ],
+                    ),
+                    SizedBox(height: displayHeight(context) * 0.08),
+                  ],
+                ),
               ),
             ),
           ),

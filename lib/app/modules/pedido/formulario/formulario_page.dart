@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/stores/pedido_lista_store.dart';
+import '../../../core/stores/pedido_lista_store.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';

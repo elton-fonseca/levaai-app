@@ -71,6 +71,12 @@ abstract class _EnderecoControllerBase with Store {
         return;
       }
 
+      if (address[0].subThoroughfare == null) {
+        Helpers.snackLevaai(
+            texto: "O número deve ser informado no endereço", context: context);
+        return;
+      }
+
       _preencheEndereco(pedido, nome, address[0], textController);
 
       _verificaCidadesPercurso(context);
@@ -117,6 +123,11 @@ abstract class _EnderecoControllerBase with Store {
         pedido.enderecoOrigem != '' &&
         pedido.enderecoDestino != null &&
         pedido.enderecoDestino != '') {
+      if (pedido.enderecoOrigem == pedido.enderecoDestino) {
+        Helpers.snackLevaai(
+            texto: "Os endereços não podem ser iguais", context: context);
+      }
+
       var json = jsonEncode(pedido.cidadesJson());
 
       Modular.get<FormularioRepository>()

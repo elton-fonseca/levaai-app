@@ -41,20 +41,17 @@ abstract class _ListaControllerBase with Store {
     pedidoStore.pedidos.removeAt(indice);
   }
 
-  void criarPedido() {
-    //cria
-
+  void criarPedido(BuildContext context) {
     _redireciona();
   }
 
   void _redireciona() {
     LocalStorage.getValue<String>("token").then((token) {
       if (token.toString().isNotEmpty) {
-        Modular.to.pushNamed('/pagamento');
+        Modular.to.popAndPushNamed('/pagamento');
       } else {
-        Modular.to.pushNamed('/usuario/cadastro');
+        Modular.to.popAndPushNamed('/usuario/cadastro');
       }
     });
   }
 }
-
