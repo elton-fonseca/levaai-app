@@ -12,10 +12,10 @@ import 'repositories/cotacao_repository.dart';
 mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaTextController = TextEditingController();
   final responsavelColetaCelularTextController =
-      MaskedTextController(mask: '(00) 0000-00000');
+      MaskedTextController(mask: '(00) 00000-0000');
   final responsavelEntregaTextController = TextEditingController();
   final responsavelEntregaCelularTextController =
-      MaskedTextController(mask: '(00) 0000-00000');
+      MaskedTextController(mask: '(00) 00000-0000');
   final observacaoTextController = TextEditingController();
 
   Future<dynamic> valorCotacao;

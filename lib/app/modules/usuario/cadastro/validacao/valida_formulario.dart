@@ -46,7 +46,7 @@ class ValidaFormulario {
       return 'Informe o Telefone\n';
     }
 
-    if (Validadores.limpaMascara(usuario.telefone).length < 10) {
+    if (usuario.telefone.length < 15) {
       return 'Informe o telefone completo\n';
     }
 

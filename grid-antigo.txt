@@ -1,16 +1,24 @@
-Quando der erro no pagamento apagar o pedido
 
-No pagamento, se der erro e for cartão. Usar a mesma cobrança. 
-Para isso é possível usar o id da cobraça que vem e passar ele junto com numero do pagamento para o back end
-No backend tenta pagar novamente essa cobraça.
 
-Criar mecanismo para cobrança de reentrega
+
 
 Criar tela de esqueci a senha
 
-Na reunião definir os status
-Na reunião definir quais eventos vão para rastreamento
-Na reunião qual peso da medida relativa
+ - Como vai ficar a data de vencimento do boleto?
+ - como calular a data de coleta e entrega?
+ - como saber se o cliente está em região de dificil entrega?
+ - definir os status do pedido, pensei em:
+  Aguardando Pagamento (Aguardando confirmação boleto ou cartão)
+  Pagamento Recusado
+  Aguardando Retirada 
+  Em transporte
+  Aguardano entrega
+  Concluído
+
+ - como vai ser o envio de SMS de retirada e entrega?
+ - definir quais eventos vão para rastreamento?
+ - qual peso da medida relativa?
+ - Vai ter cobrança de reentrega?
 
 
 

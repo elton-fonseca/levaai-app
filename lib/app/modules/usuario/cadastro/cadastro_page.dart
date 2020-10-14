@@ -22,7 +22,7 @@ class CadastroPage extends StatefulWidget {
 class _CadastroPageState
     extends ModularState<CadastroPage, CadastroController> {
   final documentoTextController = MaskedTextController(mask: '000.000.000-00');
-  final telefoneTextController = MaskedTextController(mask: '(00) 0000-00000');
+  final telefoneTextController = MaskedTextController(mask: '(00) 00000-0000');
 
   void initState() {
     controller.defineCamposValores(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class ListaRastreamento extends StatelessWidget {
@@ -60,9 +61,8 @@ class ListaRastreamento extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "bbb",
-                                //Helpers.dataBr(
-                                // DateTime.parse(item['created_at'])),
+                                Helpers.dataBr(
+                                    DateTime.parse(item['created_at'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
@@ -76,9 +76,8 @@ class ListaRastreamento extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                "aaa",
-                                // Helpers.hora(
-                                //DateTime.parse(item['created_at'])),
+                                Helpers.hora(
+                                    DateTime.parse(item['created_at'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],

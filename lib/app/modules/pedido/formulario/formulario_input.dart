@@ -40,8 +40,9 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
       enderecoDestinoTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoDestino();
 
-      valorTotalTextController.text =
-          Modular.get<DetalhesController>().pegaValorTotal();
+
+      valorTotalTextController
+          .updateValue(Modular.get<DetalhesController>().pegaValorTotal());
     }
 
     controller.defineValorTotal(valorTotalTextController);

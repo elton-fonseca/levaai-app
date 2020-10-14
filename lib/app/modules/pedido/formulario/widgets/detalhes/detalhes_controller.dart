@@ -43,10 +43,7 @@ abstract class _DetalhesControllerBase with Store {
     return "selecione";
   }
 
-  String pegaValorTotal() {
-    return Modular.get<PedidoListaStore>()
-        .pedidos[indice]
-        .valorTotal
-        .toString();
+  double pegaValorTotal() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].valorTotal;
   }
 }

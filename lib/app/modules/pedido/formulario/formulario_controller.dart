@@ -39,8 +39,10 @@ abstract class _FormularioControllerBase with Store {
       var pedidoLista = Modular.get<PedidoListaStore>().pedidos[indice];
       pedidoLista.valorTotal = double.parse(novoValorTotal);
 
+      textController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textController.text.length));
+
       return true;
     };
   }
-  
 }
