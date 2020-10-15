@@ -118,6 +118,7 @@ class _FormularioPageState
                     child: Detalhes().obter(
                       context: context,
                       valorTotalTextController: valorTotalTextController,
+                      pesoTextController: pesoTextController
                     ),
                   ),
                   SizedBox(height: displayHeight(context) * 0.08),

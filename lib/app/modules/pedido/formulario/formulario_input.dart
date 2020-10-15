@@ -15,6 +15,8 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final enderecoDestinoTextController = TextEditingController();
   final valorTotalTextController =
       MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: '.');
+  final pesoTextController =
+      MoneyMaskedTextController(decimalSeparator: '', thousandSeparator: '');
 
   @override
   void initState() {
@@ -40,12 +42,15 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
       enderecoDestinoTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoDestino();
 
-
       valorTotalTextController
           .updateValue(Modular.get<DetalhesController>().pegaValorTotal());
+
+      pesoTextController.text =
+          Modular.get<DetalhesController>().pegaPesoTotal();
     }
 
     controller.defineValorTotal(valorTotalTextController);
+    controller.definePesoTotal(pesoTextController);
 
     super.initState();
   }

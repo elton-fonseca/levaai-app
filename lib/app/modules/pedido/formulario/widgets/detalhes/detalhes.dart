@@ -9,6 +9,7 @@ class Detalhes {
   Widget obter({
     @required BuildContext context,
     @required TextEditingController valorTotalTextController,
+    @required TextEditingController pesoTextController,
   }) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,7 +90,7 @@ class Detalhes {
                 children: <Widget>[
                   SizedBox(
                     child: Observer(builder: (_) {
-                      return DropdownPeso();
+                      return DropdownPeso(pesoTextController);
                     }),
                   ),
                 ],

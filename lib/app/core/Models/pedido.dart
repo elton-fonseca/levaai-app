@@ -31,6 +31,9 @@ abstract class _PedidoBase with Store {
   double valorTotal;
 
   @observable
+  bool pesoMaiorQue100 = false;
+
+  @observable
   String pesoTotal;
 
   @observable

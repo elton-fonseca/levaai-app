@@ -45,4 +45,17 @@ abstract class _FormularioControllerBase with Store {
       return true;
     };
   }
+
+    @action
+  void definePesoTotal(MoneyMaskedTextController textController) {
+    textController.afterChange = (previous, next) {
+      var pedidoLista = Modular.get<PedidoListaStore>().pedidos[indice];
+      pedidoLista.pesoTotal = previous;
+
+      textController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textController.text.length));
+
+      return true;
+    };
+  }
 }

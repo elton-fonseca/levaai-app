@@ -9,6 +9,10 @@ class DropdownPeso extends StatefulWidget {
   _DropdownPesoState createState() {
     return _DropdownPesoState();
   }
+
+  DropdownPeso(this.pesoTextController);
+
+  TextEditingController pesoTextController;
 }
 
 class _DropdownPesoState extends State<DropdownPeso> {
@@ -16,6 +20,33 @@ class _DropdownPesoState extends State<DropdownPeso> {
 
   @override
   Widget build(BuildContext context) {
+    if (Modular.get<DetalhesController>().pesoMaiorQue100() == true) {
+      return SizedBox(
+        width: displayWidth(context) * 0.5,
+        child: TextFormField(
+          controller: widget.pesoTextController,
+          style: TextStyle(
+            fontFamily: 'Roboto',
+            color: Colors.grey[600],
+            fontSize: displayWidth(context) * 0.032,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.end,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: '000 kg',
+            hintStyle: TextStyle(
+              fontFamily: 'Roboto',
+              color: Colors.grey[600],
+              fontSize: displayWidth(context) * 0.032,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    }
+
     return Container(
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
@@ -92,9 +123,25 @@ class _DropdownPesoState extends State<DropdownPeso> {
               ),
               value: '99',
             ),
+            DropdownMenuItem<String>(
+              child: Text(
+                'Mais que 100KG',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  fontSize: displayWidth(context) * 0.032,
+                ),
+              ),
+              value: 'selecione-maior-100',
+            ),
           ],
           onChanged: (value) {
             setState(() => selected = value);
+
+            if (value == 'selecione-maior-100') {
+              Modular.get<DetalhesController>().definePesoMaiorQue100();
+            }
 
             Modular.get<DetalhesController>().definePesoTotal(value);
           },

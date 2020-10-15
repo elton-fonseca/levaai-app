@@ -46,4 +46,13 @@ abstract class _DetalhesControllerBase with Store {
   double pegaValorTotal() {
     return Modular.get<PedidoListaStore>().pedidos[indice].valorTotal;
   }
+
+  @action
+  void definePesoMaiorQue100() {
+    Modular.get<PedidoListaStore>().pedidos[indice].pesoMaiorQue100 = true;
+  }
+
+  bool pesoMaiorQue100() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].pesoMaiorQue100;
+  }
 }

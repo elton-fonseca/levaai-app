@@ -81,7 +81,9 @@ class ValidaFormulario {
   }
 
   String _pesoTotal() {
-    if (pedido.pesoTotal == null || pedido.pesoTotal == 'selecione') {
+    if (pedido.pesoTotal == null ||
+        pedido.pesoTotal == 'selecione' ||
+        pedido.pesoTotal == '000') {
       return 'Informe o Peso dos Itens\n';
     }
 
