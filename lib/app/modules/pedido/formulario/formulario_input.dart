@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/repositories/monitoramento_repository.dart';
 
 import '../../../core/stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
@@ -51,6 +52,9 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
 
     controller.defineValorTotal(valorTotalTextController);
     controller.definePesoTotal(pesoTextController);
+
+    Modular.get<MonitoramentoRepository>()
+        .registrarAcao('formulario/${widget.acao}/${widget.id}');
 
     super.initState();
   }

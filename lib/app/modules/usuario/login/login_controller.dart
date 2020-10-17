@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -29,6 +31,9 @@ abstract class _LoginControllerBase with Store {
       GlobalKey<FormState> formKey, BuildContext context, String destino) {
     if (formKey.currentState.validate()) {
       Modular.get<UsuarioRepository>().login(email, senha).then((resposta) {
+        LocalStorage.setValue<String>(
+            'usuario', jsonEncode(resposta["usuario"]));
+
         LocalStorage.setValue<String>('token', resposta["token"]).then((_) {
           Modular.get<Dio>().options.headers["Authorization"] =
               'Bearer ${resposta["token"]}';

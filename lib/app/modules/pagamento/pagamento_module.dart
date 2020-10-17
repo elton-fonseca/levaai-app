@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../core/repositories/interfaces/monitoramento_repository_interface.dart';
+import '../../core/repositories/monitoramento_repository.dart';
 import '../pedido/repositories/interfaces/pedido_repository_interface.dart';
 import '../pedido/repositories/pedido_repository.dart';
 import 'confirmacao_page.dart';
@@ -18,6 +20,9 @@ class PagamentoModule extends ChildModule {
         Bind<IPedidoRepository>((i) => PedidoRepository(Modular.get<Dio>())),
         Bind((i) => PagamentoController()),
         Bind((i) => DadosCartaoController()),
+        Bind<IMonitoramentoRepository>((i) {
+          return MonitoramentoRepository(Modular.get<Dio>());
+        }),
       ];
 
   @override

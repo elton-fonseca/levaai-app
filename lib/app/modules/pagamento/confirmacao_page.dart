@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/repositories/monitoramento_repository.dart';
 
 import '../../core/tema/cores_const.dart';
 import '../../core/view/botao_branco.dart';
@@ -16,6 +17,13 @@ class ConfirmacaoPage extends StatefulWidget {
 
 class _ConfirmacaoPageState
     extends ModularState<ConfirmacaoPage, PagamentoController> {
+  void initState() {
+    Modular.get<MonitoramentoRepository>()
+        .registrarAcao('confirmacao_pagamento');
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

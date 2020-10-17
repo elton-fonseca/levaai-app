@@ -3,6 +3,7 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../core/repositories/monitoramento_repository.dart';
 import '../../core/stores/pedido_lista_store.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/botao_azul.dart';
@@ -37,6 +38,8 @@ class _PagamentoPageState
       validadeTextController: validadeTextController,
       codigoSegurancaTextController: codigoSegurancaTextController,
     );
+
+    Modular.get<MonitoramentoRepository>().registrarAcao('pagamento');
 
     controller.criarPedidos();
 

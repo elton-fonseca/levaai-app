@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/repositories/monitoramento_repository.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
@@ -29,6 +30,8 @@ class _CadastroPageState
       documentoTextController: documentoTextController,
       telefoneTextController: telefoneTextController,
     );
+
+    Modular.get<MonitoramentoRepository>().registrarAcao('cadastro');
 
     super.initState();
   }

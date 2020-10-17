@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -9,13 +11,28 @@ class MenuLateral extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: Text("Elton Fonseca"),
-            accountEmail: Text("eltonfonseca@elton.com.br"),
-            currentAccountPicture: Image(
-                image: AssetImage(
-              'assets/imagens/logo.png',
-            )),
+          FutureBuilder(
+            future: LocalStorage.getValue<String>('usuario'),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                var usuario = json.decode(snapshot.data);
+                return UserAccountsDrawerHeader(
+                  accountName: Text(usuario['name']),
+                  accountEmail: Text(usuario['email']),
+                  currentAccountPicture: Image(
+                      image: AssetImage(
+                    'assets/imagens/logo.png',
+                  )),
+                );
+              } else if (snapshot.hasError) {
+                return Text("erro ao obter dados");
+              }
+
+              // By default, show a loading spinner.
+              return CircularProgressIndicator(
+                backgroundColor: Colors.white,
+              );
+            },
           ),
           ListTile(
               leading: Icon(Icons.add),
@@ -38,18 +55,12 @@ class MenuLateral extends StatelessWidget {
               title: Text("Sair"),
               subtitle: Text("Deslogar do sistema"),
               onTap: () {
+                LocalStorage.removeValue('usuario');
                 LocalStorage.removeValue('token').then((value) {
                   Modular.get<Dio>().options.headers.remove('Authorization');
                   Modular.to.popUntil(ModalRoute.withName('/'));
                   Modular.to.pushNamed('/');
                 });
-              }),
-          ListTile(
-              leading: Icon(Icons.assignment_return),
-              title: Text("temp"),
-              subtitle: Text("temporário"),
-              onTap: () {
-                Modular.to.pushNamed('/pagamento');
               }),
         ],
       ),

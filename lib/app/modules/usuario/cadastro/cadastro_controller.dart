@@ -27,6 +27,9 @@ abstract class _CadastroControllerBase with Store {
       var json = jsonEncode(usuario.usuarioParaJson());
 
       Modular.get<UsuarioRepository>().cadastrar(json).then((resposta) {
+        LocalStorage.setValue<String>(
+            'usuario', jsonEncode(resposta["usuario"]));
+
         LocalStorage.setValue<String>('token', resposta["token"]).then((_) {
           Modular.get<Dio>().options.headers["Authorization"] =
               'Bearer ${resposta["token"]}';

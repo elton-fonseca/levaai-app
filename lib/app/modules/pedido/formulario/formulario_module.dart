@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../core/repositories/interfaces/monitoramento_repository_interface.dart';
+import '../../../core/repositories/monitoramento_repository.dart';
 import '../../../core/stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
@@ -21,6 +23,9 @@ class FormularioModule extends ChildModule {
         Bind((i) => DetalhesController()),
         Bind<IFormularioRepository>((i) {
           return FormularioRepository(Modular.get<Dio>());
+        }),
+        Bind<IMonitoramentoRepository>((i) {
+          return MonitoramentoRepository(Modular.get<Dio>());
         }),
       ];
 
