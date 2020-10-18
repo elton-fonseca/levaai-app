@@ -8,6 +8,7 @@ import 'pagamento_controller.dart';
 import 'pagamento_page.dart';
 import 'repositories/interfaces/pagamento_repository_interface.dart';
 import 'repositories/pagamento_repository.dart';
+import 'widgets/cartao/dados_cartao_controller.dart';
 
 class PagamentoModule extends ChildModule {
   @override
@@ -16,6 +17,7 @@ class PagamentoModule extends ChildModule {
             (i) => PagamentoRepository(Modular.get<Dio>())),
         Bind<IPedidoRepository>((i) => PedidoRepository(Modular.get<Dio>())),
         Bind((i) => PagamentoController()),
+        Bind((i) => DadosCartaoController()),
       ];
 
   @override

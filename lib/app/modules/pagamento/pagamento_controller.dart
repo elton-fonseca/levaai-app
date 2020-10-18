@@ -1,15 +1,14 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/view/botao_branco.dart';
 import 'package:mobx/mobx.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/models/pagamento.dart';
 import '../../core/stores/pedido_lista_store.dart';
+import '../../core/view/botao_branco.dart';
 import '../../core/view/helpers.dart';
 import '../pedido/repositories/pedido_repository.dart';
 import 'repositories/pagamento_repository.dart';
@@ -25,42 +24,39 @@ abstract class _PagamentoControllerBase with Store {
 
   Map pagamentoApiResponse;
 
-  void enviar(BuildContext context) {
+  void criarPedidos() {
+    var pedidoLista = Modular.get<PedidoListaStore>();
+    var pedidosJson = jsonEncode(pedidoLista.pedidosCompletosJson());
+
+    Modular.get<PedidoRepository>().cadastrar(pedidosJson).then((pedidosIds) {
+      pedidoLista.populaIdsPedidos(pedidosIds);
+    });
+  }
+
+  void pagar(BuildContext context) {
     var valido = ValidaFormulario().validar();
 
     if (valido.isEmpty) {
-      var pedidoLista = Modular.get<PedidoListaStore>();
-      var pedidosJson = jsonEncode(pedidoLista.pedidosCompletosJson());
+      pagamento.pagamentoParaJson().then((pagamentoMapa) {
+        var json = jsonEncode(pagamentoMapa);
 
-      Modular.get<PedidoRepository>().cadastrar(pedidosJson).then((pedidosIds) {
-        pedidoLista.populaIdsPedidos(pedidosIds);
-
-        pagamento.pagamentoParaJson().then((pagamentoMapa) {
-          var json = jsonEncode(pagamentoMapa);
-
-          Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
-            if (pagamento.tipoPagamento == 'cartao' &&
-                resposta['status'] == 'reprovado') {
-              Helpers.snackLevaai(
-                  texto: resposta['pagamento_id_juno'], context: context);
-            } else {
-              pagamentoApiResponse = resposta;
-              Navigator.of(context)..pop()..pop()..pop();
-              Modular.to.pushNamed('pagamento/confirmacao');
-            }
-          }).catchError((e) {
+        Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
+          if (pagamento.tipoPagamento == 'cartao' &&
+              resposta['status'] == 'reprovado') {
+            pagamento.cobrancaJunoID = resposta['cobranca_id_juno'];
             Helpers.snackLevaai(
-                texto: "Erro no pagamento  ${e.message} ${e.response.data}",
-                context: context);
-          });
+                texto: resposta['pagamento_id_juno'], context: context);
+          } else {
+            pagamentoApiResponse = resposta;
+            Modular.to.pushNamed('pagamento/confirmacao');
+          }
+        }).catchError((e) {
+          Helpers.snackLevaai(
+              texto: "Erro no pagamento  ${e.message} ${e.response.data}",
+              context: context);
         });
-
-        //var json = jsonEncode(pagamento.pagamentoParaJson());
-      }).catchError((e) {
-        Helpers.snackLevaai(texto: "Erro ao criar pedidos", context: context);
       });
 
-      //Modular.to.pushNamed('/rastreamento/lista');
       return;
     }
 

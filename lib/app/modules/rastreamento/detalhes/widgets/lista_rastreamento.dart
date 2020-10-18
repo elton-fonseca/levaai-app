@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class ListaRastreamento extends StatelessWidget {
@@ -9,7 +8,7 @@ class ListaRastreamento extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context) * 0.001,
+      height: displayHeight(context) * 0.3,
       constraints: BoxConstraints(
         maxHeight: displayHeight(context) * 0.5,
       ),
@@ -61,8 +60,9 @@ class ListaRastreamento extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                Helpers.dataBr(
-                                    DateTime.parse(item['created_at'])),
+                                "bbb",
+                                //Helpers.dataBr(
+                                // DateTime.parse(item['created_at'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
@@ -76,8 +76,9 @@ class ListaRastreamento extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                Helpers.hora(
-                                    DateTime.parse(item['created_at'])),
+                                "aaa",
+                                // Helpers.hora(
+                                //DateTime.parse(item['created_at'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],

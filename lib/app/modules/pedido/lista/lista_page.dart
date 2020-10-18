@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/local_storage.dart';
 
 import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
@@ -122,7 +121,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                         largura: 0.4,
                         texto: 'Pagamento',
                         onClick: () {
-                          controller.criarPedido();
+                          controller.criarPedido(context);
                         }),
                   ],
                 ),

@@ -4,16 +4,6 @@ No pagamento, se der erro e for cartão. Usar a mesma cobrança.
 Para isso é possível usar o id da cobraça que vem e passar ele junto com numero do pagamento para o back end
 No backend tenta pagar novamente essa cobraça.
 
-criar um campo de endereço quando for cartão
-
-gravar no campo do pedido no banco informando que ele foi pago
-
-No cadastro de usuário, validar email e senha se já existe e mostrar mensagem
-
-validar se o usuário definiu numero nas cobranças
-
-criar uma task que vai guardar log de rastreamento no banco
-
 Criar mecanismo para cobrança de reentrega
 
 Criar tela de esqueci a senha

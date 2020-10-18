@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/rastreamento/detalhes/detalhes_controller.dart';
 
 import '../../../../core/view/tamanhos_relativos.dart';
+import '../detalhes_controller.dart';
 
 class ListaItensPedido extends StatelessWidget {
   ListaItensPedido({this.itens});

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/native_imp.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/stores/identificacao_store.dart';
+import '../../../core/stores/identificacao_store.dart';
 import 'interfaces/usuario_repository_interface.dart';
 
 class UsuarioRepository implements IUsuarioRepository {
