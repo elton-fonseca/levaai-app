@@ -104,7 +104,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                     },
                   ),
                 ),
-                SizedBox(height: displayHeight(context) * 0.05),
+                SizedBox(height: displayHeight(context) * 0.03),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -126,7 +126,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                         }),
                   ],
                 ),
-                SizedBox(height: displayHeight(context) * 0.05),
+                SizedBox(height: displayHeight(context) * 0.0),
               ],
             ),
           ),

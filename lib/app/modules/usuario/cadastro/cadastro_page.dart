@@ -47,13 +47,13 @@ class _CadastroPageState
         body: Builder(
           builder: (contextScaffold) => ConteudoPadrao(
             textoCabecalho: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
-                      left: displayWidth(context) * 0.1,
-                      top: displayWidth(context) * 0.1),
+                      right: displayWidth(context) * 0.09,
+                      top: displayWidth(context) * 0.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
                         'Não possui uma conta?',
@@ -67,37 +67,61 @@ class _CadastroPageState
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: displayWidth(context) * 0.1,
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      Text(
-                        'Entre com seus dados! | ',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                          fontSize: displayWidth(context) * 0.03,
-                          fontWeight: FontWeight.w500,
-                        ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: displayWidth(context) * 0.09,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Modular.to.pushNamed('/login/formulario/pagamento');
-                        },
-                        child: Text(
-                          'Já sou cadastrado',
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            color: Colors.white,
-                            fontSize: displayWidth(context) * 0.03,
-                            fontWeight: FontWeight.bold,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Entre com seus dados! ',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              color: Colors.white,
+                              fontSize: displayWidth(context) * 0.03,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: displayWidth(context) * 0.09,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Já possui conta? ',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              color: Colors.white,
+                              fontSize: displayWidth(context) * 0.03,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Modular.to.pushNamed('/login/formulario/pagamento');
+                            },
+                            child: Text(
+                              'Clique aqui',
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                color: Colors.white,
+                                fontSize: displayWidth(context) * 0.03,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
