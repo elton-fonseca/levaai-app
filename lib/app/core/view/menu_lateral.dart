@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../modules/usuario/login/recuperar_senha_page.dart';
+import '../../modules/usuario/login/resetar_senha_page.dart';
 import '../services/local_storage.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -51,6 +53,24 @@ class MenuLateral extends StatelessWidget {
               onTap: () {
                 Modular.to.pushNamed('/pagamento');
               }),
+          ListTile(
+              leading: Icon(Icons.assignment_return),
+              title: Text("Recuperar Sennha"),
+              subtitle: Text("Página Recuperar Senha"),
+              onTap: () {
+                      Navigator.push(context, new MaterialPageRoute(
+                          builder: (context) => RecuperarSenha()
+                      ));;
+                    }),
+          ListTile(
+              leading: Icon(Icons.assignment_return),
+              title: Text("Resetar Senha"),
+              subtitle: Text("Página Resetar Senha"),
+              onTap: () {
+                      Navigator.push(context, new MaterialPageRoute(
+                          builder: (context) => ResetarSenha()
+                      ));;
+                    }),
         ],
       ),
     );

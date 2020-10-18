@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/modules/usuario/login/recuperar_senha_page.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class Rodape extends StatelessWidget {
@@ -16,24 +17,24 @@ class Rodape extends StatelessWidget {
                 fontSize: displayWidth(context) * 0.031,
               ),
             ),
-            Text(
-              "Clique Aqui.",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: displayWidth(context) * 0.031,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, new MaterialPageRoute(
+                          builder: (context) => RecuperarSenha()
+                      ));
+              },
+              child: Text(
+                'Clique aqui',
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.white,
+                  fontSize: displayWidth(context) * 0.03,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ),
           ],
         ),
-        SizedBox(height: displayHeight(context) * 0.21), 
-        Text(
-          "2020 LevaAi - Todos os direitos reservados",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: displayWidth(context) * 0.025,
-          ),
-        )
       ],
     );
   }
