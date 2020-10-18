@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'resetar_senha_page.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_branco.dart';
 import '../../../core/view/tamanhos_relativos.dart';
@@ -73,8 +74,10 @@ class RecuperarSenha extends StatelessWidget {
                 largura: 0.8,
                 texto: 'Enviar',
                 onClick: () {
-                  Modular.to.popAndPushNamed('rastreamento/lista');
-                }),
+                      Navigator.push(context, new MaterialPageRoute(
+                          builder: (context) => ResetarSenha()
+                      ));;
+                    }),
           ],
         ),
       ),
