@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/rastreamento/detalhes/widgets/rastreamento/tratar_itens_rastreamento.dart';
 
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
@@ -9,7 +10,7 @@ import '../repositories/rastreamento_repository.dart';
 import 'detalhes_controller.dart';
 import 'widgets/detalhes.dart';
 import 'widgets/lista_itens_pedido.dart';
-import 'widgets/lista_rastreamento.dart';
+import 'widgets/rastreamento/lista_rastreamento.dart';
 
 class DetalhesPage extends StatefulWidget {
   final int id;
@@ -132,7 +133,9 @@ class _DetalhesPageState
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             return ListaRastreamento(
-                                itens: snapshot.data['rastreamento']);
+                              itens: TratarItensRastreamento()
+                                  .executar(snapshot.data),
+                            );
                           } else if (snapshot.hasError) {
                             return Text("erro ao obter dados");
                           }

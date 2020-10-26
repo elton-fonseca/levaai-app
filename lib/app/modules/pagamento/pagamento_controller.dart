@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/models/pedido.dart';
 import 'package:mobx/mobx.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,8 +38,8 @@ abstract class _PagamentoControllerBase with Store {
     var valido = ValidaFormulario().validar();
 
     if (valido.isEmpty) {
-      pagamento.pagamentoParaJson().then((pagamentoMapa) {
-        var json = jsonEncode(pagamentoMapa);
+      pagamento.pagamentoParaJson().then((pagamentoMap) {
+        var json = jsonEncode(pagamentoMap);
 
         Modular.get<PagamentoRepository>().cadastrar(json).then((resposta) {
           if (pagamento.tipoPagamento == 'cartao' &&
@@ -61,6 +62,19 @@ abstract class _PagamentoControllerBase with Store {
     }
 
     Helpers.snackLevaai(texto: valido, context: context);
+  }
+
+  void chamarPagamentoPedido(Map pedido, String tipo) {
+    var listaPedido = Modular.get<PedidoListaStore>();
+    var pedidoObjeto = Pedido();
+    pedidoObjeto.idPedido = pedido['id'];
+
+    listaPedido.pedidos.add(pedidoObjeto);
+
+    listaPedido.valorTotalPedidos =
+        double.parse(pedido['cotacao']['valor_calculado_cotacao']);
+
+    Modular.to.popAndPushNamed('/pagamento/$tipo');
   }
 
   // ignore: use_setters_to_change_properties
@@ -145,7 +159,7 @@ Código Barras boleto: ${pagamentoApiResponse['boleto_codigo_juno']}""";
         if (await canLaunch(url)) {
           await launch(url);
         } else {
-          throw 'Could not launch $url';
+          throw 'Boleto não encontrado';
         }
       },
     );

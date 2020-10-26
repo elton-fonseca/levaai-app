@@ -27,7 +27,8 @@ class PagamentoModule extends ChildModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter('/pagamento', child: (_, args) => PagamentoPage()),
+        ModularRouter('/pagamento/:acao',
+            child: (_, args) => PagamentoPage(acao: args.params['acao'])),
         ModularRouter('/pagamento/confirmacao',
             child: (_, args) => ConfirmacaoPage()),
       ];

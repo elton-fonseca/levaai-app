@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/core/view/botao_azul.dart';
 import 'package:levaai1/app/core/view/helpers.dart';
-import '../../../../core/view/tamanhos_relativos.dart';
+import '../../../../../core/view/tamanhos_relativos.dart';
 
 class ListaRastreamento extends StatelessWidget {
   ListaRastreamento({this.itens});
@@ -31,7 +32,8 @@ class ListaRastreamento extends StatelessWidget {
                           SizedBox(
                             child: Icon(Icons.fiber_manual_record,
                                 size: displayWidth(context) * 0.05,
-                                color: Color(0xFF95c330)),
+                                color:
+                                    item['cor_bolinha'] ?? Color(0xFF95c330)),
                           )
                         ],
                       ),
@@ -61,8 +63,7 @@ class ListaRastreamento extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                Helpers.dataBr(
-                                    DateTime.parse(item['created_at'])),
+                                Helpers.dataBr(DateTime.parse(item['data'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
@@ -76,8 +77,7 @@ class ListaRastreamento extends StatelessWidget {
                                   top: displayHeight(context) * 0.005,
                                   left: displayWidth(context) * 0.05),
                               child: Text(
-                                Helpers.hora(
-                                    DateTime.parse(item['created_at'])),
+                                Helpers.hora(DateTime.parse(item['data'])),
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   color: Colors.grey[500],
@@ -86,6 +86,26 @@ class ListaRastreamento extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
+                            Builder(
+                              builder: (context) {
+                                if (item['botao'] == true) {
+                                  return Row(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          BotaoAzul(
+                                            texto: item['botao_mensagem'],
+                                            onClick: item['botao_acao'],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              },
+                            )
                           ],
                         ),
                         Column(
@@ -99,7 +119,7 @@ class ListaRastreamento extends StatelessWidget {
                           ],
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
                 Divider(

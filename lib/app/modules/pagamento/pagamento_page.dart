@@ -17,8 +17,11 @@ import 'widgets/cartao/dados_cartao.dart';
 import 'widgets/pagamento_dropdown.dart';
 
 class PagamentoPage extends StatefulWidget {
+  final String acao;
+
   final String title;
-  const PagamentoPage({Key key, this.title = "Pagamento"}) : super(key: key);
+  const PagamentoPage({@required this.acao, Key key, this.title = "Pagamento"})
+      : super(key: key);
 
   @override
   _PagamentoPageState createState() => _PagamentoPageState();
@@ -41,7 +44,9 @@ class _PagamentoPageState
 
     Modular.get<MonitoramentoRepository>().registrarAcao('pagamento');
 
-    controller.criarPedidos();
+    if (widget.acao == 'criar') {
+      controller.criarPedidos();
+    }
 
     super.initState();
   }

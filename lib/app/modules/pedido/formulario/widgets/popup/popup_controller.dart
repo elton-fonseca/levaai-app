@@ -87,14 +87,14 @@ abstract class _PopupControllerBase with Store {
 
   String volumeFormatado(ItensPedido item) {
     if (item.cubagem == 0) {
-      var resultado = 'Dimensões: ${item.largura.toString()}x';
-      resultado += '${item.altura.toString()}x';
-      resultado += '${item.comprimento.toString()}';
+      var resultado = 'Dimensões: ${item.largura.toString()}cmx';
+      resultado += '${item.altura.toString()}cmx';
+      resultado += '${item.comprimento.toString()}cm';
 
       return resultado;
     }
 
-    return 'Cubagem: ${item.cubagem.toString()}';
+    return 'Cubagem: ${item.cubagem.toString()}cm³';
   }
 
   void _limpar() {

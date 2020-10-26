@@ -16,8 +16,8 @@ class PopupCorpo extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 50, top: 0, right: 50, bottom: 0),
             child: Text(
-              'Adicione um novo pedido com as '
-              'medidas exatas do(s) seu(s) item(s).',
+              'Adicionar um novo item usando medidas exatas.\n'
+              'A medida usada deve ser centímetro.',
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 15,

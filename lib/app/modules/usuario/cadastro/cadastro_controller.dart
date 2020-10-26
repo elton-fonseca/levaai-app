@@ -33,7 +33,7 @@ abstract class _CadastroControllerBase with Store {
         LocalStorage.setValue<String>('token', resposta["token"]).then((_) {
           Modular.get<Dio>().options.headers["Authorization"] =
               'Bearer ${resposta["token"]}';
-          Modular.to.popAndPushNamed('/pagamento');
+          Modular.to.popAndPushNamed('/pagamento/criar');
         });
       }).catchError((e) {
         Helpers.snackLevaai(
