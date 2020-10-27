@@ -90,8 +90,23 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 }),
                           ]),
                         ),
-                        Rodape()
+                        Rodape(),
                       ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Align(
+                      alignment: FractionalOffset.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 10.0),
+                        child: Text(
+                        "2020 LevaAi - Todos os direitos reservados",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: displayWidth(context) * 0.025,
+                        ),
+                      ),
+                      ),
                     ),
                   ),
                 ],
