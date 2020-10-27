@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:levaai1/app/modules/usuario/login/recuperar_senha_page.dart';
+
 import '../../../../core/view/tamanhos_relativos.dart';
+import '../recuperar_senha_page.dart';
 
 class Rodape extends StatelessWidget {
   @override
@@ -19,9 +20,8 @@ class Rodape extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, new MaterialPageRoute(
-                          builder: (context) => RecuperarSenha()
-                      ));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RecuperarSenha()));
               },
               child: Text(
                 'Clique aqui',

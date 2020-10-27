@@ -48,7 +48,7 @@ abstract class _ListaControllerBase with Store {
   void _redireciona() {
     LocalStorage.getValue<String>("token").then((token) {
       if (token.toString().isNotEmpty) {
-        Modular.to.popAndPushNamed('/pagamento');
+        Modular.to.popAndPushNamed('/pagamento/criar');
       } else {
         Modular.to.popAndPushNamed('/usuario/cadastro');
       }

@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../../core/view/tamanhos_relativos.dart';
 import '../detalhes_controller.dart';
 
+// ignore: must_be_immutable
 class DropdownPeso extends StatefulWidget {
   @override
   _DropdownPesoState createState() {

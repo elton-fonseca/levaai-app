@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/repositories/monitoramento_repository.dart';
 
+import '../../../core/repositories/monitoramento_repository.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/menu_lateral.dart';
@@ -108,7 +108,8 @@ class _CadastroPageState
                           ),
                           GestureDetector(
                             onTap: () {
-                              Modular.to.pushNamed('/login/formulario/pagamento');
+                              Modular.to
+                                  .pushNamed('/login/formulario/pagamento');
                             },
                             child: Text(
                               'Clique aqui',
