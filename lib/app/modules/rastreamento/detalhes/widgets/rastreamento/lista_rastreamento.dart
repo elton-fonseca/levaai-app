@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/view/botao_azul.dart';
+import '../../../../../core/view/botao_selecionar_cor.dart';
 import '../../../../../core/view/helpers.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
 
@@ -12,7 +12,7 @@ class ListaRastreamento extends StatelessWidget {
     return Container(
       height: displayHeight(context) * 0.3,
       constraints: BoxConstraints(
-        maxHeight: displayHeight(context) * 0.5,
+        minHeight: displayHeight(context) * 0.3,
       ),
       child: ListView.builder(
           itemCount: itens.length,
@@ -43,19 +43,22 @@ class ListaRastreamento extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: displayHeight(context) * 0.01,
-                                  left: displayWidth(context) * 0.05),
-                              child: Text(
-                                item['mensagem'],
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey[500],
-                                  fontSize: displayWidth(context) * 0.035,
+                            SizedBox(
+                              width: displayWidth(context) * 0.7,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    top: displayHeight(context) * 0.01,
+                                    left: displayWidth(context) * 0.05),
+                                child: Text(
+                                  item['mensagem'],
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[500],
+                                    fontSize: displayWidth(context) * 0.035,
+                                  ),
+                                  textAlign: TextAlign.left,
                                 ),
-                                textAlign: TextAlign.left,
                               ),
                             ),
                             Padding(
@@ -86,31 +89,39 @@ class ListaRastreamento extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            Builder(
-                              builder: (context) {
-                                if (item['botao'] == true) {
-                                  return Row(
-                                    children: [
-                                      Column(
-                                        children: [
-                                          BotaoAzul(
-                                            texto: item['botao_mensagem'],
-                                            onClick: item['botao_acao'],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  );
-                                } else {
-                                  return Container();
-                                }
-                              },
-                            )
                           ],
                         ),
                       ],
                     ),
                   ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: displayHeight(context) * 0.009,
+                  ),
+                  child: Builder(
+                    builder: (context) {
+                      if (item['botao'] == true) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                BotaoSelecionarCor(
+                                  largura: 0.85,
+                                  texto: item['botao_mensagem'],
+                                  onClick: item['botao_acao'],
+                                  cor: item['cor_bolinha'],
+                                )
+                              ],
+                            )
+                          ],
+                        );
+                      } else {
+                        return Container();
+                      }
+                    },
+                  ),
                 ),
                 Divider(
                   color: Colors.white,
