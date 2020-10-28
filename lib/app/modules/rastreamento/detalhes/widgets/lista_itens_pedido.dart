@@ -12,7 +12,10 @@ class ListaItensPedido extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context) * 0.3,
+      height: displayHeight(context) * 0.2,
+      constraints: BoxConstraints(
+        minHeight: displayHeight(context) * 0.2,
+      ),
       child: ListView.builder(
           itemCount: itens.length,
           itemBuilder: (context, index) {

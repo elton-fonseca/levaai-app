@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/core/view/botao_vermelho.dart';
 import '../../../../../core/view/botao_azul.dart';
 import '../../../../../core/view/helpers.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
@@ -12,7 +13,7 @@ class ListaRastreamento extends StatelessWidget {
     return Container(
       height: displayHeight(context) * 0.3,
       constraints: BoxConstraints(
-        maxHeight: displayHeight(context) * 0.5,
+        minHeight: displayHeight(context) * 0.3,
       ),
       child: ListView.builder(
           itemCount: itens.length,
@@ -43,19 +44,22 @@ class ListaRastreamento extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: displayHeight(context) * 0.01,
-                                  left: displayWidth(context) * 0.05),
-                              child: Text(
-                                item['mensagem'],
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey[500],
-                                  fontSize: displayWidth(context) * 0.035,
+                            SizedBox(
+                              width: displayWidth(context) * 0.7,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    top: displayHeight(context) * 0.01,
+                                    left: displayWidth(context) * 0.05),
+                                child: Text(
+                                  item['mensagem'],
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[500],
+                                    fontSize: displayWidth(context) * 0.035,
+                                  ),
+                                  textAlign: TextAlign.left,
                                 ),
-                                textAlign: TextAlign.left,
                               ),
                             ),
                             Padding(
@@ -86,41 +90,37 @@ class ListaRastreamento extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            Builder(
-                              builder: (context) {
-                                if (item['botao'] == true) {
-                                  return Row(
-                                    children: [
-                                      Column(
-                                        children: [
-                                          BotaoAzul(
-                                            texto: item['botao_mensagem'],
-                                            onClick: item['botao_acao'],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  );
-                                } else {
-                                  return Container();
-                                }
-                              },
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.345),
-                              child: Image.asset("assets/imagens/pedido-ok.png",
-                                  width: displayHeight(context) * 0.048),
-                            ),
                           ],
                         ),
                       ],
                     ),
                   ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: displayHeight(context) * 0.005,
+                      ),
+                  child: Builder(
+                    builder: (context) {
+                      if (item['botao'] == true) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                BotaoAzul(
+                                  texto: item['botao_mensagem'],
+                                  onClick: item['botao_acao'],
+                                )
+                              ],
+                            )
+                          ],
+                        );
+                      } else {
+                        return Container();
+                      }
+                    },
+                  ),
                 ),
                 Divider(
                   color: Colors.white,
