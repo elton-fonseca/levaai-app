@@ -32,6 +32,8 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     if (widget.acao == 'criar' && widget.id == 0) {
       Modular.get<PedidoListaStore>().limpar();
       Modular.get<PedidoListaStore>().valorTotalPedidos = 0;
+
+      controller.avisoLocaisAtendidos(context);
     }
 
     if (widget.acao == 'criar') {

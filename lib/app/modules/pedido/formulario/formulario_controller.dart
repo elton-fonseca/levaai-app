@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/local_storage.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../core/stores/pedido_lista_store.dart';
@@ -46,7 +48,7 @@ abstract class _FormularioControllerBase with Store {
     };
   }
 
-    @action
+  @action
   void definePesoTotal(MoneyMaskedTextController textController) {
     textController.afterChange = (previous, next) {
       var pedidoLista = Modular.get<PedidoListaStore>().pedidos[indice];
@@ -57,5 +59,18 @@ abstract class _FormularioControllerBase with Store {
 
       return true;
     };
+  }
+
+  void avisoLocaisAtendidos(BuildContext context) {
+    LocalStorage.getValue<bool>("aviso-local-atendido").then((jaFoiMostrado) {
+      if (jaFoiMostrado == false) {
+        Helpers.alerta(
+            titulo: 'Locais Atendidos',
+            descricao: 'Atualmente atendemos todo o vale do paraiba',
+            context: context);
+
+        LocalStorage.setValue<bool>('aviso-local-atendido', true);
+      }
+    });
   }
 }

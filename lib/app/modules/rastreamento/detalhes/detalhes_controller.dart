@@ -11,6 +11,9 @@ class DetalhesController = _DetalhesControllerBase with _$DetalhesController;
 
 abstract class _DetalhesControllerBase with Store {
   void chamarPagamentoPedido(Map pedido, String tipo) {
+    Modular.get<PedidoListaStore>().limpar();
+    Modular.get<PedidoListaStore>().valorTotalPedidos = 0;
+
     var listaPedido = Modular.get<PedidoListaStore>();
     var pedidoObjeto = Pedido();
     pedidoObjeto.idPedido = pedido['id'];
