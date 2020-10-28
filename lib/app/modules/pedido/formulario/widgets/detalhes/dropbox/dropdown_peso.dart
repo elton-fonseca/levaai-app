@@ -21,7 +21,7 @@ class _DropdownPesoState extends State<DropdownPeso> {
 
   @override
   Widget build(BuildContext context) {
-    if (Modular.get<DetalhesController>().pesoMaiorQue100() == true) {
+    if (Modular.get<DetalhesController>().pesoExato() == true) {
       return SizedBox(
         width: displayWidth(context) * 0.5,
         child: TextFormField(
@@ -126,7 +126,7 @@ class _DropdownPesoState extends State<DropdownPeso> {
             ),
             DropdownMenuItem<String>(
               child: Text(
-                'Mais que 100KG',
+                'Peso Exato',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Colors.grey[600],
@@ -134,14 +134,14 @@ class _DropdownPesoState extends State<DropdownPeso> {
                   fontSize: displayWidth(context) * 0.032,
                 ),
               ),
-              value: 'selecione-maior-100',
+              value: 'peso-exato',
             ),
           ],
           onChanged: (value) {
             setState(() => selected = value);
 
-            if (value == 'selecione-maior-100') {
-              Modular.get<DetalhesController>().definePesoMaiorQue100();
+            if (value == 'peso-exato') {
+              Modular.get<DetalhesController>().definePesoExato();
             }
 
             Modular.get<DetalhesController>().definePesoTotal(value);

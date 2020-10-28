@@ -41,11 +41,11 @@ abstract class _DetalhesControllerBase with Store {
   }
 
   @action
-  void definePesoMaiorQue100() {
-    Modular.get<PedidoListaStore>().pedidos[indice].pesoMaiorQue100 = true;
+  void definePesoExato() {
+    Modular.get<PedidoListaStore>().pedidos[indice].pesoExato = true;
   }
 
-  bool pesoMaiorQue100() {
-    return Modular.get<PedidoListaStore>().pedidos[indice].pesoMaiorQue100;
+  bool pesoExato() {
+    return Modular.get<PedidoListaStore>().pedidos[indice].pesoExato;
   }
 }

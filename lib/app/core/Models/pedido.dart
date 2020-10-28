@@ -31,7 +31,7 @@ abstract class _PedidoBase with Store {
   double valorTotal;
 
   @observable
-  bool pesoMaiorQue100 = false;
+  bool pesoExato = false;
 
   @observable
   String pesoTotal;
@@ -147,9 +147,9 @@ abstract class _PedidoBase with Store {
         addItemPedido(ItensPedido(
           tipoItem: 'caixaSapato',
           quantidade: caixaSapato,
-          largura: 25,
-          altura: 15,
-          comprimento: 50,
+          largura: 20,
+          altura: 35,
+          comprimento: 12,
         ));
       }
 
@@ -157,9 +157,9 @@ abstract class _PedidoBase with Store {
         addItemPedido(ItensPedido(
           tipoItem: 'microondas',
           quantidade: microondas,
-          largura: 50,
-          altura: 50,
-          comprimento: 50,
+          largura: 45,
+          altura: 26,
+          comprimento: 35,
         ));
       }
 
@@ -167,9 +167,9 @@ abstract class _PedidoBase with Store {
         addItemPedido(ItensPedido(
           tipoItem: 'fogao',
           quantidade: fogao,
-          largura: 50,
-          altura: 90,
-          comprimento: 90,
+          largura: 60,
+          altura: 52,
+          comprimento: 95,
         ));
       }
 
@@ -177,9 +177,9 @@ abstract class _PedidoBase with Store {
         addItemPedido(ItensPedido(
           tipoItem: 'geladeira',
           quantidade: geladeira,
-          largura: 160,
-          altura: 60,
-          comprimento: 80,
+          largura: 72,
+          altura: 190,
+          comprimento: 72,
         ));
       }
     }

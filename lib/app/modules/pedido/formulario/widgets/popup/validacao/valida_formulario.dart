@@ -33,6 +33,10 @@ class ValidaFormulario {
       return 'Preencha altura\n';
     }
 
+    if (item.altura > 200) {
+      return 'Altura maior que a permitida\n';
+    }
+
     return '';
   }
 
@@ -41,12 +45,20 @@ class ValidaFormulario {
       return 'Preencha largura\n';
     }
 
+    if (item.largura > 120) {
+      return 'Largura maior que a permitida\n';
+    }
+
     return '';
   }
 
   String _comprimento() {
     if (item.comprimento == null || item.comprimento <= 0) {
       return 'Preencha comprimento\n';
+    }
+
+    if (item.largura > 120) {
+      return 'Comprimento maior que o permitido\n';
     }
 
     return '';

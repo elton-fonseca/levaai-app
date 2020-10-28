@@ -35,11 +35,11 @@ mixin _$DetalhesController on _DetalhesControllerBase, Store {
   }
 
   @override
-  void definePesoMaiorQue100() {
+  void definePesoExato() {
     final _$actionInfo = _$_DetalhesControllerBaseActionController.startAction(
-        name: '_DetalhesControllerBase.definePesoMaiorQue100');
+        name: '_DetalhesControllerBase.definePesoExato');
     try {
-      return super.definePesoMaiorQue100();
+      return super.definePesoExato();
     } finally {
       _$_DetalhesControllerBaseActionController.endAction(_$actionInfo);
     }

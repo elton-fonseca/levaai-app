@@ -24,18 +24,18 @@ mixin _$Pedido on _PedidoBase, Store {
     });
   }
 
-  final _$pesoMaiorQue100Atom = Atom(name: '_PedidoBase.pesoMaiorQue100');
+  final _$pesoExatoAtom = Atom(name: '_PedidoBase.pesoExato');
 
   @override
-  bool get pesoMaiorQue100 {
-    _$pesoMaiorQue100Atom.reportRead();
-    return super.pesoMaiorQue100;
+  bool get pesoExato {
+    _$pesoExatoAtom.reportRead();
+    return super.pesoExato;
   }
 
   @override
-  set pesoMaiorQue100(bool value) {
-    _$pesoMaiorQue100Atom.reportWrite(value, super.pesoMaiorQue100, () {
-      super.pesoMaiorQue100 = value;
+  set pesoExato(bool value) {
+    _$pesoExatoAtom.reportWrite(value, super.pesoExato, () {
+      super.pesoExato = value;
     });
   }
 
@@ -187,7 +187,7 @@ mixin _$Pedido on _PedidoBase, Store {
   String toString() {
     return '''
 valorTotal: ${valorTotal},
-pesoMaiorQue100: ${pesoMaiorQue100},
+pesoExato: ${pesoExato},
 pesoTotal: ${pesoTotal},
 tipoMercadoria: ${tipoMercadoria},
 tipoDeMedida: ${tipoDeMedida},
