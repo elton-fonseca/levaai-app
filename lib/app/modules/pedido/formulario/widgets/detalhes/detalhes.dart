@@ -141,7 +141,7 @@ class Detalhes {
                       textAlign: TextAlign.end,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Ex: Eletronico',
+                        hintText: 'Ex: Eletrônico',
                         hintStyle: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.grey[600],

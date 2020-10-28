@@ -14,6 +14,8 @@ class ValidaFormulario {
     resultado += _itens();
     resultado += _valorTotal();
     resultado += _pesoTotal();
+    resultado += _pesoTotalMaximoMedidaRelativa();
+    resultado += _pesoTotalMaximoMedidaExata();
     resultado += _tipo();
 
     return resultado;
@@ -82,9 +84,45 @@ class ValidaFormulario {
 
   String _pesoTotal() {
     if (pedido.pesoTotal == null ||
-        pedido.pesoTotal == 'selecione' ||
-        pedido.pesoTotal == '000') {
+        pedido.pesoTotal == 'peso-exato' ||
+        pedido.pesoTotal == '0') {
       return 'Informe o Peso dos Itens\n';
+    }
+
+    return '';
+  }
+
+  String _pesoTotalMaximoMedidaRelativa() {
+    if (pedido.tipoDeMedida is MedidaRelativa) {
+      var quantidadeItens = pedido.caixaSapato;
+      quantidadeItens += pedido.microondas;
+      quantidadeItens += pedido.fogao;
+      quantidadeItens += pedido.geladeira;
+
+      var pesoInformado = int.parse(pedido.pesoTotal);
+      var pesoPorItem = pesoInformado / quantidadeItens;
+
+      if (pesoPorItem > 80) {
+        return 'Peso maior do que o permitido\n';
+      }
+    }
+
+    return '';
+  }
+
+  String _pesoTotalMaximoMedidaExata() {
+    if (pedido.tipoDeMedida is MedidaExata) {
+      var quantidadeItens = 0;
+
+      // ignore: avoid_function_literals_in_foreach_calls
+      pedido.itens.forEach((element) => quantidadeItens += element.quantidade);
+
+      var pesoInformado = int.parse(pedido.pesoTotal);
+      var pesoPorItem = pesoInformado / quantidadeItens;
+
+      if (pesoPorItem > 80) {
+        return 'Peso maior do que o permitido\n';
+      }
     }
 
     return '';
