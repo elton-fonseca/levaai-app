@@ -24,8 +24,34 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
     });
   }
 
+  final _$botaoPagarAtom = Atom(name: '_PagamentoControllerBase.botaoPagar');
+
+  @override
+  bool get botaoPagar {
+    _$botaoPagarAtom.reportRead();
+    return super.botaoPagar;
+  }
+
+  @override
+  set botaoPagar(bool value) {
+    _$botaoPagarAtom.reportWrite(value, super.botaoPagar, () {
+      super.botaoPagar = value;
+    });
+  }
+
   final _$_PagamentoControllerBaseActionController =
       ActionController(name: '_PagamentoControllerBase');
+
+  @override
+  void pagar(BuildContext context) {
+    final _$actionInfo = _$_PagamentoControllerBaseActionController.startAction(
+        name: '_PagamentoControllerBase.pagar');
+    try {
+      return super.pagar(context);
+    } finally {
+      _$_PagamentoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void defineTipoPagamento(String novoTipoPagamento) {
@@ -41,7 +67,8 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
   @override
   String toString() {
     return '''
-pagamento: ${pagamento}
+pagamento: ${pagamento},
+botaoPagar: ${botaoPagar}
     ''';
   }
 }

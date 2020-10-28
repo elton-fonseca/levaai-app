@@ -200,9 +200,11 @@ class _PagamentoPageState
                           children: <Widget>[
                             Observer(builder: (_) {
                               return BotaoAzul(
-                                onClick: () {
-                                  controller.pagar(contextScaffold);
-                                },
+                                onClick: controller.botaoPagar == false
+                                    ? null
+                                    : () {
+                                        controller.pagar(contextScaffold);
+                                      },
                                 texto: controller.pagamento.tipoPagamento ==
                                         'cartao'
                                     ? 'Realizar Pagamento'

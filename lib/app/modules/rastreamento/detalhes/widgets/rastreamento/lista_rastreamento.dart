@@ -108,16 +108,6 @@ class ListaRastreamento extends StatelessWidget {
                             )
                           ],
                         ),
-                        Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: displayWidth(context) * 0.345),
-                              child: Image.asset("assets/imagens/pedido-ok.png",
-                                  width: displayHeight(context) * 0.048),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ],

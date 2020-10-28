@@ -24,6 +24,17 @@ mixin _$FormularioController on _FormularioControllerBase, Store {
   }
 
   @override
+  void definePesoTotal(MoneyMaskedTextController textController) {
+    final _$actionInfo = _$_FormularioControllerBaseActionController
+        .startAction(name: '_FormularioControllerBase.definePesoTotal');
+    try {
+      return super.definePesoTotal(textController);
+    } finally {
+      _$_FormularioControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 

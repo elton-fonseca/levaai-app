@@ -14,18 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
-  int currentTab = 0; // to keep track of active tab index
+  int currentTab = 0;
 
-  //use 'controller' variable to access controller
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = HomePage();
-
-  @override
-  void initState() {
-    controller.boot();
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +27,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+            colors: [Color(0xFF2E4983), Color(0xFF005BC3)],
+          )),
           child: Column(
             children: <Widget>[
               Padding(
@@ -83,8 +76,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
               SizedBox(
                 height: displayHeight(context) * 0.067,
-                child: Icon(Icons.arrow_downward,
-                    size: displayWidth(context) * 0.08, color: Colors.white),
+                child: Icon(Icons.arrow_downward, size: displayWidth(context) * 0.08, color: Colors.white),
               ),
             ],
           ),
@@ -94,9 +86,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           width: 80.0,
           child: FittedBox(
             child: FloatingActionButton(
-              shape: CircleBorder(
-                  side: BorderSide(
-                      width: 4, color: Colors.white, style: BorderStyle.solid)),
+              shape: CircleBorder(side: BorderSide(width: 4, color: Colors.white, style: BorderStyle.solid)),
               backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
@@ -132,8 +122,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           size: 30,
                         ),
                         onPressed: () {
-                          Modular.to
-                              .pushNamed('/login/formulario/lista-pedidos');
+                          Modular.to.pushNamed('/login/formulario/lista-pedidos');
                         },
                       ),
                     ],

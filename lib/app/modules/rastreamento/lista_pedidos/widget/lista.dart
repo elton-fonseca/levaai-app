@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/rastreamento/status_pedido.dart';
 
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
@@ -104,10 +105,19 @@ class Lista extends StatelessWidget {
                                   Column(
                                     children: <Widget>[
                                       SizedBox(
-                                        height: displayHeight(context) * 0.07,
-                                        child: Image.asset(
-                                            "assets/imagens/pedido-ok.png"),
-                                      ),
+                                          height: displayHeight(context) * 0.07,
+                                          child: Builder(
+                                            builder: (context) {
+                                              if (StatusPedido.imagem(pedido) !=
+                                                  'sem-imagem') {
+                                                return Image.asset(
+                                                  "assets/imagens/${StatusPedido.imagem(pedido)}",
+                                                );
+                                              } else {
+                                                return Container();
+                                              }
+                                            },
+                                          )),
                                     ],
                                   ),
                                 ],
@@ -121,15 +131,39 @@ class Lista extends StatelessWidget {
                                 children: <Widget>[
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        top: displayHeight(context) * 0.01,
-                                        left: displayWidth(context) * 0.03,
-                                        bottom: displayHeight(context) * 0.03),
+                                      top: displayHeight(context) * 0.002,
+                                      left: displayWidth(context) * 0.03,
+                                    ),
                                     child: Text(
                                       pedido["responsavel_entrega"],
                                       style: TextStyle(
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey[500],
+                                        fontSize: displayWidth(context) * 0.035,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        top: displayHeight(context) * 0.009,
+                                        left: displayWidth(context) * 0.03,
+                                        bottom: displayHeight(context) * 0.03),
+                                    child: Text(
+                                      StatusPedido.descritivo(pedido),
+                                      style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.bold,
+                                        color: StatusPedido.cor(pedido),
                                         fontSize: displayWidth(context) * 0.035,
                                       ),
                                     ),

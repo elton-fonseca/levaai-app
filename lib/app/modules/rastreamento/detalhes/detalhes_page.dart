@@ -48,15 +48,27 @@ class _DetalhesPageState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: displayWidth(context) * 0.17),
-                child: Text(
-                  'Detalhes Pedido',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayWidth(context) * 0.06,
-                    fontWeight: FontWeight.w900,
-                  ),
+                padding: EdgeInsets.only(left: displayWidth(context) * 0.28),
+                child: FutureBuilder(
+                  future: _pedido,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Text(
+                        'Pedido ${snapshot.data["id"]}',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                          fontSize: displayWidth(context) * 0.06,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text("erro ao obter dados");
+                    }
+                    return CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                    );
+                  },
                 ),
               ),
             ],

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../pagamento/pagamento_controller.dart';
 import '../repositories/interfaces/rastreamento_repository_interface.dart';
 import '../repositories/rastreamento_repository.dart';
 

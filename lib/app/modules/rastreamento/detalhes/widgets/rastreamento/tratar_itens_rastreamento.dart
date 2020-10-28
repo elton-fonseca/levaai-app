@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../pagamento/pagamento_controller.dart';
 import '../../../status_pedido.dart';
+import '../../detalhes_controller.dart';
 
 class TratarItensRastreamento {
   String status;
@@ -30,9 +30,9 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].add({
         "botao": true,
         "botao_mensagem": "Pagar",
-        "botao_acao": () => Modular.get<PagamentoController>()
+        "botao_acao": () => Modular.get<DetalhesController>()
             .chamarPagamentoPedido(pedidoPropriedade, 'posterior'),
-        "cor_bolinha": Colors.yellowAccent,
+        "cor_bolinha": StatusPedido.amarelo,
         "mensagem": "Você ainda não realizou o pagamento desse pedido",
         "data": DateTime.now().toIso8601String()
       });
@@ -52,7 +52,7 @@ class TratarItensRastreamento {
             throw 'Boleto não encontrado';
           }
         },
-        "cor_bolinha": Colors.yellowAccent,
+        "cor_bolinha": StatusPedido.amarelo,
         "mensagem": "Ainda não identificamos o pagamento do seu boleto",
         "data": DateTime.now().toIso8601String()
       });
@@ -63,8 +63,8 @@ class TratarItensRastreamento {
     if (status == 'boleto-vencido') {
       pedidoPropriedade['rastreamento'].add({
         "botao": false,
-        "cor_bolinha": Colors.red,
-        "mensagem": "Boleto Vencido ou Aguardando Compensação",
+        "cor_bolinha": StatusPedido.vermelho,
+        "mensagem": "Boleto Vencido",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -74,7 +74,7 @@ class TratarItensRastreamento {
     if (status == 'aguardando-pagamento-cartao') {
       pedidoPropriedade['rastreamento'].add({
         "botao": false,
-        "cor_bolinha": Colors.yellowAccent,
+        "cor_bolinha": StatusPedido.amarelo,
         "mensagem": "Pagamento em Análise",
         "data": DateTime.now().toIso8601String()
       });
@@ -85,7 +85,7 @@ class TratarItensRastreamento {
     if (status == 'pagamento-reprovado') {
       pedidoPropriedade['rastreamento'].add({
         "botao": false,
-        "cor_bolinha": Colors.red,
+        "cor_bolinha": StatusPedido.vermelho,
         "mensagem": "Pagamento não aprovado",
         "data": DateTime.now().toIso8601String()
       });
@@ -97,9 +97,9 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].add({
         "botao": true,
         "botao_mensagem": "Pagar",
-        "botao_acao": () => Modular.get<PagamentoController>()
+        "botao_acao": () => Modular.get<DetalhesController>()
             .chamarPagamentoPedido(pedidoPropriedade, 'reentrega'),
-        "cor_bolinha": Colors.yellowAccent,
+        "cor_bolinha": StatusPedido.amarelo,
         "mensagem": "Realizar pagamento da reentrega",
         "data": DateTime.now().toIso8601String()
       });

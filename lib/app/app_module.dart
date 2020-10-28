@@ -13,6 +13,7 @@ import 'modules/pedido/formulario/formulario_module.dart';
 import 'modules/pedido/lista/lista_module.dart';
 import 'modules/rastreamento/detalhes/detalhes_module.dart';
 import 'modules/rastreamento/lista_pedidos/lista_pedido_module.dart';
+import 'modules/splash/splash_module.dart';
 import 'modules/usuario/cadastro/cadastro_module.dart';
 import 'modules/usuario/login/login_module.dart';
 
@@ -25,10 +26,10 @@ class AppModule extends MainModule {
         Bind<Dio>((i) {
           var dioClient = Dio();
 
-          dioClient.options.baseUrl = "https://levaai-api.eltonfonseca.dev/api";
+          dioClient.options.baseUrl = "http://192.168.15.12/api";
           dioClient.options.headers['content-Type'] = 'application/json';
-          dioClient.options.headers["Api-token"] =
-              '\$2a\$07\$usesomesillystringforeGsJAIIu7nhlxWq.cvdNluLcR1KdMYnq';
+          dioClient.options.headers["Api-token"] = 
+          '\$2a\$07\$usesomesillystringforeGsJAIIu7nhlxWq.cvdNluLcR1KdMYnq';
 
           return dioClient;
         }),
@@ -36,6 +37,7 @@ class AppModule extends MainModule {
 
   @override
   List<ModularRouter> get routers => [
+        ModularRouter(Modular.initialRoute, module: SplashModule()),
         ModularRouter(Modular.initialRoute, module: HomeModule()),
 
         // modulos de criação de pedidos

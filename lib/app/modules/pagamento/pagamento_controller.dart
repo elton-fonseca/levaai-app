@@ -7,7 +7,6 @@ import 'package:mobx/mobx.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/models/pagamento.dart';
-import '../../core/models/pedido.dart';
 import '../../core/stores/pedido_lista_store.dart';
 import '../../core/view/botao_branco.dart';
 import '../../core/view/helpers.dart';
@@ -25,6 +24,9 @@ abstract class _PagamentoControllerBase with Store {
 
   Map pagamentoApiResponse;
 
+  @observable
+  bool botaoPagar = true;
+
   void criarPedidos() {
     var pedidoLista = Modular.get<PedidoListaStore>();
     var pedidosJson = jsonEncode(pedidoLista.pedidosCompletosJson());
@@ -34,7 +36,9 @@ abstract class _PagamentoControllerBase with Store {
     });
   }
 
+  @action
   void pagar(BuildContext context) {
+    botaoPagar = false;
     var valido = ValidaFormulario().validar();
 
     if (valido.isEmpty) {
@@ -47,6 +51,7 @@ abstract class _PagamentoControllerBase with Store {
             pagamento.cobrancaJunoID = resposta['cobranca_id_juno'];
             Helpers.snackLevaai(
                 texto: resposta['pagamento_id_juno'], context: context);
+            botaoPagar = true;
           } else {
             pagamentoApiResponse = resposta;
             Modular.to.pushNamed('pagamento/confirmacao');
@@ -55,6 +60,7 @@ abstract class _PagamentoControllerBase with Store {
           Helpers.snackLevaai(
               texto: "Erro no pagamento  ${e.message} ${e.response.data}",
               context: context);
+          botaoPagar = true;
         });
       });
 
@@ -62,19 +68,6 @@ abstract class _PagamentoControllerBase with Store {
     }
 
     Helpers.snackLevaai(texto: valido, context: context);
-  }
-
-  void chamarPagamentoPedido(Map pedido, String tipo) {
-    var listaPedido = Modular.get<PedidoListaStore>();
-    var pedidoObjeto = Pedido();
-    pedidoObjeto.idPedido = pedido['id'];
-
-    listaPedido.pedidos.add(pedidoObjeto);
-
-    listaPedido.valorTotalPedidos =
-        double.parse(pedido['cotacao']['valor_calculado_cotacao']);
-
-    Modular.to.popAndPushNamed('/pagamento/$tipo');
   }
 
   // ignore: use_setters_to_change_properties
@@ -102,12 +95,12 @@ abstract class _PagamentoControllerBase with Store {
     };
 
     validadeTextController.afterChange = (previous, next) {
-      pagamento.validade = next;
+      pagamento.validade = previous;
       return true;
     };
 
     codigoSegurancaTextController.afterChange = (previous, next) {
-      pagamento.codigoSeguranca = next;
+      pagamento.codigoSeguranca = previous;
       return true;
     };
   }

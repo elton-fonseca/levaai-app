@@ -43,7 +43,7 @@ abstract class _LoginControllerBase with Store {
             return;
           }
 
-          Modular.to.popUntil(ModalRoute.withName('/'));
+          Modular.to.popUntil(ModalRoute.withName('/home'));
           Modular.to.popAndPushNamed('/rastreamento/lista');
         });
       }).catchError((e) {

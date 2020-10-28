@@ -35,6 +35,17 @@ mixin _$DetalhesController on _DetalhesControllerBase, Store {
   }
 
   @override
+  void definePesoMaiorQue100() {
+    final _$actionInfo = _$_DetalhesControllerBaseActionController.startAction(
+        name: '_DetalhesControllerBase.definePesoMaiorQue100');
+    try {
+      return super.definePesoMaiorQue100();
+    } finally {
+      _$_DetalhesControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 
