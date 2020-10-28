@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../modules/usuario/login/recuperar_senha_page.dart';
-import '../../modules/usuario/login/resetar_senha_page.dart';
 import '../services/local_storage.dart';
 
 class MenuLateral extends StatelessWidget {

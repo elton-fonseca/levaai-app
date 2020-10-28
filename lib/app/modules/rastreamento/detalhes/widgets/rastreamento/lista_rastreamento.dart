@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levaai1/app/core/view/botao_azul.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
+import '../../../../../core/view/botao_azul.dart';
+import '../../../../../core/view/helpers.dart';
 import '../../../../../core/view/tamanhos_relativos.dart';
 
 class ListaRastreamento extends StatelessWidget {

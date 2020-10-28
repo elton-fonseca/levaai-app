@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/models/pedido.dart';
 import 'package:mobx/mobx.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/models/pagamento.dart';
+import '../../core/models/pedido.dart';
 import '../../core/stores/pedido_lista_store.dart';
 import '../../core/view/botao_branco.dart';
 import '../../core/view/helpers.dart';
