@@ -31,7 +31,7 @@ abstract class _PopupControllerBase with Store {
   int largura = 0;
   int altura = 0;
   int comprimento = 0;
-  int cubagem = 0;
+  double cubagem = 0;
 
   @action
   void definirFormDimensoes() {
@@ -94,7 +94,7 @@ abstract class _PopupControllerBase with Store {
       return resultado;
     }
 
-    return 'Cubagem: ${item.cubagem.toString()}cm³';
+    return 'Cubagem: ${item.cubagem.toStringAsPrecision(2)}m³';
   }
 
   void _limpar() {
@@ -109,5 +109,25 @@ abstract class _PopupControllerBase with Store {
     pedido.microondas = 0;
     pedido.fogao = 0;
     pedido.geladeira = 0;
+  }
+
+  Widget tipoFormDescricao() {
+    var descricao;
+    if (tipoForm is Dimensoes) {
+      descricao = 'Adicionar um novo item usando medidas exatas.\n'
+          'A medida usada deve ser centímetro.';
+    } else {
+      descricao = 'Adicionar um novo item usando cubagem.\n'
+          'A medida usada deve ser Metro Cúbico.';
+    }
+
+    return Text(
+      descricao,
+      style: TextStyle(
+        color: Color(0xFFFFFFFF),
+        fontSize: 15,
+      ),
+      textAlign: TextAlign.center,
+    );
   }
 }

@@ -30,7 +30,8 @@ abstract class _DetalhesControllerBase with Store {
   String descritivoItem(Map item) {
     switch (item['tipo_item']) {
       case 'cubagem':
-        return 'Cubagem ${item['cubagem']}';
+        var cubagem = (item['cubagem'] / 100).toStringAsPrecision(2);
+        return 'Cubagem ${cubagem}m³';
         break;
       case 'caixaSapato':
         return 'Tamanho Aproximado Caixa de Sapato';

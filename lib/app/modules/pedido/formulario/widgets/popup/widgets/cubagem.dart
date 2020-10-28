@@ -7,6 +7,11 @@ import '../popup_controller.dart';
 class Cubagem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var moneyMaskedTextController = MoneyMaskedTextController(
+      decimalSeparator: '.',
+      thousandSeparator: '',
+      precision: 2,
+    );
     return Padding(
       padding: const EdgeInsets.only(left: 15, top: 0, right: 15, bottom: 0),
       child: Row(
@@ -26,11 +31,16 @@ class Cubagem extends StatelessWidget {
                 )),
             child: SizedBox(
               child: TextFormField(
-                controller: MaskedTextController(mask: '000'),
-                onChanged: (valor) =>
-                    Modular.get<PopupController>().cubagem = int.parse(valor),
+                controller: moneyMaskedTextController,
+                onChanged: (valor) => Modular.get<PopupController>().cubagem =
+                    moneyMaskedTextController.numberValue,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(13),

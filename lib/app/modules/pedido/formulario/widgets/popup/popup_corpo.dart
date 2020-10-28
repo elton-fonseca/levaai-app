@@ -15,15 +15,9 @@ class PopupCorpo extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.only(left: 50, top: 0, right: 50, bottom: 0),
-            child: Text(
-              'Adicionar um novo item usando medidas exatas.\n'
-              'A medida usada deve ser centímetro.',
-              style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 15,
-              ),
-              textAlign: TextAlign.center,
-            ),
+            child: Observer(builder: (_) {
+              return Modular.get<PopupController>().tipoFormDescricao();
+            }),
           ),
           SizedBox(height: 40),
           SizedBox(

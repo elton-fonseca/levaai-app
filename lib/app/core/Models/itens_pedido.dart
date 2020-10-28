@@ -4,7 +4,7 @@ class ItensPedido {
   int altura;
   int largura;
   int comprimento;
-  int cubagem;
+  double cubagem;
 
   ItensPedido(
       {this.tipoItem,
@@ -28,7 +28,7 @@ class ItensPedido {
     data['quantidade'] = quantidade;
 
     if (tipoItem == 'cubagem') {
-      data['cubagem'] = cubagem;
+      data['cubagem'] = cubagem * 100;
 
       return data;
     }
