@@ -33,14 +33,7 @@ abstract class _DetalhesControllerBase with Store {
   }
 
   String pegaTipoMercadoria() {
-    var tipoMercadoria =
-        Modular.get<PedidoListaStore>().pedidos[indice].tipoMercadoria;
-
-    if (tipoMercadoria != null) {
-      return tipoMercadoria;
-    }
-
-    return "selecione";
+    return Modular.get<PedidoListaStore>().pedidos[indice].tipoMercadoria;
   }
 
   double pegaValorTotal() {

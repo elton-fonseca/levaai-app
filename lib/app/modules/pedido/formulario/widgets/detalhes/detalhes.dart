@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pedido/formulario/widgets/detalhes/detalhes_controller.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
 import 'dropbox/dropdown_peso.dart';
 import 'dropbox/dropdown_tipo.dart';
 
 class Detalhes {
-  Widget obter({
-    @required BuildContext context,
-    @required TextEditingController valorTotalTextController,
-    @required TextEditingController pesoTextController,
-  }) {
+  Widget obter(
+      {@required BuildContext context,
+      @required TextEditingController valorTotalTextController,
+      @required TextEditingController pesoTextController,
+      @required TextEditingController tipoMercadoriaTextController}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
@@ -125,9 +127,29 @@ class Detalhes {
               Column(
                 children: <Widget>[
                   SizedBox(
-                    child: Observer(builder: (_) {
-                      return DropdownTipo();
-                    }),
+                    width: displayWidth(context) * 0.5,
+                    child: TextFormField(
+                      controller: tipoMercadoriaTextController,
+                      onChanged: (v) => Modular.get<DetalhesController>()
+                          .defineTipoMercadoria(v),
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.grey[600],
+                        fontSize: displayWidth(context) * 0.032,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.end,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Ex: Eletronico',
+                        hintStyle: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.grey[600],
+                          fontSize: displayWidth(context) * 0.032,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

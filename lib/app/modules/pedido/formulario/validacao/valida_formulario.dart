@@ -91,7 +91,7 @@ class ValidaFormulario {
   }
 
   String _tipo() {
-    if (pedido.tipoMercadoria == null || pedido.tipoMercadoria == 'selecione') {
+    if (pedido.tipoMercadoria == null) {
       return 'Informe o Tipo dos Itens\n';
     }
 
