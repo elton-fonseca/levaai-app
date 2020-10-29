@@ -35,6 +35,19 @@ mixin _$CotacaoController on _CotacaoControllerBase, Store {
   }
 
   @override
+  void defineResponsavelColetaDocumento(String novoResponsavelColetaDocumento,
+      MaskedTextController textController) {
+    final _$actionInfo = _$_CotacaoControllerBaseActionController.startAction(
+        name: '_CotacaoControllerBase.defineResponsavelColetaDocumento');
+    try {
+      return super.defineResponsavelColetaDocumento(
+          novoResponsavelColetaDocumento, textController);
+    } finally {
+      _$_CotacaoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void defineResponsavelEntrega(String novoResponsavelEntrega) {
     final _$actionInfo = _$_CotacaoControllerBaseActionController.startAction(
         name: '_CotacaoControllerBase.defineResponsavelEntrega');
@@ -52,6 +65,19 @@ mixin _$CotacaoController on _CotacaoControllerBase, Store {
     try {
       return super
           .defineResponsavelEntregaCelular(novoResponsavelEntregaCelular);
+    } finally {
+      _$_CotacaoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineResponsavelEntregaDocumento(String novoResponsavelEntregaDocumento,
+      MaskedTextController textController) {
+    final _$actionInfo = _$_CotacaoControllerBaseActionController.startAction(
+        name: '_CotacaoControllerBase.defineResponsavelEntregaDocumento');
+    try {
+      return super.defineResponsavelEntregaDocumento(
+          novoResponsavelEntregaDocumento, textController);
     } finally {
       _$_CotacaoControllerBaseActionController.endAction(_$actionInfo);
     }

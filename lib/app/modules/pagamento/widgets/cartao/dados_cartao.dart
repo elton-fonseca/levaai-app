@@ -34,16 +34,16 @@ class DadosCartao extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                    onChange: (valor) {
-                      Modular.get<PagamentoController>()
-                          .pagamento
-                          .numeroCartao = valor;
-                    },
-                    context: context,
-                    placeholder: 'Número Cartão',
-                    mascara: numeroCartaoTextController,
-                    teclado: TextInputType.number,
-                  ),
+                      onChange: (valor) {
+                        Modular.get<PagamentoController>()
+                            .pagamento
+                            .numeroCartao = valor;
+                      },
+                      context: context,
+                      placeholder: 'Número Cartão',
+                      mascara: numeroCartaoTextController,
+                      teclado: TextInputType.number,
+                      tamanho: 19),
                 ),
               ),
             ],
@@ -60,12 +60,13 @@ class DadosCartao extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                      onChange: (valor) {
-                        Modular.get<PagamentoController>().pagamento.nome =
-                            valor;
-                      },
-                      context: context,
-                      placeholder: 'Nome (Mesmo Cartão)'),
+                    onChange: (valor) {
+                      Modular.get<PagamentoController>().pagamento.nome = valor;
+                    },
+                    context: context,
+                    placeholder: 'Nome (Mesmo Cartão)',
+                    tamanho: 45,
+                  ),
                 ),
               ),
             ],
@@ -89,6 +90,7 @@ class DadosCartao extends StatelessWidget {
                     placeholder: 'Cód. Segurança',
                     mascara: codigoSegurancaTextController,
                     teclado: TextInputType.number,
+                    tamanho: 4,
                   ),
                 ),
               ),
@@ -103,6 +105,7 @@ class DadosCartao extends StatelessWidget {
                     placeholder: 'Validade',
                     mascara: validadeTextController,
                     teclado: TextInputType.number,
+                    tamanho: 5
                   ),
                 ),
               ),

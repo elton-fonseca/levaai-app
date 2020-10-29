@@ -44,8 +44,10 @@ abstract class _PedidoBase with Store {
 
   String responsavelColeta;
   String responsavelColetaCelular;
+  String responsavelColetaDocumento;
   String responsavelEntrega;
   String responsavelEntregaCelular;
+  String responsavelEntregaDocumento;
   String observacao;
 
   @observable
@@ -93,9 +95,15 @@ abstract class _PedidoBase with Store {
     data['responsavel_coleta'] = responsavelColeta;
     data['responsavel_coleta_celular'] =
         Validadores.limpaMascara(responsavelColetaCelular);
+    data['responsavel_coleta_documento'] =
+        Validadores.limpaMascara(responsavelColetaDocumento);
     data['responsavel_entrega'] = responsavelEntrega;
     data['responsavel_entrega_celular'] =
         Validadores.limpaMascara(responsavelEntregaCelular);
+    data['responsavel_entrega_documento'] =
+        Validadores.limpaMascara(responsavelEntregaDocumento);
+
+    data['observacao'] = observacao;
 
     data['valor_total'] = valorTotal;
     data['peso_total'] = double.parse(pesoTotal);

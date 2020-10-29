@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
@@ -43,6 +44,7 @@ class Helpers {
   Widget inputCadastros({
     @required BuildContext context,
     @required String placeholder,
+    @required int tamanho,
     @required void Function(String) onChange,
     TextInputType teclado = TextInputType.text,
     bool senha = false,
@@ -52,6 +54,9 @@ class Helpers {
       controller: mascara,
       obscureText: senha,
       onChanged: onChange,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(tamanho),
+      ],
       style: TextStyle(
         fontFamily: 'Roboto',
         color: Colors.black,
@@ -146,6 +151,4 @@ class Helpers {
 
     return estados[nomeEstado];
   }
-
-  
 }

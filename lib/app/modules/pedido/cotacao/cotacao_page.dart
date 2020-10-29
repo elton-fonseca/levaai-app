@@ -173,19 +173,21 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                                 Expanded(
                                   child: SizedBox(
                                     child: InputText(
+                                      placeholder: 'Nome Completo',
                                       onChange: (valor) {
                                         controller
                                             .defineResponsavelColeta(valor);
                                       },
                                       textController:
                                           responsavelColetaTextController,
-                                      mascara: '',
+                                      tamanho: 22,
                                     ),
                                   ),
                                 ),
                                 Expanded(
                                   child: SizedBox(
                                     child: InputText(
+                                      placeholder: '(99) 99999-9999',
                                       onChange: (valor) {
                                         controller
                                             .defineResponsavelColetaCelular(
@@ -195,7 +197,67 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                                       textController:
                                           // ignore: lines_longer_than_80_chars
                                           responsavelColetaCelularTextController,
-                                      mascara: '',
+                                      tamanho: 15,
+                                      alinhamento: 'direita',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.04,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.115,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'CPF/CNPJ Responsável',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF909090),
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.04,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.025,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                    child: InputText(
+                                      placeholder: 'Documento',
+                                      onChange: (valor) {
+                                        controller
+                                            .defineResponsavelColetaDocumento(
+                                          valor,
+                                          responsavelColetaDocumentoController,
+                                        );
+                                      },
+                                      textController:
+                                          responsavelColetaDocumentoController,
+                                      tamanho: 18,
+                                      tipo: 'numero',
                                     ),
                                   ),
                                 ),
@@ -259,19 +321,21 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                                 Expanded(
                                   child: SizedBox(
                                     child: InputText(
+                                      placeholder: 'Nome Completo',
                                       onChange: (valor) {
                                         controller
                                             .defineResponsavelEntrega(valor);
                                       },
                                       textController:
                                           responsavelEntregaTextController,
-                                      mascara: '',
+                                      tamanho: 22,
                                     ),
                                   ),
                                 ),
                                 Expanded(
                                   child: SizedBox(
                                     child: InputText(
+                                      placeholder: '(99) 99999-9999',
                                       onChange: (valor) {
                                         controller
                                             .defineResponsavelEntregaCelular(
@@ -281,7 +345,67 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                                       textController:
                                           // ignore: lines_longer_than_80_chars
                                           responsavelEntregaCelularTextController,
-                                      mascara: '',
+                                      tamanho: 15,
+                                      alinhamento: 'direita',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.04,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.115,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'CPF/CNPJ Responsável',
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF909090),
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: displayHeight(context) * 0.04,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFf4f5f7),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.025,
+                                left: displayWidth(context) * 0.025),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Expanded(
+                                  child: SizedBox(
+                                    child: InputText(
+                                      placeholder: 'Documento',
+                                      onChange: (valor) {
+                                        controller
+                                            .defineResponsavelEntregaDocumento(
+                                          valor,
+                                          responsavelEntregaDocumentoController,
+                                        );
+                                      },
+                                      textController:
+                                          responsavelEntregaDocumentoController,
+                                      tamanho: 18,
+                                      tipo: 'numero',
                                     ),
                                   ),
                                 ),

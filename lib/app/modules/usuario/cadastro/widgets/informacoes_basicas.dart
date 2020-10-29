@@ -83,6 +83,7 @@ class InformacoesBasicas extends StatelessWidget {
                         placeholder: Modular.get<CadastroController>().pj()
                             ? 'Nome Fantasia'
                             : 'Nome',
+                        tamanho: 100,
                       );
                     }),
                   ),
@@ -101,6 +102,7 @@ class InformacoesBasicas extends StatelessWidget {
                         placeholder: Modular.get<CadastroController>().pj()
                             ? 'Razão Social'
                             : 'Sobrenome',
+                        tamanho: 100,
                       );
                     }),
                   ),
@@ -126,6 +128,7 @@ class InformacoesBasicas extends StatelessWidget {
                       context: context,
                       placeholder: 'Telefone',
                       teclado: TextInputType.number,
+                      tamanho: 15,
                     ),
                   ),
                 ),
@@ -153,6 +156,7 @@ class InformacoesBasicas extends StatelessWidget {
                         placeholder: Modular.get<CadastroController>().pj()
                             ? 'CNPJ'
                             : 'CPF',
+                        tamanho: 18,
                       );
                     }),
                   ),

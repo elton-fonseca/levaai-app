@@ -46,12 +46,11 @@ class InformacoesAcesso extends StatelessWidget {
                     child: Helpers().inputCadastros(
                       teclado: TextInputType.emailAddress,
                       onChange: (valor) {
-                        Modular.get<CadastroController>()
-                              .usuario
-                              .email = valor;
+                        Modular.get<CadastroController>().usuario.email = valor;
                       },
                       context: context,
                       placeholder: 'Email',
+                      tamanho: 100,
                     ),
                   ),
                 ),
@@ -70,13 +69,12 @@ class InformacoesAcesso extends StatelessWidget {
                   child: SizedBox(
                     child: Helpers().inputCadastros(
                       onChange: (valor) {
-                        Modular.get<CadastroController>()
-                              .usuario
-                              .senha = valor;
+                        Modular.get<CadastroController>().usuario.senha = valor;
                       },
                       senha: true,
                       context: context,
                       placeholder: 'Senha',
+                      tamanho: 30,
                     ),
                   ),
                 ),
@@ -96,12 +94,13 @@ class InformacoesAcesso extends StatelessWidget {
                     child: Helpers().inputCadastros(
                       onChange: (valor) {
                         Modular.get<CadastroController>()
-                              .usuario
-                              .confirmacaoSenha = valor;
+                            .usuario
+                            .confirmacaoSenha = valor;
                       },
                       senha: true,
                       context: context,
                       placeholder: 'Confirmar senha',
+                      tamanho: 30,
                     ),
                   ),
                 ),

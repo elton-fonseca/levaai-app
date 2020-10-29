@@ -14,9 +14,13 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaTextController = TextEditingController();
   final responsavelColetaCelularTextController =
       MaskedTextController(mask: '(00) 00000-0000');
+  final responsavelColetaDocumentoController =
+      MaskedTextController(mask: '000.000.000-00');
   final responsavelEntregaTextController = TextEditingController();
   final responsavelEntregaCelularTextController =
       MaskedTextController(mask: '(00) 00000-0000');
+  final responsavelEntregaDocumentoController =
+      MaskedTextController(mask: '000.000.000-00');
   final observacaoTextController = TextEditingController();
 
   Future<dynamic> valorCotacao;
@@ -34,22 +38,23 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   }
 
   void preencheCampos() {
-    if (widget.acao == 'editar') {
-      responsavelColetaTextController.text =
-          Modular.get<CotacaoController>().pegaResponsavelColeta();
+    responsavelColetaTextController.text = controller.pegaResponsavelColeta();
 
-      responsavelColetaCelularTextController.text =
-          Modular.get<CotacaoController>().pegaResponsavelColetaCelular();
+    responsavelColetaCelularTextController.text =
+        controller.pegaResponsavelColetaCelular();
 
-      responsavelEntregaTextController.text =
-          Modular.get<CotacaoController>().pegaResponsavelEntrega();
+    responsavelColetaDocumentoController.text = controller
+        .pegaResponsavelColetaDocumento(responsavelColetaDocumentoController);
 
-      responsavelEntregaCelularTextController.text =
-          Modular.get<CotacaoController>().pegaResponsavelEntregaCelular();
+    responsavelEntregaTextController.text = controller.pegaResponsavelEntrega();
 
-      observacaoTextController.text =
-          Modular.get<CotacaoController>().pegaObservacao();
-    }
+    responsavelEntregaCelularTextController.text =
+        controller.pegaResponsavelEntregaCelular();
+
+    responsavelEntregaDocumentoController.text = controller
+        .pegaResponsavelEntregaDocumento(responsavelEntregaDocumentoController);
+
+    observacaoTextController.text = controller.pegaObservacao();
 
     Modular.get<MonitoramentoRepository>()
         .registrarAcao('cotacao/${widget.acao}/${widget.id}');
@@ -63,8 +68,8 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
     valorCotacao = Modular.get<CotacaoRepository>().cotar(json);
 
     valorCotacao.then((value) {
-      Modular.get<CotacaoController>().cotacaoValor = value.valor;
-      Modular.get<CotacaoController>().cotacaoId = value.cotacaoId;
+      controller.cotacaoValor = value.valor;
+      controller.cotacaoId = value.cotacaoId;
     });
   }
 }

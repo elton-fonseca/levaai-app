@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -70,6 +71,43 @@ abstract class _CotacaoControllerBase with Store {
   }
 
   @action
+  void defineResponsavelColetaDocumento(
+    String novoResponsavelColetaDocumento,
+    MaskedTextController textController,
+  ) {
+    var mascara;
+    if (novoResponsavelColetaDocumento.length > 14) {
+      mascara = '00.000.000/0000-00';
+    } else {
+      mascara = '000.000.000-00';
+    }
+
+    textController.updateMask(mascara);
+    pedidoLista.pedidos[indice].responsavelColetaDocumento =
+        novoResponsavelColetaDocumento;
+  }
+
+  String pegaResponsavelColetaDocumento(MaskedTextController textController) {
+    var documento = pedidoLista.pedidos[indice].responsavelColetaDocumento;
+    var cpf = '000.000.000-00';
+    var mascara;
+
+    if (documento == null) {
+      return '';
+    }
+
+    if (documento.length > 14) {
+      mascara = '00.000.000/0000-00';
+    } else {
+      mascara = cpf;
+    }
+
+    textController.updateMask(mascara);
+
+    return documento;
+  }
+
+  @action
   void defineResponsavelEntrega(String novoResponsavelEntrega) {
     pedidoLista.pedidos[indice].responsavelEntrega = novoResponsavelEntrega;
   }
@@ -86,6 +124,44 @@ abstract class _CotacaoControllerBase with Store {
 
   String pegaResponsavelEntregaCelular() {
     return pedidoLista.pedidos[indice].responsavelEntregaCelular;
+  }
+
+  @action
+  void defineResponsavelEntregaDocumento(
+    String novoResponsavelEntregaDocumento,
+    MaskedTextController textController,
+  ) {
+    var mascara;
+    if (novoResponsavelEntregaDocumento.length > 14) {
+      mascara = '00.000.000/0000-00';
+    } else {
+      mascara = '000.000.000-00';
+    }
+
+    textController.updateMask(mascara);
+
+    pedidoLista.pedidos[indice].responsavelEntregaDocumento =
+        novoResponsavelEntregaDocumento;
+  }
+
+  String pegaResponsavelEntregaDocumento(MaskedTextController textController) {
+    var documento = pedidoLista.pedidos[indice].responsavelEntregaDocumento;
+    var cpf = '000.000.000-00';
+    var mascara;
+
+    if (documento == null) {
+      return '';
+    }
+
+    if (documento.length > 14) {
+      mascara = '00.000.000/0000-00';
+    } else {
+      mascara = cpf;
+    }
+
+    textController.updateMask(mascara);
+
+    return documento;
   }
 
   @action

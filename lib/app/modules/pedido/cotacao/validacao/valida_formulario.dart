@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/core/services/validadores.dart';
 
 import '../../../../core/models/pedido.dart';
 import '../cotacao_controller.dart';
@@ -11,8 +12,11 @@ class ValidaFormulario {
   String validar() {
     var resultado = _responsavelColeta();
     resultado += _responsavelColetaCelular();
+    resultado += _responsavelColetaDocumento();
     resultado += _responsavelEntrega();
     resultado += _responsavelEntregaCelular();
+    resultado += _responsavelEntregaDocumento();
+
     resultado += _verificaCotacaoId();
 
     return resultado;
@@ -39,6 +43,30 @@ class ValidaFormulario {
     return '';
   }
 
+  String _responsavelColetaDocumento() {
+    var documento = Validadores.limpaMascara(pedido.responsavelColetaDocumento);
+
+    if (documento == null || documento.isEmpty) {
+      return 'Informe o Documento do Responsável pela Coleta\n';
+    }
+
+    if (documento.length != 11 && documento.length != 14) {
+      return 'Informe Corretamente o Documento do Responsável pela Coleta\n';
+    }
+
+    if (documento.length == 14) {
+      if (!Validadores.cnpj(documento)) {
+        return 'Informe corretamente o CNPJ do Responsável pela Coleta\n';
+      }
+    } else {
+      if (!Validadores.cpf(documento)) {
+        return 'Informe corretamente o CPF do Responsável pela Coleta\n';
+      }
+    }
+
+    return '';
+  }
+
   String _responsavelEntrega() {
     if (pedido.responsavelEntrega == null ||
         pedido.responsavelEntrega.isEmpty) {
@@ -56,6 +84,31 @@ class ValidaFormulario {
 
     if (pedido.responsavelEntregaCelular.length < 15) {
       return 'Informe Corretamente o Celular do Responsável pela Coleta\n';
+    }
+
+    return '';
+  }
+
+  String _responsavelEntregaDocumento() {
+    var documento =
+        Validadores.limpaMascara(pedido.responsavelEntregaDocumento);
+
+    if (documento == null || documento.isEmpty) {
+      return 'Informe o Documento do Responsável pela Entrega\n';
+    }
+
+    if (documento.length != 11 && documento.length != 14) {
+      return 'Informe Corretamente o Documento do Responsável pela Entrega\n';
+    }
+
+    if (documento.length == 14) {
+      if (!Validadores.cnpj(documento)) {
+        return 'Informe corretamente o CNPJ do Responsável pela Entrega\n';
+      }
+    } else {
+      if (!Validadores.cpf(documento)) {
+        return 'Informe corretamente o CPF do Responsável pela Entrega\n';
+      }
     }
 
     return '';

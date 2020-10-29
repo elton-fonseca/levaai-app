@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class InputText extends StatelessWidget {
   InputText({
-    this.tipo = 'nome',
+    @required this.placeholder,
+    this.tipo = 'texto',
+    this.alinhamento = 'esquerda',
+    @required this.tamanho,
     @required this.textController,
-    @required this.mascara,
     @required this.onChange,
   });
 
+  final String placeholder;
   final String tipo;
+  final String alinhamento;
+  final int tamanho;
   final TextEditingController textController;
-  final String mascara;
   final void Function(String) onChange;
 
   @override
@@ -19,17 +24,20 @@ class InputText extends StatelessWidget {
     return TextFormField(
       onChanged: onChange,
       controller: textController,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(tamanho),
+      ],
       style: TextStyle(
         fontFamily: 'Roboto',
         color: Color(0xFF909090),
         fontSize: displayWidth(context) * 0.032,
       ),
-      textAlign: tipo == 'nome' ? TextAlign.left : TextAlign.right,
-      keyboardType: tipo == 'nome' ? TextInputType.text : TextInputType.number,
+      textAlign: alinhamento == 'esquerda' ? TextAlign.left : TextAlign.right,
+      keyboardType: tipo == 'texto' ? TextInputType.text : TextInputType.number,
       decoration: InputDecoration(
         border: InputBorder.none,
         contentPadding: EdgeInsets.only(bottom: displayWidth(context) * 0.06),
-        hintText: tipo == 'nome' ? 'Nome Completo' : '(99) 99999-9999',
+        hintText: placeholder,
         hintStyle: TextStyle(
           color: Color(0xFF909090),
           fontSize: displayWidth(context) * 0.032,
