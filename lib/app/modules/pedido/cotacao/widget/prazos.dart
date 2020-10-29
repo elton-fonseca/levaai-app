@@ -34,7 +34,7 @@ class Prazos extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'DATA DE $tipo',
+              'PRAZO DE $tipo',
               style: TextStyle(
                 fontFamily: 'Roboto',
                 color: Color(0xFF909090),
@@ -45,7 +45,7 @@ class Prazos extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              prazo,
+              _descricao(prazo, tipo),
               style: TextStyle(
                 fontFamily: 'Roboto',
                 color: Color(0xFF909090),
@@ -57,5 +57,25 @@ class Prazos extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String _descricao(String prazo, String tipo) {
+    if (prazo == "0" || prazo == null) {
+      return "DINÂMICO.";
+    }
+
+    if (tipo == 'COLETA' && prazo == "1") {
+      return "$prazo DIA ÚTIL";
+    }
+
+    if (tipo == 'COLETA' && prazo == "2") {
+      return "$prazo DIAS ÚTEIS";
+    }
+
+    if (tipo == 'ENTREGA' && prazo == "1") {
+      return "$prazo DIA APÓS A COLETA";
+    }
+
+    return "$prazo DIAs APÓS A COLETA";
   }
 }

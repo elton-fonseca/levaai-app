@@ -69,6 +69,10 @@ class ValidaFormulario {
       return 'Preencha cubagem\n';
     }
 
+    if (item.cubagem > 2.88) {
+      return 'Tamanho do item maior que o permitido\n';
+    }
+
     return '';
   }
 }

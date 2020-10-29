@@ -3,11 +3,16 @@ class Cotacao {
 
   int cotacaoId;
 
+  String prazoColeta;
+  String prazoEntrega;
+
   Cotacao({this.valor, this.cotacaoId});
 
   Cotacao.fromJson(Map<String, dynamic> json) {
     valor = json['valor'];
     cotacaoId = json['cotacao_id'];
+    prazoColeta = json['prazo_coleta'];
+    prazoEntrega = json['prazo_entrega'];
   }
 
   Map<String, dynamic> toJson() {

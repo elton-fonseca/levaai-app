@@ -104,18 +104,46 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                         SizedBox(
                           height: displayHeight(context) * 0.03,
                         ),
-                        Prazos(
-                          imagem: "assets/imagens/box-fechada.png",
-                          tipo: 'COLETA',
-                          prazo: "ENTRE 24/10 e 26/10",
+                        FutureBuilder(
+                          future: valorCotacao,
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return Prazos(
+                                imagem: "assets/imagens/box-fechada.png",
+                                tipo: 'COLETA',
+                                prazo: snapshot.data.prazoColeta,
+                              );
+                            } else if (snapshot.hasError) {
+                              return Text("erro ao calcular");
+                            }
+
+                            // By default, show a loading spinner.
+                            return CircularProgressIndicator(
+                              backgroundColor: Colors.white,
+                            );
+                          },
                         ),
                         SizedBox(
                           height: displayHeight(context) * 0.03,
                         ),
-                        Prazos(
-                          imagem: "assets/imagens/box-aberta.png",
-                          tipo: 'ENTREGA',
-                          prazo: "ENTRE 01/11 e 05/11",
+                        FutureBuilder(
+                          future: valorCotacao,
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return Prazos(
+                                imagem: "assets/imagens/box-aberta.png",
+                                tipo: 'ENTREGA',
+                                prazo: snapshot.data.prazoEntrega,
+                              );
+                            } else if (snapshot.hasError) {
+                              return Text("erro ao calcular");
+                            }
+
+                            // By default, show a loading spinner.
+                            return CircularProgressIndicator(
+                              backgroundColor: Colors.white,
+                            );
+                          },
                         ),
                         Divider(
                           color: Colors.grey[300],
