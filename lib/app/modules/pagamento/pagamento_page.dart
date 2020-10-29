@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:levaai1/app/modules/pagamento/widgets/termos_condicoes.dart';
 
 import '../../core/repositories/monitoramento_repository.dart';
 import '../../core/stores/pedido_lista_store.dart';
@@ -189,6 +190,7 @@ class _PagamentoPageState
                             },
                           ),
                           SizedBox(height: displayWidth(context) * 0.08),
+                          TermosCondicoes()
                         ],
                       ),
                     ),

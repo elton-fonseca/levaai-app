@@ -65,6 +65,17 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
   }
 
   @override
+  void defineStatusBotaoPagar({bool status}) {
+    final _$actionInfo = _$_PagamentoControllerBaseActionController.startAction(
+        name: '_PagamentoControllerBase.defineStatusBotaoPagar');
+    try {
+      return super.defineStatusBotaoPagar(status: status);
+    } finally {
+      _$_PagamentoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 pagamento: ${pagamento},

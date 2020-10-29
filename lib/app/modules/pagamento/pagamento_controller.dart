@@ -25,7 +25,7 @@ abstract class _PagamentoControllerBase with Store {
   Map pagamentoApiResponse;
 
   @observable
-  bool botaoPagar = true;
+  bool botaoPagar = false;
 
   void criarPedidos() {
     var pedidoLista = Modular.get<PedidoListaStore>();
@@ -156,5 +156,11 @@ Código Barras boleto: ${pagamentoApiResponse['boleto_codigo_juno']}""";
         }
       },
     );
+  }
+
+  // ignore: use_setters_to_change_properties
+  @action
+  void defineStatusBotaoPagar({bool status}) {
+    botaoPagar = status;
   }
 }

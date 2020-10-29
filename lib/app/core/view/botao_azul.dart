@@ -18,13 +18,15 @@ class BotaoAzul extends StatelessWidget {
       height: displayHeight(context) * 0.07,
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
-          color: CoresConst.azulPadrao,
+          color: onClick == null
+              ? CoresConst.azulPadrao.withOpacity(0.5)
+              : CoresConst.azulPadrao,
           borderRadius: BorderRadius.all(
             Radius.circular(30),
           ),
           border: Border.all(
             width: 3,
-            color: CoresConst.azulPadrao,
+            color: onClick == null ? Colors.transparent : CoresConst.azulPadrao,
           )),
       child: SizedBox.expand(
         child: FlatButton(
