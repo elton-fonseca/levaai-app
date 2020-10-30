@@ -96,7 +96,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
               children: <Widget>[
                 SizedBox(height: displayHeight(context) * 0.03),
                 Container(
-                  height: displayHeight(context) * 0.6,
+                  height: displayHeight(context) * 0.55,
                   child: Observer(
                     // ignore: unnecessary_lambdas
                     builder: (context) {
@@ -104,7 +104,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                     },
                   ),
                 ),
-                SizedBox(height: displayHeight(context) * 0.03),
+                SizedBox(height: displayHeight(context) * 0.05),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -114,7 +114,6 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                         onClick: () {
                           var indice =
                               Modular.get<PedidoListaStore>().pedidos.length;
-
                           Modular.to
                               .pushNamed('/pedido/formulario/$indice/criar');
                         }),
@@ -126,7 +125,6 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                         }),
                   ],
                 ),
-                SizedBox(height: displayHeight(context) * 0.0),
               ],
             ),
           ),

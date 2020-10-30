@@ -16,10 +16,12 @@ class GridItem {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(left: displayWidth(context) * 0.00),
+          padding: EdgeInsets.only(top: displayHeight(context) * 0.02),
           child: Container(
-            height: displayHeight(context) * 0.22,
-            width: displayHeight(context) * 0.22,
+            constraints: BoxConstraints(
+              minWidth: displayHeight(context) * 0.20,
+              maxWidth: displayHeight(context) * 0.22,
+            ),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(const Radius.circular(15.0)),
