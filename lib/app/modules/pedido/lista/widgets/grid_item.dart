@@ -20,7 +20,7 @@ class GridItem {
           child: Container(
             constraints: BoxConstraints(
               minWidth: displayHeight(context) * 0.20,
-              maxWidth: displayHeight(context) * 0.24,
+              maxWidth: displayHeight(context) * 0.22,
             ),
             decoration: BoxDecoration(
               color: Colors.white,
