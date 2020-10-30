@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
@@ -7,17 +8,27 @@ class Input {
   Widget texto({
     BuildContext context,
     String placeholder,
+    String teclado = 'letras',
     String Function(String) validador,
     void Function(String) onChange,
+    TextEditingController textController,
+    int tamanho,
+    bool senha = false,
   }) {
     return TextFormField(
+      controller: textController,
       validator: validador,
       onChanged: onChange,
+      obscureText: senha,
       style: TextStyle(
         fontFamily: 'Roboto',
         color: Colors.white,
       ),
-      keyboardType: TextInputType.emailAddress,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(tamanho),
+      ],
+      keyboardType:
+          teclado == 'letras' ? TextInputType.text : TextInputType.number,
       decoration: InputDecoration(
         errorStyle: TextStyle(
           fontSize: 10.0,
@@ -29,7 +40,9 @@ class Input {
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.white, width: 1.5),
         ),
-        contentPadding: EdgeInsets.only(left: 20, ),
+        contentPadding: EdgeInsets.only(
+          left: 20,
+        ),
         hintText: placeholder,
         hintStyle: TextStyle(
           fontFamily: 'Roboto',

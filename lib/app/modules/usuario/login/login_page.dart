@@ -24,8 +24,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   final formKey = GlobalKey<FormState>();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +73,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                       placeholder: 'Senha',
                                       validador: validarSenha,
                                       onChange: controller.defineSenha,
+                                      senha: true,
                                     ),
                                   )),
                                 ),
@@ -86,7 +85,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 label: 'Entrar',
                                 onClick: () {
                                   controller.login(
-                                      formKey, contextScaffold, widget.destino);
+                                    formKey,
+                                    contextScaffold,
+                                    widget.destino,
+                                  );
                                 }),
                           ]),
                         ),
@@ -100,12 +102,12 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                       child: Padding(
                         padding: EdgeInsets.only(bottom: 10.0),
                         child: Text(
-                        "2020 LevaAi - Todos os direitos reservados",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: displayWidth(context) * 0.025,
+                          "2020 LevaAi - Todos os direitos reservados",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: displayWidth(context) * 0.025,
+                          ),
                         ),
-                      ),
                       ),
                     ),
                   ),
