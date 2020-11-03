@@ -8,117 +8,117 @@ import 'widgets/inputs.dart';
 class ResetarSenha extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-          child: Scaffold(
-        body: Container(
-          height: displayHeight(context) * 1,
-          width: displayWidth(context) * 1,
-          color: CoresConst.azulPadrao,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                  child: Icon(
-                Icons.vpn_key,
-                size: displayWidth(context) * 0.3,
-                color: Colors.white,
-              )),
-              Divider(
-                height: displayHeight(context) * 0.07,
-              ),
-              Text(
-                "Resetar Senha",
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: displayWidth(context) * 0.08,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Divider(
-                height: displayHeight(context) * 0.02,
-              ),
-              Text(
-                "Digite o número de confirmação que você recebeu\n " +
-                    "por SMS e uma nova senha com 8 digitos.",
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: displayWidth(context) * 0.04,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: displayHeight(context) * 0.07),
-              Container(
-                width: displayWidth(context) * 0.7,
-                child: Column(
+    return Scaffold(
+        body: SingleChildScrollView(
+                  child: Container(
+    height: displayHeight(context) * 1,
+    width: displayWidth(context) * 1,
+    color: CoresConst.azulPadrao,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+          SizedBox(
+              child: Icon(
+            Icons.vpn_key,
+            size: displayWidth(context) * 0.3,
+            color: Colors.white,
+          )),
+          Divider(
+            height: displayHeight(context) * 0.07,
+          ),
+          Text(
+            "Resetar Senha",
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: displayWidth(context) * 0.08,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Divider(
+            height: displayHeight(context) * 0.02,
+          ),
+          Text(
+            "Digite o número de confirmação que você recebeu\n " +
+                "por SMS e uma nova senha com 8 digitos.",
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: displayWidth(context) * 0.04,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: displayHeight(context) * 0.07),
+          Container(
+            width: displayWidth(context) * 0.7,
+            child: Column(
+              children: <Widget>[
+                Row(
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                              child: Observer(
-                            builder: (context) => Input().texto(
-                              context: context,
-                              placeholder: 'Código de confirmação',
-                              validador: null,
-                              onChange: null,
-                            ),
-                          )),
+                    Expanded(
+                      child: SizedBox(
+                          child: Observer(
+                        builder: (context) => Input().texto(
+                          context: context,
+                          placeholder: 'Código de confirmação',
+                          validador: null,
+                          onChange: null,
                         ),
-                      ],
-                    ),
-                    Divider(
-                height: displayHeight(context) * 0.01,
-              ),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                              child: Observer(
-                            builder: (context) => Input().texto(
-                              context: context,
-                              placeholder: 'Nova Senha',
-                              validador: null,
-                              onChange: null,
-                            ),
-                          )),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                height: displayHeight(context) * 0.01,
-              ),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                              child: Observer(
-                            builder: (context) => Input().texto(
-                              context: context,
-                              placeholder: 'Confirmar Nova Senha',
-                              validador: null,
-                              onChange: null,
-                            ),
-                          )),
-                        ),
-                      ],
+                      )),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(height: displayHeight(context) * 0.07),
-              BotaoBranco(
-                  largura: 0.8,
-                  texto: 'Concluir',
-                  onClick: () {
-                    ;
-                  }),
-            ],
+                Divider(
+            height: displayHeight(context) * 0.01,
+          ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: SizedBox(
+                          child: Observer(
+                        builder: (context) => Input().texto(
+                          context: context,
+                          placeholder: 'Nova Senha',
+                          validador: null,
+                          onChange: null,
+                        ),
+                      )),
+                    ),
+                  ],
+                ),
+                Divider(
+            height: displayHeight(context) * 0.01,
+          ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: SizedBox(
+                          child: Observer(
+                        builder: (context) => Input().texto(
+                          context: context,
+                          placeholder: 'Confirmar Nova Senha',
+                          validador: null,
+                          onChange: null,
+                        ),
+                      )),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: displayHeight(context) * 0.07),
+          BotaoBranco(
+              largura: 0.8,
+              texto: 'Concluir',
+              onClick: () {
+                ;
+              }),
+      ],
+    ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
