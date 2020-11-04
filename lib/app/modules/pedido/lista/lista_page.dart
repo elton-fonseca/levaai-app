@@ -62,7 +62,7 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
         onWillPop: _onWillPop,
         child: Scaffold(
           appBar: NavbarPadrao().build(context),
-          drawer: MenuLateral(),
+          //drawer: MenuLateral(),
           backgroundColor: Colors.transparent,
           body: ConteudoPadrao(
             textoCabecalho: Column(

@@ -39,6 +39,7 @@ abstract class _LoginControllerBase with Store {
               'Bearer ${resposta["token"]}';
 
           if (destino == 'pagamento') {
+            Navigator.of(context).pop();
             Modular.to.popAndPushNamed('/pagamento/criar');
             return;
           }

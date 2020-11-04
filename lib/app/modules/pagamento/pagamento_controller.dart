@@ -54,6 +54,7 @@ abstract class _PagamentoControllerBase with Store {
             botaoPagar = true;
           } else {
             pagamentoApiResponse = resposta;
+            Navigator.of(context)..pop()..pop();
             Modular.to.pushNamed('pagamento/confirmacao');
           }
         }).catchError((e) {
