@@ -76,7 +76,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
               SizedBox(
                 height: displayHeight(context) * 0.067,
-                child: Icon(Icons.arrow_downward, size: displayWidth(context) * 0.08, color: Colors.white),
+                child: Icon(Icons.arrow_downward,
+                    size: displayWidth(context) * 0.08, color: Colors.white),
               ),
             ],
           ),
@@ -86,7 +87,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           width: 80.0,
           child: FittedBox(
             child: FloatingActionButton(
-              shape: CircleBorder(side: BorderSide(width: 4, color: Colors.white, style: BorderStyle.solid)),
+              shape: CircleBorder(
+                  side: BorderSide(
+                      width: 4, color: Colors.white, style: BorderStyle.solid)),
               backgroundColor: CoresConst.azulPadrao,
               child: Icon(Icons.add),
               onPressed: () {
@@ -122,7 +125,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           size: 30,
                         ),
                         onPressed: () {
-                          Modular.to.pushNamed('/login/formulario/lista-pedidos');
+                          Modular.to
+                              .pushNamed('/login/formulario/lista-pedidos');
                         },
                       ),
                     ],
@@ -146,9 +150,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             color: CoresConst.azulPadrao,
                             size: 30,
                           ),
-                          onPressed: () {
-                            Modular.to.pushNamed('/usuario/cadastro');
-                          },
+                          onPressed: null,
                         ),
                       ),
                     ],

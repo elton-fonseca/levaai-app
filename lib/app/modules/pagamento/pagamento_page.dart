@@ -86,7 +86,7 @@ class _PagamentoPageState
         onWillPop: _onWillPop,
         child: Scaffold(
           appBar: NavbarPadrao().build(context),
-          drawer: MenuLateral(),
+          // drawer: MenuLateral(),
           backgroundColor: Colors.transparent,
           body: Builder(
             builder: (contextScaffold) => ConteudoPadrao(
