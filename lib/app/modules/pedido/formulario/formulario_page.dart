@@ -66,10 +66,13 @@ class _FormularioPageState
                 ),
                 conteudo: Column(children: <Widget>[
                   Endereco().obter(
-                    context: contextScaffold,
-                    origemTextController: enderecoOrigemTextController,
-                    destinoTextController: enderecoDestinoTextController,
-                  ),
+                      context: contextScaffold,
+                      origemTextController: enderecoOrigemTextController,
+                      origemComplementoTextController:
+                          enderecoOrigemComplementoTextController,
+                      destinoTextController: enderecoDestinoTextController,
+                      destinoComplementoTextController:
+                          enderecoDestinoComplementoTextController),
                   SizedBox(height: displayHeight(context) * 0.04),
                   Observer(builder: (_) {
                     return Text(
@@ -116,11 +119,11 @@ class _FormularioPageState
                       ],
                     ),
                     child: Detalhes().obter(
-                      context: context,
-                      valorTotalTextController: valorTotalTextController,
-                      pesoTextController: pesoTextController,
-                      tipoMercadoriaTextController: tipoMercadoriaTextController
-                    ),
+                        context: context,
+                        valorTotalTextController: valorTotalTextController,
+                        pesoTextController: pesoTextController,
+                        tipoMercadoriaTextController:
+                            tipoMercadoriaTextController),
                   ),
                   SizedBox(height: displayHeight(context) * 0.08),
                   BotaoAzul(

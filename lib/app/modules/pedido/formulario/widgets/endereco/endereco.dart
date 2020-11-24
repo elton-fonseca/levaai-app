@@ -1,14 +1,19 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
+import 'complemento_endereco_controller.dart';
 import 'endereco_controller.dart';
 
 class Endereco {
   Widget obter({
     @required BuildContext context,
     @required TextEditingController origemTextController,
+    @required TextEditingController origemComplementoTextController,
     @required TextEditingController destinoTextController,
+    @required TextEditingController destinoComplementoTextController,
   }) {
     return Padding(
       padding: EdgeInsets.only(
@@ -32,7 +37,7 @@ class Endereco {
             children: <Widget>[
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                height: displayHeight(context) * 0.1,
+                height: displayHeight(context) * 0.07,
                 child: TextFormField(
                   controller: origemTextController,
                   onChanged: (valor) => Modular.get<EnderecoController>()
@@ -66,9 +71,18 @@ class Endereco {
                   ),
                 ),
               ),
+              Observer(
+                builder: (context) {
+                  return Modular.get<ComplementoEnderecoController>()
+                      .complementoEnderecoOrigem(
+                    context,
+                    origemComplementoTextController,
+                  );
+                },
+              ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                height: displayHeight(context) * 0.1,
+                height: displayHeight(context) * 0.07,
                 child: TextFormField(
                   controller: destinoTextController,
                   onChanged: (valor) => Modular.get<EnderecoController>()
@@ -102,6 +116,13 @@ class Endereco {
                   ),
                 ),
               ),
+              Observer(
+                builder: (context) {
+                  return Modular.get<ComplementoEnderecoController>()
+                      .complementoEnderecoDestino(
+                          context, destinoComplementoTextController);
+                },
+              ),
             ],
           ),
         ),
@@ -109,3 +130,5 @@ class Endereco {
     );
   }
 }
+
+class ComplemntoEnderecoController {}

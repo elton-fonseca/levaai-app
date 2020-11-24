@@ -9,6 +9,7 @@ import 'formulario_page.dart';
 import 'repositories/formulario_repository.dart';
 import 'repositories/interfaces/formulario_repository_interface.dart';
 import 'widgets/detalhes/detalhes_controller.dart';
+import 'widgets/endereco/complemento_endereco_controller.dart';
 import 'widgets/endereco/endereco_controller.dart';
 import 'widgets/popup/popup_controller.dart';
 import 'widgets/tipo_medida/tipo_medida_controller.dart';
@@ -20,6 +21,8 @@ class FormularioModule extends ChildModule {
         Bind((i) => PopupController(Modular.get<PedidoListaStore>())),
         Bind((i) => TipoMedidaController(Modular.get<PedidoListaStore>())),
         Bind((i) => EnderecoController(Modular.get<PedidoListaStore>())),
+        Bind((i) =>
+            ComplementoEnderecoController(Modular.get<PedidoListaStore>())),
         Bind((i) => DetalhesController()),
         Bind<IFormularioRepository>((i) {
           return FormularioRepository(Modular.get<Dio>());

@@ -7,13 +7,18 @@ import '../../../core/stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
 import 'widgets/detalhes/detalhes_controller.dart';
+import 'widgets/endereco/complemento_endereco_controller.dart';
 import 'widgets/endereco/endereco_controller.dart';
 import 'widgets/popup/popup_controller.dart';
 import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final enderecoOrigemTextController = TextEditingController();
+  final enderecoOrigemComplementoTextController = TextEditingController();
+
   final enderecoDestinoTextController = TextEditingController();
+  final enderecoDestinoComplementoTextController = TextEditingController();
+
   final valorTotalTextController =
       MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: '.');
   final pesoTextController = MoneyMaskedTextController(
@@ -42,9 +47,15 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     } else {
       enderecoOrigemTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoOrigem();
+      enderecoOrigemComplementoTextController.text =
+          Modular.get<ComplementoEnderecoController>()
+              .pegaComplementoEnderecoOrigem();
 
       enderecoDestinoTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoDestino();
+      enderecoDestinoComplementoTextController.text =
+          Modular.get<ComplementoEnderecoController>()
+              .pegaComplementoEnderecoDestino();
 
       valorTotalTextController
           .updateValue(Modular.get<DetalhesController>().pegaValorTotal());
