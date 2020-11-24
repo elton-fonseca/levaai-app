@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'home_controller.dart';
@@ -142,16 +143,20 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Transform.rotate(
-                        angle: 270 * 3.14 / 180,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.settings,
-                            color: CoresConst.azulPadrao,
-                            size: 30,
-                          ),
-                          onPressed: null,
+                      IconButton(
+                        icon: Icon(
+                          Icons.help_outline,
+                          color: CoresConst.azulPadrao,
+                          size: 30,
                         ),
+                        onPressed: () async {
+                          var url = 'https://www.levaai.com.br/ajuda/';
+                          if (await canLaunch(url)) {
+                            await launch(url);
+                          } else {
+                            throw 'Arquivo não encontrado';
+                          }
+                        },
                       ),
                     ],
                   ),

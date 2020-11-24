@@ -51,7 +51,8 @@ class _TermosCondicoesState extends State<TermosCondicoes> {
                               style: linkStyle,
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () async {
-                                  var url = 'https://eltonfonseca.dev';
+                                  var url =
+                                      'https://www.levaai.com.br/termos-e-condicoes/';
                                   if (await canLaunch(url)) {
                                     await launch(url);
                                   } else {

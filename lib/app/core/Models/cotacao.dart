@@ -3,8 +3,8 @@ class Cotacao {
 
   int cotacaoId;
 
-  String prazoColeta;
-  String prazoEntrega;
+  int prazoColeta;
+  int prazoEntrega;
 
   Cotacao({this.valor, this.cotacaoId});
 

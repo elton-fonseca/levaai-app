@@ -27,7 +27,7 @@ class TratarItensRastreamento {
 
   void _semPagamento() {
     if (status == 'sem-pagamento') {
-      pedidoPropriedade['rastreamento'].add({
+      pedidoPropriedade['rastreamento'].insert(0, {
         "botao": true,
         "botao_mensagem": "Pagar",
         "botao_acao": () => Modular.get<DetalhesController>()
@@ -41,7 +41,7 @@ class TratarItensRastreamento {
 
   void _imprimirBoleto() {
     if (status == 'aguardando-pagamento-boleto') {
-      pedidoPropriedade['rastreamento'].add({
+      pedidoPropriedade['rastreamento'].insert(0, {
         "botao": true,
         "botao_mensagem": "Baixar Boleto",
         "botao_acao": () async {
@@ -61,7 +61,7 @@ class TratarItensRastreamento {
 
   void _boletoVencido() {
     if (status == 'boleto-vencido') {
-      pedidoPropriedade['rastreamento'].add({
+      pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
         "mensagem": "Boleto Vencido",
@@ -72,7 +72,7 @@ class TratarItensRastreamento {
 
   void _cartaoEmAnalise() {
     if (status == 'aguardando-pagamento-cartao') {
-      pedidoPropriedade['rastreamento'].add({
+      pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.amarelo,
         "mensagem": "Pagamento em Análise",
@@ -83,7 +83,7 @@ class TratarItensRastreamento {
 
   void _pagamentoReprovado() {
     if (status == 'pagamento-reprovado') {
-      pedidoPropriedade['rastreamento'].add({
+      pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
         "mensagem": "Pagamento não aprovado",
@@ -94,7 +94,7 @@ class TratarItensRastreamento {
 
   void _reentrega() {
     if (status == 'entrega-nao-efetuada-cliente') {
-      pedidoPropriedade['rastreamento'].add({
+      pedidoPropriedade['rastreamento'].insert(0, {
         "botao": true,
         "botao_mensagem": "Pagar",
         "botao_acao": () => Modular.get<DetalhesController>()

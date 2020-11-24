@@ -10,7 +10,7 @@ class Prazos extends StatelessWidget {
 
   final String imagem;
   final String tipo;
-  final String prazo;
+  final int prazo;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class Prazos extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              _descricao(prazo, tipo),
+              _descricao(prazo.toString(), tipo),
               style: TextStyle(
                 fontFamily: 'Roboto',
                 color: Color(0xFF909090),
@@ -76,6 +76,6 @@ class Prazos extends StatelessWidget {
       return "$prazo DIA APÓS A COLETA";
     }
 
-    return "$prazo DIAs APÓS A COLETA";
+    return "$prazo DIAS APÓS A COLETA";
   }
 }

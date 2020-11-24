@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/local_storage.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -50,6 +51,20 @@ class MenuLateral extends StatelessWidget {
               onTap: () {
                 Modular.to.pushNamed('/rastreamento/lista');
               }),
+          ListTile(
+            leading: Icon(Icons.help_outline),
+            title: Text("Ajuda"),
+            subtitle: Text("Como podemos te ajudar?"),
+            trailing: Icon(Icons.arrow_forward),
+            onTap: () async {
+              var url = 'https://www.levaai.com.br/ajuda/';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Arquivo não encontrado';
+              }
+            },
+          ),
           ListTile(
               leading: Icon(Icons.assignment_return),
               title: Text("Sair"),
