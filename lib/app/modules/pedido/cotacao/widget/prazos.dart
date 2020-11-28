@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class Prazos extends StatelessWidget {
@@ -45,7 +46,7 @@ class Prazos extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              _descricao(prazo.toString(), tipo),
+              Helpers.prazoDescricao(prazo.toString(), tipo),
               style: TextStyle(
                 fontFamily: 'Roboto',
                 color: Color(0xFF909090),
@@ -59,23 +60,5 @@ class Prazos extends StatelessWidget {
     );
   }
 
-  String _descricao(String prazo, String tipo) {
-    if (prazo == "0" || prazo == null) {
-      return "DINÂMICO.";
-    }
 
-    if (tipo == 'COLETA' && prazo == "1") {
-      return "$prazo DIA ÚTIL";
-    }
-
-    if (tipo == 'COLETA' && prazo == "2") {
-      return "$prazo DIAS ÚTEIS";
-    }
-
-    if (tipo == 'ENTREGA' && prazo == "1") {
-      return "$prazo DIA APÓS A COLETA";
-    }
-
-    return "$prazo DIAS APÓS A COLETA";
-  }
 }

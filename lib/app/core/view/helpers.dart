@@ -151,4 +151,24 @@ class Helpers {
 
     return estados[nomeEstado];
   }
+
+  static String prazoDescricao(String prazo, String tipo) {
+    if (prazo == "0" || prazo == null) {
+      return "DINÂMICO.";
+    }
+
+    if (tipo == 'COLETA' && prazo == "1") {
+      return "$prazo DIA ÚTIL";
+    }
+
+    if (tipo == 'COLETA' && prazo == "2") {
+      return "$prazo DIAS ÚTEIS";
+    }
+
+    if (tipo == 'ENTREGA' && prazo == "1") {
+      return "$prazo DIA APÓS A COLETA";
+    }
+
+    return "$prazo DIAS APÓS A COLETA";
+  }
 }

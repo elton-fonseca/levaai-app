@@ -37,7 +37,7 @@ abstract class _DetalhesControllerBase with Store {
         return 'Tamanho Aproximado Caixa de Sapato';
         break;
       case 'microondas':
-        return 'Tamanho Aproximado Caixa de Sapato';
+        return 'Tamanho Aproximado Microondas';
         break;
       case 'fogao':
         return 'Tamanho Aproximado Fogão';

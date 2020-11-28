@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levaai1/app/core/view/helpers.dart';
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
@@ -197,7 +198,116 @@ class Detalhes extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: displayHeight(context) * 0.05),
+          SizedBox(
+            width: displayWidth(context) * 0.8,
+            child: Divider(
+              color: Colors.grey[300],
+              height: displayHeight(context) * 0.05,
+              thickness: 2,
+              indent: 0,
+              endIndent: 0,
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: displayWidth(context) * 0.05,
+                      right: displayWidth(context) * 0.05,
+                    ),
+                    child: SizedBox(
+                      height: displayHeight(context) * 0.04,
+                      child: Image.asset("assets/imagens/box-fechada.png"),
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: displayWidth(context) * 0.05),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Prazo de coleta:',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                      Text(
+                        Helpers.prazoDescricao(
+                          pedido['cotacao']['prazo_coleta'].toString(),
+                          'COLETA',
+                        ),
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: displayHeight(context) * 0.025,
+          ),
+          Row(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: displayWidth(context) * 0.05,
+                      right: displayWidth(context) * 0.05,
+                    ),
+                    child: SizedBox(
+                      height: displayHeight(context) * 0.04,
+                      child: Image.asset("assets/imagens/box-aberta.png"),
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: displayWidth(context) * 0.05),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Prazo de entrega:',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                      Text(
+                        Helpers.prazoDescricao(
+                          pedido['cotacao']['prazo_entrega'].toString(),
+                          'ENTREGA',
+                        ),
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: displayWidth(context) * 0.035,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: displayHeight(context) * 0.05)
         ],
       ),
     );
