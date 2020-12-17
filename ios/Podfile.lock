@@ -1,8 +1,12 @@
 PODS:
   - device_info (0.0.1):
     - Flutter
+  - DirectCheckout (0.0.3)
   - Flutter (1.0.0)
   - geocoder (0.0.1):
+    - Flutter
+  - juno_direct_checkout (0.0.1):
+    - DirectCheckout
     - Flutter
   - shared_preferences (0.0.1):
     - Flutter
@@ -13,8 +17,13 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - geocoder (from `.symlinks/plugins/geocoder/ios`)
+  - juno_direct_checkout (from `.symlinks/plugins/juno_direct_checkout/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
+
+SPEC REPOS:
+  trunk:
+    - DirectCheckout
 
 EXTERNAL SOURCES:
   device_info:
@@ -23,6 +32,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   geocoder:
     :path: ".symlinks/plugins/geocoder/ios"
+  juno_direct_checkout:
+    :path: ".symlinks/plugins/juno_direct_checkout/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
   url_launcher:
@@ -30,8 +41,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
+  DirectCheckout: 0912fc266e29394464cfe8488e4511634386db08
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   geocoder: 3cfab70531a0b367e917bafe82df4c30f6d4c45a
+  juno_direct_checkout: 6978c381d3602b7b101800b0cce539f910733399
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 

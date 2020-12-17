@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-//import 'package:juno_direct_checkout/juno_direct_checkout.dart';
+import 'package:juno_direct_checkout/juno_direct_checkout.dart';
 import 'package:mobx/mobx.dart';
 
 import '../stores/pedido_lista_store.dart';
@@ -55,11 +55,8 @@ abstract class _PagamentoBase with Store {
         "expirationYear": '20${validade[3]}${validade[4]}'
       };
 
-      //await JunoDirectCheckout.init(map);
-      //data['hash_cartao'] = await JunoDirectCheckout.getCardHash(card);
-
-      data['hash_cartao'] = 'aaa';
-
+      await JunoDirectCheckout.init(map);
+      data['hash_cartao'] = await JunoDirectCheckout.getCardHash(card);
       data['nome_cartao'] = nome;
 
       data['cep_endereco_faturamento'] = cepFaturamento;
