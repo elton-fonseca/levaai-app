@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../core/tema/cores_const.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'splash_controller.dart';
 

@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.levaai1">
+    package="br.com.tadex.levaai">
+    
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
@@ -9,7 +10,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="levaai1"
+        android:label="levaai"
         android:icon="@mipmap/ic_launcher">
       <meta-data
         android:name="br.com.juno.directcheckout.public_token"

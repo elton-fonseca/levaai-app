@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/local_storage.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../core/services/local_storage.dart';
 import '../../../core/stores/pedido_lista_store.dart';
+import '../../../core/view/helpers.dart';
 import 'validacao/valida_formulario.dart';
 
 part 'formulario_controller.g.dart';

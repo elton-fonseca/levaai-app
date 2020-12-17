@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/modules/usuario/login/troca-senha/alterar_senha_controller.dart';
+
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/botao_branco.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 import '../widgets/inputs.dart';
+import 'alterar_senha_controller.dart';
 
 class TrocarSenhaFormPage extends StatefulWidget {
   @override

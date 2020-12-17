@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:levaai1/app/core/services/validadores.dart';
 
 import '../../../../core/models/pedido.dart';
+import '../../../../core/services/validadores.dart';
 import '../cotacao_controller.dart';
 
 class ValidaFormulario {

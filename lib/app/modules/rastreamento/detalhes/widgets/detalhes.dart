@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:levaai1/app/core/view/helpers.dart';
+
 import '../../../../core/tema/cores_const.dart';
+import '../../../../core/view/helpers.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 
 class Detalhes extends StatelessWidget {

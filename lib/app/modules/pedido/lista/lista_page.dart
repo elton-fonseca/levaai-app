@@ -8,7 +8,6 @@ import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/helpers.dart';
-import '../../../core/view/menu_lateral.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
 import 'lista_controller.dart';
