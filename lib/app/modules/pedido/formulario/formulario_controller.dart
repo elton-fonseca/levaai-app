@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/services/local_storage.dart';
 import '../../../core/stores/pedido_lista_store.dart';
-import '../../../core/view/helpers.dart';
 import 'validacao/valida_formulario.dart';
 
 part 'formulario_controller.g.dart';
@@ -64,10 +64,38 @@ abstract class _FormularioControllerBase with Store {
   void avisoLocaisAtendidos(BuildContext context) {
     LocalStorage.getValue<bool>("aviso-local-atendido").then((jaFoiMostrado) {
       if (jaFoiMostrado == false) {
-        Helpers.alerta(
-            titulo: 'Locais Atendidos',
-            descricao: 'Atualmente atendemos todo o vale do paraiba',
-            context: context);
+        showDialog(
+          context: context,
+          builder: (context) {
+            // retorna um objeto do tipo Dialog
+            return AlertDialog(
+              title: Text('Locais Atendidos'),
+              content: Text('Atendemos as seguintes regiões do Estado de SP: '
+                  'São Paulo, Grande SP, Vale do Paraíba, Litoral Norte e Sul '
+                  'e Campinas'),
+              actions: <Widget>[
+                // define os botões na base do dialogo
+                FlatButton(
+                  child: Text("Cidades Atendidas"),
+                  onPressed: () async {
+                    var url = 'https://www.levaai.com.br/regioesatendidas/';
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Caminho não encontrado';
+                    }
+                  },
+                ),
+                FlatButton(
+                  child: Text("Fechar"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
 
         LocalStorage.setValue<bool>('aviso-local-atendido', true);
       }

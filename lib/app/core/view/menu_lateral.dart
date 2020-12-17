@@ -66,6 +66,20 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: Icon(Icons.help_outline),
+            title: Text("Cidades Atendidas"),
+            subtitle: Text("Veja as cidades Atendidas"),
+            trailing: Icon(Icons.arrow_forward),
+            onTap: () async {
+              var url = 'https://www.levaai.com.br/ajuda/';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Arquivo não encontrado';
+              }
+            },
+          ),
+          ListTile(
               leading: Icon(Icons.assignment_return),
               title: Text("Sair"),
               subtitle: Text("Deslogar do sistema"),

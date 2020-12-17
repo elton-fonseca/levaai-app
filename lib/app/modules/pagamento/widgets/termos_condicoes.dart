@@ -61,8 +61,8 @@ class _TermosCondicoesState extends State<TermosCondicoes> {
                                 },
                             ),
                             TextSpan(
-                              text: '. E estou ciente que a reentrega'
-                                  ' pode ser cobrada ',
+                              text: '. Estou ciente que a reentrega ou devoluçã'
+                                  'o poderá ser cobrada.',
                             ),
                           ],
                         ),
