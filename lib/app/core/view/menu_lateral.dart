@@ -71,7 +71,7 @@ class MenuLateral extends StatelessWidget {
             subtitle: Text("Veja as cidades Atendidas"),
             trailing: Icon(Icons.arrow_forward),
             onTap: () async {
-              var url = 'https://www.levaai.com.br/ajuda/';
+              var url = 'https://www.levaai.com.br/regioesatendidas/';
               if (await canLaunch(url)) {
                 await launch(url);
               } else {
