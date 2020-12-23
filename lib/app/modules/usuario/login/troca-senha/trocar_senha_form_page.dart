@@ -21,117 +21,119 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Builder(
-        builder: (contextScaffold) => Container(
-          height: displayHeight(context) * 1,
-          width: displayWidth(context) * 1,
-          color: CoresConst.azulPadrao,
-          child: Padding(
-            padding: EdgeInsets.all(displayWidth(context) * 0.025),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                    child: Icon(
-                  Icons.vpn_key,
-                  size: displayWidth(context) * 0.3,
-                  color: Colors.white,
-                )),
-                Divider(
-                  height: displayHeight(context) * 0.07,
-                ),
-                Text(
-                  "Resetar Senha",
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: displayWidth(context) * 0.08,
+        builder: (contextScaffold) => SingleChildScrollView(
+          child: Container(
+            height: displayHeight(context) * 1,
+            width: displayWidth(context) * 1,
+            color: CoresConst.azulPadrao,
+            child: Padding(
+              padding: EdgeInsets.all(displayWidth(context) * 0.025),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                      child: Icon(
+                    Icons.vpn_key,
+                    size: displayWidth(context) * 0.3,
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                  )),
+                  Divider(
+                    height: displayHeight(context) * 0.07,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                Divider(
-                  height: displayHeight(context) * 0.02,
-                ),
-                Text(
-                  "Digite o número de confirmação que você recebeu\n " +
-                      "por SMS e uma nova senha com 8 digitos.",
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: displayWidth(context) * 0.04,
-                    color: Colors.white,
+                  Text(
+                    "Resetar Senha",
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: displayWidth(context) * 0.08,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: displayHeight(context) * 0.07),
-                Container(
-                  width: displayWidth(context) * 0.7,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                              child: SizedBox(
-                            child: Input().texto(
-                              context: context,
-                              placeholder: 'Código de confirmação',
-                              onChange: (v) =>
-                                  Modular.get<AlterarSenhaController>()
-                                      .tokenDigitado = v,
-                              textController: tokenTextController,
-                              teclado: 'numerico',
-                              tamanho: 4,
-                            ),
-                          )),
-                        ],
-                      ),
-                      Divider(
-                        height: displayHeight(context) * 0.01,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                              child: SizedBox(
-                            child: Input().texto(
-                              context: context,
-                              placeholder: 'Nova Senha',
-                              senha: true,
-                              onChange: (v) =>
-                                  Modular.get<AlterarSenhaController>().senha =
-                                      v,
-                            ),
-                          )),
-                        ],
-                      ),
-                      Divider(
-                        height: displayHeight(context) * 0.01,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                              child: SizedBox(
-                            child: Input().texto(
-                              context: context,
-                              placeholder: 'Confirmar Nova Senha',
-                              senha: true,
-                              onChange: (v) =>
-                                  Modular.get<AlterarSenhaController>()
-                                      .senhaConfirmacao = v,
-                            ),
-                          )),
-                        ],
-                      ),
-                    ],
+                  Divider(
+                    height: displayHeight(context) * 0.02,
                   ),
-                ),
-                SizedBox(height: displayHeight(context) * 0.07),
-                BotaoBranco(
-                    largura: 0.8,
-                    texto: 'Concluir',
-                    onClick: () {
-                      Modular.get<AlterarSenhaController>()
-                          .alterarSenha(contextScaffold);
-                    }),
-              ],
+                  Text(
+                    "Digite o número de confirmação que você recebeu\n " +
+                        "por SMS e uma nova senha com 8 digitos.",
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: displayWidth(context) * 0.04,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: displayHeight(context) * 0.07),
+                  Container(
+                    width: displayWidth(context) * 0.7,
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                                child: SizedBox(
+                              child: Input().texto(
+                                context: context,
+                                placeholder: 'Código de confirmação',
+                                onChange: (v) =>
+                                    Modular.get<AlterarSenhaController>()
+                                        .tokenDigitado = v,
+                                textController: tokenTextController,
+                                teclado: 'numerico',
+                                tamanho: 4,
+                              ),
+                            )),
+                          ],
+                        ),
+                        Divider(
+                          height: displayHeight(context) * 0.01,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                                child: SizedBox(
+                              child: Input().texto(
+                                context: context,
+                                placeholder: 'Nova Senha',
+                                senha: true,
+                                onChange: (v) =>
+                                    Modular.get<AlterarSenhaController>()
+                                        .senha = v,
+                              ),
+                            )),
+                          ],
+                        ),
+                        Divider(
+                          height: displayHeight(context) * 0.01,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                                child: SizedBox(
+                              child: Input().texto(
+                                context: context,
+                                placeholder: 'Confirmar Nova Senha',
+                                senha: true,
+                                onChange: (v) =>
+                                    Modular.get<AlterarSenhaController>()
+                                        .senhaConfirmacao = v,
+                              ),
+                            )),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: displayHeight(context) * 0.07),
+                  BotaoBranco(
+                      largura: 0.8,
+                      texto: 'Concluir',
+                      onClick: () {
+                        Modular.get<AlterarSenhaController>()
+                            .alterarSenha(contextScaffold);
+                      }),
+                ],
+              ),
             ),
           ),
         ),
