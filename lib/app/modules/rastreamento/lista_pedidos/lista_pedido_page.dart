@@ -25,9 +25,9 @@ class _ListaPedidoPageState
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          gradient:
-              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+       decoration: BoxDecoration(
+           gradient:
+               LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: Scaffold(
         appBar: NavbarPadrao().build(context),
         drawer: MenuLateral(),

@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -62,9 +64,16 @@ abstract class _DadosCartaoControllerBase with Store {
     pagamento.cepFaturamento = address.postalCode;
     pagamento.logradouroFaturamento = address.thoroughfare;
     pagamento.numeroFaturamento = address.subThoroughfare;
-    pagamento.cidadeFaturamento = address.subAdminArea;
-    pagamento.estadoFaturamento = Helpers.pegarSiglaEstado(address.adminArea);
-    pagamento.cidadeFaturamento = address.subAdminArea;
+    if (Platform.isAndroid) {
+      pagamento.cidadeFaturamento = address.subAdminArea;
+      pagamento.estadoFaturamento = Helpers.pegarSiglaEstado(address.adminArea);
+    } else {
+      pagamento.cidadeFaturamento = address.locality;
+      pagamento.estadoFaturamento = address.adminArea;
+    }
+
+
+    
   }
 
   void _limpaCampos(

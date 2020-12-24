@@ -32,9 +32,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           builder: (contextScaffold) => SingleChildScrollView(
             child: Container(
               height: displayHeight(context) * 1,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+               decoration: BoxDecoration(
+                   gradient: LinearGradient(
+                       colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
               child: Column(
                 children: <Widget>[
                   Logo(),

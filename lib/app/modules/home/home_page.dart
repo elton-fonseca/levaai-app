@@ -26,10 +26,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: Scaffold(
         backgroundColor: Color(0xFF1d509a),
         body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-            colors: [Color(0xFF2E4983), Color(0xFF005BC3)],
-          )),
+           decoration: BoxDecoration(
+               gradient: LinearGradient(
+             colors: [Color(0xFF2E4983), Color(0xFF005BC3)],
+           )),
           child: Column(
             children: <Widget>[
               Padding(

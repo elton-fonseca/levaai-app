@@ -54,9 +54,9 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          gradient:
-              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+       decoration: BoxDecoration(
+           gradient:
+                LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: Scaffold(

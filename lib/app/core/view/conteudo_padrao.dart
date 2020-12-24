@@ -17,8 +17,8 @@ class ConteudoPadrao extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+          gradient: LinearGradient(
+          colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
