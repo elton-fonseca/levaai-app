@@ -74,9 +74,13 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
                             child: Input().texto(
                               context: context,
                               placeholder: 'Código de confirmação',
-                              onChange: (v) =>
-                                  Modular.get<AlterarSenhaController>()
-                                      .tokenDigitado = v,
+                              onChange: (v) {
+                                if (v.length == 4) {
+                                  FocusScope.of(context).unfocus();
+                                }
+                                return Modular.get<AlterarSenhaController>()
+                                    .tokenDigitado = v;
+                              },
                               textController: tokenTextController,
                               teclado: 'numerico',
                               tamanho: 4,

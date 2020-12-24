@@ -82,11 +82,15 @@ class _TrocarSenhaTokenPageState extends State<TrocarSenhaTokenPage> {
                           child: Input().texto(
                               context: context,
                               placeholder: 'Número do seu Celular',
-                              onChange: (v) =>
-                                  Modular.get<GerarTokenController>().telefone =
-                                      v,
+                              onChange: (v) {
+                                if (v.length == 15) {
+                                  FocusScope.of(context).unfocus();
+                                }
+                                return Modular.get<GerarTokenController>()
+                                    .telefone = v;
+                              },
                               textController: maskedTextController,
-                              teclado: 'numero'),
+                              teclado: 'numeros'),
                         ),
                       ),
                     ],

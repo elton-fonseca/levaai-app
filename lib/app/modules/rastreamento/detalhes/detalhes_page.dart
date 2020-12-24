@@ -258,7 +258,8 @@ class _DetalhesPageState
                                 ],
                               ),
                               onPressed: () {
-                                Modular.to.pushNamed('/pedido/form');
+                                Modular.to.popAndPushNamed(
+                                    '/pedido/formulario/0/criar');
                               },
                             ),
                           ),
