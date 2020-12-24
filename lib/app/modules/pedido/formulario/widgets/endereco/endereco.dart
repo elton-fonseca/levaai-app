@@ -36,7 +36,7 @@ class Endereco {
             children: <Widget>[
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                height: displayHeight(context) * 0.07,
+                height: displayHeight(context) * 0.085,
                 child: TextFormField(
                   controller: origemTextController,
                   onChanged: (valor) => Modular.get<EnderecoController>()
@@ -81,7 +81,7 @@ class Endereco {
               ),
               SizedBox(
                 width: displayWidth(context) * 0.85,
-                height: displayHeight(context) * 0.07,
+                height: displayHeight(context) * 0.085,
                 child: TextFormField(
                   controller: destinoTextController,
                   onChanged: (valor) => Modular.get<EnderecoController>()

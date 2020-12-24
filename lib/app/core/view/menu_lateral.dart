@@ -66,7 +66,7 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.help_outline),
+            leading: Icon(Icons.check_circle_outline),
             title: Text("Cidades Atendidas"),
             subtitle: Text("Veja as cidades Atendidas"),
             trailing: Icon(Icons.arrow_forward),

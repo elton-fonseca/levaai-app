@@ -10,8 +10,8 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="levaai"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Levaai"
+        android:icon="@mipmap/launcher_icon">
       <meta-data
         android:name="br.com.juno.directcheckout.public_token"
         android:value="YOUR_PUBLIC_TOKEN"/>

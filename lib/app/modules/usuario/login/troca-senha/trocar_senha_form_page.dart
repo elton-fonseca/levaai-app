@@ -97,8 +97,8 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
                                 placeholder: 'Nova Senha',
                                 senha: true,
                                 onChange: (v) =>
-                                    Modular.get<AlterarSenhaController>().senha =
-                                        v,
+                                    Modular.get<AlterarSenhaController>()
+                                        .senha = v,
                               ),
                             )),
                           ],
