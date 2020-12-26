@@ -15,12 +15,12 @@ mixin CotacaoPageInit on ModularState<CotacaoPage, CotacaoController> {
   final responsavelColetaCelularTextController =
       MaskedTextController(mask: '(00) 00000-0000');
   final responsavelColetaDocumentoController =
-      MaskedTextController(mask: '000.000.000-00');
+      MaskedTextController(mask: '000.000.000-000');
   final responsavelEntregaTextController = TextEditingController();
   final responsavelEntregaCelularTextController =
       MaskedTextController(mask: '(00) 00000-0000');
   final responsavelEntregaDocumentoController =
-      MaskedTextController(mask: '000.000.000-00');
+      MaskedTextController(mask: '000.000.000-000');
   final observacaoTextController = TextEditingController();
 
   Future<dynamic> valorCotacao;

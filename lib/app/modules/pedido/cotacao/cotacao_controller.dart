@@ -1,3 +1,5 @@
+import 'package:Levaai/app/core/services/validadores.dart';
+import 'package:Levaai/app/core/view/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -75,16 +77,18 @@ abstract class _CotacaoControllerBase with Store {
     String novoResponsavelColetaDocumento,
     MaskedTextController textController,
   ) {
+   
     var mascara;
     if (novoResponsavelColetaDocumento.length > 14) {
       mascara = '00.000.000/0000-00';
     } else {
-      mascara = '000.000.000-00';
+      mascara = '000.000.000-000';
     }
 
     textController.updateMask(mascara);
+
     pedidoLista.pedidos[indice].responsavelColetaDocumento =
-        novoResponsavelColetaDocumento;
+      novoResponsavelColetaDocumento;
   }
 
   String pegaResponsavelColetaDocumento(MaskedTextController textController) {
@@ -135,7 +139,7 @@ abstract class _CotacaoControllerBase with Store {
     if (novoResponsavelEntregaDocumento.length > 14) {
       mascara = '00.000.000/0000-00';
     } else {
-      mascara = '000.000.000-00';
+      mascara = '000.000.000-000';
     }
 
     textController.updateMask(mascara);
