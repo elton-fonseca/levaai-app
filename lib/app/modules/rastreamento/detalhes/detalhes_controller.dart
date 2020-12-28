@@ -23,7 +23,7 @@ abstract class _DetalhesControllerBase with Store {
     listaPedido.valorTotalPedidos =
         double.parse(pedido['cotacao']['valor_calculado_cotacao']);
 
-    Modular.to.popAndPushNamed('/pagamento/$tipo');
+    Modular.to.pushNamed('/pagamento/$tipo');
   }
 
   // ignore: missing_return

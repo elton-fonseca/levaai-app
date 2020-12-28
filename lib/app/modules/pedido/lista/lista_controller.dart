@@ -50,7 +50,7 @@ abstract class _ListaControllerBase with Store {
       if (token.toString().isNotEmpty) {
         Modular.to.popAndPushNamed('/pagamento/criar');
       } else {
-        Modular.to.popAndPushNamed('/usuario/cadastro');
+        Modular.to.pushNamed('/usuario/cadastro');
       }
     });
   }

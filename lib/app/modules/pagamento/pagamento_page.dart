@@ -53,7 +53,10 @@ class _PagamentoPageState
 
   Future<bool> _onWillPop() async {
     var mensagem = 'Tem Certeza que deseja sair sem realizar o pagamento?';
-    mensagem += 'Depois precisará pagar individualmente os pedidos';
+
+    if (widget.acao == 'criar') {
+      mensagem += ' Depois precisará pagar individualmente os pedidos';
+    }
 
     return (await showDialog(
           context: context,
@@ -66,7 +69,15 @@ class _PagamentoPageState
                 child: Text('Não Sair'),
               ),
               FlatButton(
-                onPressed: () => Navigator.of(context).pop(true),
+                onPressed: () {
+                  if (widget.acao != 'criar') {
+                    Navigator.of(context).pop(true);
+                  } else {
+                    Navigator.of(context).pop(true);
+                    Modular.to.popUntil(ModalRoute.withName('/'));
+                    Modular.to.pushNamed('/rastreamento/lista');
+                  }
+                },
                 child: Text('Sim'),
               ),
             ],
@@ -78,9 +89,9 @@ class _PagamentoPageState
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: BoxDecoration(
-           gradient:
-               LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+      decoration: BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: Scaffold(
