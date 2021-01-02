@@ -1,3 +1,4 @@
+import 'package:Levaai/app/core/view/navbar_padrao.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -26,21 +27,26 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Scaffold(
+    return Container(
+      decoration: BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+      child: Scaffold(
+        appBar: NavbarPadrao().build(context),
+        backgroundColor: Colors.transparent,
         body: Builder(
           builder: (contextScaffold) => SingleChildScrollView(
             child: Container(
-              height: displayHeight(context) * 1,
-               decoration: BoxDecoration(
-                   gradient: LinearGradient(
-                       colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+              height: displayHeight(context) * 0.9,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
               child: Column(
                 children: <Widget>[
                   Logo(),
-                  SizedBox(height: displayHeight(context) * 0.05),
+                  SizedBox(height: displayHeight(context) * 0.04),
                   Container(
-                    width: displayWidth(context) * 0.7,
+                    width: displayWidth(context) * 0.8,
                     child: Column(
                       children: <Widget>[
                         Form(

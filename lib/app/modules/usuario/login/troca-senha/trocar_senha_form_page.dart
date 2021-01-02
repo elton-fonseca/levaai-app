@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/botao_branco.dart';
+import '../../../../core/view/navbar_padrao.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 import '../widgets/inputs.dart';
 import 'alterar_senha_controller.dart';
@@ -20,10 +21,12 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: NavbarPadrao().build(context),
+      backgroundColor: CoresConst.azulPadrao,
       body: Builder(
         builder: (contextScaffold) => SingleChildScrollView(
           child: Container(
-            height: displayHeight(context) * 1,
+            height: displayHeight(context) * 0.8,
             width: displayWidth(context) * 1,
             color: CoresConst.azulPadrao,
             child: Padding(
@@ -38,7 +41,7 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
                     color: Colors.white,
                   )),
                   Divider(
-                    height: displayHeight(context) * 0.07,
+                    height: displayHeight(context) * 0.05,
                   ),
                   Text(
                     "Resetar Senha",
@@ -63,7 +66,7 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: displayHeight(context) * 0.07),
+                  SizedBox(height: displayHeight(context) * 0.05),
                   Container(
                     width: displayWidth(context) * 0.7,
                     child: Column(
@@ -124,7 +127,7 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: displayHeight(context) * 0.07),
+                  SizedBox(height: displayHeight(context) * 0.05),
                   BotaoBranco(
                       largura: 0.8,
                       texto: 'Concluir',

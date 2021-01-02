@@ -7,7 +7,7 @@ class Logo extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(top: displayHeight(context) * 0.12),
+          padding: EdgeInsets.only(top: displayHeight(context) * 0.1),
           child: Text(
             'Acesse sua conta',
             style: TextStyle(

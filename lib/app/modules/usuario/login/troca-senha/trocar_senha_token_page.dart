@@ -1,3 +1,4 @@
+import 'package:Levaai/app/core/view/navbar_padrao.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -30,10 +31,12 @@ class _TrocarSenhaTokenPageState extends State<TrocarSenhaTokenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: NavbarPadrao().build(context),
+      backgroundColor: CoresConst.azulPadrao,
       body: Builder(
         builder: (contextScaffold) => SingleChildScrollView(
           child: Container(
-            height: displayHeight(context) * 1,
+            height: displayHeight(context) * 0.8,
             width: displayWidth(context) * 1,
             color: CoresConst.azulPadrao,
             child: Padding(
@@ -48,7 +51,7 @@ class _TrocarSenhaTokenPageState extends State<TrocarSenhaTokenPage> {
                     color: Colors.white,
                   )),
                   Divider(
-                    height: displayHeight(context) * 0.1,
+                    height: displayHeight(context) * 0.08,
                   ),
                   Text(
                     "Precisa trocar a senha?",
@@ -73,7 +76,7 @@ class _TrocarSenhaTokenPageState extends State<TrocarSenhaTokenPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: displayHeight(context) * 0.1),
+                  SizedBox(height: displayHeight(context) * 0.08),
                   Container(
                     width: displayWidth(context) * 0.7,
                     child: Row(
@@ -93,7 +96,7 @@ class _TrocarSenhaTokenPageState extends State<TrocarSenhaTokenPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: displayHeight(context) * 0.1),
+                  SizedBox(height: displayHeight(context) * 0.08),
                   BotaoBranco(
                     largura: 0.8,
                     texto: 'Enviar',

@@ -32,9 +32,8 @@ abstract class _AlterarSenhaControllerBase with Store {
                   FlatButton(
                     onPressed: () {
                       Navigator.of(context)..pop()..pop()..pop();
-                      Modular.to.pushNamed('/login/formulario/lista-pedidos');
                     },
-                    child: Text('Sim'),
+                    child: Text('OK'),
                   ),
                 ],
               ),
