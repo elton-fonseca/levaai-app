@@ -14,9 +14,11 @@ import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final enderecoOrigemTextController = TextEditingController();
+  final enderecoOrigemNumeroTextController = TextEditingController();
   final enderecoOrigemComplementoTextController = TextEditingController();
 
   final enderecoDestinoTextController = TextEditingController();
+  final enderecoDestinoNumeroTextController = TextEditingController();
   final enderecoDestinoComplementoTextController = TextEditingController();
 
   final valorTotalTextController =
@@ -31,6 +33,7 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     Modular.get<TipoMedidaController>().indice = widget.id;
     Modular.get<PopupController>().indice = widget.id;
     Modular.get<EnderecoController>().indice = widget.id;
+    Modular.get<ComplementoEnderecoController>().indice = widget.id;
     Modular.get<DetalhesController>().indice = widget.id;
 
     //garante que a lista vai estar limpa no começo
@@ -47,12 +50,18 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
     } else {
       enderecoOrigemTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoOrigem();
+      enderecoOrigemNumeroTextController.text =
+          Modular.get<ComplementoEnderecoController>()
+              .pegaNumeroEnderecoOrigem();
       enderecoOrigemComplementoTextController.text =
           Modular.get<ComplementoEnderecoController>()
               .pegaComplementoEnderecoOrigem();
 
       enderecoDestinoTextController.text =
           Modular.get<EnderecoController>().pegaEnderecoDestino();
+      enderecoDestinoNumeroTextController.text =
+          Modular.get<ComplementoEnderecoController>()
+              .pegaNumeroEnderecoDestino();
       enderecoDestinoComplementoTextController.text =
           Modular.get<ComplementoEnderecoController>()
               .pegaComplementoEnderecoDestino();

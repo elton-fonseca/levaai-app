@@ -9,40 +9,6 @@ part of 'pedido.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$Pedido on _PedidoBase, Store {
-  final _$temComplementoOrigemAtom =
-      Atom(name: '_PedidoBase.temComplementoOrigem');
-
-  @override
-  bool get temComplementoOrigem {
-    _$temComplementoOrigemAtom.reportRead();
-    return super.temComplementoOrigem;
-  }
-
-  @override
-  set temComplementoOrigem(bool value) {
-    _$temComplementoOrigemAtom.reportWrite(value, super.temComplementoOrigem,
-        () {
-      super.temComplementoOrigem = value;
-    });
-  }
-
-  final _$temComplementoDestinoAtom =
-      Atom(name: '_PedidoBase.temComplementoDestino');
-
-  @override
-  bool get temComplementoDestino {
-    _$temComplementoDestinoAtom.reportRead();
-    return super.temComplementoDestino;
-  }
-
-  @override
-  set temComplementoDestino(bool value) {
-    _$temComplementoDestinoAtom.reportWrite(value, super.temComplementoDestino,
-        () {
-      super.temComplementoDestino = value;
-    });
-  }
-
   final _$valorTotalAtom = Atom(name: '_PedidoBase.valorTotal');
 
   @override
@@ -220,8 +186,6 @@ mixin _$Pedido on _PedidoBase, Store {
   @override
   String toString() {
     return '''
-temComplementoOrigem: ${temComplementoOrigem},
-temComplementoDestino: ${temComplementoDestino},
 valorTotal: ${valorTotal},
 pesoExato: ${pesoExato},
 pesoTotal: ${pesoTotal},

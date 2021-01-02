@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geocoder/geocoder.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
@@ -170,5 +173,20 @@ class Helpers {
     }
 
     return "$prazo DIAS APÓS A COLETA";
+  }
+
+  static String montaEndereco(Address address) {
+    var cidade, estado;
+
+    if (Platform.isAndroid) {
+      cidade = address.subAdminArea;
+      estado = Helpers.pegarSiglaEstado(address.adminArea);
+    } else {
+      cidade = address.locality;
+      estado = address.adminArea;
+    }
+
+    return "${address.thoroughfare}, ${address.subLocality ?? ''}, $cidade - "
+        "$estado";
   }
 }

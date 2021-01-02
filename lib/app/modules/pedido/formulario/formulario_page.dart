@@ -47,9 +47,9 @@ class _FormularioPageState
       child: Scaffold(
         body: Builder(
           builder: (contextScaffold) => Container(
-             decoration: BoxDecoration(
-                 gradient: LinearGradient(
-                     colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
             child: Scaffold(
               appBar: NavbarPadrao().build(context),
               backgroundColor: Colors.transparent,
@@ -68,9 +68,13 @@ class _FormularioPageState
                   Endereco().obter(
                       context: contextScaffold,
                       origemTextController: enderecoOrigemTextController,
+                      origemNumeroTextController:
+                          enderecoOrigemNumeroTextController,
                       origemComplementoTextController:
                           enderecoOrigemComplementoTextController,
                       destinoTextController: enderecoDestinoTextController,
+                      destinoNumeroTextController:
+                          enderecoDestinoNumeroTextController,
                       destinoComplementoTextController:
                           enderecoDestinoComplementoTextController),
                   SizedBox(height: displayHeight(context) * 0.04),

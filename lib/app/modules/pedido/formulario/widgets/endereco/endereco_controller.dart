@@ -10,7 +10,9 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../../core/models/pedido.dart';
 import '../../../../../core/stores/pedido_lista_store.dart';
+import '../../../../../core/view/botao_azul.dart';
 import '../../../../../core/view/helpers.dart';
+import '../../../../../core/view/tamanhos_relativos.dart';
 import '../../repositories/formulario_repository.dart';
 
 part 'endereco_controller.g.dart';
@@ -56,6 +58,7 @@ abstract class _EnderecoControllerBase with Store {
   Future<Null> mostraMapa({
     @required BuildContext context,
     @required TextEditingController textController,
+    @required TextEditingController numeroTextController,
     @required String nome,
   }) async {
     var pedido = pedidoLista.pedidos[indice];
@@ -66,20 +69,27 @@ abstract class _EnderecoControllerBase with Store {
     if (p != null) {
       var address = await Geocoder.local.findAddressesFromQuery(p.description);
 
-      if (address[0].postalCode == null) {
+      if (address[0].thoroughfare == null) {
         Helpers.snackLevaai(texto: "Endereço Invalido", context: context);
         return;
       }
 
-      if (address[0].subThoroughfare == null) {
-        Helpers.snackLevaai(
-            texto: "O número deve ser informado no endereço", context: context);
-        return;
+      _preencheEndereco(
+        pedido,
+        nome,
+        address[0],
+        textController,
+        numeroTextController,
+      );
+      
+      if (address[0].postalCode == null) {
+        _perguntaCep(context, pedido, nome);
+      } else {
+        _verificaCidadesPercurso(context);
       }
 
-      _preencheEndereco(pedido, nome, address[0], textController);
 
-      _verificaCidadesPercurso(context);
+      
     }
   }
 
@@ -88,15 +98,21 @@ abstract class _EnderecoControllerBase with Store {
     String nome,
     Address address,
     TextEditingController textController,
+    TextEditingController numeroTextController,
   ) {
-    textController.text = address.addressLine;
+    var endereco = Helpers.montaEndereco(address);
+
+    textController.text = endereco;
+    numeroTextController.text = address.subThoroughfare ?? null;
 
     if (nome == 'endereco_origem') {
       pedido.cepOrigem = address.postalCode;
-      pedido.enderecoOrigem = address.addressLine;
+      pedido.enderecoOrigem = endereco;
+      pedido.numeroOrigem = address.subThoroughfare ?? null;
     } else {
       pedido.cepDestino = address.postalCode;
-      pedido.enderecoDestino = address.addressLine;
+      pedido.enderecoDestino = endereco;
+      pedido.numeroDestino = address.subThoroughfare ?? null;
     }
   }
 
@@ -116,6 +132,50 @@ abstract class _EnderecoControllerBase with Store {
     }
   }
 
+  Future<Widget> _perguntaCep(
+      BuildContext context, Pedido pedido, String nome) async {
+    return showDialog(
+        useSafeArea: true,
+        child: Dialog(
+          child: Container(
+            height: displayHeight(context) * 0.35,
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, bottom: 10),
+                  child: Text('Entre com o CEP'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: TextField(
+                    onChanged: (value) {
+                      if (nome == 'endereco_origem') {
+                        pedidoLista.pedidos[indice].cepOrigem = value;
+                      } else {
+                        pedidoLista.pedidos[indice].cepDestino = value;
+                      }
+                    },
+                    decoration: InputDecoration(hintText: "Digite o cep"),
+                    //controller: _c,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: BotaoAzul(
+                    texto: 'Definir',
+                    onClick: () {
+                      _verificaCidadesPercurso(context);
+                      Navigator.pop(context);
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        context: context);
+  }
+
   void _verificaCidadesPercurso(BuildContext context) {
     var pedido = pedidoLista.pedidos[indice];
 
@@ -123,11 +183,6 @@ abstract class _EnderecoControllerBase with Store {
         pedido.enderecoOrigem != '' &&
         pedido.enderecoDestino != null &&
         pedido.enderecoDestino != '') {
-      if (pedido.enderecoOrigem == pedido.enderecoDestino) {
-        Helpers.snackLevaai(
-            texto: "Os endereços não podem ser iguais", context: context);
-      }
-
       var json = jsonEncode(pedido.cidadesJson());
 
       Modular.get<FormularioRepository>()

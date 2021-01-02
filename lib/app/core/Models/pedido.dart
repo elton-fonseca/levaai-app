@@ -19,21 +19,17 @@ abstract class _PedidoBase with Store {
 
   String cepOrigem;
   String enderecoOrigem;
+  String numeroOrigem;
   String cidadeOrigem;
   String estadoOrigem;
   String complementoOrigem;
 
-  @observable
-  bool temComplementoOrigem = false;
-
   String cepDestino;
   String enderecoDestino;
+  String numeroDestino;
   String cidadeDestino;
   String estadoDestino;
   String complementoDestino;
-
-  @observable
-  bool temComplementoDestino = false;
 
   @observable
   double valorTotal;
@@ -93,12 +89,12 @@ abstract class _PedidoBase with Store {
     data['cep_origem'] = cepOrigem;
     data['logradouro_origem'] = enderecoOrigem;
     data['complemento_origem'] = complementoOrigem;
-    //data['estado_origem'] = estadoOrigem;
+    data['numero_origem'] = numeroOrigem;
 
     data['cep_destino'] = cepDestino;
     data['logradouro_destino'] = enderecoDestino;
     data['complemento_destino'] = complementoDestino;
-    //data['estado_destino'] = estadoDestino;
+    data['numero_destino'] = numeroDestino;
 
     data['responsavel_coleta'] = responsavelColeta;
     data['responsavel_coleta_celular'] =

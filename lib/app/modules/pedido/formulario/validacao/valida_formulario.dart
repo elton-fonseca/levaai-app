@@ -11,6 +11,7 @@ class ValidaFormulario {
     var resultado = _cidadesAtendidas();
     resultado += _enderecoOrigem();
     resultado += _enderecoDestino();
+    resultado += _enderecosIguais();
     resultado += _itens();
     resultado += _valorTotal();
     resultado += _pesoTotal();
@@ -38,6 +39,10 @@ class ValidaFormulario {
       return 'Endereço de Origem Invalido\n';
     }
 
+    if (pedido.numeroOrigem == null) {
+      return 'Informe o número no endereço de origem\n';
+    }
+
     return '';
   }
 
@@ -48,6 +53,19 @@ class ValidaFormulario {
 
     if (pedido.cepDestino == null) {
       return 'Endereço de Destino Invalido\n';
+    }
+
+    if (pedido.numeroOrigem == null) {
+      return 'Informe o número no endereço de destino\n';
+    }
+
+    return '';
+  }
+
+  String _enderecosIguais() {
+    if (pedido.enderecoOrigem == pedido.enderecoDestino &&
+        pedido.numeroOrigem == pedido.numeroDestino) {
+      return "Os endereços não podem ser iguais";
     }
 
     return '';
