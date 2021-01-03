@@ -44,11 +44,12 @@ class ValidaFormulario {
   }
 
   String _responsavelColetaDocumento() {
-    var documento = Validadores.limpaMascara(pedido.responsavelColetaDocumento);
-
-    if (documento == null || documento.isEmpty) {
+    if (pedido.responsavelColetaDocumento == null || 
+          pedido.responsavelColetaDocumento.isEmpty) {
       return 'Informe o Documento do Responsável pela Coleta\n';
     }
+
+    var documento = Validadores.limpaMascara(pedido.responsavelColetaDocumento);
 
     if (documento.length != 11 && documento.length != 14) {
       return 'Informe Corretamente o Documento do Responsável pela Coleta\n';
@@ -90,12 +91,13 @@ class ValidaFormulario {
   }
 
   String _responsavelEntregaDocumento() {
-    var documento =
-        Validadores.limpaMascara(pedido.responsavelEntregaDocumento);
-
-    if (documento == null || documento.isEmpty) {
+    if (pedido.responsavelEntregaDocumento == null || 
+          pedido.responsavelEntregaDocumento.isEmpty) {
       return 'Informe o Documento do Responsável pela Entrega\n';
     }
+
+    var documento =
+        Validadores.limpaMascara(pedido.responsavelEntregaDocumento);
 
     if (documento.length != 11 && documento.length != 14) {
       return 'Informe Corretamente o Documento do Responsável pela Entrega\n';

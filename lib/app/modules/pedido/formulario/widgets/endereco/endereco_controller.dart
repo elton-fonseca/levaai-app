@@ -1,11 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter/services.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:google_maps_webservice/places.dart';
+
 import 'package:mobx/mobx.dart';
 
 import '../../../../../core/models/pedido.dart';
@@ -62,7 +65,7 @@ abstract class _EnderecoControllerBase with Store {
     @required String nome,
   }) async {
     var pedido = pedidoLista.pedidos[indice];
-    _limpaEndereco(pedido, nome, textController);
+    _limpaEndereco(pedido, nome, textController, numeroTextController);
 
     var p = await _mapaControlador(context);
 
@@ -83,7 +86,7 @@ abstract class _EnderecoControllerBase with Store {
       );
       
       if (address[0].postalCode == null) {
-        _perguntaCep(context, pedido, nome);
+        _perguntaCep(context, nome);
       } else {
         _verificaCidadesPercurso(context);
       }
@@ -120,20 +123,24 @@ abstract class _EnderecoControllerBase with Store {
     Pedido pedido,
     String nome,
     TextEditingController textController,
+    TextEditingController numeroTextController,
   ) {
     textController.text = '';
+    numeroTextController.text = '';
 
     if (nome == 'endereco_origem') {
       pedido.cepOrigem = '';
       pedido.enderecoOrigem = '';
+      pedido.numeroOrigem = '';
     } else {
       pedido.cepDestino = '';
       pedido.enderecoDestino = '';
+      pedido.numeroDestino = '';
     }
   }
 
   Future<Widget> _perguntaCep(
-      BuildContext context, Pedido pedido, String nome) async {
+      BuildContext context, String nome) async {
     return showDialog(
         useSafeArea: true,
         child: Dialog(
@@ -148,6 +155,10 @@ abstract class _EnderecoControllerBase with Store {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: TextField(
+                    controller: MaskedTextController(mask: '00000-000'),
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(9),
+                    ],
                     onChanged: (value) {
                       if (nome == 'endereco_origem') {
                         pedidoLista.pedidos[indice].cepOrigem = value;

@@ -15,7 +15,6 @@ class ValidaFormulario {
     resultado += _itens();
     resultado += _valorTotal();
     resultado += _pesoTotal();
-    resultado += _pesoTotalMaximoMedidaRelativa();
     resultado += _pesoTotalMaximoMedidaExata();
     resultado += _tipo();
 
@@ -39,7 +38,7 @@ class ValidaFormulario {
       return 'Endereço de Origem Invalido\n';
     }
 
-    if (pedido.numeroOrigem == null) {
+    if (pedido.numeroOrigem == null || pedido.numeroOrigem == '') {
       return 'Informe o número no endereço de origem\n';
     }
 
@@ -55,7 +54,7 @@ class ValidaFormulario {
       return 'Endereço de Destino Invalido\n';
     }
 
-    if (pedido.numeroOrigem == null) {
+    if (pedido.numeroDestino == null || pedido.numeroDestino == '') {
       return 'Informe o número no endereço de destino\n';
     }
 
@@ -103,8 +102,11 @@ class ValidaFormulario {
   String _pesoTotal() {
     if (pedido.pesoTotal == null ||
         pedido.pesoTotal == 'peso-exato' ||
+        pedido.pesoTotal == 'selecione' ||
         pedido.pesoTotal == '0') {
       return 'Informe o Peso dos Itens\n';
+    } else {
+      return _pesoTotalMaximoMedidaRelativa();
     }
 
     return '';
