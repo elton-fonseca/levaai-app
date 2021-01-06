@@ -28,7 +28,7 @@ abstract class _PagamentoBase with Store {
 
   Future<Map<String, dynamic>> pagamentoParaJson() async {
     final data = <String, dynamic>{};
-    data['valor'] = Modular.get<PedidoListaStore>().valorTotalPedidos / 25;
+    data['valor'] = Modular.get<PedidoListaStore>().valorTotalPedidos;// / 25;
     data['forma_pagamento'] = tipoPagamento;
     data['pedidos'] = Modular.get<PedidoListaStore>().pedidosIds();
 
@@ -40,13 +40,17 @@ abstract class _PagamentoBase with Store {
       var map = <String, dynamic>{
         "prod": false,
         "public_token":
-            "74E3B38F32887008B8CDB0B727DACC7F6E7FB161DEC8211C1B24B0B5F17F6793"
+            // ignore: lines_longer_than_80_chars
+            "6ACED7F1E439E19818D45373E0102750AA2EF1DC2CD7BF3E6E6C3534EE52957A46F70701D567EA44"
+        //"74E3B38F32887008B8CDB0B727DACC7F6E7FB161DEC8211C1B24B0B5F17F6793"
       };
 
       var card = <String, dynamic>{
         "prod": false,
         "public_token":
-            "74E3B38F32887008B8CDB0B727DACC7F6E7FB161DEC8211C1B24B0B5F17F6793",
+            // ignore: lines_longer_than_80_chars
+            "6ACED7F1E439E19818D45373E0102750AA2EF1DC2CD7BF3E6E6C3534EE52957A46F70701D567EA44",
+        //"74E3B38F32887008B8CDB0B727DACC7F6E7FB161DEC8211C1B24B0B5F17F6793",
         "cardNumber": numeroCartao,
         "holderName": nome,
         "securityCode": codigoSeguranca,
