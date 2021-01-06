@@ -38,7 +38,7 @@ abstract class _PagamentoBase with Store {
       }
 
       var map = <String, dynamic>{
-        "prod": false,
+        "prod": true,
         "public_token":
             // ignore: lines_longer_than_80_chars
             "6ACED7F1E439E19818D45373E0102750AA2EF1DC2CD7BF3E6E6C3534EE52957A46F70701D567EA44"
@@ -46,7 +46,7 @@ abstract class _PagamentoBase with Store {
       };
 
       var card = <String, dynamic>{
-        "prod": false,
+        "prod": true,
         "public_token":
             // ignore: lines_longer_than_80_chars
             "6ACED7F1E439E19818D45373E0102750AA2EF1DC2CD7BF3E6E6C3534EE52957A46F70701D567EA44",
