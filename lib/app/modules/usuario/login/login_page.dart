@@ -1,5 +1,6 @@
 import 'package:Levaai/app/core/view/navbar_padrao.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -24,6 +25,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   final formKey = GlobalKey<FormState>();
+
+  bool _showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +77,52 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 Expanded(
                                   child: SizedBox(
                                       child: Observer(
-                                    builder: (context) => Input().texto(
-                                      context: context,
-                                      placeholder: 'Senha',
-                                      validador: validarSenha,
-                                      onChange: controller.defineSenha,
-                                      senha: true,
+                                    builder: (context) => TextFormField(
+                                      validator: validarSenha,
+                                      onChanged: controller.defineSenha,
+                                      obscureText: !_showPassword,
+                                      style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        color: Colors.white,
+                                      ),
+                                      keyboardType: TextInputType.text,
+                                      decoration: InputDecoration(
+                                        suffixIcon: IconButton(
+                                          icon: Icon(
+                                            Icons.remove_red_eye,
+                                            color: _showPassword
+                                                ? Colors.blue
+                                                : Colors.grey,
+                                          ),
+                                          onPressed: () {
+                                            setState(() =>
+                                                _showPassword = !_showPassword);
+                                          },
+                                        ),
+                                        errorStyle: TextStyle(
+                                          fontSize: 10.0,
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFFC4C4C4),
+                                              width: 1.0),
+                                        ),
+                                        border: const OutlineInputBorder(),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: Colors.white, width: 1.5),
+                                        ),
+                                        contentPadding: EdgeInsets.only(
+                                          left: 20,
+                                        ),
+                                        hintText: 'Senha',
+                                        hintStyle: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          color: Color(0xFFC4C4C4),
+                                          fontSize:
+                                              displayWidth(context) * 0.032,
+                                        ),
+                                      ),
                                     ),
                                   )),
                                 ),

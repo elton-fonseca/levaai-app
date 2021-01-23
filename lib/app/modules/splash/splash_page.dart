@@ -32,10 +32,10 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
       body: Scaffold(
         backgroundColor: Color(0xFF1d509a),
         body: Container(
-           decoration: BoxDecoration(
-               gradient: LinearGradient(
-             colors: [Color(0xFF2E4983), Color(0xFF005BC3)],
-           )),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            colors: [Color(0xFF2E4983), Color(0xFF005BC3)],
+          )),
           child: Column(
             children: <Widget>[
               Padding(
@@ -55,15 +55,6 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
                   fontSize: displayHeight(context) * 0.065,
                   fontStyle: FontStyle.italic,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                'DAQUI PRA LÁ RAPIDINHO',
-                style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayHeight(context) * 0.017,
-                    fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),
             ],

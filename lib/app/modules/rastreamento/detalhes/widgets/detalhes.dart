@@ -138,7 +138,8 @@ class Detalhes extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        pedido['responsavel_coleta'],
+                        "${pedido['responsavel_coleta']} - cel: "
+                        "${pedido['responsavel_coleta_celular']}",
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: displayWidth(context) * 0.035,
@@ -186,7 +187,8 @@ class Detalhes extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        pedido['responsavel_entrega'],
+                        "${pedido['responsavel_entrega']} - cel: "
+                        "${pedido['responsavel_entrega_celular']}",
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: displayWidth(context) * 0.035,

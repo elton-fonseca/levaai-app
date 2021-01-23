@@ -38,15 +38,6 @@ class Logo extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        Text(
-          'DAQUI PRA LÁ RAPIDINHO',
-          style: TextStyle(
-              fontFamily: 'Roboto',
-              color: Colors.white,
-              fontSize: displayHeight(context) * 0.015,
-              fontWeight: FontWeight.w700),
-          textAlign: TextAlign.center,
-        ),
       ],
     );
   }
