@@ -42,20 +42,10 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
                 padding: EdgeInsets.only(top: displayHeight(context) * 0.3),
                 child: Center(
                   child: SizedBox(
-                    height: displayHeight(context) * 0.1,
+                    height: displayHeight(context) * 0.2,
                     child: Image.asset("assets/imagens/logo.png"),
                   ),
                 ),
-              ),
-              Text(
-                'LEVAAI',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.white,
-                  fontSize: displayHeight(context) * 0.065,
-                  fontStyle: FontStyle.italic,
-                ),
-                textAlign: TextAlign.center,
               ),
             ],
           ),

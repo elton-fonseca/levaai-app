@@ -36,20 +36,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 padding: EdgeInsets.only(top: displayHeight(context) * 0.3),
                 child: Center(
                   child: SizedBox(
-                    height: displayHeight(context) * 0.1,
+                    height: displayHeight(context) * 0.19,
                     child: Image.asset("assets/imagens/logo.png"),
                   ),
                 ),
-              ),
-              Text(
-                'LEVAAI',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.white,
-                  fontSize: displayHeight(context) * 0.065,
-                  fontStyle: FontStyle.italic,
-                ),
-                textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: displayHeight(context) * 0.24,

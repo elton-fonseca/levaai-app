@@ -28,16 +28,6 @@ class Logo extends StatelessWidget {
             ),
           ),
         ),
-        Text(
-          'LEVAAI',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            color: Colors.white,
-            fontSize: displayHeight(context) * 0.058,
-            fontStyle: FontStyle.italic,
-          ),
-          textAlign: TextAlign.center,
-        ),
       ],
     );
   }

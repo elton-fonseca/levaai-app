@@ -1,5 +1,6 @@
 import 'package:Levaai/app/core/services/validadores.dart';
 import 'package:Levaai/app/core/view/helpers.dart';
+import 'package:Levaai/app/modules/pedido/cotacao/repositories/cotacao_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -29,27 +30,32 @@ abstract class _CotacaoControllerBase with Store {
     var validacao = ValidaFormulario(pedido).validar();
 
     if (validacao.isEmpty) {
-      if (acao == 'editar') {
-        pedidoLista.valorTotalPedidos -= pedido.valorCotacao;
-      }
-      pedido.valorCotacao = cotacaoValor;
-      pedido.cotacaoId = cotacaoId;
-      pedidoLista.valorTotalPedidos += cotacaoValor;
+      Modular.get<CotacaoRepository>()
+          .verificarTDE(pedido.responsavelColetaDocumento,
+              pedido.responsavelEntregaDocumento)
+          .then((value) {
+        if (acao == 'editar') {
+          pedidoLista.valorTotalPedidos -= pedido.valorCotacao;
+        }
+        pedido.valorCotacao = cotacaoValor;
+        pedido.cotacaoId = cotacaoId;
+        pedidoLista.valorTotalPedidos += cotacaoValor;
 
-      if (acao == 'criar' && indice == 0) {
-        Navigator.of(context)..pop()..pop();
-        Modular.to.pushNamed('/pedido/lista');
-      } else {
-        Navigator.of(context)..pop()..pop()..pop();
-        Modular.to.pushNamed('/pedido/lista');
-      }
+        if (acao == 'criar' && indice == 0) {
+          Navigator.of(context)..pop()..pop();
+          Modular.to.pushNamed('/pedido/lista');
+        } else {
+          Navigator.of(context)..pop()..pop()..pop();
+          Modular.to.pushNamed('/pedido/lista');
+        }
+      }).catchError((e) {
+        Helpers.snackLevaai(
+          context: context,
+          texto: Helpers.mensagemValidacaoAPI(e, 'nao atendido'),
+        );
+      });
     } else {
-      var scnackbar = SnackBar(
-        content: Text(validacao),
-        backgroundColor: Colors.red,
-        duration: Duration(seconds: 7),
-      );
-      Scaffold.of(context).showSnackBar(scnackbar);
+      Helpers.snackLevaai(texto: validacao, context: context);
     }
   }
 
@@ -77,7 +83,6 @@ abstract class _CotacaoControllerBase with Store {
     String novoResponsavelColetaDocumento,
     MaskedTextController textController,
   ) {
-   
     var mascara;
     if (novoResponsavelColetaDocumento.length > 14) {
       mascara = '00.000.000/0000-00';
@@ -88,7 +93,7 @@ abstract class _CotacaoControllerBase with Store {
     textController.updateMask(mascara);
 
     pedidoLista.pedidos[indice].responsavelColetaDocumento =
-      novoResponsavelColetaDocumento;
+        novoResponsavelColetaDocumento;
   }
 
   String pegaResponsavelColetaDocumento(MaskedTextController textController) {
