@@ -1,3 +1,4 @@
+import 'package:Levaai/app/core/view/helpers.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -8,11 +9,17 @@ import '../../detalhes_controller.dart';
 class TratarItensRastreamento {
   String status;
 
+  String valor;
+
   Map pedidoPropriedade;
 
   List executar(Map pedido) {
     status = StatusPedido.pegar(pedido);
     pedidoPropriedade = pedido;
+
+    var valorDouble =
+        double.parse(pedidoPropriedade['cotacao']['valor_calculado_cotacao']);
+    valor = 'R\$ ${Helpers.numeroBr(valorDouble)}';
 
     _semPagamento();
     _imprimirBoleto();
@@ -33,7 +40,7 @@ class TratarItensRastreamento {
         "botao_acao": () => Modular.get<DetalhesController>()
             .chamarPagamentoPedido(pedidoPropriedade, 'posterior'),
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "Você ainda não realizou o pagamento desse pedido",
+        "mensagem": "Você ainda não realizou o pagamento no valor de $valor",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -53,7 +60,8 @@ class TratarItensRastreamento {
           }
         },
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "Ainda não identificamos o pagamento do seu boleto",
+        "mensagem": 'Não identificamos o pagamento'
+            ' do seu boleto no valor de $valor',
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -64,7 +72,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
-        "mensagem": "Boleto Vencido",
+        "mensagem": "Boleto Vencido no valor de $valor",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -75,7 +83,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "Pagamento em Análise",
+        "mensagem": "O pagamento no valor de $valor está em Análise",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -86,7 +94,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
-        "mensagem": "Pagamento não aprovado",
+        "mensagem": "O pagamento no valor de $valor não foi aprovado",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -100,7 +108,7 @@ class TratarItensRastreamento {
         "botao_acao": () => Modular.get<DetalhesController>()
             .chamarPagamentoPedido(pedidoPropriedade, 'reentrega'),
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "Realizar pagamento da reentrega",
+        "mensagem": "Realizar pagamento da reentrega no valor de $valor",
         "data": DateTime.now().toIso8601String()
       });
     }
