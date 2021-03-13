@@ -6,6 +6,7 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../core/repositories/monitoramento_repository.dart';
 import '../../../core/stores/pedido_lista_store.dart';
 import 'validacao/valida_formulario.dart';
 
@@ -49,6 +50,8 @@ abstract class _CotacaoControllerBase with Store {
           Modular.to.pushNamed('/pedido/lista');
         }
       }).catchError((e) {
+        Modular.get<MonitoramentoRepository>()
+            .registrarAcao('cnpj_nao_atendido');
         Helpers.snackLevaai(
           context: context,
           texto: Helpers.mensagemValidacaoAPI(e, 'nao atendido'),

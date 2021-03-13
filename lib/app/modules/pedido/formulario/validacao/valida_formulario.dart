@@ -1,4 +1,7 @@
+import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../../../core/models/pedido.dart';
+import '../../../../core/repositories/monitoramento_repository.dart';
 import '../widgets/tipo_medida/medida_exata.dart';
 import '../widgets/tipo_medida/medida_relativa.dart';
 
@@ -123,6 +126,8 @@ class ValidaFormulario {
       var pesoPorItem = pesoInformado / quantidadeItens;
 
       if (pesoPorItem > 80) {
+        Modular.get<MonitoramentoRepository>().registrarAcao('peso_superior');
+
         return 'Peso maior do que o permitido\n';
       }
     }
@@ -141,6 +146,8 @@ class ValidaFormulario {
       var pesoPorItem = pesoInformado / quantidadeItens;
 
       if (pesoPorItem > 80) {
+        Modular.get<MonitoramentoRepository>().registrarAcao('peso_superior');
+
         return 'Peso maior do que o permitido\n';
       }
     }

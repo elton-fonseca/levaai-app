@@ -12,6 +12,7 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../../core/models/pedido.dart';
+import '../../../../../core/repositories/monitoramento_repository.dart';
 import '../../../../../core/stores/pedido_lista_store.dart';
 import '../../../../../core/view/botao_azul.dart';
 import '../../../../../core/view/helpers.dart';
@@ -84,15 +85,12 @@ abstract class _EnderecoControllerBase with Store {
         textController,
         numeroTextController,
       );
-      
+
       if (address[0].postalCode == null) {
         _perguntaCep(context, nome);
       } else {
         _verificaCidadesPercurso(context);
       }
-
-
-      
     }
   }
 
@@ -139,8 +137,7 @@ abstract class _EnderecoControllerBase with Store {
     }
   }
 
-  Future<Widget> _perguntaCep(
-      BuildContext context, String nome) async {
+  Future<Widget> _perguntaCep(BuildContext context, String nome) async {
     return showDialog(
         useSafeArea: true,
         child: Dialog(
@@ -200,6 +197,8 @@ abstract class _EnderecoControllerBase with Store {
           .verificaCidadesAtendidas(json)
           .then((value) => pedido.cidadesAtendidas = true)
           .catchError((e) {
+        Modular.get<MonitoramentoRepository>()
+            .registrarAcao('endereco_nao_atendido');
         Helpers.snackLevaai(texto: "Percurso não atendido", context: context);
         pedido.cidadesAtendidas = false;
       });
