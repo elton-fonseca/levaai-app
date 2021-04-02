@@ -34,32 +34,42 @@ abstract class _DadosCartaoControllerBase with Store {
 
   Future<Null> mostraMapa({
     @required BuildContext context,
-    @required TextEditingController textController,
+    @required TextEditingController enderecoTextController,
+    @required TextEditingController enderecoNumeroTextController,
+    @required TextEditingController enderecoCepTextController,
     @required String nome,
   }) async {
     var pagamento = Modular.get<PagamentoController>().pagamento;
-    _limpaCampos(pagamento, textController);
+    _limpaCampos(pagamento, enderecoTextController,
+        enderecoNumeroTextController, enderecoCepTextController);
 
     var p = await _mapaControlador(context);
 
     if (p != null) {
       var address = await Geocoder.local.findAddressesFromQuery(p.description);
 
-      if (address[0].postalCode == null || address[0].subThoroughfare == null) {
+      if (address[0].thoroughfare == null) {
         Helpers.snackLevaai(texto: "Endereço Invalido", context: context);
         return;
       }
 
-      _preencheCampos(pagamento, address[0], textController);
+      _preencheCampos(pagamento, address[0], enderecoTextController,
+          enderecoNumeroTextController, enderecoCepTextController);
     }
   }
 
   void _preencheCampos(
     Pagamento pagamento,
     Address address,
-    TextEditingController textController,
+    TextEditingController enderecoTextController,
+    TextEditingController enderecoNumeroTextController,
+    TextEditingController enderecoCepTextController,
   ) {
-    textController.text = address.addressLine;
+    var endereco = Helpers.montaEndereco(address);
+
+    enderecoTextController.text = endereco;
+    enderecoNumeroTextController.text = address.subThoroughfare ?? null;
+    enderecoCepTextController.text = address.postalCode ?? null;
 
     pagamento.cepFaturamento = address.postalCode;
     pagamento.logradouroFaturamento = address.thoroughfare;
@@ -71,16 +81,17 @@ abstract class _DadosCartaoControllerBase with Store {
       pagamento.cidadeFaturamento = address.locality;
       pagamento.estadoFaturamento = address.adminArea;
     }
-
-
-    
   }
 
   void _limpaCampos(
     Pagamento pagamento,
-    TextEditingController textController,
+    TextEditingController enderecoTextController,
+    TextEditingController enderecoNumeroTextController,
+    TextEditingController enderecoCepTextController,
   ) {
-    textController.text = '';
+    enderecoTextController.text = '';
+    enderecoNumeroTextController.text = '';
+    enderecoCepTextController.text = '';
 
     pagamento.cepFaturamento = '';
     pagamento.logradouroFaturamento = '';

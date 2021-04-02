@@ -12,12 +12,16 @@ class DadosCartao extends StatelessWidget {
     @required this.validadeTextController,
     @required this.codigoSegurancaTextController,
     @required this.enderecoFaturamentoTextController,
+    @required this.enderecoFaturamentoNumeroTextController,
+    @required this.enderecoFaturamentoCepTextController,
   });
 
   final TextEditingController numeroCartaoTextController;
   final TextEditingController validadeTextController;
   final TextEditingController codigoSegurancaTextController;
   final TextEditingController enderecoFaturamentoTextController;
+  final TextEditingController enderecoFaturamentoNumeroTextController;
+  final TextEditingController enderecoFaturamentoCepTextController;
 
   @override
   Widget build(BuildContext context) {
@@ -98,15 +102,14 @@ class DadosCartao extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Helpers().inputCadastros(
-                    onChange: (valor) {
-                      //no init da página
-                    },
-                    context: context,
-                    placeholder: 'Validade',
-                    mascara: validadeTextController,
-                    teclado: TextInputType.number,
-                    tamanho: 5
-                  ),
+                      onChange: (valor) {
+                        //no init da página
+                      },
+                      context: context,
+                      placeholder: 'Validade',
+                      mascara: validadeTextController,
+                      teclado: TextInputType.number,
+                      tamanho: 5),
                 ),
               ),
             ],
@@ -129,7 +132,12 @@ class DadosCartao extends StatelessWidget {
                     onTap: () {
                       Modular.get<DadosCartaoController>().mostraMapa(
                           context: context,
-                          textController: enderecoFaturamentoTextController,
+                          enderecoTextController:
+                              enderecoFaturamentoTextController,
+                          enderecoNumeroTextController:
+                              enderecoFaturamentoNumeroTextController,
+                          enderecoCepTextController:
+                              enderecoFaturamentoCepTextController,
                           nome: 'endereco_origem');
                     },
                     readOnly: true,
@@ -156,6 +164,49 @@ class DadosCartao extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            top: displayHeight(context) * 0.03,
+            left: displayWidth(context) * 0.025,
+            right: displayWidth(context) * 0.025,
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: SizedBox(
+                  child: Helpers().inputCadastros(
+                    onChange: (valor) {
+                      Modular.get<PagamentoController>()
+                          .pagamento
+                          .numeroFaturamento = valor;
+                    },
+                    context: context,
+                    placeholder: 'Número Endereço',
+                    mascara: enderecoFaturamentoNumeroTextController,
+                    teclado: TextInputType.number,
+                    tamanho: 10,
+                  ),
+                ),
+              ),
+              SizedBox(width: displayWidth(context) * 0.05),
+              Expanded(
+                child: SizedBox(
+                  child: Helpers().inputCadastros(
+                      onChange: (valor) {
+                        Modular.get<PagamentoController>()
+                            .pagamento
+                            .cepFaturamento = valor;
+                      },
+                      context: context,
+                      placeholder: 'CEP',
+                      mascara: enderecoFaturamentoCepTextController,
+                      teclado: TextInputType.number,
+                      tamanho: 9),
                 ),
               ),
             ],

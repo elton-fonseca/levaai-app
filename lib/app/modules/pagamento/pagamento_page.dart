@@ -34,6 +34,9 @@ class _PagamentoPageState
   final validadeTextController = MaskedTextController(mask: '00/00');
   final codigoSegurancaTextController = MaskedTextController(mask: '0000');
   final enrederecoFaturamentoTextController = TextEditingController();
+  final enrederecoFaturamentoNumeroTextController = TextEditingController();
+  final enrederecoFaturamentoCepTextController =
+      MaskedTextController(mask: '00000-000');
 
   void initState() {
     controller.defineCamposValores(
@@ -195,6 +198,12 @@ class _PagamentoPageState
                                           codigoSegurancaTextController,
                                       enderecoFaturamentoTextController:
                                           enrederecoFaturamentoTextController,
+                                      enderecoFaturamentoNumeroTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoNumeroTextController,
+                                      enderecoFaturamentoCepTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoCepTextController,
                                     )
                                   : Container();
                             },

@@ -68,6 +68,7 @@ abstract class _PagamentoControllerBase with Store {
       return;
     }
 
+    botaoPagar = true;
     Helpers.snackLevaai(texto: valido, context: context);
   }
 

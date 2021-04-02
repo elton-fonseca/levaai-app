@@ -18,6 +18,9 @@ class ValidaFormulario {
       resultado += _nome();
       resultado += _codigoSeguranca();
       resultado += _validade();
+      resultado += _endereco();
+      resultado += _enderecoNumero();
+      resultado += _enderecoCep();
     }
 
     return resultado;
@@ -65,6 +68,40 @@ class ValidaFormulario {
 
     if (pagamento.codigoSeguranca.length < 3) {
       return 'Informe o Código de segurança Valido\n';
+    }
+
+    return '';
+  }
+
+  String _endereco() {
+    if (pagamento.logradouroFaturamento == null ||
+        pagamento.logradouroFaturamento.isEmpty ||
+        pagamento.cidadeFaturamento == null ||
+        pagamento.cidadeFaturamento.isEmpty ||
+        pagamento.estadoFaturamento == null ||
+        pagamento.estadoFaturamento.isEmpty) {
+      return 'Informe o endereço corretamente\n';
+    }
+
+    return '';
+  }
+
+  String _enderecoNumero() {
+    if (pagamento.numeroFaturamento == null ||
+        pagamento.numeroFaturamento.isEmpty) {
+      return 'Informe o número no endereço\n';
+    }
+
+    return '';
+  }
+
+  String _enderecoCep() {
+    if (pagamento.cepFaturamento == null || pagamento.cepFaturamento.isEmpty) {
+      return 'Informe o CEP no endereço\n';
+    }
+
+    if (pagamento.cepFaturamento.length != 9) {
+      return 'Informe o CEP corretamente\n';
     }
 
     return '';
