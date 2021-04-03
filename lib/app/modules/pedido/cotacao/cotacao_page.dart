@@ -93,7 +93,7 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
 
                       return Container();
                     } else if (snapshot.hasError) {
-                      return Text("erro ao calcular");
+                      return Text("erro ao obter usuário");
                     }
 
                     // By default, show a loading spinner.

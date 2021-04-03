@@ -13,6 +13,8 @@ abstract class _PedidoListaStoreBase with Store {
   @observable
   double valorTotalPedidos = 0;
 
+  double valorDescontoPedidos = 0;
+
   Map<String, dynamic> pedidosCompletosJson() {
     final data = <String, dynamic>{};
 

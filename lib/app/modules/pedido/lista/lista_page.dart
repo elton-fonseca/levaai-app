@@ -1,3 +1,4 @@
+import 'package:Levaai/app/core/services/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -54,9 +55,9 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: BoxDecoration(
-           gradient:
-                LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+      decoration: BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: Scaffold(
@@ -88,7 +89,33 @@ class _ListaPageState extends ModularState<ListaPage, ListaController> {
                       ),
                     );
                   },
-                )
+                ),
+                FutureBuilder(
+                  future: LocalStorage.getValue<String>("token"),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      if (snapshot.data.toString().isEmpty) {
+                        return Text(
+                          'Ganhe R\$5,00 de desconto na primeira contratação',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                            fontSize: displayWidth(context) * 0.03,
+                          ),
+                        );
+                      }
+
+                      return Container();
+                    } else if (snapshot.hasError) {
+                      return Text("erro ao obter usuário");
+                    }
+
+                    // By default, show a loading spinner.
+                    return CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                    );
+                  },
+                ),
               ],
             ),
             conteudo: Column(

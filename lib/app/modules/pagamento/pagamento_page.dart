@@ -8,12 +8,13 @@ import '../../core/stores/pedido_lista_store.dart';
 import '../../core/tema/cores_const.dart';
 import '../../core/view/botao_azul.dart';
 import '../../core/view/conteudo_padrao.dart';
-import '../../core/view/helpers.dart';
 import '../../core/view/navbar_padrao.dart';
 import '../../core/view/tamanhos_relativos.dart';
 import 'pagamento_controller.dart';
+import 'repositories/cupom_repository.dart';
 import 'widgets/cartao/dados_cartao.dart';
 import 'widgets/pagamento_dropdown.dart';
+import 'widgets/preco.dart';
 import 'widgets/termos_condicoes.dart';
 
 class PagamentoPage extends StatefulWidget {
@@ -38,6 +39,8 @@ class _PagamentoPageState
   final enrederecoFaturamentoCepTextController =
       MaskedTextController(mask: '00000-000');
 
+  Future desconto;
+
   void initState() {
     controller.defineCamposValores(
       numeroCartaoTextController: numeroCartaoTextController,
@@ -47,9 +50,15 @@ class _PagamentoPageState
 
     Modular.get<MonitoramentoRepository>().registrarAcao('pagamento');
 
-    if (widget.acao == 'criar') {
-      controller.criarPedidos();
-    }
+    desconto = Modular.get<CupomRepository>().validarCodigo('primeiro-pedido');
+
+    desconto.then((value) {
+      if (widget.acao == 'criar') {
+        controller.criarPedidos();
+      }
+
+      Modular.get<PedidoListaStore>().valorDescontoPedidos = value['valor'];
+    });
 
     super.initState();
   }
@@ -103,52 +112,24 @@ class _PagamentoPageState
           backgroundColor: Colors.transparent,
           body: Builder(
             builder: (contextScaffold) => ConteudoPadrao(
-              textoCabecalho: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Total Geral',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.white,
-                      fontSize: displayWidth(context) * 0.04,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        // ignore: lines_longer_than_80_chars
-                        'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                          fontSize: displayWidth(context) * 0.09,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        // ignore: lines_longer_than_80_chars
-                        'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                          fontSize: displayWidth(context) * 0.04,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    // ignore: lines_longer_than_80_chars
-                    'Deconto de R\$5,00 primeiro pedido',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.white,
-                      fontSize: displayWidth(context) * 0.03,
-                    ),
-                  ),
-                ],
+              textoCabecalho: FutureBuilder(
+                future: desconto,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Preco(
+                      valor: Modular.get<PedidoListaStore>().valorTotalPedidos,
+                      desconto: snapshot.data['valor'],
+                      texto: snapshot.data['mensagem'],
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text("erro ao obter usuário");
+                  }
+
+                  // By default, show a loading spinner.
+                  return CircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                  );
+                },
               ),
               conteudo: SizedBox(
                 width: displayWidth(context) * 0.7,

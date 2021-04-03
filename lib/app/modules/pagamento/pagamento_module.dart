@@ -8,6 +8,8 @@ import '../pedido/repositories/pedido_repository.dart';
 import 'confirmacao_page.dart';
 import 'pagamento_controller.dart';
 import 'pagamento_page.dart';
+import 'repositories/cupom_repository.dart';
+import 'repositories/interfaces/cupom_repository_interface.dart';
 import 'repositories/interfaces/pagamento_repository_interface.dart';
 import 'repositories/pagamento_repository.dart';
 import 'widgets/cartao/dados_cartao_controller.dart';
@@ -18,6 +20,7 @@ class PagamentoModule extends ChildModule {
         Bind<IPagamentoRepository>(
             (i) => PagamentoRepository(Modular.get<Dio>())),
         Bind<IPedidoRepository>((i) => PedidoRepository(Modular.get<Dio>())),
+        Bind<ICupomRepository>((i) => CupomRepository(Modular.get<Dio>())),
         Bind((i) => PagamentoController()),
         Bind((i) => DadosCartaoController()),
         Bind<IMonitoramentoRepository>((i) {
