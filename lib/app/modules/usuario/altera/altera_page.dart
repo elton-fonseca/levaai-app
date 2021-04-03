@@ -22,12 +22,23 @@ class AlterarPage extends StatefulWidget {
 class _AlterarPageState extends ModularState<AlterarPage, AlteraController> {
   final documentoTextController = MaskedTextController(mask: '000.000.000-00');
   final telefoneTextController = MaskedTextController(mask: '(00) 00000-0000');
+  final nomeTextController = TextEditingController();
+  final sobrenomeTextController = TextEditingController();
+  final emailTextController = TextEditingController();
+
+  Future<dynamic> dadosUsuarioBanco;
 
   void initState() {
-    controller.defineCamposValores(
-      documentoTextController: documentoTextController,
-      telefoneTextController: telefoneTextController,
-    );
+    Modular.get<UsuarioRepository>().obterUsuarioLogado().then((dados) {
+      controller.populaDadosIniciais(
+        dados,
+        telefoneTextController,
+        documentoTextController,
+        nomeTextController,
+        sobrenomeTextController,
+        emailTextController,
+      );
+    });
 
     super.initState();
   }
@@ -109,28 +120,12 @@ class _AlterarPageState extends ModularState<AlterarPage, AlteraController> {
               child: Column(
                 children: <Widget>[
                   SizedBox(height: displayHeight(context) * 0.04),
-                  FutureBuilder(
-                    future:
-                        Modular.get<UsuarioRepository>().obterUsuarioLogado(),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        controller.populaDadosIniciais(snapshot.data,
-                            telefoneTextController, documentoTextController);
-
-                        return InformacoesBasicas(
-                          dados: snapshot.data,
-                          documentoTextController: documentoTextController,
-                          telefoneTextController: telefoneTextController,
-                        );
-                      } else if (snapshot.hasError) {
-                        return Text("erro ao obter dados");
-                      }
-
-                      // By default, show a loading spinner.
-                      return CircularProgressIndicator(
-                        backgroundColor: Colors.white,
-                      );
-                    },
+                  InformacoesBasicas(
+                    documentoTextController: documentoTextController,
+                    telefoneTextController: telefoneTextController,
+                    nomeTextController: nomeTextController,
+                    sobrenomeTextController: sobrenomeTextController,
+                    emailTextController: emailTextController,
                   ),
                   SizedBox(height: displayHeight(context) * 0.04),
                   Column(

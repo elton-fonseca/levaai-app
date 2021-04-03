@@ -45,7 +45,7 @@ class ValidaFormulario {
       return 'Informe o Telefone\n';
     }
 
-    if (usuario.telefone.length < 15) {
+    if (usuario.telefone.length != 15 && usuario.telefone.length != 11) {
       return 'Informe o telefone completo\n';
     }
 

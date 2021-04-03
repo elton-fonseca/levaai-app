@@ -36,3 +36,5 @@ return await LocalStorage.getValue<String>(chave).then((value) {
 
 Rodar mobx:
 slidy run mobx_build ou slidy run mobx_watch 
+
+Com o comando é flutter pub global activate slidy possível instalar o slidy diretamente no dart que já ve no flutter

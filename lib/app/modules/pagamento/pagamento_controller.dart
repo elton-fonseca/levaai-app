@@ -20,7 +20,7 @@ class PagamentoController = _PagamentoControllerBase with _$PagamentoController;
 
 abstract class _PagamentoControllerBase with Store {
   @observable
-  Pagamento pagamento = Pagamento();
+  dynamic pagamento = Pagamento();
 
   Map pagamentoApiResponse;
 

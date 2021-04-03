@@ -8,12 +8,19 @@ import '../../../../core/view/tamanhos_relativos.dart';
 import '../altera_controller.dart';
 
 class InformacoesBasicas extends StatelessWidget {
-  const InformacoesBasicas(
-      {this.documentoTextController, this.telefoneTextController, this.dados});
+  const InformacoesBasicas({
+    this.documentoTextController,
+    this.telefoneTextController,
+    this.nomeTextController,
+    this.sobrenomeTextController,
+    this.emailTextController,
+  });
 
   final TextEditingController documentoTextController;
   final TextEditingController telefoneTextController;
-  final Map dados;
+  final TextEditingController nomeTextController;
+  final TextEditingController sobrenomeTextController;
+  final TextEditingController emailTextController;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +61,9 @@ class InformacoesBasicas extends StatelessWidget {
                   child: SizedBox(
                     child: Observer(builder: (_) {
                       return Helpers().inputCadastros(
-                        valorInicial: dados['name'],
+                        mascara: nomeTextController,
                         onChange: (valor) {
-                          Modular.get<AlteraController>().usuario.nomeFantasia =
-                              valor;
+                          Modular.get<AlteraController>().defineNome(valor);
                         },
                         context: context,
                         placeholder: Modular.get<AlteraController>().pj()
@@ -73,11 +79,10 @@ class InformacoesBasicas extends StatelessWidget {
                   child: SizedBox(
                     child: Observer(builder: (_) {
                       return Helpers().inputCadastros(
-                        valorInicial: dados['sobrenome'],
+                        mascara: sobrenomeTextController,
                         onChange: (valor) {
                           Modular.get<AlteraController>()
-                              .usuario
-                              .sobrenomeRazao = valor;
+                              .defineSobrenome(valor);
                         },
                         context: context,
                         placeholder: Modular.get<AlteraController>().pj()
@@ -104,7 +109,7 @@ class InformacoesBasicas extends StatelessWidget {
                     child: Helpers().inputCadastros(
                       mascara: telefoneTextController,
                       onChange: (valor) {
-                        //no init da pagina
+                        Modular.get<AlteraController>().defineTelefone(valor);
                       },
                       context: context,
                       placeholder: 'Telefone',
@@ -131,7 +136,8 @@ class InformacoesBasicas extends StatelessWidget {
                         mascara: documentoTextController,
                         teclado: TextInputType.number,
                         onChange: (valor) {
-                          //no init da pagina
+                          Modular.get<AlteraController>()
+                              .defineDocumento(valor);
                         },
                         context: context,
                         placeholder: Modular.get<AlteraController>().pj()
@@ -156,10 +162,10 @@ class InformacoesBasicas extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     child: Helpers().inputCadastros(
-                      valorInicial: dados['email'],
+                      mascara: emailTextController,
                       teclado: TextInputType.emailAddress,
                       onChange: (valor) {
-                        Modular.get<AlteraController>().usuario.email = valor;
+                        Modular.get<AlteraController>().defineEmail(valor);
                       },
                       context: context,
                       placeholder: 'Email',

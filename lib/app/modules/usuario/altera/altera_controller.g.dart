@@ -12,13 +12,13 @@ mixin _$AlteraController on _AlteraControllerBase, Store {
   final _$usuarioAtom = Atom(name: '_AlteraControllerBase.usuario');
 
   @override
-  Usuario get usuario {
+  dynamic get usuario {
     _$usuarioAtom.reportRead();
     return super.usuario;
   }
 
   @override
-  set usuario(Usuario value) {
+  set usuario(dynamic value) {
     _$usuarioAtom.reportWrite(value, super.usuario, () {
       super.usuario = value;
     });
@@ -26,6 +26,61 @@ mixin _$AlteraController on _AlteraControllerBase, Store {
 
   final _$_AlteraControllerBaseActionController =
       ActionController(name: '_AlteraControllerBase');
+
+  @override
+  void defineNome(String value) {
+    final _$actionInfo = _$_AlteraControllerBaseActionController.startAction(
+        name: '_AlteraControllerBase.defineNome');
+    try {
+      return super.defineNome(value);
+    } finally {
+      _$_AlteraControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineSobrenome(String value) {
+    final _$actionInfo = _$_AlteraControllerBaseActionController.startAction(
+        name: '_AlteraControllerBase.defineSobrenome');
+    try {
+      return super.defineSobrenome(value);
+    } finally {
+      _$_AlteraControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineDocumento(String value) {
+    final _$actionInfo = _$_AlteraControllerBaseActionController.startAction(
+        name: '_AlteraControllerBase.defineDocumento');
+    try {
+      return super.defineDocumento(value);
+    } finally {
+      _$_AlteraControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineTelefone(String value) {
+    final _$actionInfo = _$_AlteraControllerBaseActionController.startAction(
+        name: '_AlteraControllerBase.defineTelefone');
+    try {
+      return super.defineTelefone(value);
+    } finally {
+      _$_AlteraControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void defineEmail(String value) {
+    final _$actionInfo = _$_AlteraControllerBaseActionController.startAction(
+        name: '_AlteraControllerBase.defineEmail');
+    try {
+      return super.defineEmail(value);
+    } finally {
+      _$_AlteraControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void defineTipoPessoa(

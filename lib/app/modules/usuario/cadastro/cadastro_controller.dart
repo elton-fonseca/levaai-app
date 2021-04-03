@@ -18,7 +18,7 @@ class CadastroController = _CadastroControllerBase with _$CadastroController;
 
 abstract class _CadastroControllerBase with Store {
   @observable
-  Usuario usuario = Usuario();
+  dynamic usuario = Usuario();
 
   void enviar(BuildContext context) {
     var valido = ValidaFormulario().validar();

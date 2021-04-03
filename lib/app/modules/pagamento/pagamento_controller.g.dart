@@ -12,13 +12,13 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
   final _$pagamentoAtom = Atom(name: '_PagamentoControllerBase.pagamento');
 
   @override
-  Pagamento get pagamento {
+  dynamic get pagamento {
     _$pagamentoAtom.reportRead();
     return super.pagamento;
   }
 
   @override
-  set pagamento(Pagamento value) {
+  set pagamento(dynamic value) {
     _$pagamentoAtom.reportWrite(value, super.pagamento, () {
       super.pagamento = value;
     });

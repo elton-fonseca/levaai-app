@@ -17,15 +17,26 @@ class AlteraController = _AlteraControllerBase with _$AlteraController;
 
 abstract class _AlteraControllerBase with Store {
   @observable
-  Usuario usuario = Usuario(); 
+  dynamic usuario = Usuario();
 
   void populaDadosIniciais(
     Map dados,
     TextEditingController telefoneTextController,
     TextEditingController documentoTextController,
+    TextEditingController nomeTextController,
+    TextEditingController sobrenomeTextController,
+    TextEditingController emailTextController,
   ) {
-    telefoneTextController.text = dados['telefone'];
+    defineTipoPessoa(dados['tipo'], documentoTextController);
+
     documentoTextController.text = dados['documento'];
+    telefoneTextController.text = dados['telefone'];
+    nomeTextController.text = dados['name'];
+    sobrenomeTextController.text = dados['sobrenome'];
+    emailTextController.text = dados['email'];
+
+    usuario.documento = dados['documento'];
+    usuario.telefone = dados['telefone'];
     usuario.nomeFantasia = dados['name'];
     usuario.sobrenomeRazao = dados['sobrenome'];
     usuario.email = dados['email'];
@@ -57,6 +68,31 @@ abstract class _AlteraControllerBase with Store {
   }
 
   @action
+  void defineNome(String value) {
+    usuario.nomeFantasia = value;
+  }
+
+  @action
+  void defineSobrenome(String value) {
+    usuario.sobrenomeRazao = value;
+  }
+
+  @action
+  void defineDocumento(String value) {
+    usuario.documento = value;
+  }
+
+  @action
+  void defineTelefone(String value) {
+    usuario.telefone = value;
+  }
+
+  @action
+  void defineEmail(String value) {
+    usuario.email = value;
+  }
+
+  @action
   void defineTipoPessoa(
     String novotipoPessoa,
     MaskedTextController controller,
@@ -75,21 +111,6 @@ abstract class _AlteraControllerBase with Store {
 
   bool pj() {
     return usuario.tipoPessoa == 'PJ';
-  }
-
-  void defineCamposValores({
-    @required MaskedTextController documentoTextController,
-    @required MaskedTextController telefoneTextController,
-  }) {
-    documentoTextController.afterChange = (previous, next) {
-      usuario.documento = next;
-      return true;
-    };
-
-    telefoneTextController.afterChange = (previous, next) {
-      usuario.telefone = next;
-      return true;
-    };
   }
 
   @action

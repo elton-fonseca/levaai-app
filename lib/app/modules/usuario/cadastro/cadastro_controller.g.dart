@@ -12,13 +12,13 @@ mixin _$CadastroController on _CadastroControllerBase, Store {
   final _$usuarioAtom = Atom(name: '_CadastroControllerBase.usuario');
 
   @override
-  Usuario get usuario {
+  dynamic get usuario {
     _$usuarioAtom.reportRead();
     return super.usuario;
   }
 
   @override
-  set usuario(Usuario value) {
+  set usuario(dynamic value) {
     _$usuarioAtom.reportWrite(value, super.usuario, () {
       super.usuario = value;
     });
