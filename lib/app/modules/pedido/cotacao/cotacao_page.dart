@@ -33,9 +33,9 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: BoxDecoration(
-           gradient:
-               LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
+      decoration: BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xFF2E4983), Color(0xFF005BC3)])),
       child: Scaffold(
         appBar: NavbarPadrao().build(context),
         backgroundColor: Colors.transparent,
@@ -74,6 +74,14 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                       backgroundColor: Colors.white,
                     );
                   },
+                ),
+                Text(
+                  'Ganhe R\$5,00 de desconto na primeira contratação',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    color: Colors.white,
+                    fontSize: displayWidth(context) * 0.03,
+                  ),
                 ),
               ],
             ),

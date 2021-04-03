@@ -14,6 +14,7 @@ import 'modules/pedido/lista/lista_module.dart';
 import 'modules/rastreamento/detalhes/detalhes_module.dart';
 import 'modules/rastreamento/lista_pedidos/lista_pedido_module.dart';
 import 'modules/splash/splash_module.dart';
+import 'modules/usuario/altera/altera_module.dart';
 import 'modules/usuario/cadastro/cadastro_module.dart';
 import 'modules/usuario/login/login_module.dart';
 
@@ -55,6 +56,7 @@ class AppModule extends MainModule {
 
         //cadastro e login de usuario
         ModularRouter(Modular.initialRoute, module: CadastroModule()),
+        ModularRouter(Modular.initialRoute, module: AlteraModule()),
         ModularRouter(Modular.initialRoute, module: LoginModule()),
       ];
 

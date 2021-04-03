@@ -44,6 +44,29 @@ class UsuarioRepository implements IUsuarioRepository {
     throw ("Erro ao criar usuário");
   }
 
+  Future obterUsuarioLogado() async {
+    final response = await client.get('/cliente');
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro ao obter usuário");
+  }
+
+  Future alterar(String dados) async {
+    final response = await client.put(
+      '/cliente',
+      data: dados,
+    );
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro ao alterar usuário");
+  }
+
   Future obterToken(String telefone) async {
     var corpo = {};
     corpo["telefone"] = Validadores.limpaMascara(telefone);

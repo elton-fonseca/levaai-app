@@ -81,6 +81,13 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Alterar dados"),
+              subtitle: Text("Alterar dados de cadastro"),
+              onTap: () {
+                Modular.to.pushNamed('/usuario/altera');
+              }),
+          ListTile(
               leading: Icon(Icons.assignment_return),
               title: Text("Sair"),
               subtitle: Text("Deslogar do sistema"),

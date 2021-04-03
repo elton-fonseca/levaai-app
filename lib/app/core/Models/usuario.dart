@@ -36,4 +36,15 @@ abstract class _UsuarioBase with Store {
 
     return data;
   }
+
+  Map<String, dynamic> usuarioAlterarParaJson() {
+    final data = <String, dynamic>{};
+    data['nome'] = nomeFantasia;
+    data['sobrenome'] = sobrenomeRazao;
+    data['telefone'] = Validadores.limpaMascara(telefone);
+    data['documento'] = Validadores.limpaMascara(documento);
+    data['email'] = email;
+
+    return data;
+  }
 }

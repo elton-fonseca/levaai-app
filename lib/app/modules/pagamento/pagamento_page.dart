@@ -114,14 +114,38 @@ class _PagamentoPageState
                       fontSize: displayWidth(context) * 0.04,
                     ),
                   ),
+                  Row(
+                    children: [
+                      Text(
+                        // ignore: lines_longer_than_80_chars
+                        'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                          fontSize: displayWidth(context) * 0.09,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        // ignore: lines_longer_than_80_chars
+                        'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Colors.white,
+                          fontSize: displayWidth(context) * 0.04,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                    ],
+                  ),
                   Text(
                     // ignore: lines_longer_than_80_chars
-                    'R\$ ${Helpers.numeroBr(Modular.get<PedidoListaStore>().valorTotalPedidos)}',
+                    'Deconto de R\$5,00 primeiro pedido',
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       color: Colors.white,
-                      fontSize: displayWidth(context) * 0.09,
-                      fontWeight: FontWeight.bold,
+                      fontSize: displayWidth(context) * 0.03,
                     ),
                   ),
                 ],

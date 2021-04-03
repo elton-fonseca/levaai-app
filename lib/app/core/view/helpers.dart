@@ -52,8 +52,10 @@ class Helpers {
     TextInputType teclado = TextInputType.text,
     bool senha = false,
     TextEditingController mascara,
+    String valorInicial,
   }) {
     return TextFormField(
+      initialValue: valorInicial,
       controller: mascara,
       obscureText: senha,
       onChanged: onChange,
