@@ -1,3 +1,4 @@
+import 'package:Levaai/app/core/services/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -75,13 +76,31 @@ class _CotacaoPageState extends ModularState<CotacaoPage, CotacaoController>
                     );
                   },
                 ),
-                Text(
-                  'Ganhe R\$5,00 de desconto na primeira contratação',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                    fontSize: displayWidth(context) * 0.03,
-                  ),
+                FutureBuilder(
+                  future: LocalStorage.getValue<String>("token"),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      if (snapshot.data.toString().isEmpty) {
+                        return Text(
+                          'Ganhe R\$5,00 de desconto na primeira contratação',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                            fontSize: displayWidth(context) * 0.03,
+                          ),
+                        );
+                      }
+
+                      return Container();
+                    } else if (snapshot.hasError) {
+                      return Text("erro ao calcular");
+                    }
+
+                    // By default, show a loading spinner.
+                    return CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                    );
+                  },
                 ),
               ],
             ),
