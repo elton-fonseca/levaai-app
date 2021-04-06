@@ -15,6 +15,8 @@ abstract class _PedidoListaStoreBase with Store {
 
   double valorDescontoPedidos = 0;
 
+  String cupomDescontoPedidos = '';
+
   Map<String, dynamic> pedidosCompletosJson() {
     final data = <String, dynamic>{};
 

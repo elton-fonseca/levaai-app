@@ -28,9 +28,13 @@ abstract class _PagamentoBase with Store {
 
   Future<Map<String, dynamic>> pagamentoParaJson() async {
     final data = <String, dynamic>{};
-    data['valor'] = Modular.get<PedidoListaStore>().valorTotalPedidos;// / 25;
+    var pedidoListaStore = Modular.get<PedidoListaStore>();
+    data['valor'] = pedidoListaStore.valorTotalPedidos; // / 25;
+    data['desconto'] = pedidoListaStore.valorDescontoPedidos;
+    data['cupom'] = pedidoListaStore.cupomDescontoPedidos;
+
     data['forma_pagamento'] = tipoPagamento;
-    data['pedidos'] = Modular.get<PedidoListaStore>().pedidosIds();
+    data['pedidos'] = pedidoListaStore.pedidosIds();
 
     if (tipoPagamento == 'cartao') {
       if (cobrancaJunoID != null) {

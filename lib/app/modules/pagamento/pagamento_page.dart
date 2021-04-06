@@ -58,6 +58,11 @@ class _PagamentoPageState
       }
 
       Modular.get<PedidoListaStore>().valorDescontoPedidos = value['valor'];
+
+      if (value['valor'] > 0.001) {
+        Modular.get<PedidoListaStore>().cupomDescontoPedidos =
+            'primeiro-pedido';
+      }
     });
 
     super.initState();

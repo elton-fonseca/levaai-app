@@ -171,10 +171,10 @@ class Helpers {
     }
 
     if (tipo == 'ENTREGA' && prazo == "1") {
-      return "$prazo DIA APÓS A COLETA";
+      return "$prazo DIA ÚTIL APÓS A COLETA";
     }
 
-    return "$prazo DIAS APÓS A COLETA";
+    return "$prazo DIAS ÚTEIS APÓS A COLETA";
   }
 
   static String montaEndereco(Address address) {
