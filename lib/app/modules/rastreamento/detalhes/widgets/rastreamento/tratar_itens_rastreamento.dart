@@ -9,7 +9,8 @@ import '../../detalhes_controller.dart';
 class TratarItensRastreamento {
   String status;
 
-  String valor;
+  double valorExibicaoDouble;
+  String valorExibicao;
 
   Map pedidoPropriedade;
 
@@ -17,9 +18,8 @@ class TratarItensRastreamento {
     status = StatusPedido.pegar(pedido);
     pedidoPropriedade = pedido;
 
-    var valorDouble =
-        double.parse(pedidoPropriedade['cotacao']['valor_calculado_cotacao']);
-    valor = 'R\$ ${Helpers.numeroBr(valorDouble)}';
+    valorExibicaoDouble = _defineValor();
+    valorExibicao = 'R\$ ${Helpers.numeroBr(valorExibicaoDouble)}';
 
     _semPagamento();
     _imprimirBoleto();
@@ -32,6 +32,26 @@ class TratarItensRastreamento {
     return pedidoPropriedade['rastreamento'];
   }
 
+  double _defineValor() {
+    var cotacaoDouble =
+        double.parse(pedidoPropriedade['cotacao']['valor_calculado_cotacao']);
+
+    if (status == 'sem-pagamento') {
+      if (pedidoPropriedade['primeira_contratacao'] == true) {
+        return cotacaoDouble - 5;
+      }
+
+      return cotacaoDouble;
+    }
+
+    if (pedidoPropriedade['reentrega'] != 0) {
+      return cotacaoDouble;
+    }
+
+    return double.parse(pedidoPropriedade['pagamentos'][0]['valor']) -
+        double.parse(pedidoPropriedade['pagamentos'][0]['desconto']);
+  }
+
   void _semPagamento() {
     if (status == 'sem-pagamento') {
       pedidoPropriedade['rastreamento'].insert(0, {
@@ -40,7 +60,9 @@ class TratarItensRastreamento {
         "botao_acao": () => Modular.get<DetalhesController>()
             .chamarPagamentoPedido(pedidoPropriedade, 'posterior'),
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "Você ainda não realizou o pagamento no valor de $valor",
+        "mensagem":
+            // ignore: lines_longer_than_80_chars
+            "Você ainda não realizou o pagamento no valor de $valorExibicaoDouble",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -61,7 +83,7 @@ class TratarItensRastreamento {
         },
         "cor_bolinha": StatusPedido.amarelo,
         "mensagem": 'Não identificamos o pagamento'
-            ' do seu boleto no valor de $valor',
+            ' do seu boleto no valor de $valorExibicaoDouble',
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -72,7 +94,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
-        "mensagem": "Boleto Vencido no valor de $valor",
+        "mensagem": "Boleto Vencido no valor de $valorExibicaoDouble",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -83,7 +105,8 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "O pagamento no valor de $valor está em Análise",
+        "mensagem":
+            "O pagamento no valor de $valorExibicaoDouble está em Análise",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -94,7 +117,8 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
-        "mensagem": "O pagamento no valor de $valor não foi aprovado",
+        "mensagem":
+            "O pagamento no valor de $valorExibicaoDouble não foi aprovado",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -108,7 +132,8 @@ class TratarItensRastreamento {
         "botao_acao": () => Modular.get<DetalhesController>()
             .chamarPagamentoPedido(pedidoPropriedade, 'reentrega'),
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem": "Realizar pagamento da reentrega no valor de $valor",
+        "mensagem":
+            "Realizar pagamento da reentrega no valor de $valorExibicaoDouble",
         "data": DateTime.now().toIso8601String()
       });
     }
