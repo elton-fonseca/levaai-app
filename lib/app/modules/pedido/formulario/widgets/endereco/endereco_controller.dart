@@ -86,7 +86,7 @@ abstract class _EnderecoControllerBase with Store {
         numeroTextController,
       );
 
-      if (address[0].postalCode == null) {
+      if (address[0].postalCode == null || address[0].postalCode.length == 5) {
         _perguntaCep(context, nome);
       } else {
         _verificaCidadesPercurso(context);

@@ -62,7 +62,7 @@ class TratarItensRastreamento {
         "cor_bolinha": StatusPedido.amarelo,
         "mensagem":
             // ignore: lines_longer_than_80_chars
-            "Você ainda não realizou o pagamento no valor de $valorExibicaoDouble",
+            "Você ainda não realizou o pagamento no valor de $valorExibicao",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -83,7 +83,7 @@ class TratarItensRastreamento {
         },
         "cor_bolinha": StatusPedido.amarelo,
         "mensagem": 'Não identificamos o pagamento'
-            ' do seu boleto no valor de $valorExibicaoDouble',
+            ' do seu boleto no valor de $valorExibicao',
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -94,7 +94,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
-        "mensagem": "Boleto Vencido no valor de $valorExibicaoDouble",
+        "mensagem": "Boleto Vencido no valor de $valorExibicao",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -105,8 +105,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.amarelo,
-        "mensagem":
-            "O pagamento no valor de $valorExibicaoDouble está em Análise",
+        "mensagem": "O pagamento no valor de $valorExibicao está em Análise",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -117,8 +116,7 @@ class TratarItensRastreamento {
       pedidoPropriedade['rastreamento'].insert(0, {
         "botao": false,
         "cor_bolinha": StatusPedido.vermelho,
-        "mensagem":
-            "O pagamento no valor de $valorExibicaoDouble não foi aprovado",
+        "mensagem": "O pagamento no valor de $valorExibicao não foi aprovado",
         "data": DateTime.now().toIso8601String()
       });
     }
@@ -133,7 +131,7 @@ class TratarItensRastreamento {
             .chamarPagamentoPedido(pedidoPropriedade, 'reentrega'),
         "cor_bolinha": StatusPedido.amarelo,
         "mensagem":
-            "Realizar pagamento da reentrega no valor de $valorExibicaoDouble",
+            "Realizar pagamento da reentrega no valor de $valorExibicao",
         "data": DateTime.now().toIso8601String()
       });
     }

@@ -62,7 +62,12 @@ class _TermosCondicoesState extends State<TermosCondicoes> {
                             ),
                             TextSpan(
                               text: '. Estou ciente que a reentrega ou devoluçã'
-                                  'o poderá ser cobrada.',
+                                  'o poderá ser cobrada. ',
+                            ),
+                            TextSpan(
+                              text:
+                                  // ignore: lines_longer_than_80_chars
+                                  'Estou ciente das exigências realizadas para a realização do transporte de materiais frágeis, conforme Cláusula 4.3.4 dos Termos de Uso.',
                             ),
                           ],
                         ),
