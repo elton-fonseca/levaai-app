@@ -14,7 +14,6 @@ class ValidaFormulario {
     var resultado = _cidadesAtendidas();
     resultado += _enderecoOrigem();
     resultado += _enderecoDestino();
-    resultado += _enderecosIguais();
     resultado += _itens();
     resultado += _valorTotal();
     resultado += _pesoTotal();
@@ -33,7 +32,7 @@ class ValidaFormulario {
   }
 
   String _enderecoOrigem() {
-    if (pedido.enderecoOrigem == null) {
+    if (pedido.logradouroOrigem == null) {
       return 'Informe o Endereço de Origem\n';
     }
 
@@ -49,7 +48,7 @@ class ValidaFormulario {
   }
 
   String _enderecoDestino() {
-    if (pedido.enderecoDestino == null) {
+    if (pedido.logradouroDestino == null) {
       return 'Informe o Endereço de Destino\n';
     }
 
@@ -59,15 +58,6 @@ class ValidaFormulario {
 
     if (pedido.numeroDestino == null || pedido.numeroDestino == '') {
       return 'Informe o número no endereço de destino\n';
-    }
-
-    return '';
-  }
-
-  String _enderecosIguais() {
-    if (pedido.enderecoOrigem == pedido.enderecoDestino &&
-        pedido.numeroOrigem == pedido.numeroDestino) {
-      return "Os endereços não podem ser iguais";
     }
 
     return '';
@@ -111,8 +101,6 @@ class ValidaFormulario {
     } else {
       return _pesoTotalMaximoMedidaRelativa();
     }
-
-    return '';
   }
 
   String _pesoTotalMaximoMedidaRelativa() {

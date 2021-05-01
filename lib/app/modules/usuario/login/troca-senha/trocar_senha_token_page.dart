@@ -1,10 +1,10 @@
-import 'package:Levaai/app/core/view/navbar_padrao.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/tema/cores_const.dart';
 import '../../../../core/view/botao_branco.dart';
+import '../../../../core/view/navbar_padrao.dart';
 import '../../../../core/view/tamanhos_relativos.dart';
 import '../widgets/inputs.dart';
 import 'alterar_senha_controller.dart';
@@ -67,8 +67,8 @@ class _TrocarSenhaTokenPageState extends State<TrocarSenhaTokenPage> {
                     height: displayHeight(context) * 0.02,
                   ),
                   Text(
-                    "Digite o número de seu celular cadastrado.\n" +
-                        "Vamos enviar um código de confirmação por SMS.",
+                    "Digite o número de seu celular cadastrado.\n"
+                    "Vamos enviar um código de confirmação por SMS.",
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: displayWidth(context) * 0.04,

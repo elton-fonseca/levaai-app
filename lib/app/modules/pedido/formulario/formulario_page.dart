@@ -65,18 +65,58 @@ class _FormularioPageState
                   textAlign: TextAlign.left,
                 ),
                 conteudo: Column(children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: displayHeight(context) * 0.05,
+                    ),
+                    child: Text(
+                      "Local de Coleta",
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: displayWidth(context) * 0.04,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   Endereco().obter(
-                      context: contextScaffold,
-                      origemTextController: enderecoOrigemTextController,
-                      origemNumeroTextController:
-                          enderecoOrigemNumeroTextController,
-                      origemComplementoTextController:
-                          enderecoOrigemComplementoTextController,
-                      destinoTextController: enderecoDestinoTextController,
-                      destinoNumeroTextController:
-                          enderecoDestinoNumeroTextController,
-                      destinoComplementoTextController:
-                          enderecoDestinoComplementoTextController),
+                    context: contextScaffold,
+                    tipo: 'origem',
+                    cepTextController: cepOrigemTextController,
+                    logradouroTextController: logradouroOrigemTextController,
+                    numeroTextController: numeroOrigemTextController,
+                    bairroTextController: bairroOrigemComplementoTextController,
+                    cidadesAtendidas: cidadesAtendidas,
+                  ),
+                  Divider(
+                    color: Colors.grey[300],
+                    height: 2,
+                    thickness: 2,
+                    indent: 0,
+                    endIndent: 0,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: displayHeight(context) * 0.025,
+                    ),
+                    child: Text(
+                      "Local de Entrega",
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: displayWidth(context) * 0.04,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Endereco().obter(
+                    context: contextScaffold,
+                    tipo: 'origem',
+                    cepTextController: cepDestinoTextController,
+                    logradouroTextController: logradouroDestinoTextController,
+                    numeroTextController: numeroDestinoTextController,
+                    bairroTextController:
+                        bairroDestinoComplementoTextController,
+                    cidadesAtendidas: cidadesAtendidas,
+                  ),
                   SizedBox(height: displayHeight(context) * 0.04),
                   Observer(builder: (_) {
                     return Text(

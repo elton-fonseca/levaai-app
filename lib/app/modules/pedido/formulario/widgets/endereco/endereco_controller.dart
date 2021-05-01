@@ -1,14 +1,9 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:mobx/mobx.dart';
 
-import '../../../../../core/models/pedido.dart';
 import '../../../../../core/stores/pedido_lista_store.dart';
-import '../../../../../core/view/helpers.dart';
 
 part 'endereco_controller.g.dart';
 
@@ -22,74 +17,60 @@ abstract class _EnderecoControllerBase with Store {
 
   int indice = 0;
 
-  @action
-  void defineEnderecoOrigem(String novoEnderecoOrigem) {
-    pedidoLista.pedidos[indice].enderecoOrigem = novoEnderecoOrigem;
+  void defineCamposEndereco({
+    @required TextEditingController cepOrigemTextController,
+    @required TextEditingController logradouroOrigemTextController,
+    @required TextEditingController numeroOrigemTextController,
+    @required TextEditingController bairroOrigemTextController,
+    @required TextEditingController cepDestinoTextController,
+    @required TextEditingController logradouroDestinoTextController,
+    @required TextEditingController numeroDestinoTextController,
+    @required TextEditingController bairroDestinoTextController,
+  }) {
+    cepOrigemTextController.value = pedidoLista.pedidos[indice].cepOrigem;
+    logradouroOrigemTextController.value =
+        pedidoLista.pedidos[indice].logradouroOrigem;
+    numeroOrigemTextController.value = pedidoLista.pedidos[indice].numeroOrigem;
+    bairroOrigemTextController.value = pedidoLista.pedidos[indice].bairroOrigem;
+
+    cepDestinoTextController.value = pedidoLista.pedidos[indice].cepDestino;
+    logradouroDestinoTextController.value =
+        pedidoLista.pedidos[indice].logradouroDestino;
+    numeroDestinoTextController.value =
+        pedidoLista.pedidos[indice].numeroDestino;
+    bairroDestinoTextController.value =
+        pedidoLista.pedidos[indice].bairroDestino;
   }
 
-  String pegaEnderecoOrigem() {
-    return pedidoLista.pedidos[indice].enderecoOrigem;
-  }
-
-  @action
-  void defineEnderecoDestino(String novoEnderecoDestino) {
-    pedidoLista.pedidos[indice].enderecoDestino = novoEnderecoDestino;
-  }
-
-  String pegaEnderecoDestino() {
-    return pedidoLista.pedidos[indice].enderecoDestino;
-  }
-
-  Future<Null> mostraMapa({
-    @required BuildContext context,
-    @required TextEditingController textController,
-    @required TextEditingController numeroTextController,
-    @required String nome,
-  }) async {
-    var pedido = pedidoLista.pedidos[indice];
-    _limpaEndereco(pedido, nome, textController, numeroTextController);
-  }
-
-  void _preencheEndereco(
-    Pedido pedido,
-    String nome,
-    String address,
-    TextEditingController textController,
-    TextEditingController numeroTextController,
-  ) {
-    var endereco = Helpers.montaEndereco(address);
-
-    textController.text = endereco;
-    numeroTextController.text = address ?? null;
-
-    if (nome == 'endereco_origem') {
-      pedido.cepOrigem = address;
-      pedido.enderecoOrigem = endereco;
-      pedido.numeroOrigem = address ?? null;
+  void defineCep(String cep, String tipo) {
+    if (tipo == 'origem') {
+      pedidoLista.pedidos[indice].cepOrigem = cep;
     } else {
-      pedido.cepDestino = address;
-      pedido.enderecoDestino = endereco;
-      pedido.numeroDestino = address ?? null;
+      pedidoLista.pedidos[indice].cepDestino = cep;
     }
   }
 
-  void _limpaEndereco(
-    Pedido pedido,
-    String nome,
-    TextEditingController textController,
-    TextEditingController numeroTextController,
-  ) {
-    textController.text = '';
-    numeroTextController.text = '';
-
-    if (nome == 'endereco_origem') {
-      pedido.cepOrigem = '';
-      pedido.enderecoOrigem = '';
-      pedido.numeroOrigem = '';
+  void defineLogradouro(String logradouro, String tipo) {
+    if (tipo == 'origem') {
+      pedidoLista.pedidos[indice].logradouroOrigem = logradouro;
     } else {
-      pedido.cepDestino = '';
-      pedido.enderecoDestino = '';
-      pedido.numeroDestino = '';
+      pedidoLista.pedidos[indice].logradouroDestino = logradouro;
+    }
+  }
+
+  void defineNumero(String numero, String tipo) {
+    if (tipo == 'origem') {
+      pedidoLista.pedidos[indice].numeroOrigem = numero;
+    } else {
+      pedidoLista.pedidos[indice].numeroDestino = numero;
+    }
+  }
+
+  void defineBairro(String bairro, String tipo) {
+    if (tipo == 'origem') {
+      pedidoLista.pedidos[indice].bairroOrigem = bairro;
+    } else {
+      pedidoLista.pedidos[indice].bairroDestino = bairro;
     }
   }
 }

@@ -1,8 +1,7 @@
-import 'package:Levaai/app/core/view/helpers.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../../core/view/helpers.dart';
 import '../../../status_pedido.dart';
 import '../../detalhes_controller.dart';
 

@@ -1,4 +1,3 @@
-import 'package:Levaai/app/modules/usuario/repositories/usuario_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -7,8 +6,8 @@ import '../../../core/tema/cores_const.dart';
 import '../../../core/view/conteudo_padrao.dart';
 import '../../../core/view/navbar_padrao.dart';
 import '../../../core/view/tamanhos_relativos.dart';
+import '../repositories/usuario_repository.dart';
 import 'altera_controller.dart';
-
 import 'widgets/informacoes_basicas.dart';
 
 class AlterarPage extends StatefulWidget {

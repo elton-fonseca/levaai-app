@@ -57,8 +57,8 @@ class _TrocarSenhaFormPageState extends State<TrocarSenhaFormPage> {
                     height: displayHeight(context) * 0.02,
                   ),
                   Text(
-                    "Digite o número de confirmação que você recebeu\n " +
-                        "por SMS e uma nova senha com 8 digitos.",
+                    "Digite o número de confirmação que você recebeu\n "
+                    "por SMS e uma nova senha com 8 digitos.",
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontSize: displayWidth(context) * 0.04,

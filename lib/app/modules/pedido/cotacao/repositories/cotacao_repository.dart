@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:Levaai/app/core/services/validadores.dart';
 import 'package:dio/native_imp.dart';
 
 import '../../../../core/models/cotacao.dart';
+import '../../../../core/services/validadores.dart';
 import 'interfaces/cotacao_repository_interface.dart';
 
 class CotacaoRepository implements ICotacaoRepository {

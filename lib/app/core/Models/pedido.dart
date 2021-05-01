@@ -18,18 +18,20 @@ abstract class _PedidoBase with Store {
   bool cidadesAtendidas = false;
 
   String cepOrigem;
-  String enderecoOrigem;
+  String logradouroOrigem;
   String numeroOrigem;
   String cidadeOrigem;
-  String estadoOrigem;
-  String complementoOrigem;
+  String bairroOrigem;
+  String estadoOrigem = 'SP';
+  String ibgeOrigem;
 
   String cepDestino;
-  String enderecoDestino;
+  String logradouroDestino;
   String numeroDestino;
   String cidadeDestino;
-  String estadoDestino;
-  String complementoDestino;
+  String bairroDestino;
+  String estadoDestino = 'SP';
+  String ibgeDestino;
 
   @observable
   double valorTotal;
@@ -86,15 +88,20 @@ abstract class _PedidoBase with Store {
     final data = <String, dynamic>{};
 
     data['id_temporario'] = idLocal;
+
     data['cep_origem'] = cepOrigem;
-    data['logradouro_origem'] = enderecoOrigem;
-    data['complemento_origem'] = complementoOrigem;
+    data['logradouro_origem'] = logradouroOrigem;
     data['numero_origem'] = numeroOrigem;
+    data['bairro_origem'] = bairroOrigem;
+    data['cidade_origem'] = cidadeOrigem;
+    data['ibge_origem'] = ibgeOrigem;
 
     data['cep_destino'] = cepDestino;
-    data['logradouro_destino'] = enderecoDestino;
-    data['complemento_destino'] = complementoDestino;
+    data['logradouro_destino'] = logradouroDestino;
     data['numero_destino'] = numeroDestino;
+    data['bairro_destino'] = bairroDestino;
+    data['cidade_destino'] = cidadeDestino;
+    data['ibge_destino'] = ibgeDestino;
 
     data['responsavel_coleta'] = responsavelColeta;
     data['responsavel_coleta_celular'] =

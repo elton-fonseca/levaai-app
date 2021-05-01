@@ -1,9 +1,9 @@
-import 'package:Levaai/app/core/services/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../core/repositories/monitoramento_repository.dart';
 
+import '../../../core/repositories/monitoramento_repository.dart';
+import '../../../core/services/local_storage.dart';
 import '../../../core/stores/pedido_lista_store.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';

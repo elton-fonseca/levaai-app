@@ -1,6 +1,3 @@
-import 'package:Levaai/app/core/services/validadores.dart';
-import 'package:Levaai/app/core/view/helpers.dart';
-import 'package:Levaai/app/modules/pedido/cotacao/repositories/cotacao_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -8,6 +5,8 @@ import 'package:mobx/mobx.dart';
 
 import '../../../core/repositories/monitoramento_repository.dart';
 import '../../../core/stores/pedido_lista_store.dart';
+import '../../../core/view/helpers.dart';
+import 'repositories/cotacao_repository.dart';
 import 'validacao/valida_formulario.dart';
 
 part 'cotacao_controller.g.dart';

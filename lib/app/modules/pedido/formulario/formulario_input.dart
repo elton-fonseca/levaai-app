@@ -6,20 +6,22 @@ import '../../../core/repositories/monitoramento_repository.dart';
 import '../../../core/stores/pedido_lista_store.dart';
 import 'formulario_controller.dart';
 import 'formulario_page.dart';
+import 'repositories/formulario_repository.dart';
 import 'widgets/detalhes/detalhes_controller.dart';
-import 'widgets/endereco/complemento_endereco_controller.dart';
 import 'widgets/endereco/endereco_controller.dart';
 import 'widgets/popup/popup_controller.dart';
 import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
-  final enderecoOrigemTextController = TextEditingController();
-  final enderecoOrigemNumeroTextController = TextEditingController();
-  final enderecoOrigemComplementoTextController = TextEditingController();
+  final cepOrigemTextController = TextEditingController();
+  final logradouroOrigemTextController = TextEditingController();
+  final numeroOrigemTextController = TextEditingController();
+  final bairroOrigemComplementoTextController = TextEditingController();
 
-  final enderecoDestinoTextController = TextEditingController();
-  final enderecoDestinoNumeroTextController = TextEditingController();
-  final enderecoDestinoComplementoTextController = TextEditingController();
+  final cepDestinoTextController = TextEditingController();
+  final logradouroDestinoTextController = TextEditingController();
+  final numeroDestinoTextController = TextEditingController();
+  final bairroDestinoComplementoTextController = TextEditingController();
 
   final valorTotalTextController =
       MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: '.');
@@ -27,14 +29,18 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
       decimalSeparator: '', thousandSeparator: '', precision: 0);
   final tipoMercadoriaTextController = TextEditingController();
 
+  Future<dynamic> cidadesAtendidas;
+
   @override
   void initState() {
     controller.indice = widget.id;
     Modular.get<TipoMedidaController>().indice = widget.id;
     Modular.get<PopupController>().indice = widget.id;
     Modular.get<EnderecoController>().indice = widget.id;
-    Modular.get<ComplementoEnderecoController>().indice = widget.id;
     Modular.get<DetalhesController>().indice = widget.id;
+
+    cidadesAtendidas =
+        Modular.get<FormularioRepository>().obtemCidadesAtendidas();
 
     //garante que a lista vai estar limpa no começo
     if (widget.acao == 'criar' && widget.id == 0) {
@@ -48,23 +54,16 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
       Modular.get<PedidoListaStore>().addPedido();
       Modular.get<PedidoListaStore>().pedidos[widget.id].idLocal = widget.id;
     } else {
-      enderecoOrigemTextController.text =
-          Modular.get<EnderecoController>().pegaEnderecoOrigem();
-      enderecoOrigemNumeroTextController.text =
-          Modular.get<ComplementoEnderecoController>()
-              .pegaNumeroEnderecoOrigem();
-      enderecoOrigemComplementoTextController.text =
-          Modular.get<ComplementoEnderecoController>()
-              .pegaComplementoEnderecoOrigem();
-
-      enderecoDestinoTextController.text =
-          Modular.get<EnderecoController>().pegaEnderecoDestino();
-      enderecoDestinoNumeroTextController.text =
-          Modular.get<ComplementoEnderecoController>()
-              .pegaNumeroEnderecoDestino();
-      enderecoDestinoComplementoTextController.text =
-          Modular.get<ComplementoEnderecoController>()
-              .pegaComplementoEnderecoDestino();
+      Modular.get<EnderecoController>().defineCamposEndereco(
+        cepOrigemTextController: cepOrigemTextController,
+        logradouroOrigemTextController: logradouroOrigemTextController,
+        numeroOrigemTextController: numeroOrigemTextController,
+        bairroOrigemTextController: bairroOrigemComplementoTextController,
+        cepDestinoTextController: cepDestinoTextController,
+        logradouroDestinoTextController: logradouroDestinoTextController,
+        numeroDestinoTextController: numeroDestinoTextController,
+        bairroDestinoTextController: bairroDestinoComplementoTextController,
+      );
 
       valorTotalTextController
           .updateValue(Modular.get<DetalhesController>().pegaValorTotal());

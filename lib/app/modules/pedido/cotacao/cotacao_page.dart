@@ -1,7 +1,7 @@
-import 'package:Levaai/app/core/services/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../core/services/local_storage.dart';
 import '../../../core/tema/cores_const.dart';
 import '../../../core/view/botao_azul.dart';
 import '../../../core/view/botao_branco.dart';

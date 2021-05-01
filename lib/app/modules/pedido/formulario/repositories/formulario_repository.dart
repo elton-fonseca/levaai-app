@@ -19,6 +19,18 @@ class FormularioRepository implements IFormularioRepository {
     throw ("Erro ao validar cidades");
   }
 
+  Future obtemCidadesAtendidas() async {
+    final response = await client.get(
+      '/obter-cidades-atendidas'
+    );
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro ao obter cidades");
+  }
+
   //dispose will be called automatically
   @override
   void dispose() {}

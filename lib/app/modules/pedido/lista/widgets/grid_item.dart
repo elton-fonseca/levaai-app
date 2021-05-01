@@ -95,7 +95,7 @@ class GridItem {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        pedido.enderecoDestino,
+                        pedido.logradouroDestino,
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.grey[500],
