@@ -184,7 +184,7 @@ class Endereco {
                               future: cidadesAtendidas,
                               builder: (context, snapshot) {
                                 if (snapshot.hasData) {
-                                  return DropdownCidade(snapshot.data);
+                                  return DropdownCidade(snapshot.data, tipo);
                                 } else if (snapshot.hasError) {
                                   return Text("erro ao obter cidades");
                                 }

@@ -54,7 +54,7 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
       Modular.get<PedidoListaStore>().addPedido();
       Modular.get<PedidoListaStore>().pedidos[widget.id].idLocal = widget.id;
     } else {
-      Modular.get<EnderecoController>().defineCamposEndereco(
+      Modular.get<EnderecoController>().preencheCamposEndereco(
         cepOrigemTextController: cepOrigemTextController,
         logradouroOrigemTextController: logradouroOrigemTextController,
         numeroOrigemTextController: numeroOrigemTextController,

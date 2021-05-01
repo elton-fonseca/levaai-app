@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../../core/view/tamanhos_relativos.dart';
+import '../endereco_controller.dart';
 
 class DropdownCidade extends StatefulWidget {
   final List cidadesAtendidas;
 
-  const DropdownCidade(this.cidadesAtendidas);
+  final String tipo;
+
+  const DropdownCidade(this.cidadesAtendidas, this.tipo);
 
   @override
   _DropdownCidadeState createState() {
@@ -13,11 +17,12 @@ class DropdownCidade extends StatefulWidget {
 }
 
 class _DropdownCidadeState extends State<DropdownCidade> {
-  String selected =
-      'selecione'; //Modular.get<DetalhesController>().pegaTipoMercadoria();
+  String selected;
 
   @override
   Widget build(BuildContext context) {
+    selected = Modular.get<EnderecoController>().pegaCidade(widget.tipo);
+
     return Container(
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
@@ -38,7 +43,7 @@ class _DropdownCidadeState extends State<DropdownCidade> {
           onChanged: (value) {
             setState(() => selected = value);
 
-            //Modular.get<DetalhesController>().defineTipoMercadoria(value);
+            Modular.get<EnderecoController>().defineCidade(value, widget.tipo);
           },
           value: selected,
         ),

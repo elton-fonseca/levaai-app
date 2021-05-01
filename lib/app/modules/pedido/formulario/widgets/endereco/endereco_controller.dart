@@ -17,7 +17,7 @@ abstract class _EnderecoControllerBase with Store {
 
   int indice = 0;
 
-  void defineCamposEndereco({
+  void preencheCamposEndereco({
     @required TextEditingController cepOrigemTextController,
     @required TextEditingController logradouroOrigemTextController,
     @required TextEditingController numeroOrigemTextController,
@@ -71,6 +71,22 @@ abstract class _EnderecoControllerBase with Store {
       pedidoLista.pedidos[indice].bairroOrigem = bairro;
     } else {
       pedidoLista.pedidos[indice].bairroDestino = bairro;
+    }
+  }
+
+  String pegaCidade(String tipo) {
+    if (tipo == 'origem') {
+      return pedidoLista.pedidos[indice].ibgeOrigem;
+    } else {
+      return pedidoLista.pedidos[indice].ibgeDestino;
+    }
+  }
+
+  void defineCidade(String cidade, String tipo) {
+    if (tipo == 'origem') {
+      pedidoLista.pedidos[indice].ibgeOrigem = cidade;
+    } else {
+      pedidoLista.pedidos[indice].ibgeDestino = cidade;
     }
   }
 }

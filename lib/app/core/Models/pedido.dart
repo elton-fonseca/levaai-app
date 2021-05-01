@@ -15,8 +15,6 @@ abstract class _PedidoBase with Store {
   int idLocal;
   int idPedido;
 
-  bool cidadesAtendidas = false;
-
   String cepOrigem;
   String logradouroOrigem;
   String numeroOrigem;

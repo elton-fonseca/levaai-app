@@ -109,7 +109,7 @@ class _FormularioPageState
                   ),
                   Endereco().obter(
                     context: contextScaffold,
-                    tipo: 'origem',
+                    tipo: 'destino',
                     cepTextController: cepDestinoTextController,
                     logradouroTextController: logradouroDestinoTextController,
                     numeroTextController: numeroDestinoTextController,

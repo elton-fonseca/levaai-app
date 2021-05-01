@@ -11,8 +11,7 @@ class ValidaFormulario {
   Pedido pedido;
 
   String validar() {
-    var resultado = _cidadesAtendidas();
-    resultado += _enderecoOrigem();
+    var resultado = _enderecoOrigem();
     resultado += _enderecoDestino();
     resultado += _itens();
     resultado += _valorTotal();
@@ -23,41 +22,57 @@ class ValidaFormulario {
     return resultado;
   }
 
-  String _cidadesAtendidas() {
-    if (!pedido.cidadesAtendidas) {
-      return 'Percurso não atendido\n';
-    }
-
-    return '';
-  }
-
   String _enderecoOrigem() {
-    if (pedido.logradouroOrigem == null) {
-      return 'Informe o Endereço de Origem\n';
+    if (pedido.cepOrigem == null || pedido.cepOrigem == '') {
+      return 'Informe o CEP de coleta\n';
     }
 
-    if (pedido.cepOrigem == null) {
-      return 'Endereço de Origem Invalido\n';
+    if (pedido.cepOrigem.length != 9) {
+      return 'Informe o CEP de coleta corretamente\n';
+    }
+
+    if (pedido.logradouroOrigem == null || pedido.logradouroOrigem == '') {
+      return 'Informe o logradouro de coleta\n';
     }
 
     if (pedido.numeroOrigem == null || pedido.numeroOrigem == '') {
-      return 'Informe o número no endereço de origem\n';
+      return 'Informe o número no endereço de coleta\n';
+    }
+
+    if (pedido.bairroOrigem == null || pedido.bairroOrigem == '') {
+      return 'Informe o bairro de coleta\n';
+    }
+
+    if (pedido.ibgeOrigem == null) {
+      return 'Informe a cidade de coleta\n';
     }
 
     return '';
   }
 
   String _enderecoDestino() {
-    if (pedido.logradouroDestino == null) {
-      return 'Informe o Endereço de Destino\n';
+    if (pedido.cepDestino == null || pedido.cepDestino == '') {
+      return 'Informe o CEP de entrega\n';
     }
 
-    if (pedido.cepDestino == null) {
-      return 'Endereço de Destino Invalido\n';
+    if (pedido.cepDestino.length != 9) {
+      return 'Informe o CEP de entrega corretamente\n';
+    }
+
+    if (pedido.logradouroDestino == null || pedido.logradouroDestino == '') {
+      return 'Informe o logradouro de entrega\n';
     }
 
     if (pedido.numeroDestino == null || pedido.numeroDestino == '') {
-      return 'Informe o número no endereço de destino\n';
+      return 'Informe o número no endereço de entrega\n';
+    }
+
+    if (pedido.bairroDestino == null || pedido.bairroDestino == '') {
+      return 'Informe o bairro de entrega\n';
+    }
+
+    if (pedido.ibgeDestino == null) {
+      return 'Informe a cidade de entrega\n';
     }
 
     return '';
