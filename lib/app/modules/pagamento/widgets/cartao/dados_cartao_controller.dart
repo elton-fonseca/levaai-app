@@ -1,10 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:geocoder/geocoder.dart';
-import 'package:google_maps_webservice/places.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../core/models/pagamento.dart';
@@ -22,16 +19,6 @@ abstract class _DadosCartaoControllerBase with Store {
     //pedidoLista.pedidos[indice].enderecoDestino = novoEnderecoDestino;
   }
 
-  Future<Prediction> _mapaControlador(BuildContext context) async {
-    return await PlacesAutocomplete.show(
-      context: context,
-      apiKey: "AIzaSyCZ4POmTNuwNXDnnAypsMmg_WGpSNMNxos",
-      mode: Mode.overlay, // Mode.fullscreen
-      language: "pt_br",
-      components: [Component(Component.country, "br")],
-    );
-  }
-
   Future<Null> mostraMapa({
     @required BuildContext context,
     @required TextEditingController enderecoTextController,
@@ -42,25 +29,11 @@ abstract class _DadosCartaoControllerBase with Store {
     var pagamento = Modular.get<PagamentoController>().pagamento;
     _limpaCampos(pagamento, enderecoTextController,
         enderecoNumeroTextController, enderecoCepTextController);
-
-    var p = await _mapaControlador(context);
-
-    if (p != null) {
-      var address = await Geocoder.local.findAddressesFromQuery(p.description);
-
-      if (address[0].thoroughfare == null) {
-        Helpers.snackLevaai(texto: "Endereço Invalido", context: context);
-        return;
-      }
-
-      _preencheCampos(pagamento, address[0], enderecoTextController,
-          enderecoNumeroTextController, enderecoCepTextController);
-    }
   }
 
   void _preencheCampos(
     Pagamento pagamento,
-    Address address,
+    String address,
     TextEditingController enderecoTextController,
     TextEditingController enderecoNumeroTextController,
     TextEditingController enderecoCepTextController,
@@ -68,18 +41,18 @@ abstract class _DadosCartaoControllerBase with Store {
     var endereco = Helpers.montaEndereco(address);
 
     enderecoTextController.text = endereco;
-    enderecoNumeroTextController.text = address.subThoroughfare ?? null;
-    enderecoCepTextController.text = address.postalCode ?? null;
+    enderecoNumeroTextController.text = address ?? null;
+    enderecoCepTextController.text = address ?? null;
 
-    pagamento.cepFaturamento = address.postalCode;
-    pagamento.logradouroFaturamento = address.thoroughfare;
-    pagamento.numeroFaturamento = address.subThoroughfare;
+    pagamento.cepFaturamento = address;
+    pagamento.logradouroFaturamento = address;
+    pagamento.numeroFaturamento = address;
     if (Platform.isAndroid) {
-      pagamento.cidadeFaturamento = address.subAdminArea;
-      pagamento.estadoFaturamento = Helpers.pegarSiglaEstado(address.adminArea);
+      pagamento.cidadeFaturamento = address;
+      pagamento.estadoFaturamento = Helpers.pegarSiglaEstado(address);
     } else {
-      pagamento.cidadeFaturamento = address.locality;
-      pagamento.estadoFaturamento = address.adminArea;
+      pagamento.cidadeFaturamento = address;
+      pagamento.estadoFaturamento = address;
     }
   }
 

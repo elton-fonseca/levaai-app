@@ -36,44 +36,7 @@ class Endereco {
                 top: displayHeight(context) * 0.01),
             child: Column(
               children: <Widget>[
-                SizedBox(
-                  width: displayWidth(context) * 0.85,
-                  height: displayHeight(context) * 0.085,
-                  child: TextFormField(
-                    controller: origemTextController,
-                    onChanged: (valor) => Modular.get<EnderecoController>()
-                        .defineEnderecoOrigem(valor),
-                    onTap: () {
-                      Modular.get<EnderecoController>().mostraMapa(
-                          context: context,
-                          textController: origemTextController,
-                          numeroTextController: origemNumeroTextController,
-                          nome: 'endereco_origem');
-                    },
-                    readOnly: true,
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      color: Colors.grey[600],
-                      fontSize: displayWidth(context) * 0.032,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      labelStyle: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: displayWidth(context) * 0.035,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      labelText: 'Rua de Origem',
-                      hintText: 'Endereço de Origem',
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.cancel),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                ),
-                //campo complemento
+                //campos cep e rua
                 Row(
                   children: [
                     Column(
@@ -84,6 +47,79 @@ class Endereco {
                           ),
                           child: SizedBox(
                             width: displayWidth(context) * 0.28,
+                            height: displayHeight(context) * 0.07,
+                            child: TextFormField(
+                              controller: origemNumeroTextController,
+                              onChanged: (value) {
+                                Modular.get<ComplementoEnderecoController>()
+                                    .defineNumeroEnderecoOrigem(value);
+                              },
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                color: Colors.grey[600],
+                                fontSize: displayWidth(context) * 0.032,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                labelStyle: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  fontSize: displayWidth(context) * 0.035,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                labelText: 'CEP Origem',
+                                hintText: 'Digite o CEP',
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          width: displayWidth(context) * 0.5,
+                          height: displayHeight(context) * 0.07,
+                          child: TextFormField(
+                            controller: origemComplementoTextController,
+                            onChanged: (value) {
+                              Modular.get<ComplementoEnderecoController>()
+                                  .defineComplementoEnderecoOrigem(value);
+                            },
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              color: Colors.grey[600],
+                              fontSize: displayWidth(context) * 0.032,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              labelStyle: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: displayWidth(context) * 0.035,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              labelText: 'Rua origem',
+                              hintText: 'Digite a rua',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                //campos numero e complemento
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                            right: displayWidth(context) * 0.05   
+                            ,
+                          ),
+                          child: SizedBox(
+                            width: displayWidth(context) * 0.31,
                             height: displayHeight(context) * 0.1,
                             child: TextFormField(
                               controller: origemNumeroTextController,
@@ -105,7 +141,7 @@ class Endereco {
                                   fontWeight: FontWeight.bold,
                                 ),
                                 labelText: 'Número',
-                                hintText: 'Digite o numero',
+                                hintText: 'Núm e complemento',
                               ),
                             ),
                           ),
@@ -115,7 +151,7 @@ class Endereco {
                     Column(
                       children: [
                         SizedBox(
-                          width: displayWidth(context) * 0.5,
+                          width: displayWidth(context) * 0.49,
                           height: displayHeight(context) * 0.1,
                           child: TextFormField(
                             controller: origemComplementoTextController,
@@ -136,8 +172,57 @@ class Endereco {
                                 fontSize: displayWidth(context) * 0.035,
                                 fontWeight: FontWeight.bold,
                               ),
-                              labelText: 'Complemento ou referência',
-                              hintText: 'Digite o complemento',
+                              labelText: 'Bairro',
+                              hintText: 'Digite o Bairro',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                            right: displayWidth(context) * 0.06,
+                          ),
+                          child: SizedBox(
+                            width: displayWidth(context) * 0.4,
+                            height: displayHeight(context) * 0.1,
+                            child: Text("aaa"),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          width: displayWidth(context) * 0.4,
+                          height: displayHeight(context) * 0.1,
+                          child: TextFormField(
+                            controller: origemComplementoTextController,
+                            onChanged: (value) {
+                              Modular.get<ComplementoEnderecoController>()
+                                  .defineComplementoEnderecoOrigem(value);
+                            },
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              color: Colors.grey[600],
+                              fontSize: displayWidth(context) * 0.032,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              labelStyle: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: displayWidth(context) * 0.035,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              labelText: 'Bairro',
+                              hintText: 'Digite o Bairro',
                             ),
                           ),
                         ),
@@ -152,13 +237,7 @@ class Endereco {
                     controller: destinoTextController,
                     onChanged: (valor) => Modular.get<EnderecoController>()
                         .defineEnderecoDestino(valor),
-                    onTap: () {
-                      Modular.get<EnderecoController>().mostraMapa(
-                          context: context,
-                          textController: destinoTextController,
-                          numeroTextController: destinoNumeroTextController,
-                          nome: 'endereco_destino');
-                    },
+                    onTap: () {},
                     readOnly: true,
                     style: TextStyle(
                       fontFamily: 'Roboto',
