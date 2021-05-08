@@ -20,15 +20,31 @@ class FormularioRepository implements IFormularioRepository {
   }
 
   Future obtemCidadesAtendidas() async {
-    final response = await client.get(
-      '/obter-cidades-atendidas'
-    );
+    final response = await client.get('/obter-cidades-atendidas');
 
     if (response.statusCode == 200) {
       return response.data;
     }
 
     throw ("Erro ao obter cidades");
+  }
+
+  Future enderecoCep(String cep, {bool verificaAtendimento = false}) async {
+    var dados = {
+      'cep': cep,
+      'verificar-atendimento': verificaAtendimento,
+    };
+
+    final response = await client.post(
+      '/obter-endereco-cep',
+      data: dados,
+    );
+
+    if (response.statusCode == 200) {
+      return response.data;
+    }
+
+    throw ("Erro ao obter endereço");
   }
 
   //dispose will be called automatically

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
@@ -14,6 +16,7 @@ class Endereco {
     @required TextEditingController numeroTextController,
     @required TextEditingController bairroTextController,
     @required Future<dynamic> cidadesAtendidas,
+    @required Function cepAcao,
   }) {
     return Padding(
       padding: EdgeInsets.only(left: displayWidth(context) * 0.04),
@@ -38,10 +41,12 @@ class Endereco {
                             width: displayWidth(context) * 0.28,
                             height: displayHeight(context) * 0.07,
                             child: TextFormField(
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(9),
+                              ],
                               controller: cepTextController,
                               onChanged: (value) {
-                                Modular.get<EnderecoController>()
-                                    .defineCep(value, tipo);
+                                cepAcao(value);
                               },
                               style: TextStyle(
                                 fontFamily: 'Roboto',
@@ -180,16 +185,21 @@ class Endereco {
                           child: SizedBox(
                             width: displayWidth(context) * 0.556,
                             height: displayHeight(context) * 0.1,
-                            child: FutureBuilder(
-                              future: cidadesAtendidas,
-                              builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  return DropdownCidade(snapshot.data, tipo);
-                                } else if (snapshot.hasError) {
-                                  return Text("erro ao obter cidades");
-                                }
-                                return CircularProgressIndicator(
-                                  backgroundColor: Colors.white,
+                            child: Observer(
+                              builder: (_) {
+                                return FutureBuilder(
+                                  future: cidadesAtendidas,
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return DropdownCidade(
+                                          snapshot.data, tipo);
+                                    } else if (snapshot.hasError) {
+                                      return Text("erro ao obter cidades");
+                                    }
+                                    return CircularProgressIndicator(
+                                      backgroundColor: Colors.white,
+                                    );
+                                  },
                                 );
                               },
                             ),

@@ -18,17 +18,21 @@ abstract class _PedidoBase with Store {
   String cepOrigem;
   String logradouroOrigem;
   String numeroOrigem;
-  String cidadeOrigem;
+  String cidadeOrigem = "aaaa";
   String bairroOrigem;
   String estadoOrigem = 'SP';
-  String ibgeOrigem;
 
+  @observable
+  int ibgeOrigem;
+  
   String cepDestino;
   String logradouroDestino;
   String numeroDestino;
-  String cidadeDestino;
+  String cidadeDestino = "bbbb";
   String bairroDestino;
   String estadoDestino = 'SP';
+
+  @observable
   String ibgeDestino;
 
   @observable
@@ -131,8 +135,8 @@ abstract class _PedidoBase with Store {
 
   Map<String, dynamic> cotacaoJson() {
     final data = <String, dynamic>{};
-    data['cep_origem'] = cepOrigem;
-    data['cep_destino'] = cepDestino;
+    data['ibge_origem'] = ibgeOrigem;
+    data['ibge_destino'] = ibgeDestino;
     data['valor_total'] = valorTotal;
     data['peso_total'] = double.parse(pesoTotal);
 

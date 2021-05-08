@@ -13,12 +13,12 @@ import 'widgets/popup/popup_controller.dart';
 import 'widgets/tipo_medida/tipo_medida_controller.dart';
 
 mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
-  final cepOrigemTextController = TextEditingController();
+  final cepOrigemTextController = MaskedTextController(mask: '00000-000');
   final logradouroOrigemTextController = TextEditingController();
   final numeroOrigemTextController = TextEditingController();
   final bairroOrigemComplementoTextController = TextEditingController();
 
-  final cepDestinoTextController = TextEditingController();
+  final cepDestinoTextController = MaskedTextController(mask: '00000-000');
   final logradouroDestinoTextController = TextEditingController();
   final numeroDestinoTextController = TextEditingController();
   final bairroDestinoComplementoTextController = TextEditingController();

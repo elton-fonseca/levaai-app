@@ -1,3 +1,4 @@
+import 'package:Levaai/app/modules/pedido/formulario/widgets/endereco/endereco_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -82,6 +83,15 @@ class _FormularioPageState
                     context: contextScaffold,
                     tipo: 'origem',
                     cepTextController: cepOrigemTextController,
+                    cepAcao: (cep) {
+                      Modular.get<EnderecoController>().autocompleteEndereco(
+                        cep: cep,
+                        logradouroTextController:
+                            logradouroOrigemTextController,
+                        bairroTextController:
+                            bairroOrigemComplementoTextController,
+                      );
+                    },
                     logradouroTextController: logradouroOrigemTextController,
                     numeroTextController: numeroOrigemTextController,
                     bairroTextController: bairroOrigemComplementoTextController,

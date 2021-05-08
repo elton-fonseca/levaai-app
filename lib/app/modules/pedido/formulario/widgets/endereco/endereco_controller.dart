@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 import 'package:mobx/mobx.dart';
 
 import '../../../../../core/stores/pedido_lista_store.dart';
+import '../../repositories/formulario_repository.dart';
 
 part 'endereco_controller.g.dart';
 
@@ -40,6 +40,23 @@ abstract class _EnderecoControllerBase with Store {
         pedidoLista.pedidos[indice].numeroDestino;
     bairroDestinoTextController.value =
         pedidoLista.pedidos[indice].bairroDestino;
+  }
+
+  @action
+  void autocompleteEndereco({
+    String cep,
+    @required TextEditingController logradouroTextController,
+    @required TextEditingController bairroTextController,
+  }) {
+    if (cep.length == 9) {
+      Modular.get<FormularioRepository>()
+          .enderecoCep(cep, verificaAtendimento: true)
+          .then((endereco) {
+        logradouroTextController.text = endereco['endereco'];
+        bairroTextController.text = endereco['bairro'];
+        pedidoLista.pedidos[indice].ibgeOrigem = endereco['ibge'];
+      });
+    }
   }
 
   void defineCep(String cep, String tipo) {
