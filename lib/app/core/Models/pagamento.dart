@@ -23,6 +23,7 @@ abstract class _PagamentoBase with Store {
   String cepFaturamento;
   String logradouroFaturamento;
   String numeroFaturamento;
+  String bairroFaturamento;
   String cidadeFaturamento;
   String estadoFaturamento;
 

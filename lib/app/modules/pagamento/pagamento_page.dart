@@ -34,10 +34,14 @@ class _PagamentoPageState
       MaskedTextController(mask: '0000 0000 0000 0000');
   final validadeTextController = MaskedTextController(mask: '00/00');
   final codigoSegurancaTextController = MaskedTextController(mask: '0000');
-  final enrederecoFaturamentoTextController = TextEditingController();
-  final enrederecoFaturamentoNumeroTextController = TextEditingController();
   final enrederecoFaturamentoCepTextController =
       MaskedTextController(mask: '00000-000');
+  final enrederecoFaturamentoLogradouroTextController = TextEditingController();
+  final enrederecoFaturamentoNumeroTextController = TextEditingController();
+  final enrederecoFaturamentoBairroTextController = TextEditingController();
+  final enrederecoFaturamentoCidadeTextController = TextEditingController();
+  final enrederecoFaturamentoEstadoTextController =
+      MaskedTextController(mask: 'AA');
 
   Future desconto;
 
@@ -206,14 +210,25 @@ class _PagamentoPageState
                                           validadeTextController,
                                       codigoSegurancaTextController:
                                           codigoSegurancaTextController,
-                                      enderecoFaturamentoTextController:
-                                          enrederecoFaturamentoTextController,
-                                      enderecoFaturamentoNumeroTextController:
-                                          // ignore: lines_longer_than_80_chars
-                                          enrederecoFaturamentoNumeroTextController,
                                       enderecoFaturamentoCepTextController:
                                           // ignore: lines_longer_than_80_chars
                                           enrederecoFaturamentoCepTextController,
+                                      // ignore: lines_longer_than_80_chars
+                                      enderecoFaturamentoLogradouroTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoLogradouroTextController,
+                                      enderecoFaturamentoNumeroTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoNumeroTextController,
+                                      enderecoFaturamentoBairroTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoBairroTextController,
+                                      enderecoFaturamentoCidadeTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoCidadeTextController,
+                                      enderecoFaturamentoEstadoTextController:
+                                          // ignore: lines_longer_than_80_chars
+                                          enrederecoFaturamentoEstadoTextController,
                                     )
                                   : Container();
                             },

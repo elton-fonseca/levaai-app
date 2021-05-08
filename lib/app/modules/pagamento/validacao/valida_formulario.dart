@@ -77,9 +77,7 @@ class ValidaFormulario {
     if (pagamento.logradouroFaturamento == null ||
         pagamento.logradouroFaturamento.isEmpty ||
         pagamento.cidadeFaturamento == null ||
-        pagamento.cidadeFaturamento.isEmpty ||
-        pagamento.estadoFaturamento == null ||
-        pagamento.estadoFaturamento.isEmpty) {
+        pagamento.cidadeFaturamento.isEmpty) {
       return 'Informe o endereço corretamente\n';
     }
 

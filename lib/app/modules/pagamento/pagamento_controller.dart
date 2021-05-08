@@ -10,6 +10,7 @@ import '../../core/models/pagamento.dart';
 import '../../core/stores/pedido_lista_store.dart';
 import '../../core/view/botao_branco.dart';
 import '../../core/view/helpers.dart';
+import '../pedido/formulario/repositories/formulario_repository.dart';
 import '../pedido/repositories/pedido_repository.dart';
 import 'repositories/pagamento_repository.dart';
 import 'validacao/valida_formulario.dart';
@@ -158,6 +159,37 @@ Código Barras boleto: ${pagamentoApiResponse['boleto_codigo_juno']}""";
         }
       },
     );
+  }
+
+  @action
+  void autocompleteEndereco({
+    BuildContext context,
+    String cep,
+    @required TextEditingController logradouroTextController,
+    @required TextEditingController bairroTextController,
+    @required TextEditingController cidadeTextController,
+    @required TextEditingController estadoTextController,
+  }) {
+    if (cep.length == 9) {
+      Modular.get<FormularioRepository>()
+          .enderecoCep(cep, verificaAtendimento: false)
+          .then((endereco) {
+        logradouroTextController.text = endereco['endereco'];
+        bairroTextController.text = endereco['bairro'];
+        cidadeTextController.text = endereco['cidade'];
+        estadoTextController.text = endereco['uf'];
+        pagamento.logradouroFaturamento = endereco['endereco'];
+        pagamento.bairroFaturamento = endereco['bairro'];
+        pagamento.cidadeFaturamento = endereco['cidade'];
+        pagamento.estadoFaturamento = endereco['uf'];
+      }).catchError((erro) {
+        Helpers.alerta(
+          titulo: "Atenção",
+          descricao: "${erro.response.data['cep']}",
+          context: context,
+        );
+      });
+    }
   }
 
   // ignore: use_setters_to_change_properties

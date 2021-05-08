@@ -65,6 +65,29 @@ mixin _$PagamentoController on _PagamentoControllerBase, Store {
   }
 
   @override
+  void autocompleteEndereco(
+      {BuildContext context,
+      String cep,
+      @required TextEditingController logradouroTextController,
+      @required TextEditingController bairroTextController,
+      @required TextEditingController cidadeTextController,
+      @required TextEditingController estadoTextController}) {
+    final _$actionInfo = _$_PagamentoControllerBaseActionController.startAction(
+        name: '_PagamentoControllerBase.autocompleteEndereco');
+    try {
+      return super.autocompleteEndereco(
+          context: context,
+          cep: cep,
+          logradouroTextController: logradouroTextController,
+          bairroTextController: bairroTextController,
+          cidadeTextController: cidadeTextController,
+          estadoTextController: estadoTextController);
+    } finally {
+      _$_PagamentoControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void defineStatusBotaoPagar({bool status}) {
     final _$actionInfo = _$_PagamentoControllerBaseActionController.startAction(
         name: '_PagamentoControllerBase.defineStatusBotaoPagar');
