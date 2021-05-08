@@ -17,9 +17,12 @@ class DropdownCidade extends StatefulWidget {
 }
 
 class _DropdownCidadeState extends State<DropdownCidade> {
+  String selected;
 
   @override
   Widget build(BuildContext context) {
+    //selected = Modular.get<EnderecoController>().pegaCidade(widget.tipo);
+
     return Container(
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(

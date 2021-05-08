@@ -85,11 +85,13 @@ class _FormularioPageState
                     cepTextController: cepOrigemTextController,
                     cepAcao: (cep) {
                       Modular.get<EnderecoController>().autocompleteEndereco(
+                        context: contextScaffold,
                         cep: cep,
                         logradouroTextController:
                             logradouroOrigemTextController,
                         bairroTextController:
                             bairroOrigemComplementoTextController,
+                        tipo: 'origem',
                       );
                     },
                     logradouroTextController: logradouroOrigemTextController,
@@ -121,6 +123,17 @@ class _FormularioPageState
                     context: contextScaffold,
                     tipo: 'destino',
                     cepTextController: cepDestinoTextController,
+                    cepAcao: (cep) {
+                      Modular.get<EnderecoController>().autocompleteEndereco(
+                        context: contextScaffold,
+                        cep: cep,
+                        logradouroTextController:
+                            logradouroDestinoTextController,
+                        bairroTextController:
+                            bairroDestinoComplementoTextController,
+                        tipo: 'destino',
+                      );
+                    },
                     logradouroTextController: logradouroDestinoTextController,
                     numeroTextController: numeroDestinoTextController,
                     bairroTextController:

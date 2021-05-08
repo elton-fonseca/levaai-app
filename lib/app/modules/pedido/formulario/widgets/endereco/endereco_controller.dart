@@ -1,3 +1,4 @@
+import 'package:Levaai/app/core/view/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -16,6 +17,14 @@ abstract class _EnderecoControllerBase with Store {
   PedidoListaStore pedidoLista;
 
   int indice = 0;
+
+  @observable
+  bool readOnly = true;
+
+  @action
+  void liberaReadOnly() {
+    readOnly = false;
+  }
 
   void preencheCamposEndereco({
     @required TextEditingController cepOrigemTextController,
@@ -44,9 +53,11 @@ abstract class _EnderecoControllerBase with Store {
 
   @action
   void autocompleteEndereco({
+    BuildContext context,
     String cep,
     @required TextEditingController logradouroTextController,
     @required TextEditingController bairroTextController,
+    @required String tipo,
   }) {
     if (cep.length == 9) {
       Modular.get<FormularioRepository>()
@@ -54,7 +65,16 @@ abstract class _EnderecoControllerBase with Store {
           .then((endereco) {
         logradouroTextController.text = endereco['endereco'];
         bairroTextController.text = endereco['bairro'];
-        pedidoLista.pedidos[indice].ibgeOrigem = endereco['ibge'];
+        defineLogradouro(endereco['endereco'], tipo);
+        defineBairro(endereco['bairro'], tipo);
+        defineCep(cep, tipo);
+        defineCidade(endereco['ibge'], tipo);
+      }).catchError((erro) {
+        Helpers.alerta(
+          titulo: "Atenção",
+          descricao: "${erro.response.data['cep']}",
+          context: context,
+        );
       });
     }
   }
@@ -99,6 +119,7 @@ abstract class _EnderecoControllerBase with Store {
     }
   }
 
+  @action
   void defineCidade(String cidade, String tipo) {
     if (tipo == 'origem') {
       pedidoLista.pedidos[indice].ibgeOrigem = cidade;

@@ -23,8 +23,8 @@ abstract class _PedidoBase with Store {
   String estadoOrigem = 'SP';
 
   @observable
-  int ibgeOrigem;
-  
+  String ibgeOrigem = 'selecione';
+
   String cepDestino;
   String logradouroDestino;
   String numeroDestino;
@@ -33,7 +33,7 @@ abstract class _PedidoBase with Store {
   String estadoDestino = 'SP';
 
   @observable
-  String ibgeDestino;
+  String ibgeDestino = 'selecione';
 
   @observable
   double valorTotal;

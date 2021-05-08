@@ -20,174 +20,202 @@ class Endereco {
   }) {
     return Padding(
       padding: EdgeInsets.only(left: displayWidth(context) * 0.04),
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(
-                left: displayWidth(context) * 0.02,
-                top: displayHeight(context) * 0.0),
-            child: Column(
-              children: <Widget>[
-                //campos cep e rua
-                Row(
-                  children: [
-                    Column(
+      child: Observer(
+        builder: (_) {
+          return Row(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(
+                    left: displayWidth(context) * 0.02,
+                    top: displayHeight(context) * 0.0),
+                child: Column(
+                  children: <Widget>[
+                    //campos cep e rua
+                    Row(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.06,
-                          ),
-                          child: SizedBox(
-                            width: displayWidth(context) * 0.28,
-                            height: displayHeight(context) * 0.07,
-                            child: TextFormField(
-                              inputFormatters: [
-                                LengthLimitingTextInputFormatter(9),
-                              ],
-                              controller: cepTextController,
-                              onChanged: (value) {
-                                cepAcao(value);
-                              },
-                              style: TextStyle(
-                                fontFamily: 'Roboto',
-                                color: Colors.grey[600],
-                                fontSize: displayWidth(context) * 0.032,
-                                fontWeight: FontWeight.bold,
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.06,
                               ),
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                labelStyle: TextStyle(
+                              child: SizedBox(
+                                width: displayWidth(context) * 0.28,
+                                height: displayHeight(context) * 0.07,
+                                child: TextFormField(
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(9),
+                                  ],
+                                  controller: cepTextController,
+                                  onChanged: (value) {
+                                    cepAcao(value);
+                                    if (value.length == 9) {
+                                      numeroTextController.text = '';
+                                    }
+                                  },
+                                  onTap: () {
+                                    Modular.get<EnderecoController>()
+                                        .liberaReadOnly();
+                                  },
+                                  readOnly: Modular.get<EnderecoController>()
+                                      .readOnly,
+                                  autofocus: true,
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    labelStyle: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontSize: displayWidth(context) * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    labelText: 'CEP',
+                                    hintText: 'Digite o CEP',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              width: displayWidth(context) * 0.5,
+                              height: displayHeight(context) * 0.07,
+                              child: TextFormField(
+                                controller: logradouroTextController,
+                                onChanged: (value) {
+                                  Modular.get<EnderecoController>()
+                                      .defineLogradouro(value, tipo);
+                                },
+                                onTap: () {
+                                  Modular.get<EnderecoController>()
+                                      .liberaReadOnly();
+                                },
+                                readOnly:
+                                    Modular.get<EnderecoController>().readOnly,
+                                style: TextStyle(
                                   fontFamily: 'Roboto',
-                                  fontSize: displayWidth(context) * 0.035,
+                                  color: Colors.grey[600],
+                                  fontSize: displayWidth(context) * 0.032,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                labelText: 'CEP',
-                                hintText: 'Digite o CEP',
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  labelStyle: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: displayWidth(context) * 0.035,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  labelText: 'Logradouro',
+                                  hintText: 'Digite o Logradouro',
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
-                    Column(
+                    //campos numero e complemento
+                    Row(
                       children: [
-                        SizedBox(
-                          width: displayWidth(context) * 0.5,
-                          height: displayHeight(context) * 0.07,
-                          child: TextFormField(
-                            controller: logradouroTextController,
-                            onChanged: (value) {
-                              Modular.get<EnderecoController>()
-                                  .defineLogradouro(value, tipo);
-                            },
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[600],
-                              fontSize: displayWidth(context) * 0.032,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              labelStyle: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontSize: displayWidth(context) * 0.035,
-                                fontWeight: FontWeight.bold,
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.05,
                               ),
-                              labelText: 'Logradouro',
-                              hintText: 'Digite o Logradouro',
+                              child: SizedBox(
+                                width: displayWidth(context) * 0.31,
+                                height: displayHeight(context) * 0.07,
+                                child: TextFormField(
+                                  controller: numeroTextController,
+                                  onChanged: (value) {
+                                    Modular.get<EnderecoController>()
+                                        .defineNumero(value, tipo);
+                                  },
+                                  onTap: () {
+                                    Modular.get<EnderecoController>()
+                                        .liberaReadOnly();
+                                  },
+                                  readOnly: Modular.get<EnderecoController>()
+                                      .readOnly,
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    labelStyle: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontSize: displayWidth(context) * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    labelText: 'Número',
+                                    hintText: 'Núm e complemento',
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-                //campos numero e complemento
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                          ),
-                          child: SizedBox(
-                            width: displayWidth(context) * 0.31,
-                            height: displayHeight(context) * 0.07,
-                            child: TextFormField(
-                              controller: numeroTextController,
-                              onChanged: (value) {
-                                Modular.get<EnderecoController>()
-                                    .defineNumero(value, tipo);
-                              },
-                              style: TextStyle(
-                                fontFamily: 'Roboto',
-                                color: Colors.grey[600],
-                                fontSize: displayWidth(context) * 0.032,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                labelStyle: TextStyle(
+                        Column(
+                          children: [
+                            SizedBox(
+                              width: displayWidth(context) * 0.49,
+                              height: displayHeight(context) * 0.07,
+                              child: TextFormField(
+                                controller: bairroTextController,
+                                onChanged: (value) {
+                                  Modular.get<EnderecoController>()
+                                      .defineBairro(value, tipo);
+                                },
+                                onTap: () {
+                                  Modular.get<EnderecoController>()
+                                      .liberaReadOnly();
+                                },
+                                readOnly:
+                                    Modular.get<EnderecoController>().readOnly,
+                                style: TextStyle(
                                   fontFamily: 'Roboto',
-                                  fontSize: displayWidth(context) * 0.035,
+                                  color: Colors.grey[600],
+                                  fontSize: displayWidth(context) * 0.032,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                labelText: 'Número',
-                                hintText: 'Núm e complemento',
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  labelStyle: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: displayWidth(context) * 0.035,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  labelText: 'Bairro',
+                                  hintText: 'Digite o Bairro',
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
-                    Column(
+                    Row(
                       children: [
-                        SizedBox(
-                          width: displayWidth(context) * 0.49,
-                          height: displayHeight(context) * 0.07,
-                          child: TextFormField(
-                            controller: bairroTextController,
-                            onChanged: (value) {
-                              Modular.get<EnderecoController>()
-                                  .defineBairro(value, tipo);
-                            },
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[600],
-                              fontSize: displayWidth(context) * 0.032,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              labelStyle: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontSize: displayWidth(context) * 0.035,
-                                fontWeight: FontWeight.bold,
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.05,
                               ),
-                              labelText: 'Bairro',
-                              hintText: 'Digite o Bairro',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            right: displayWidth(context) * 0.05,
-                          ),
-                          child: SizedBox(
-                            width: displayWidth(context) * 0.556,
-                            height: displayHeight(context) * 0.1,
-                            child: Observer(
-                              builder: (_) {
-                                return FutureBuilder(
+                              child: SizedBox(
+                                width: displayWidth(context) * 0.556,
+                                height: displayHeight(context) * 0.1,
+                                child: FutureBuilder(
                                   future: cidadesAtendidas,
                                   builder: (context, snapshot) {
                                     if (snapshot.hasData) {
@@ -200,47 +228,47 @@ class Endereco {
                                       backgroundColor: Colors.white,
                                     );
                                   },
-                                );
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: displayWidth(context) * 0.25,
-                          height: displayHeight(context) * 0.1,
-                          child: TextFormField(
-                            initialValue: 'São Paulo',
-                            readOnly: true,
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              color: Colors.grey[600],
-                              fontSize: displayWidth(context) * 0.032,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              labelStyle: TextStyle(
-                                fontFamily: 'Roboto',
-                                fontSize: displayWidth(context) * 0.035,
-                                fontWeight: FontWeight.bold,
+                                ),
                               ),
-                              labelText: 'Estado',
-                              hintText: 'Digite o estado',
                             ),
-                          ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              width: displayWidth(context) * 0.25,
+                              height: displayHeight(context) * 0.1,
+                              child: TextFormField(
+                                initialValue: 'São Paulo',
+                                readOnly: true,
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.grey[600],
+                                  fontSize: displayWidth(context) * 0.032,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  labelStyle: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: displayWidth(context) * 0.035,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  labelText: 'Estado',
+                                  hintText: 'Digite o estado',
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }

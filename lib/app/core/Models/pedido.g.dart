@@ -12,13 +12,13 @@ mixin _$Pedido on _PedidoBase, Store {
   final _$ibgeOrigemAtom = Atom(name: '_PedidoBase.ibgeOrigem');
 
   @override
-  int get ibgeOrigem {
+  String get ibgeOrigem {
     _$ibgeOrigemAtom.reportRead();
     return super.ibgeOrigem;
   }
 
   @override
-  set ibgeOrigem(int value) {
+  set ibgeOrigem(String value) {
     _$ibgeOrigemAtom.reportWrite(value, super.ibgeOrigem, () {
       super.ibgeOrigem = value;
     });
