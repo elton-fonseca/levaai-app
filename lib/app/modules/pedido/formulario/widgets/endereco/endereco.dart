@@ -50,9 +50,6 @@ class Endereco {
                                   controller: cepTextController,
                                   onChanged: (value) {
                                     cepAcao(value);
-                                    if (value.length == 9) {
-                                      numeroTextController.text = '';
-                                    }
                                   },
                                   style: TextStyle(
                                     fontFamily: 'Roboto',

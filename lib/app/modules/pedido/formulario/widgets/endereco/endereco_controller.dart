@@ -66,6 +66,7 @@ abstract class _EnderecoControllerBase with Store {
       @required TextEditingController bairroTextController,
       @required String tipo,
       @required Function atualizaCidadeDropdown}) {
+    defineCep(cep, tipo);
     if (cep.length == 9) {
       numeroTextController.text = '';
       Modular.get<FormularioRepository>()
@@ -75,7 +76,6 @@ abstract class _EnderecoControllerBase with Store {
         bairroTextController.text = endereco['bairro'];
         defineLogradouro(endereco['endereco'], tipo);
         defineBairro(endereco['bairro'], tipo);
-        defineCep(cep, tipo);
 
         defineCidadeIbge(endereco['ibge'], tipo);
         defineCidadeNome(endereco['cidade'], tipo);
