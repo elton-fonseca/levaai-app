@@ -30,24 +30,30 @@ abstract class _EnderecoControllerBase with Store {
     @required TextEditingController cepOrigemTextController,
     @required TextEditingController logradouroOrigemTextController,
     @required TextEditingController numeroOrigemTextController,
+    @required TextEditingController complementoOrigemTextController,
     @required TextEditingController bairroOrigemTextController,
     @required TextEditingController cepDestinoTextController,
     @required TextEditingController logradouroDestinoTextController,
     @required TextEditingController numeroDestinoTextController,
+    @required TextEditingController complementoDestinoTextController,
     @required TextEditingController bairroDestinoTextController,
   }) {
-    cepOrigemTextController.value = pedidoLista.pedidos[indice].cepOrigem;
-    logradouroOrigemTextController.value =
+    cepOrigemTextController.text = pedidoLista.pedidos[indice].cepOrigem;
+    logradouroOrigemTextController.text =
         pedidoLista.pedidos[indice].logradouroOrigem;
-    numeroOrigemTextController.value = pedidoLista.pedidos[indice].numeroOrigem;
-    bairroOrigemTextController.value = pedidoLista.pedidos[indice].bairroOrigem;
+    numeroOrigemTextController.text = pedidoLista.pedidos[indice].numeroOrigem;
+    complementoOrigemTextController.text =
+        pedidoLista.pedidos[indice].complementoOrigem;
+    bairroOrigemTextController.text = pedidoLista.pedidos[indice].bairroOrigem;
 
-    cepDestinoTextController.value = pedidoLista.pedidos[indice].cepDestino;
-    logradouroDestinoTextController.value =
+    cepDestinoTextController.text = pedidoLista.pedidos[indice].cepDestino;
+    logradouroDestinoTextController.text =
         pedidoLista.pedidos[indice].logradouroDestino;
-    numeroDestinoTextController.value =
+    numeroDestinoTextController.text =
         pedidoLista.pedidos[indice].numeroDestino;
-    bairroDestinoTextController.value =
+    complementoDestinoTextController.text =
+        pedidoLista.pedidos[indice].complementoDestino;
+    bairroDestinoTextController.text =
         pedidoLista.pedidos[indice].bairroDestino;
   }
 
@@ -127,10 +133,16 @@ abstract class _EnderecoControllerBase with Store {
   void defineCidadeIbge(String ibge, String tipo) {
     if (tipo == 'origem') {
       pedidoLista.pedidos[indice].ibgeOrigem = ibge;
-      pedidoLista.pedidos[indice].ibgeOrigem = ibge;
     } else {
       pedidoLista.pedidos[indice].ibgeDestino = ibge;
-      pedidoLista.pedidos[indice].ibgeDestino = ibge;
+    }
+  }
+
+  String obtemCidadeIbge(String tipo) {
+    if (tipo == 'origem') {
+      return pedidoLista.pedidos[indice].ibgeOrigem;
+    } else {
+      return pedidoLista.pedidos[indice].ibgeDestino;
     }
   }
 

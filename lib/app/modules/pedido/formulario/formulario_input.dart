@@ -62,12 +62,18 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
         cepOrigemTextController: cepOrigemTextController,
         logradouroOrigemTextController: logradouroOrigemTextController,
         numeroOrigemTextController: numeroOrigemTextController,
+        complementoOrigemTextController: complementoOrigemTextController,
         bairroOrigemTextController: bairroOrigemTextController,
         cepDestinoTextController: cepDestinoTextController,
         logradouroDestinoTextController: logradouroDestinoTextController,
         numeroDestinoTextController: numeroDestinoTextController,
+        complementoDestinoTextController: complementoDestinoTextController,
         bairroDestinoTextController: bairroDestinoTextController,
       );
+
+      ibgeOrigem = Modular.get<EnderecoController>().obtemCidadeIbge('origem');
+      ibgeDestino =
+          Modular.get<EnderecoController>().obtemCidadeIbge('destino');
 
       valorTotalTextController
           .updateValue(Modular.get<DetalhesController>().pegaValorTotal());
