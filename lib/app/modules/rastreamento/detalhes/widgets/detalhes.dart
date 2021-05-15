@@ -62,7 +62,7 @@ class Detalhes extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            pedido['logradouro_origem'],
+                            pedido['endereco_origem'],
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               color: Colors.grey[500],
@@ -80,7 +80,7 @@ class Detalhes extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            pedido['logradouro_destino'],
+                            pedido['endereco_destino'],
                             style: TextStyle(
                               fontFamily: 'Roboto',
                               color: Colors.grey[500],

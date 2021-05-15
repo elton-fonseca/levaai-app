@@ -54,7 +54,6 @@ class Endereco {
                                       numeroTextController.text = '';
                                     }
                                   },
-                                  autofocus: true,
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
                                     color: Colors.grey[600],
