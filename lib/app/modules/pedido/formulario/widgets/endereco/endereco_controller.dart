@@ -1,9 +1,9 @@
-import 'package:Levaai/app/core/view/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../../core/stores/pedido_lista_store.dart';
+import '../../../../../core/view/helpers.dart';
 import '../../repositories/formulario_repository.dart';
 
 part 'endereco_controller.g.dart';
@@ -52,14 +52,16 @@ abstract class _EnderecoControllerBase with Store {
   }
 
   @action
-  void autocompleteEndereco({
-    BuildContext context,
-    String cep,
-    @required TextEditingController logradouroTextController,
-    @required TextEditingController bairroTextController,
-    @required String tipo,
-  }) {
+  void autocompleteEndereco(
+      {BuildContext context,
+      String cep,
+      @required TextEditingController logradouroTextController,
+      @required TextEditingController numeroTextController,
+      @required TextEditingController bairroTextController,
+      @required String tipo,
+      @required Function atualizaCidadeDropdown}) {
     if (cep.length == 9) {
+      numeroTextController.text = '';
       Modular.get<FormularioRepository>()
           .enderecoCep(cep, verificaAtendimento: true)
           .then((endereco) {
@@ -68,7 +70,10 @@ abstract class _EnderecoControllerBase with Store {
         defineLogradouro(endereco['endereco'], tipo);
         defineBairro(endereco['bairro'], tipo);
         defineCep(cep, tipo);
-        defineCidade(endereco['ibge'], tipo);
+
+        defineCidadeIbge(endereco['ibge'], tipo);
+        defineCidadeNome(endereco['cidade'], tipo);
+        atualizaCidadeDropdown(endereco['ibge']);
       }).catchError((erro) {
         Helpers.alerta(
           titulo: "Atenção",
@@ -103,6 +108,14 @@ abstract class _EnderecoControllerBase with Store {
     }
   }
 
+  void defineComplemento(String complemento, String tipo) {
+    if (tipo == 'origem') {
+      pedidoLista.pedidos[indice].complementoOrigem = complemento;
+    } else {
+      pedidoLista.pedidos[indice].complementoDestino = complemento;
+    }
+  }
+
   void defineBairro(String bairro, String tipo) {
     if (tipo == 'origem') {
       pedidoLista.pedidos[indice].bairroOrigem = bairro;
@@ -111,20 +124,21 @@ abstract class _EnderecoControllerBase with Store {
     }
   }
 
-  String pegaCidade(String tipo) {
+  void defineCidadeIbge(String ibge, String tipo) {
     if (tipo == 'origem') {
-      return pedidoLista.pedidos[indice].ibgeOrigem;
+      pedidoLista.pedidos[indice].ibgeOrigem = ibge;
+      pedidoLista.pedidos[indice].ibgeOrigem = ibge;
     } else {
-      return pedidoLista.pedidos[indice].ibgeDestino;
+      pedidoLista.pedidos[indice].ibgeDestino = ibge;
+      pedidoLista.pedidos[indice].ibgeDestino = ibge;
     }
   }
 
-  @action
-  void defineCidade(String cidade, String tipo) {
+  void defineCidadeNome(String cidadeNome, String tipo) {
     if (tipo == 'origem') {
-      pedidoLista.pedidos[indice].ibgeOrigem = cidade;
+      pedidoLista.pedidos[indice].cidadeOrigem = cidadeNome;
     } else {
-      pedidoLista.pedidos[indice].ibgeDestino = cidade;
+      pedidoLista.pedidos[indice].cidadeDestino = cidadeNome;
     }
   }
 }

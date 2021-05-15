@@ -9,36 +9,6 @@ part of 'pedido.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$Pedido on _PedidoBase, Store {
-  final _$ibgeOrigemAtom = Atom(name: '_PedidoBase.ibgeOrigem');
-
-  @override
-  String get ibgeOrigem {
-    _$ibgeOrigemAtom.reportRead();
-    return super.ibgeOrigem;
-  }
-
-  @override
-  set ibgeOrigem(String value) {
-    _$ibgeOrigemAtom.reportWrite(value, super.ibgeOrigem, () {
-      super.ibgeOrigem = value;
-    });
-  }
-
-  final _$ibgeDestinoAtom = Atom(name: '_PedidoBase.ibgeDestino');
-
-  @override
-  String get ibgeDestino {
-    _$ibgeDestinoAtom.reportRead();
-    return super.ibgeDestino;
-  }
-
-  @override
-  set ibgeDestino(String value) {
-    _$ibgeDestinoAtom.reportWrite(value, super.ibgeDestino, () {
-      super.ibgeDestino = value;
-    });
-  }
-
   final _$valorTotalAtom = Atom(name: '_PedidoBase.valorTotal');
 
   @override
@@ -216,8 +186,6 @@ mixin _$Pedido on _PedidoBase, Store {
   @override
   String toString() {
     return '''
-ibgeOrigem: ${ibgeOrigem},
-ibgeDestino: ${ibgeDestino},
 valorTotal: ${valorTotal},
 pesoExato: ${pesoExato},
 pesoTotal: ${pesoTotal},

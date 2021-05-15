@@ -4,7 +4,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/view/tamanhos_relativos.dart';
-import 'dropbox/dropdown_cidade.dart';
 import 'endereco_controller.dart';
 
 class Endereco {
@@ -14,8 +13,9 @@ class Endereco {
     @required TextEditingController cepTextController,
     @required TextEditingController logradouroTextController,
     @required TextEditingController numeroTextController,
+    @required TextEditingController complementoTextController,
     @required TextEditingController bairroTextController,
-    @required Future<dynamic> cidadesAtendidas,
+    @required Widget dropdownCidade,
     @required Function cepAcao,
   }) {
     return Padding(
@@ -40,12 +40,13 @@ class Endereco {
                                 right: displayWidth(context) * 0.06,
                               ),
                               child: SizedBox(
-                                width: displayWidth(context) * 0.28,
+                                width: displayWidth(context) * 0.22,
                                 height: displayHeight(context) * 0.07,
                                 child: TextFormField(
                                   inputFormatters: [
                                     LengthLimitingTextInputFormatter(9),
                                   ],
+                                  keyboardType: TextInputType.number,
                                   controller: cepTextController,
                                   onChanged: (value) {
                                     cepAcao(value);
@@ -53,12 +54,6 @@ class Endereco {
                                       numeroTextController.text = '';
                                     }
                                   },
-                                  onTap: () {
-                                    Modular.get<EnderecoController>()
-                                        .liberaReadOnly();
-                                  },
-                                  readOnly: Modular.get<EnderecoController>()
-                                      .readOnly,
                                   autofocus: true,
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
@@ -66,7 +61,6 @@ class Endereco {
                                     fontSize: displayWidth(context) * 0.032,
                                     fontWeight: FontWeight.bold,
                                   ),
-                                  keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     labelStyle: TextStyle(
                                       fontFamily: 'Roboto',
@@ -84,7 +78,7 @@ class Endereco {
                         Column(
                           children: [
                             SizedBox(
-                              width: displayWidth(context) * 0.5,
+                              width: displayWidth(context) * 0.59,
                               height: displayHeight(context) * 0.07,
                               child: TextFormField(
                                 controller: logradouroTextController,
@@ -120,7 +114,6 @@ class Endereco {
                         ),
                       ],
                     ),
-                    //campos numero e complemento
                     Row(
                       children: [
                         Column(
@@ -130,7 +123,7 @@ class Endereco {
                                 right: displayWidth(context) * 0.05,
                               ),
                               child: SizedBox(
-                                width: displayWidth(context) * 0.31,
+                                width: displayWidth(context) * 0.15,
                                 height: displayHeight(context) * 0.07,
                                 child: TextFormField(
                                   controller: numeroTextController,
@@ -138,12 +131,42 @@ class Endereco {
                                     Modular.get<EnderecoController>()
                                         .defineNumero(value, tipo);
                                   },
-                                  onTap: () {
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.grey[600],
+                                    fontSize: displayWidth(context) * 0.032,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  keyboardType: TextInputType.number,
+                                  decoration: InputDecoration(
+                                    labelStyle: TextStyle(
+                                      fontFamily: 'Roboto',
+                                      fontSize: displayWidth(context) * 0.035,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    labelText: 'Número',
+                                    hintText: 'Número',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                right: displayWidth(context) * 0.05,
+                              ),
+                              child: SizedBox(
+                                width: displayWidth(context) * 0.23,
+                                height: displayHeight(context) * 0.07,
+                                child: TextFormField(
+                                  controller: complementoTextController,
+                                  onChanged: (value) {
                                     Modular.get<EnderecoController>()
-                                        .liberaReadOnly();
+                                        .defineComplemento(value, tipo);
                                   },
-                                  readOnly: Modular.get<EnderecoController>()
-                                      .readOnly,
                                   style: TextStyle(
                                     fontFamily: 'Roboto',
                                     color: Colors.grey[600],
@@ -157,8 +180,8 @@ class Endereco {
                                       fontSize: displayWidth(context) * 0.035,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    labelText: 'Número',
-                                    hintText: 'Núm e complemento',
+                                    labelText: 'Complemento',
+                                    hintText: 'ex: Casa 2',
                                   ),
                                 ),
                               ),
@@ -168,7 +191,7 @@ class Endereco {
                         Column(
                           children: [
                             SizedBox(
-                              width: displayWidth(context) * 0.49,
+                              width: displayWidth(context) * 0.4,
                               height: displayHeight(context) * 0.07,
                               child: TextFormField(
                                 controller: bairroTextController,
@@ -215,20 +238,7 @@ class Endereco {
                               child: SizedBox(
                                 width: displayWidth(context) * 0.556,
                                 height: displayHeight(context) * 0.1,
-                                child: FutureBuilder(
-                                  future: cidadesAtendidas,
-                                  builder: (context, snapshot) {
-                                    if (snapshot.hasData) {
-                                      return DropdownCidade(
-                                          snapshot.data, tipo);
-                                    } else if (snapshot.hasError) {
-                                      return Text("erro ao obter cidades");
-                                    }
-                                    return CircularProgressIndicator(
-                                      backgroundColor: Colors.white,
-                                    );
-                                  },
-                                ),
+                                child: dropdownCidade,
                               ),
                             ),
                           ],

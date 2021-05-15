@@ -43,8 +43,10 @@ mixin _$EnderecoController on _EnderecoControllerBase, Store {
       {BuildContext context,
       String cep,
       @required TextEditingController logradouroTextController,
+      @required TextEditingController numeroTextController,
       @required TextEditingController bairroTextController,
-      @required String tipo}) {
+      @required String tipo,
+      @required Function atualizaCidadeDropdown}) {
     final _$actionInfo = _$_EnderecoControllerBaseActionController.startAction(
         name: '_EnderecoControllerBase.autocompleteEndereco');
     try {
@@ -52,19 +54,10 @@ mixin _$EnderecoController on _EnderecoControllerBase, Store {
           context: context,
           cep: cep,
           logradouroTextController: logradouroTextController,
+          numeroTextController: numeroTextController,
           bairroTextController: bairroTextController,
-          tipo: tipo);
-    } finally {
-      _$_EnderecoControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void defineCidade(String cidade, String tipo) {
-    final _$actionInfo = _$_EnderecoControllerBaseActionController.startAction(
-        name: '_EnderecoControllerBase.defineCidade');
-    try {
-      return super.defineCidade(cidade, tipo);
+          tipo: tipo,
+          atualizaCidadeDropdown: atualizaCidadeDropdown);
     } finally {
       _$_EnderecoControllerBaseActionController.endAction(_$actionInfo);
     }

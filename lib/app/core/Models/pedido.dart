@@ -18,21 +18,19 @@ abstract class _PedidoBase with Store {
   String cepOrigem;
   String logradouroOrigem;
   String numeroOrigem;
-  String cidadeOrigem = "aaaa";
+  String complementoOrigem;
+  String cidadeOrigem;
   String bairroOrigem;
   String estadoOrigem = 'SP';
-
-  @observable
   String ibgeOrigem = 'selecione';
 
   String cepDestino;
   String logradouroDestino;
   String numeroDestino;
-  String cidadeDestino = "bbbb";
+  String complementoDestino;
+  String cidadeDestino;
   String bairroDestino;
   String estadoDestino = 'SP';
-
-  @observable
   String ibgeDestino = 'selecione';
 
   @observable
@@ -94,6 +92,7 @@ abstract class _PedidoBase with Store {
     data['cep_origem'] = cepOrigem;
     data['logradouro_origem'] = logradouroOrigem;
     data['numero_origem'] = numeroOrigem;
+    data['complemento_origem'] = complementoOrigem;
     data['bairro_origem'] = bairroOrigem;
     data['cidade_origem'] = cidadeOrigem;
     data['ibge_origem'] = ibgeOrigem;
@@ -101,6 +100,7 @@ abstract class _PedidoBase with Store {
     data['cep_destino'] = cepDestino;
     data['logradouro_destino'] = logradouroDestino;
     data['numero_destino'] = numeroDestino;
+    data['complemento_destino'] = complementoDestino;
     data['bairro_destino'] = bairroDestino;
     data['cidade_destino'] = cidadeDestino;
     data['ibge_destino'] = ibgeDestino;

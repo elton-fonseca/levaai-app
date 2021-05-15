@@ -16,12 +16,16 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
   final cepOrigemTextController = MaskedTextController(mask: '00000-000');
   final logradouroOrigemTextController = TextEditingController();
   final numeroOrigemTextController = TextEditingController();
-  final bairroOrigemComplementoTextController = TextEditingController();
+  final complementoOrigemTextController = TextEditingController();
+  final bairroOrigemTextController = TextEditingController();
+  String ibgeOrigem = 'selecione';
 
   final cepDestinoTextController = MaskedTextController(mask: '00000-000');
   final logradouroDestinoTextController = TextEditingController();
   final numeroDestinoTextController = TextEditingController();
-  final bairroDestinoComplementoTextController = TextEditingController();
+  final complementoDestinoTextController = TextEditingController();
+  final bairroDestinoTextController = TextEditingController();
+  String ibgeDestino = 'selecione';
 
   final valorTotalTextController =
       MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: '.');
@@ -58,11 +62,11 @@ mixin FormularioInputs on ModularState<FormularioPage, FormularioController> {
         cepOrigemTextController: cepOrigemTextController,
         logradouroOrigemTextController: logradouroOrigemTextController,
         numeroOrigemTextController: numeroOrigemTextController,
-        bairroOrigemTextController: bairroOrigemComplementoTextController,
+        bairroOrigemTextController: bairroOrigemTextController,
         cepDestinoTextController: cepDestinoTextController,
         logradouroDestinoTextController: logradouroDestinoTextController,
         numeroDestinoTextController: numeroDestinoTextController,
-        bairroDestinoTextController: bairroDestinoComplementoTextController,
+        bairroDestinoTextController: bairroDestinoTextController,
       );
 
       valorTotalTextController
