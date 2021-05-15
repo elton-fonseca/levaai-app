@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -174,20 +172,5 @@ class Helpers {
     }
 
     return "$prazo DIAS ÚTEIS APÓS A COLETA";
-  }
-
-  static String montaEndereco(String address) {
-    var cidade, estado;
-
-    if (Platform.isAndroid) {
-      cidade = address;
-      estado = Helpers.pegarSiglaEstado(address);
-    } else {
-      cidade = address;
-      estado = address;
-    }
-
-    return "${address}, ${address ?? ''}, $cidade - "
-        "$estado";
   }
 }
