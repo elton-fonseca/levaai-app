@@ -3,7 +3,7 @@ description: O LevaAi é o app que facilita a solicitação de envio de cargas f
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -15,14 +15,14 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 2.0.5+13
+version: 2.0.5+14
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   dio: ^3.0.9
-  shared_preferences: '>=0.5.8 <2.0.0'
+  shared_preferences: ">=0.5.8 <2.0.0"
   validators: ^2.0.0
   flutter_mobx: ^1.1.0+1
   mobx: ^1.2.1+1
@@ -35,7 +35,6 @@ dependencies:
   flutter_launcher_icons: "^0.8.0"
   flutter:
     sdk: flutter
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -58,7 +57,6 @@ flutter_icons:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -79,41 +77,38 @@ flutter:
         - asset: assets/fonts/Roboto-Regular.ttf
         - asset: assets/fonts/Roboto-Thin.ttf
         - asset: assets/fonts/Roboto-ThinItalic.ttf
-          
 
   assets:
-   - assets/imagens/logo-blue.png
-   - assets/imagens/logo-back-blue.png
-   - assets/imagens/img-requests.png
-   - assets/imagens/item-request.png
-   - assets/imagens/box-blue.png
-   - assets/imagens/box.png
-   - assets/imagens/logo.png
-   - assets/imagens/origem-destino.png
-   - assets/imagens/origem-destino-verde.png
-   - assets/imagens/caixa-sapato.png
-   - assets/imagens/microondas.png
-   - assets/imagens/fogao.png
-   - assets/imagens/geladeira.png      
-   - assets/imagens/creditcard.png
-   - assets/imagens/box-aberta.png
-   - assets/imagens/box-fechada.png
-   - assets/imagens/delete.png
-   - assets/imagens/pedido-ok.png
-   - assets/imagens/pedido-aguardando.png
-   - assets/imagens/pedido-atencao.png
-   - assets/imagens/item-mais.png
-   - assets/imagens/item-menos.png
+    - assets/imagens/logo-blue.png
+    - assets/imagens/logo-back-blue.png
+    - assets/imagens/img-requests.png
+    - assets/imagens/item-request.png
+    - assets/imagens/box-blue.png
+    - assets/imagens/box.png
+    - assets/imagens/logo.png
+    - assets/imagens/origem-destino.png
+    - assets/imagens/origem-destino-verde.png
+    - assets/imagens/caixa-sapato.png
+    - assets/imagens/microondas.png
+    - assets/imagens/fogao.png
+    - assets/imagens/geladeira.png
+    - assets/imagens/creditcard.png
+    - assets/imagens/box-aberta.png
+    - assets/imagens/box-fechada.png
+    - assets/imagens/delete.png
+    - assets/imagens/pedido-ok.png
+    - assets/imagens/pedido-aguardando.png
+    - assets/imagens/pedido-atencao.png
+    - assets/imagens/item-mais.png
+    - assets/imagens/item-menos.png
 
-
-
-vars: 
-    clean: flutter clean
-    get: flutter pub get
-    runner: flutter pub run build_runner
-scripts: 
-    mobx_build: $clean & $get & $runner build --delete-conflicting-outputs
-    mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
+vars:
+  clean: flutter clean
+  get: flutter pub get
+  runner: flutter pub run build_runner
+scripts:
+  mobx_build: $clean & $get & $runner build --delete-conflicting-outputs
+  mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -145,4 +140,3 @@ scripts:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-

@@ -27,8 +27,8 @@ class AppModule extends MainModule {
         Bind<Dio>((i) {
           var dioClient = Dio();
 
-          dioClient.options.baseUrl = "http://192.168.15.5/api";
-          //dioClient.options.baseUrl = "https://vps27642.publiccloud.com.br/api";
+          //dioClient.options.baseUrl = "http://192.168.15.5/api";
+          dioClient.options.baseUrl = "https://vps27642.publiccloud.com.br/api";
           //dioClient.options.baseUrl = "https://levaai-api.eltonfonseca.dev/api";
 
           dioClient.options.headers['content-Type'] = 'application/json';
